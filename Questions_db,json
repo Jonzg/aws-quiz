@@ -1,0 +1,981 @@
+{
+  "topics": {
+    "sagemaker": {
+      "name": "Amazon SageMaker",
+      "description": "Servicio completamente administrado para construir, entrenar e implementar modelos ML",
+      "questions": [
+        {
+          "id": 1,
+          "question": "¿Cuál es el servicio principal de AWS para el ciclo de vida completo de Machine Learning?",
+          "options": [
+            "Amazon SageMaker",
+            "AWS Lambda",
+            "Amazon EC2",
+            "Amazon S3"
+          ],
+          "correct_answer": "Amazon SageMaker",
+          "explanation": "Amazon SageMaker es el servicio completamente administrado que cubre todo el ciclo de vida ML: preparación de datos, entrenamiento, ajuste, implementación e inferencia.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 2,
+          "question": "¿Qué componente de SageMaker permite preparar y transformar datos antes del entrenamiento?",
+          "options": [
+            "SageMaker Data Wrangler",
+            "SageMaker Feature Store",
+            "SageMaker Canvas",
+            "SageMaker Pipelines"
+          ],
+          "correct_answer": "SageMaker Data Wrangler",
+          "explanation": "SageMaker Data Wrangler es una herramienta visual para explorar, limpiar y transformar datos sin escribir código.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 3,
+          "question": "¿Cuál es el propósito principal de Amazon SageMaker Feature Store?",
+          "options": [
+            "Almacenar y gestionar características (features) de forma centralizada",
+            "Entrenar modelos de machine learning",
+            "Desplegar modelos en producción",
+            "Monitorear el rendimiento de modelos"
+          ],
+          "correct_answer": "Almacenar y gestionar características (features) de forma centralizada",
+          "explanation": "Feature Store es un repositorio centralizado que almacena características ML. Permite reutilizar features entre diferentes modelos y garantiza consistencia entre entrenamiento e inferencia.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 4,
+          "question": "¿Qué servicio de SageMaker permite automatizar la búsqueda del mejor modelo sin necesidad de expertise en ML?",
+          "options": [
+            "SageMaker Autopilot",
+            "SageMaker Canvas",
+            "SageMaker Clarify",
+            "SageMaker Debugger"
+          ],
+          "correct_answer": "SageMaker Autopilot",
+          "explanation": "SageMaker Autopilot automatiza el proceso de selección de algoritmo y ajuste de hiperparámetros, permitiendo a usuarios sin experiencia ML crear modelos de calidad.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 5,
+          "question": "¿Cuál es la función principal de Amazon SageMaker Clarify?",
+          "options": [
+            "Detectar sesgos e interpretar predicciones de modelos",
+            "Limpiar y preparar datos",
+            "Monitorear la latencia de inferencia",
+            "Escalar automáticamente endpoints"
+          ],
+          "correct_answer": "Detectar sesgos e interpretar predicciones de modelos",
+          "explanation": "SageMaker Clarify ayuda a detectar sesgos en datos y modelos, e interpreta predicciones mediante explicabilidad (SHAP, LIME), esencial para ML responsable.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 6,
+          "question": "¿Qué permite SageMaker Pipelines?",
+          "options": [
+            "Orquestar y automatizar workflows ML de múltiples pasos",
+            "Transformar datos en tiempo real",
+            "Compilar modelos para inferencia rápida",
+            "Escalar entrenamientos distribuidos"
+          ],
+          "correct_answer": "Orquestar y automatizar workflows ML de múltiples pasos",
+          "explanation": "SageMaker Pipelines automatiza workflows complejos (ETL → entrenamiento → validación → deployment) con integración CI/CD y reproducibilidad.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 7,
+          "question": "¿Cuándo usar SageMaker Canvas?",
+          "options": [
+            "Usuarios sin coding que quieren crear modelos ML visuales",
+            "Entrenar modelos deep learning avanzados",
+            "Deployment en edge devices",
+            "Optimizar costos de entrenamiento"
+          ],
+          "correct_answer": "Usuarios sin coding que quieren crear modelos ML visuales",
+          "explanation": "SageMaker Canvas es una interfaz visual no-code que permite a analistas de negocio crear predicciones sin escribir código.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 8,
+          "question": "¿Qué ventaja ofrece SageMaker para entrenamientos distribuidos?",
+          "options": [
+            "Distribuir automáticamente el entrenamiento en múltiples GPUs/nodos",
+            "Reducir el costo de almacenamiento",
+            "Aumentar la precisión del modelo",
+            "Acelerar la inferencia en batch"
+          ],
+          "correct_answer": "Distribuir automáticamente el entrenamiento en múltiples GPUs/nodos",
+          "explanation": "SageMaker maneja automáticamente la distribución del entrenamiento en múltiples máquinas/GPUs, reduciendo tiempo sin cambiar código.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 9,
+          "question": "¿Cuál es el modelo de precios de SageMaker para training jobs?",
+          "options": [
+            "Pago por segundo de instancia utilizada",
+            "Suscripción mensual fija",
+            "Pago por predicción",
+            "Pago por data transferida"
+          ],
+          "correct_answer": "Pago por segundo de instancia utilizada",
+          "explanation": "SageMaker Training cobra por segundo de uso de la instancia. Puedes usar Spot Instances para ahorrar hasta 70%.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 10,
+          "question": "¿Qué es Amazon SageMaker Ground Truth?",
+          "options": [
+            "Servicio para crear datasets etiquetados de forma escalable",
+            "Herramienta para debugging de modelos",
+            "Framework para entrenamiento distribuido",
+            "Servicio de inferencia en tiempo real"
+          ],
+          "correct_answer": "Servicio para crear datasets etiquetados de forma escalable",
+          "explanation": "Ground Truth automatiza la etiquetación de datos usando crowdsourcing, ML asistido y validación de calidad.",
+          "difficulty": "basico"
+        }
+      ]
+    },
+    "bedrock_generative_ai": {
+      "name": "Amazon Bedrock & GenAI",
+      "description": "Construir aplicaciones generativas con modelos base",
+      "questions": [
+        {
+          "id": 101,
+          "question": "¿Qué es Amazon Bedrock?",
+          "options": [
+            "Servicio para acceder a modelos de base generativos (LLMs, imagen, etc) vía API",
+            "Almacenamiento de datos para ML",
+            "Base de datos para features ML",
+            "Herramienta de visualización de modelos"
+          ],
+          "correct_answer": "Servicio para acceder a modelos de base generativos (LLMs, imagen, etc) vía API",
+          "explanation": "Amazon Bedrock proporciona acceso via API a modelos generativos de múltiples proveedores (Anthropic Claude, Meta Llama, etc) sin necesidad de gestionar la infraestructura.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 102,
+          "question": "¿Cuáles son los tipos de modelos disponibles en Amazon Bedrock?",
+          "options": [
+            "LLMs, modelos de imagen, embedding, clasificación de video",
+            "Solo LLMs (texto)",
+            "Solo modelos de visión",
+            "Solo modelos de clasificación"
+          ],
+          "correct_answer": "LLMs, modelos de imagen, embedding, clasificación de video",
+          "explanation": "Bedrock ofrece modelos de texto (LLMs), generación de imagen, text embedding para búsqueda, y análisis de video.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 103,
+          "question": "¿Qué es Amazon Bedrock Knowledge Bases?",
+          "options": [
+            "Conectar Bedrock a tus datos propios para RAG (Retrieval Augmented Generation)",
+            "Base de datos para entrenar modelos",
+            "Repositorio de modelos pre-entrenados",
+            "Herramienta de versionado de prompts"
+          ],
+          "correct_answer": "Conectar Bedrock a tus datos propios para RAG (Retrieval Augmented Generation)",
+          "explanation": "Knowledge Bases integra tus datos (S3, web, etc) con Bedrock para que los LLMs generen respuestas basadas en tu información actualizada sin reentrenamiento.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 104,
+          "question": "¿Qué es Bedrock Agents?",
+          "options": [
+            "Crear agentes IA autónomos que resuelven tareas usando herramientas",
+            "Entrenar modelos de agentes de refuerzo",
+            "Monitorear ejecución de modelos",
+            "Distribuir inference en múltiples regiones"
+          ],
+          "correct_answer": "Crear agentes IA autónomos que resuelven tareas usando herramientas",
+          "explanation": "Bedrock Agents permite crear agentes que usan LLMs para razonar, decidir qué herramientas usar (APIs, Lambda, etc) y ejecutar tareas complejas automáticamente.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 105,
+          "question": "¿Cuál es la ventaja de usar Bedrock Prompt Management?",
+          "options": [
+            "Versionarr y testear prompts, comparar modelos, gestionar variables",
+            "Compilar prompts a código optimizado",
+            "Traducir prompts a múltiples idiomas",
+            "Ejecutar prompts en paralelo"
+          ],
+          "correct_answer": "Versionarr y testear prompts, comparar modelos, gestionar variables",
+          "explanation": "Bedrock Prompt Management permite versionarr prompts, compararlos entre modelos, testar cambios y gestionar variables, mejorando la calidad y reproducibilidad.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 106,
+          "question": "¿Qué modelos base están disponibles en Bedrock?",
+          "options": [
+            "Claude (Anthropic), Llama (Meta), Titan (AWS), Mistral, Cohere, Stable Diffusion",
+            "Solo modelos de AWS",
+            "Solo modelos open source",
+            "Solo LLMs, no visión"
+          ],
+          "correct_answer": "Claude (Anthropic), Llama (Meta), Titan (AWS), Mistral, Cohere, Stable Diffusion",
+          "explanation": "Bedrock integra múltiples proveedores: Anthropic Claude, Meta Llama, AWS Titan, Mistral, Cohere para texto, y Stable Diffusion para imagen.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 107,
+          "question": "¿Cómo se factura Amazon Bedrock?",
+          "options": [
+            "Por tokens de entrada/salida consumidos (pay-as-you-go) o contrato mensual (Provisioned Throughput)",
+            "Por hora de ejecución",
+            "Por número de llamadas API sin importar volumen",
+            "Suscripción mensual fija"
+          ],
+          "correct_answer": "Por tokens de entrada/salida consumidos (pay-as-you-go) o contrato mensual (Provisioned Throughput)",
+          "explanation": "Bedrock cobra por tokens (unidades de texto). On-demand es flexible; Provisioned Throughput es mejor para volumen alto y predecible.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 108,
+          "question": "¿Qué es Bedrock Data Automation?",
+          "options": [
+            "Automatizar tareas de procesamiento de documentos con GenAI",
+            "Automático reentrenamiento de modelos",
+            "Backup automático de datos",
+            "Limpieza automática de datasets"
+          ],
+          "correct_answer": "Automatizar tareas de procesamiento de documentos con GenAI",
+          "explanation": "Bedrock Data Automation usa GenAI para extraer, clasificar y transformar documentos a escala sin código personalizado.",
+          "difficulty": "intermedio"
+        }
+      ]
+    },
+    "nlp_services": {
+      "name": "NLP: Comprehend, Translate, Polly, Transcribe, Lex",
+      "description": "Servicios de procesamiento de lenguaje natural",
+      "questions": [
+        {
+          "id": 201,
+          "question": "¿Cuál es la función principal de Amazon Comprehend?",
+          "options": [
+            "Análisis NLP: sentimiento, entidades, palabras clave, lenguaje, sintaxis",
+            "Traducir texto a múltiples idiomas",
+            "Convertir texto a voz",
+            "Crear chatbots"
+          ],
+          "correct_answer": "Análisis NLP: sentimiento, entidades, palabras clave, lenguaje, sintaxis",
+          "explanation": "Amazon Comprehend detecta sentimiento (positivo/negativo/neutral), extrae entidades (personas, lugares), identifica palabras clave y lenguaje detectado.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 202,
+          "question": "¿Qué servicio usar para análisis de sentimiento en textos de redes sociales?",
+          "options": [
+            "Amazon Comprehend",
+            "Amazon Translate",
+            "Amazon Polly",
+            "Amazon Lex"
+          ],
+          "correct_answer": "Amazon Comprehend",
+          "explanation": "Comprehend puede procesar textos en tiempo real para detectar sentimiento, útil para monitorear menciones en redes sociales.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 203,
+          "question": "¿Cuál es la función de Amazon Comprehend Medical?",
+          "options": [
+            "Extraer entidades médicas (medicamentos, diagnósticos, síntomas) de textos clínicos",
+            "Predecir enfermedades",
+            "Almacenar historiales médicos",
+            "Interpretar imágenes médicas"
+          ],
+          "correct_answer": "Extraer entidades médicas (medicamentos, diagnósticos, síntomas) de textos clínicos",
+          "explanation": "Comprehend Medical es un NLP especializado para el sector salud: extrae medicamentos, condiciones, dosis, etc de documentos clínicos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 204,
+          "question": "¿Qué es Amazon Translate?",
+          "options": [
+            "Servicio de traducción neural automática entre idiomas",
+            "Herramienta de localización manual",
+            "Diccionario de términos",
+            "Convertidor de codificación de caracteres"
+          ],
+          "correct_answer": "Servicio de traducción neural automática entre idiomas",
+          "explanation": "Amazon Translate usa redes neuronales para traducir texto entre idiomas manteniendo contexto y significado.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 205,
+          "question": "¿Cuál es la función principal de Amazon Polly?",
+          "options": [
+            "Convertir texto a voz natural (Text-to-Speech)",
+            "Reconocer comandos de voz",
+            "Traducir audio entre idiomas",
+            "Transcribir voz a texto"
+          ],
+          "correct_answer": "Convertir texto a voz natural (Text-to-Speech)",
+          "explanation": "Amazon Polly sintetiza voz natural desde texto, útil para aplicaciones que necesitan audio (asistentes, accesibilidad, e-learning).",
+          "difficulty": "basico"
+        },
+        {
+          "id": 206,
+          "question": "¿Qué es Amazon Transcribe?",
+          "options": [
+            "Convertir audio/voz a texto (Speech-to-Text) usando modelos de speech recognition",
+            "Traducir transcripciones",
+            "Editar archivos de audio",
+            "Detectar idioma en audio"
+          ],
+          "correct_answer": "Convertir audio/voz a texto (Speech-to-Text) usando modelos de speech recognition",
+          "explanation": "Amazon Transcribe convierte archivos de audio/video a texto automáticamente, soportando múltiples idiomas y dominios (médico, legal, etc).",
+          "difficulty": "basico"
+        },
+        {
+          "id": 207,
+          "question": "¿Cuál es la función de Amazon Lex?",
+          "options": [
+            "Construir chatbots y asistentes de voz (conversational AI)",
+            "Traducir entre idiomas",
+            "Procesar audio en streaming",
+            "Almacenar datos de conversaciones"
+          ],
+          "correct_answer": "Construir chatbots y asistentes de voz (conversational AI)",
+          "explanation": "Amazon Lex permite crear bots conversacionales inteligentes usando reconocimiento de voz y procesamiento de lenguaje natural.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 208,
+          "question": "¿Qué componentes usa Amazon Lex internamente?",
+          "options": [
+            "Amazon Transcribe (voz→texto) + NLU (intent recognition) + Polly (texto→voz)",
+            "Solo Comprehend",
+            "Solo modelos de machine learning customizados",
+            "Solo bases de datos"
+          ],
+          "correct_answer": "Amazon Transcribe (voz→texto) + NLU (intent recognition) + Polly (texto→voz)",
+          "explanation": "Lex integra Transcribe para entrada de voz, NLU para entender intenciones, y Polly para responder con voz natural.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 209,
+          "question": "¿Para qué caso de uso usar Amazon Comprehend + Translate?",
+          "options": [
+            "Analizar sentimiento en tweets en múltiples idiomas",
+            "Crear subtítulos en video",
+            "Entrenar modelos de clasificación de texto",
+            "Comprimir archivos de texto"
+          ],
+          "correct_answer": "Analizar sentimiento en tweets en múltiples idiomas",
+          "explanation": "Traducir tweets a inglés + Comprehend para análisis de sentimiento = insights globales de redes sociales.",
+          "difficulty": "intermedio"
+        }
+      ]
+    },
+    "vision_services": {
+      "name": "Visión: Rekognition, Textract, Kendra",
+      "description": "Servicios de análisis de imágenes y documentos",
+      "questions": [
+        {
+          "id": 301,
+          "question": "¿Cuál es la función principal de Amazon Rekognition?",
+          "options": [
+            "Análisis de imágenes y vídeos: detectar objetos, caras, texto, actividades",
+            "Extraer datos de documentos",
+            "Indexar y buscar en documentos",
+            "Transcribir voz de vídeo"
+          ],
+          "correct_answer": "Análisis de imágenes y vídeos: detectar objetos, caras, texto, actividades",
+          "explanation": "Amazon Rekognition usa computer vision para detectar objetos, rostros, emociones, actividades, reconocimiento de celebridades, etc.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 302,
+          "question": "¿Cuáles son los casos de uso de Amazon Rekognition?",
+          "options": [
+            "Moderación de contenido, búsqueda de personas, análisis de seguridad, reconocimiento de actividades",
+            "Solo detección de objetos",
+            "Solo reconocimiento facial",
+            "Solo análisis de actividades deportivas"
+          ],
+          "correct_answer": "Moderación de contenido, búsqueda de personas, análisis de seguridad, reconocimiento de actividades",
+          "explanation": "Rekognition soporta múltiples casos: moderación (detectar contenido inapropiado), búsqueda facial en BD, análisis de vídeo de seguridad, etc.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 303,
+          "question": "¿Qué es Amazon Textract?",
+          "options": [
+            "Extraer automáticamente texto y tablas de documentos (PDF, imágenes)",
+            "Transcribir audio de documentos",
+            "Traducir documentos",
+            "Crear documentos"
+          ],
+          "correct_answer": "Extraer automáticamente texto y tablas de documentos (PDF, imágenes)",
+          "explanation": "Amazon Textract usa OCR avanzado con ML para extraer texto, tablas, formularios de documentos escaneados o digitales manteniendo estructura.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 304,
+          "question": "¿Cuáles son los casos de uso de Amazon Textract?",
+          "options": [
+            "Procesamiento de facturas, pasaportes, formularios; automatizar entrada de datos",
+            "Solo documentos en PDF",
+            "Solo texto simple",
+            "Solo imágenes de baja calidad"
+          ],
+          "correct_answer": "Procesamiento de facturas, pasaportes, formularios; automatizar entrada de datos",
+          "explanation": "Textract es ideal para RPA: extraer campos de facturas, pasaportes, formularios médicos a escala sin código personalizado.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 305,
+          "question": "¿Qué es Amazon Kendra?",
+          "options": [
+            "Motor de búsqueda empresarial inteligente con ML (busca en documentos, web internas, etc)",
+            "Almacenamiento de documentos",
+            "Gestor de versiones de documentos",
+            "Herramienta de OCR"
+          ],
+          "correct_answer": "Motor de búsqueda empresarial inteligente con ML (busca en documentos, web internas, etc)",
+          "explanation": "Amazon Kendra indexa y busca en datos empresariales (S3, SharePoint, wikis, etc) usando ML para entender preguntas en lenguaje natural.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 306,
+          "question": "¿Diferencia entre Textract y Kendra?",
+          "options": [
+            "Textract extrae datos de documentos; Kendra busca e indexa datos",
+            "Textract busca; Kendra extrae",
+            "No hay diferencia",
+            "Ambos hacen lo mismo"
+          ],
+          "correct_answer": "Textract extrae datos de documentos; Kendra busca e indexa datos",
+          "explanation": "Textract: OCR para extraer estructura. Kendra: búsqueda semántica sobre datos indexados. Complementarias.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 307,
+          "question": "¿Cómo usar Rekognition + Textract juntos?",
+          "options": [
+            "Reconocer un documento (pasaporte) con Rekognition, luego extraer datos con Textract",
+            "No se pueden usar juntos",
+            "Solo para imágenes, no documentos",
+            "Solo para vídeo"
+          ],
+          "correct_answer": "Reconocer un documento (pasaporte) con Rekognition, luego extraer datos con Textract",
+          "explanation": "Flujo común: Rekognition detecta tipo de doc (pasaporte) → Textract extrae campos específicos automáticamente.",
+          "difficulty": "intermedio"
+        }
+      ]
+    },
+    "recommendation_forecasting": {
+      "name": "Recomendaciones & Predicción: Personalize, Forecast",
+      "description": "Sistemas de recomendación y predicción de series temporales",
+      "questions": [
+        {
+          "id": 401,
+          "question": "¿Cuál es la función de Amazon Personalize?",
+          "options": [
+            "Construir sistemas de recomendación personalizados sin ML expertise",
+            "Personalizar diseño de interfaz",
+            "Traducir contenido",
+            "Moderar contenido"
+          ],
+          "correct_answer": "Construir sistemas de recomendación personalizados sin ML expertise",
+          "explanation": "Amazon Personalize es un servicio administrado que crea recomendaciones personalizadas (productos, películas, noticias) sin necesidad de ML expertise.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 402,
+          "question": "¿Qué datos necesita Amazon Personalize?",
+          "options": [
+            "Interacciones de usuarios (clicks, compras, ratings), items, usuarios",
+            "Solo ratings",
+            "Solo historiales de compra",
+            "Solo datos demográficos"
+          ],
+          "correct_answer": "Interacciones de usuarios (clicks, compras, ratings), items, usuarios",
+          "explanation": "Personalize necesita eventos de usuarios (qué interactúan), catálogo de items y metadata de usuarios para entrenar.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 403,
+          "question": "¿Cuáles son los tipos de recomendación que ofrece Personalize?",
+          "options": [
+            "Personalizadas (basadas en usuario), similares a item, ranking, promoción",
+            "Solo personalizadas",
+            "Solo basadas en ratings",
+            "Solo análisis de vendedores"
+          ],
+          "correct_answer": "Personalizadas (basadas en usuario), similares a item, ranking, promoción",
+          "explanation": "Personalize soporta: USER_PERSONALIZATION, SIMILAR_ITEMS, RANKING, etc. Cada uno optimizado para casos diferentes.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 404,
+          "question": "¿Cómo Personalize mejora recomendaciones con el tiempo?",
+          "options": [
+            "Aprende continuamente de nuevas interacciones de usuarios sin reentrenamiento manual",
+            "Requiere reentrenamiento diario",
+            "Solo usa datos históricos",
+            "No mejora automáticamente"
+          ],
+          "correct_answer": "Aprende continuamente de nuevas interacciones de usuarios sin reentrenamiento manual",
+          "explanation": "Personalize actualiza modelos automáticamente conforme llegan nuevos eventos, mejorando recomendaciones sin intervención.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 405,
+          "question": "¿Qué es Amazon Forecast?",
+          "options": [
+            "Servicio para predicciones de series temporales (demanda, tráfico, precios)",
+            "Predicción del clima",
+            "Análisis de mercado",
+            "Detección de anomalías"
+          ],
+          "correct_answer": "Servicio para predicciones de series temporales (demanda, tráfico, precios)",
+          "explanation": "Amazon Forecast predice valores futuros basados en datos históricos de series temporales, ideal para demanda, tráfico, precios.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 406,
+          "question": "¿Cuáles son casos de uso de Amazon Forecast?",
+          "options": [
+            "Predicción de demanda, optimización de inventario, pronóstico de tráfico, predicción de precios",
+            "Solo predicción de demanda",
+            "Solo análisis histórico",
+            "Solo detección de fraude"
+          ],
+          "correct_answer": "Predicción de demanda, optimización de inventario, pronóstico de tráfico, predicción de precios",
+          "explanation": "Forecast es versátil: retailers predicen demanda, utilities predicen consumo, ecommerce ajusta inventario, etc.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 407,
+          "question": "¿Qué algoritmos usa Amazon Forecast automáticamente?",
+          "options": [
+            "Prueba múltiples (ARIMA, Prophet, DeepAR+, etc) y elige el mejor automáticamente",
+            "Solo ARIMA",
+            "Solo Prophet",
+            "Solo regresión lineal"
+          ],
+          "correct_answer": "Prueba múltiples (ARIMA, Prophet, DeepAR+, etc) y elige el mejor automáticamente",
+          "explanation": "Forecast prueba diversos algoritmos (clásicos y deep learning) y selecciona el que mejor generaliza.",
+          "difficulty": "intermedio"
+        }
+      ]
+    },
+    "other_ml_services": {
+      "name": "Otros Servicios: Q, Fraud Detector, DevOps Guru, DeepLens, CodeGuru",
+      "description": "Servicios especializados de ML",
+      "questions": [
+        {
+          "id": 501,
+          "question": "¿Qué es Amazon Q?",
+          "options": [
+            "Asistente de IA generativa para empresas (responde sobre código, documentos, datos)",
+            "Base de datos SQL",
+            "Servicio de cola de mensajes",
+            "Herramienta de visualización"
+          ],
+          "correct_answer": "Asistente de IA generativa para empresas (responde sobre código, documentos, datos)",
+          "explanation": "Amazon Q es un asistente GenAI que responde preguntas sobre código fuente, documentación y datos empresariales integrándose con IDEs y aplicaciones.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 502,
+          "question": "¿Cuál es la función de Amazon Fraud Detector?",
+          "options": [
+            "Detectar transacciones fraudulentas usando ML sin datos históricos etiquetados",
+            "Procesar pagos",
+            "Almacenar datos de transacciones",
+            "Analizar tendencias de mercado"
+          ],
+          "correct_answer": "Detectar transacciones fraudulentas usando ML sin datos históricos etiquetados",
+          "explanation": "Fraud Detector entrena modelos de detección de fraude rápidamente incluso sin dataset grande de fraudes históricos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 503,
+          "question": "¿Cuál es el caso de uso principal de Amazon DevOps Guru?",
+          "options": [
+            "Detectar y diagnosticar problemas operacionales en aplicaciones usando ML",
+            "Deployar aplicaciones",
+            "Gestionar repositorios de código",
+            "Monitorear tráfico de red"
+          ],
+          "correct_answer": "Detectar y diagnosticar problemas operacionales en aplicaciones usando ML",
+          "explanation": "DevOps Guru analiza logs y métricas para detectar anomalías operacionales, predecir problemas y sugerir soluciones.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 504,
+          "question": "¿Qué es AWS DeepLens?",
+          "options": [
+            "Cámara con IA integrada para ejecutar modelos de visión en edge",
+            "Servicio de streaming de vídeo",
+            "Base de datos de vídeos",
+            "Editor de vídeo"
+          ],
+          "correct_answer": "Cámara con IA integrada para ejecutar modelos de visión en edge",
+          "explanation": "AWS DeepLens es una cámara con GPU que ejecuta modelos de ML en el edge (sin enviar a AWS), ideal para aplicaciones de visión local.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 505,
+          "question": "¿Cuál es la ventaja de ejecutar modelos en AWS DeepLens?",
+          "options": [
+            "Latencia baja (sin envío a cloud), privacidad de datos, trabajo offline",
+            "Mayor precisión",
+            "Mejor escalabilidad",
+            "Costo reducido de almacenamiento"
+          ],
+          "correct_answer": "Latencia baja (sin envío a cloud), privacidad de datos, trabajo offline",
+          "explanation": "Inference en edge = respuestas instantáneas sin latencia de red, datos privados localmente, funciona offline.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 506,
+          "question": "¿Cuál es la función de Amazon CodeGuru?",
+          "options": [
+            "Análisis automático de código para detectar defectos, vulnerabilidades y mejorar performance",
+            "Escribir código automáticamente",
+            "Compilar código",
+            "Gestionar dependencias"
+          ],
+          "correct_answer": "Análisis automático de código para detectar defectos, vulnerabilidades y mejorar performance",
+          "explanation": "CodeGuru (Reviewer + Profiler) detecta bugs, vulnerabilidades, problemas de performance en código Python/Java.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 507,
+          "question": "¿Diferencia entre CodeGuru Reviewer y CodeGuru Profiler?",
+          "options": [
+            "Reviewer: análisis estático de código; Profiler: análisis de performance en runtime",
+            "Son lo mismo",
+            "Reviewer es más antiguo",
+            "Profiler solo para Java"
+          ],
+          "correct_answer": "Reviewer: análisis estático de código; Profiler: análisis de performance en runtime",
+          "explanation": "Reviewer: detecta problemas en commits/PRs. Profiler: identifica bottlenecks en aplicaciones corriendo.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 508,
+          "question": "¿Qué es Amazon CodeWhisperer?",
+          "options": [
+            "Asistente de codificación IA que sugiere código mientras escribes (autocomplete inteligente)",
+            "Compilador de código",
+            "Herramienta de debugging",
+            "Servicio de versionado"
+          ],
+          "correct_answer": "Asistente de codificación IA que sugiere código mientras escribes (autocomplete inteligente)",
+          "explanation": "CodeWhisperer es como Copilot pero de AWS: sugiere líneas/funciones completas en IDE basado en contexto.",
+          "difficulty": "basico"
+        }
+      ]
+    },
+    "cost_optimization": {
+      "name": "Optimización de Costos en AI/ML",
+      "description": "Estrategias para reducir costos en servicios de IA",
+      "questions": [
+        {
+          "id": 601,
+          "question": "¿Cuál es la forma más económica de entrenar modelos en SageMaker?",
+          "options": [
+            "Usar Spot Instances (ahorran hasta 70%)",
+            "On-demand instances",
+            "Instancias reservadas de 1 año",
+            "Instancias de 3 años"
+          ],
+          "correct_answer": "Usar Spot Instances (ahorran hasta 70%)",
+          "explanation": "SageMaker Spot Instances pueden interrumpirse pero cuestan 70% menos que on-demand. Ideal para entrenamientos tolerantes a interrupciones.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 602,
+          "question": "¿Cómo optimizar costos de inferencia en SageMaker?",
+          "options": [
+            "Multi-model endpoints, auto-scaling, batch transform, edge deployment",
+            "Solo usar on-demand",
+            "Más instancias grandes",
+            "Crear endpoints para cada modelo"
+          ],
+          "correct_answer": "Multi-model endpoints, auto-scaling, batch transform, edge deployment",
+          "explanation": "Multi-model: compartir infraestructura. Auto-scaling: escalar con demanda. Batch: procesar en lotes offline. Edge: inference local.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 603,
+          "question": "¿Cuándo usar SageMaker Batch Transform en lugar de endpoints en tiempo real?",
+          "options": [
+            "Para predicciones offline sobre datasets grandes (no necesita respuestas inmediatas)",
+            "Para predicciones en tiempo real",
+            "Para entrenamientos distribuidos",
+            "Para datos en streaming"
+          ],
+          "correct_answer": "Para predicciones offline sobre datasets grandes (no necesita respuestas inmediatas)",
+          "explanation": "Batch Transform procesa datos en lotes = más barato que endpoints en tiempo real cuando no necesitas latencia baja.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 604,
+          "question": "¿Cómo reducir costos con Amazon Bedrock?",
+          "options": [
+            "Usar Provisioned Throughput para volumen alto predecible; caching de prompts",
+            "Solo on-demand",
+            "Máximo throughput siempre",
+            "Cambiar modelos constantemente"
+          ],
+          "correct_answer": "Usar Provisioned Throughput para volumen alto predecible; caching de prompts",
+          "explanation": "Bedrock: on-demand es flexible pero caro. Provisioned es descuento si volumen es predecible. Prompt caching reutiliza contexto.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 605,
+          "question": "¿Qué servicio usar para optimizar costos en visión (Rekognition)?",
+          "options": [
+            "Batch processing; detectar solo lo necesario (filtros)",
+            "Procesar todo en tiempo real",
+            "Enviar todas las imágenes",
+            "Guardar todas las imágenes"
+          ],
+          "correct_answer": "Batch processing; detectar solo lo necesario (filtros)",
+          "explanation": "Rekognition batch es más barato que real-time. Filtrar imágenes localmente antes de enviar a AWS = menos API calls.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 606,
+          "question": "¿Cómo usar AWS Free Tier para experimentar con AI/ML?",
+          "options": [
+            "Usar SageMaker, Comprehend, Translate, etc gratis por 12 meses (límites)",
+            "Acceso ilimitado a todos los servicios",
+            "Solo Bedrock es gratuito",
+            "No hay free tier"
+          ],
+          "correct_answer": "Usar SageMaker, Comprehend, Translate, etc gratis por 12 meses (límites)",
+          "explanation": "AWS Free Tier incluye muchos servicios AI/ML por 12 meses con límites de uso (p.ej., 250 predicciones/mes en Comprehend).",
+          "difficulty": "basico"
+        }
+      ]
+    },
+    "security_governance": {
+      "name": "Seguridad & Gobernanza en AI/ML",
+      "description": "Consideraciones éticas, seguridad y cumplimiento",
+      "questions": [
+        {
+          "id": 701,
+          "question": "¿Qué es sesgos (bias) en modelos de ML?",
+          "options": [
+            "Cuando un modelo discrimina injustamente contra grupos específicos",
+            "Cuando un modelo sobrefitea",
+            "Cuando los datos son incompletos",
+            "Cuando el modelo es demasiado simple"
+          ],
+          "correct_answer": "Cuando un modelo discrimina injustamente contra grupos específicos",
+          "explanation": "Bias ocurre cuando datos históricos contienen discriminación → modelo la perpetúa. Ej: algoritmo de hiring rechaza mujeres.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 702,
+          "question": "¿Cuál es el propósito de Amazon SageMaker Clarify?",
+          "options": [
+            "Detectar sesgos en datos/modelos e interpretar predicciones",
+            "Limpiar datos",
+            "Entrenar modelos más rápido",
+            "Escalar inference"
+          ],
+          "correct_answer": "Detectar sesgos en datos/modelos e interpretar predicciones",
+          "explanation": "Clarify detecta bias mediante análisis de desproporción (disparate impact) e interpreta por qué el modelo predice algo.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 703,
+          "question": "¿Qué método usa Clarify para interpretar predicciones?",
+          "options": [
+            "SHAP, LIME y otros métodos de explicabilidad",
+            "Solo análisis de importancia de variables",
+            "Reglas booleanas",
+            "Visualización de datos"
+          ],
+          "correct_answer": "SHAP, LIME y otros métodos de explicabilidad",
+          "explanation": "SHAP (SHapley Additive exPlanations) y LIME ayudan a entender qué características influyeron en cada predicción.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 704,
+          "question": "¿Cuáles son consideraciones éticas en GenAI?",
+          "options": [
+            "Sesgos, privacidad, derechos de autor, hallucinations, transparencia",
+            "Solo privacidad",
+            "Solo derechos de autor",
+            "Solo transparencia"
+          ],
+          "correct_answer": "Sesgos, privacidad, derechos de autor, hallucinations, transparencia",
+          "explanation": "GenAI ético requiere: evitar sesgos, proteger privacidad, respetar derechos de autor, minimizar hallucinations, ser transparente.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 705,
+          "question": "¿Qué es 'hallucination' en LLMs?",
+          "options": [
+            "Cuando el modelo genera información falsa pero creíble",
+            "Cuando el modelo se congela",
+            "Cuando el modelo rechaza preguntas",
+            "Cuando el modelo tarda mucho"
+          ],
+          "correct_answer": "Cuando el modelo genera información falsa pero creíble",
+          "explanation": "Hallucinations: LLMs inventan datos, citas falsas, referencias inexistentes. Mitigación: RAG, fine-tuning, prompts específicos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 706,
+          "question": "¿Cómo proteger privacidad de datos en ML?",
+          "options": [
+            "Anonimización, encriptación, diferential privacy, acceso basado en roles",
+            "Sin protección necesaria",
+            "Solo encriptación",
+            "Solo en edge"
+          ],
+          "correct_answer": "Anonimización, encriptación, diferential privacy, acceso basado en roles",
+          "explanation": "Privacidad ML requiere múltiples capas: remover PII, encriptar en tránsito/reposo, limitar acceso, usar DP si es crítico.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 707,
+          "question": "¿Qué regulaciones aplican a AI/ML?",
+          "options": [
+            "GDPR (EU), CCPA (California), AI Act (EU), y reglamentos específicos por industria",
+            "No hay regulaciones",
+            "Solo privacidad",
+            "Solo en cloud"
+          ],
+          "correct_answer": "GDPR (EU), CCPA (California), AI Act (EU), y reglamentos específicos por industria",
+          "explanation": "GDPR obliga explicabilidad en decisiones ML. CCPA protege privacidad. AI Act regula IA de alto riesgo.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 708,
+          "question": "¿Cómo usar Bedrock de forma segura?",
+          "options": [
+            "VPC endpoints, encriptación, IAM roles, content filtering, no enviar PII sensible",
+            "Sin protección especial",
+            "Solo en public internet",
+            "Sin control de acceso"
+          ],
+          "correct_answer": "VPC endpoints, encriptación, IAM roles, content filtering, no enviar PII sensible",
+          "explanation": "Bedrock seguro: VPC para aislamiento, encriptación KMS, IAM granular, filtros de contenido, evitar PII en prompts.",
+          "difficulty": "intermedio"
+        }
+      ]
+    },
+    "real_world_scenarios": {
+      "name": "Escenarios del Mundo Real",
+      "description": "Preguntas integradoras con casos prácticos",
+      "questions": [
+        {
+          "id": 801,
+          "question": "Una empresa de ecommerce quiere recomendar productos personalizados a cada cliente. ¿Qué servicio usar?",
+          "options": [
+            "Amazon Personalize",
+            "Amazon Forecast",
+            "SageMaker Training",
+            "Amazon Bedrock"
+          ],
+          "correct_answer": "Amazon Personalize",
+          "explanation": "Personalize está diseñado exactamente para esto: recomendaciones personalizadas sin ML expertise.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 802,
+          "question": "Un banco necesita detectar fraude en transacciones en tiempo real. Arquitectura recomendada?",
+          "options": [
+            "Amazon Fraud Detector + SageMaker real-time endpoint",
+            "Solo SageMaker batch",
+            "Solo Rekognition",
+            "Solo Comprehend"
+          ],
+          "correct_answer": "Amazon Fraud Detector + SageMaker real-time endpoint",
+          "explanation": "Fraud Detector es especializado; SageMaker endpoint permite latencia baja. Alternativa: Fraud Detector directamente.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 803,
+          "question": "Una empresa quiere automatizar extracción de datos de facturas en lotes diarios. ¿Cómo?",
+          "options": [
+            "Amazon Textract + Lambda + Step Functions + S3",
+            "Manual con Rekognition",
+            "SageMaker entrenamiento",
+            "Amazon Q"
+          ],
+          "correct_answer": "Amazon Textract + Lambda + Step Functions + S3",
+          "explanation": "Flujo: S3 (facturas) → Lambda (trigger) → Textract (extrae) → Step Functions (orquesta) → BD resultado.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 804,
+          "question": "Un retailer quiere predecir demanda de productos para optimizar inventario. Servicio?",
+          "options": [
+            "Amazon Forecast",
+            "Amazon Personalize",
+            "Amazon SageMaker",
+            "Amazon Comprehend"
+          ],
+          "correct_answer": "Amazon Forecast",
+          "explanation": "Forecast es específico para series temporales: predice demanda futura basada en patrones históricos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 805,
+          "question": "Una empresa de soporte al cliente quiere analizar sentimiento en miles de emails diarios. Arquitectura?",
+          "options": [
+            "Amazon Comprehend (batch) + Lambda + CloudWatch para alertas",
+            "Solo Polly",
+            "Solo SageMaker",
+            "Solo Lex"
+          ],
+          "correct_answer": "Amazon Comprehend (batch) + Lambda + CloudWatch para alertas",
+          "explanation": "Comprehend batch procesa emails masivamente. Lambda orquesta. CloudWatch alerta sobre sentimientos negativos.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 806,
+          "question": "Una startup quiere crear un chatbot inteligente que responda sobre su documentación. ¿Solución?",
+          "options": [
+            "Bedrock Agents + Knowledge Bases + Bedrock Prompt Management",
+            "Solo Lex",
+            "Solo Comprehend",
+            "Solo SageMaker"
+          ],
+          "correct_answer": "Bedrock Agents + Knowledge Bases + Bedrock Prompt Management",
+          "explanation": "Knowledge Bases indexa docs → Bedrock genera respuestas basadas en datos relevantes → Agents maneja lógica compleja.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 807,
+          "question": "Una empresa de manufacturing quiere inspeccionar productos con cámara en línea de producción. ¿Solución?",
+          "options": [
+            "AWS DeepLens + Rekognition + SageMaker (entrenar modelo custom)",
+            "Solo Rekognition cloud",
+            "Solo SageMaker",
+            "Solo Comprehend"
+          ],
+          "correct_answer": "AWS DeepLens + Rekognition + SageMaker (entrenar modelo custom)",
+          "explanation": "DeepLens ejecuta en edge (sin latencia); Rekognition para detecciones pre-built; SageMaker custom para defectos específicos.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 808,
+          "question": "Un empresa de seguros quiere procesar reclamaciones automáticamente (documentos + reglas). ¿Cómo?",
+          "options": [
+            "Textract (extrae datos) + Bedrock Agents (razonamiento) + Lambda (ejecuta lógica)",
+            "Solo Textract",
+            "Solo SageMaker",
+            "Solo Comprehend"
+          ],
+          "correct_answer": "Textract (extrae datos) + Bedrock Agents (razonamiento) + Lambda (ejecuta lógica)",
+          "explanation": "Textract: lee documento. Bedrock Agent: decide siguiente paso (aprobar/denegar/más info). Lambda: actualiza BD.",
+          "difficulty": "avanzado"
+        }
+      ]
+    }
+  }
+}
