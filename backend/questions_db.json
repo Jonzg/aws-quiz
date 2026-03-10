@@ -263,6 +263,201 @@
           "correct_answer": "Cuando el tráfico es intermitente o impredecible y se quiere evitar pagar por instancias inactivas",
           "explanation": "Serverless Inference es ideal para tráfico intermitente: escala automáticamente a 0 cuando no hay solicitudes (sin coste en reposo) y escala hacia arriba según la demanda. Sin embargo, puede tener cold starts. Los Real-time Endpoints son mejores cuando se requiere latencia mínima constante y el tráfico es predecible.",
           "difficulty": "intermedio"
+        },
+        {
+          "id": 916,
+          "question": "¿Qué hace SageMaker Debugger durante el entrenamiento de un modelo?",
+          "options": [
+            "Monitorea métricas de entrenamiento para identificar problemas como sobreajuste (overfitting)",
+            "Detecta sesgos en el conjunto de datos antes del entrenamiento",
+            "Supervisa modelos desplegados en producción para detectar deriva de datos",
+            "Gestiona las versiones y metadatos de los modelos entrenados"
+          ],
+          "correct_answer": "Monitorea métricas de entrenamiento para identificar problemas como sobreajuste (overfitting)",
+          "explanation": "SageMaker Debugger monitorea métricas de entrenamiento en tiempo real para detectar problemas como sobreajuste, subajuste y gradientes que explotan, permitiendo detener el entrenamiento anticipadamente si es necesario.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 917,
+          "question": "¿Qué es MLOps?",
+          "options": [
+            "La práctica principal de combinar Machine Learning y DevOps",
+            "Una operación matemática usada en redes neuronales",
+            "Un servicio de AWS para monitorear modelos en producción",
+            "Un lenguaje de programación especializado para ML"
+          ],
+          "correct_answer": "La práctica principal de combinar Machine Learning y DevOps",
+          "explanation": "MLOps combina las prácticas de Machine Learning con DevOps para automatizar y mejorar el ciclo de vida de los modelos ML, incluyendo entrenamiento, despliegue, monitoreo y reentrenamiento continuo.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 918,
+          "question": "¿Qué es una tarjeta de modelo (Model Card) en Amazon SageMaker?",
+          "options": [
+            "Una plantilla estandarizada para documentar información del modelo",
+            "Un método de pago para usar servicios de SageMaker",
+            "Un componente de hardware para inferencia acelerada",
+            "Un formato de almacenamiento para los pesos del modelo"
+          ],
+          "correct_answer": "Una plantilla estandarizada para documentar información del modelo",
+          "explanation": "SageMaker Model Card es una plantilla estandarizada que documenta información clave del modelo: propósito, métricas de rendimiento, limitaciones, consideraciones éticas y detalles de entrenamiento, promoviendo transparencia y gobernanza.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 919,
+          "question": "¿Qué es Amazon SageMaker Model Registry?",
+          "options": [
+            "Gestiona diferentes versiones de modelos y sus metadatos",
+            "Lista a todos los empleados de AWS que trabajan en ML",
+            "Almacena archivos de imágenes sin procesar",
+            "Aloja conjuntos de datos públicos para entrenamiento"
+          ],
+          "correct_answer": "Gestiona diferentes versiones de modelos y sus metadatos",
+          "explanation": "SageMaker Model Registry es un repositorio centralizado para catalogar modelos, gestionar versiones, controlar aprobaciones de despliegue y almacenar metadatos como métricas y linaje del modelo.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 920,
+          "question": "¿Cuál es el algoritmo apropiado para detección de objetos en SageMaker?",
+          "options": [
+            "SSD (Single Shot Multibox Detector)",
+            "XGBoost",
+            "K-Means",
+            "LDA (Latent Dirichlet Allocation)"
+          ],
+          "correct_answer": "SSD (Single Shot Multibox Detector)",
+          "explanation": "SageMaker incluye SSD (Single Shot Multibox Detector) como algoritmo integrado para detección de objetos, capaz de identificar y localizar múltiples objetos en una imagen con alta eficiencia.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 921,
+          "question": "¿Cuál es el algoritmo de tipo K-Means?",
+          "options": [
+            "Agrupamiento (Clustering)",
+            "Clasificación",
+            "Regresión",
+            "Modelado de temas (Topic Modeling)"
+          ],
+          "correct_answer": "Agrupamiento (Clustering)",
+          "explanation": "K-Means es un algoritmo de aprendizaje no supervisado de tipo agrupamiento (clustering) que divide los datos en K grupos basándose en la similitud de características.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 922,
+          "question": "¿Qué hace SageMaker HyperPod?",
+          "options": [
+            "Optimiza la infraestructura para entrenar modelos de fundación masivos",
+            "Proporciona una interfaz visual sin código para crear modelos ML",
+            "Genera cuadernos Jupyter de forma automática",
+            "Ofrece un entorno gratuito basado en JupyterLab para estudiantes"
+          ],
+          "correct_answer": "Optimiza la infraestructura para entrenar modelos de fundación masivos",
+          "explanation": "SageMaker HyperPod es una infraestructura gestionada optimizada para entrenar grandes modelos de fundación, ofreciendo resiliencia automática ante fallos y capacidades de entrenamiento distribuido a gran escala.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 923,
+          "question": "¿Qué es SageMaker Studio Lab?",
+          "options": [
+            "Un entorno gratuito basado en JupyterLab para aprender ML",
+            "La interfaz visual sin código de SageMaker",
+            "El servicio de entrenamiento distribuido de SageMaker",
+            "El almacén centralizado de características de SageMaker"
+          ],
+          "correct_answer": "Un entorno gratuito basado en JupyterLab para aprender ML",
+          "explanation": "SageMaker Studio Lab ofrece un entorno gratuito de Jupyter para aprender y experimentar con ML sin necesidad de una cuenta AWS ni configuración de infraestructura.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 924,
+          "question": "¿Cuál es el propósito de reentrenamiento de modelos (Model Re-training) en MLOps?",
+          "options": [
+            "Mantener la precisión cuando el rendimiento cae o los datos experimentan deriva",
+            "Desperdiciar recursos de cómputo innecesariamente",
+            "Reducir el tamaño del modelo",
+            "Cambiar el nombre del modelo en el registro"
+          ],
+          "correct_answer": "Mantener la precisión cuando el rendimiento cae o los datos experimentan deriva",
+          "explanation": "El reentrenamiento de modelos en MLOps es necesario cuando el rendimiento del modelo se degrada debido a la deriva de datos (data drift) o concept drift, asegurando que el modelo se mantenga preciso con datos actualizados.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 925,
+          "question": "¿Qué es SageMaker Role Manager?",
+          "options": [
+            "Herramienta que ayuda a los administradores a establecer rápidamente permisos para gobernanza ML",
+            "Almacenamiento de objetos de Amazon",
+            "Amazon Rekognition",
+            "AWS Glue"
+          ],
+          "correct_answer": "Herramienta que ayuda a los administradores a establecer rápidamente permisos para gobernanza ML",
+          "explanation": "SageMaker Role Manager simplifica la gestión de permisos en SageMaker, ofreciendo plantillas predefinidas de roles para distintos perfiles (científico de datos, ingeniero MLOps, etc.) que los administradores pueden personalizar y aplicar rápidamente.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 975,
+          "question": "¿Qué servicio automatiza el proceso de reentrenamiento cuando el rendimiento del modelo cae?",
+          "options": [
+            "SageMaker Pipelines",
+            "Amazon S3",
+            "AWS IAM",
+            "Amazon Macie"
+          ],
+          "correct_answer": "SageMaker Pipelines",
+          "explanation": "SageMaker Pipelines puede automatizar el proceso completo de reentrenamiento de modelos cuando el rendimiento cae o se detecta deriva de datos, orquestando los pasos de ETL, entrenamiento, evaluación y despliegue sin intervención manual.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 976,
+          "question": "¿Qué es el 'concept drift' (deriva conceptual) en machine learning?",
+          "options": [
+            "Cambios en la distribución de los datos de entrada que afectan a la precisión del modelo con el tiempo",
+            "Un modelo que se vuelve más rápido con el tiempo",
+            "Un tipo de fallo de GPU en el servidor de inferencia",
+            "Eliminar el modelo por error durante el despliegue"
+          ],
+          "correct_answer": "Cambios en la distribución de los datos de entrada que afectan a la precisión del modelo con el tiempo",
+          "explanation": "El concept drift ocurre cuando la relación estadística entre los datos de entrada y la variable objetivo cambia con el tiempo, haciendo que las predicciones del modelo se vuelvan menos precisas. Es una de las principales razones por las que los modelos en producción necesitan reentrenamiento periódico.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 977,
+          "question": "¿Qué servicio proporciona orquestación de flujos de trabajo sin servidor para ML y LLMs?",
+          "options": [
+            "SageMaker Pipelines",
+            "Amazon EC2",
+            "AWS Lambda",
+            "Amazon DynamoDB"
+          ],
+          "correct_answer": "SageMaker Pipelines",
+          "explanation": "SageMaker Pipelines es el servicio de orquestación de flujos de trabajo para ML que permite definir, automatizar y ejecutar pipelines de extremo a extremo — desde la preparación de datos hasta el despliegue — incluyendo flujos de trabajo para fine-tuning y evaluación de LLMs.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 978,
+          "question": "¿Qué herramienta proporciona métodos automatizados y humanos para evaluar el rendimiento de modelos de fundación durante la personalización?",
+          "options": [
+            "Amazon SageMaker Clarify",
+            "Amazon Macie",
+            "Amazon Polly",
+            "Amazon Lex"
+          ],
+          "correct_answer": "Amazon SageMaker Clarify",
+          "explanation": "SageMaker Clarify proporciona herramientas tanto automatizadas como basadas en evaluación humana para medir el rendimiento de los modelos de fundación durante el proceso de personalización (fine-tuning), detectando sesgos y evaluando la calidad de las respuestas.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 926,
+          "question": "En AWS Glue, ¿cuál es su función principal en un pipeline de ML?",
+          "options": [
+            "Descubrir, preparar y combinar datos de múltiples fuentes",
+            "Almacenar modelos entrenados",
+            "Desplegar endpoints de inferencia en tiempo real",
+            "Monitorear el rendimiento de modelos en producción"
+          ],
+          "correct_answer": "Descubrir, preparar y combinar datos de múltiples fuentes",
+          "explanation": "AWS Glue es un servicio ETL (Extract, Transform, Load) sin servidor que descubre, cataloga y prepara datos de múltiples fuentes, siendo una pieza clave en pipelines de ML para preparación de datos.",
+          "difficulty": "basico"
         }
       ]
     },
@@ -568,6 +763,396 @@
           "correct_answer": "Identificación automática de vulnerabilidades de seguridad en el código (SQL injection, XSS, credenciales expuestas, etc.)",
           "explanation": "Amazon Q Developer puede identificar vulnerabilidades de seguridad en el código mientras lo escribes o al analizar código existente, detectando problemas como SQL injection, XSS, credenciales hardcodeadas, uso inseguro de criptografía y otros patrones de código inseguro.",
           "difficulty": "intermedio"
+        },
+        {
+          "id": 927,
+          "question": "¿Cuál es el objetivo principal de la Inteligencia Artificial (IA)?",
+          "options": [
+            "Desarrollar sistemas que exhiban comportamiento inteligente como el razonamiento y el aprendizaje",
+            "Reemplazar a todos los trabajadores humanos",
+            "Procesar únicamente valores numéricos",
+            "Proporcionar almacenamiento ilimitado en la nube"
+          ],
+          "correct_answer": "Desarrollar sistemas que exhiban comportamiento inteligente como el razonamiento y el aprendizaje",
+          "explanation": "El objetivo principal de la IA es desarrollar sistemas capaces de realizar tareas que normalmente requieren inteligencia humana, como el razonamiento, el aprendizaje, la percepción y la resolución de problemas.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 928,
+          "question": "¿En qué capa de la arquitectura de IA se preparan y organizan los datos para ML y NLP?",
+          "options": [
+            "Capa de datos",
+            "Capa de aplicación",
+            "Capa de modelo",
+            "Capa de infraestructura"
+          ],
+          "correct_answer": "Capa de datos",
+          "explanation": "La capa de datos se encarga de la ingesta, almacenamiento, preparación y organización de los datos que alimentan a los modelos de ML y NLP en las capas superiores de la arquitectura de IA.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 929,
+          "question": "¿Qué subconjunto de IA utiliza redes neuronales artificiales para aprender de patrones complejos?",
+          "options": [
+            "Deep Learning (Aprendizaje Profundo)",
+            "Sistemas basados en reglas",
+            "Machine Learning básico",
+            "Regresión lineal"
+          ],
+          "correct_answer": "Deep Learning (Aprendizaje Profundo)",
+          "explanation": "El Deep Learning utiliza redes neuronales artificiales profundas (con múltiples capas ocultas) para aprender representaciones complejas de datos, siendo especialmente efectivo en visión por computador, NLP y reconocimiento de voz.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 930,
+          "question": "¿Qué arquitectura utilizan los Modelos de Lenguaje Grande (LLMs) para comprender las relaciones entre palabras?",
+          "options": [
+            "Arquitectura Transformer (Encoder/Decoder)",
+            "Árboles de decisión",
+            "Redes neuronales simples",
+            "Agrupamiento K-Means"
+          ],
+          "correct_answer": "Arquitectura Transformer (Encoder/Decoder)",
+          "explanation": "Los LLMs se basan en la arquitectura Transformer, que utiliza mecanismos de atención para capturar relaciones entre todas las palabras de una secuencia, independientemente de su distancia, lo que permite entender el contexto de forma más efectiva.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 931,
+          "question": "¿Qué tecnología permite a los ordenadores interpretar información visual de imágenes y vídeos?",
+          "options": [
+            "Visión por Computador (Computer Vision)",
+            "Procesamiento del Lenguaje Natural",
+            "Reconocimiento de Voz",
+            "Aprendizaje por Refuerzo"
+          ],
+          "correct_answer": "Visión por Computador (Computer Vision)",
+          "explanation": "La Visión por Computador es el campo de la IA que entrena a los ordenadores para interpretar y comprender el mundo visual a partir de imágenes y vídeos, habilitando tareas como detección de objetos, reconocimiento facial y análisis de escenas.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 932,
+          "question": "¿Qué distingue a la IA Generativa de la IA tradicional?",
+          "options": [
+            "Produce contenido original como imágenes y texto basándose en instrucciones",
+            "Solo analiza datos existentes sin crear nada nuevo",
+            "No utiliza deep learning en sus modelos",
+            "No requiere datos de entrenamiento para funcionar"
+          ],
+          "correct_answer": "Produce contenido original como imágenes y texto basándose en instrucciones",
+          "explanation": "La IA Generativa puede crear contenido nuevo y original (texto, imágenes, código, audio) a partir de instrucciones, a diferencia de la IA tradicional que principalmente clasifica, predice o analiza datos existentes.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 933,
+          "question": "¿Cuál es una característica clave de los Modelos de Fundación (Foundation Models)?",
+          "options": [
+            "Son altamente adaptables para una amplia gama de tareas generales",
+            "Están diseñados para una única tarea específica",
+            "Son redes de pequeña escala",
+            "No requieren infraestructura de recursos"
+          ],
+          "correct_answer": "Son altamente adaptables para una amplia gama de tareas generales",
+          "explanation": "Los Modelos de Fundación se entrenan con grandes cantidades de datos y pueden adaptarse a una amplia variedad de tareas mediante fine-tuning o prompting, a diferencia de los modelos tradicionales diseñados para tareas específicas.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 934,
+          "question": "¿Qué modelo, lanzado en 2018, fue un modelo bidireccional que sentó las bases para GPT?",
+          "options": [
+            "BERT",
+            "Llama 2",
+            "Claude",
+            "Titan"
+          ],
+          "correct_answer": "BERT",
+          "explanation": "BERT (Bidirectional Encoder Representations from Transformers), lanzado por Google en 2018, fue uno de los primeros modelos basados en Transformers en demostrar el poder del preentrenamiento bidireccional para tareas NLP, influyendo en el desarrollo de GPT y otros LLMs.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 935,
+          "question": "¿Qué técnica de prompting implica dividir preguntas complejas en pasos lógicos y pequeños?",
+          "options": [
+            "Chain-of-thought (cadena de pensamiento)",
+            "Tree-of-thought (árbol de pensamiento)",
+            "Maiéutica",
+            "Auto-refinamiento (Self-refine)"
+          ],
+          "correct_answer": "Chain-of-thought (cadena de pensamiento)",
+          "explanation": "Chain-of-thought es una técnica de prompting donde se guía al modelo a razonar paso a paso para resolver problemas complejos, dividiendo el proceso en pasos intermedios explícitos que mejoran la precisión de las respuestas.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 936,
+          "question": "¿Qué técnica de prompting hace que el modelo evalúe su propia solución y la mejore iterativamente?",
+          "options": [
+            "Auto-refinamiento (Self-refine)",
+            "Mínimo a máximo (Least-to-most)",
+            "Conocimiento generado (Generated knowledge)",
+            "Estímulo direccional (Directional-stimulus)"
+          ],
+          "correct_answer": "Auto-refinamiento (Self-refine)",
+          "explanation": "Self-refine es una técnica en la que el modelo genera una respuesta inicial, luego la evalúa críticamente y la refina iterativamente para mejorar su calidad, sin necesidad de ejemplos adicionales o retroalimentación humana.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 937,
+          "question": "¿Qué es el 'espacio latente' en un Autoencoder Variacional (VAE)?",
+          "options": [
+            "Una representación matemática comprimida de la esencia de los datos",
+            "Un gran depósito de datos sin procesar",
+            "Un servidor de almacenamiento",
+            "Una interfaz de usuario gráfica"
+          ],
+          "correct_answer": "Una representación matemática comprimida de la esencia de los datos",
+          "explanation": "El espacio latente en un VAE es una representación comprimida de baja dimensionalidad que captura las características esenciales de los datos de entrada. Permite al VAE generar nuevas muestras interpolando o muestreando en este espacio.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 938,
+          "question": "¿Qué componente de una GAN intenta diferenciar entre datos falsos y datos reales?",
+          "options": [
+            "Discriminador",
+            "Generador",
+            "Encoder",
+            "Decoder"
+          ],
+          "correct_answer": "Discriminador",
+          "explanation": "En una GAN (Red Generativa Adversarial), el Discriminador es una red neuronal que aprende a distinguir entre datos reales del conjunto de entrenamiento y datos falsos generados por el Generador, actuando como árbitro en el proceso adversarial.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 939,
+          "question": "¿Qué estado en Bedrock indica que una versión de modelo está desactualizada e inoperable?",
+          "options": [
+            "EOL (End of Life)",
+            "Activo",
+            "Legacy (Heredado)",
+            "Beta"
+          ],
+          "correct_answer": "EOL (End of Life)",
+          "explanation": "El estado EOL (End of Life) en Amazon Bedrock indica que una versión de modelo ha llegado al final de su vida útil y ya no está disponible para su uso ni recibe actualizaciones o soporte.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 940,
+          "question": "¿Qué estado en Bedrock indica que el modelo está recibiendo activamente correcciones de errores y actualizaciones?",
+          "options": [
+            "Activo",
+            "EOL",
+            "Legacy",
+            "Alpha"
+          ],
+          "correct_answer": "Activo",
+          "explanation": "El estado Activo en Amazon Bedrock indica que el modelo está en pleno soporte: recibe actualizaciones, correcciones de errores y mejoras de rendimiento de forma continua.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 941,
+          "question": "¿Qué servicio permite a los usuarios explorar y experimentar con modelos de fundación para creatividad y entretenimiento?",
+          "options": [
+            "PartyRock (Amazon Bedrock Playground)",
+            "SageMaker JumpStart",
+            "Amazon Q Business",
+            "Amazon RDS"
+          ],
+          "correct_answer": "PartyRock (Amazon Bedrock Playground)",
+          "explanation": "PartyRock es un playground impulsado por Amazon Bedrock que permite a cualquier persona explorar y crear aplicaciones de IA generativa de forma intuitiva, sin necesidad de escribir código ni tener una cuenta AWS.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 942,
+          "question": "¿Qué técnica implica proporcionar un conjunto de ejemplos y una tarea para que la máquina aprenda?",
+          "options": [
+            "Machine Learning (Aprendizaje Automático)",
+            "Programación tradicional",
+            "Sistemas expertos",
+            "Consulta de bases de datos"
+          ],
+          "correct_answer": "Machine Learning (Aprendizaje Automático)",
+          "explanation": "Machine Learning es la disciplina donde los sistemas aprenden automáticamente a partir de ejemplos (datos) sin ser programados explícitamente, identificando patrones para hacer predicciones o tomar decisiones.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 943,
+          "question": "¿Cuál es el beneficio principal de la API única de Amazon Bedrock?",
+          "options": [
+            "Permite a los usuarios cambiar fácilmente entre diferentes modelos de fundación",
+            "Hace gratuitos todos los modelos disponibles",
+            "Reemplaza a todos los desarrolladores humanos",
+            "Solo funciona con Amazon Titan"
+          ],
+          "correct_answer": "Permite a los usuarios cambiar fácilmente entre diferentes modelos de fundación",
+          "explanation": "La API única de Amazon Bedrock permite acceder a múltiples modelos de fundación de diferentes proveedores (Anthropic, Meta, Mistral, etc.) con la misma interfaz, facilitando la comparación y el cambio entre modelos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 944,
+          "question": "¿Cuál es un desafío importante de los Modelos de Fundación?",
+          "options": [
+            "Altas demandas de recursos e infraestructura",
+            "Falta de datos disponibles para entrenarlos",
+            "Son demasiado simples para tareas complejas",
+            "No tienen opciones de seguridad disponibles"
+          ],
+          "correct_answer": "Altas demandas de recursos e infraestructura",
+          "explanation": "Los Modelos de Fundación requieren cantidades masivas de datos, potencia de cómputo (GPUs/TPUs) y tiempo de entrenamiento, lo que representa un desafío significativo tanto en coste como en infraestructura necesaria.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 945,
+          "question": "¿Qué tipo de modelos de ML se usa para generar imágenes realistas introduciendo y eliminando ruido?",
+          "options": [
+            "Modelos de difusión (Diffusion models)",
+            "GANs",
+            "VAEs",
+            "RNNs"
+          ],
+          "correct_answer": "Modelos de difusión (Diffusion models)",
+          "explanation": "Los modelos de difusión aprenden a generar imágenes realistas mediante un proceso de añadir ruido gaussiano progresivamente a una imagen y luego aprender a revertir ese proceso, generando imágenes de alta calidad a partir de ruido puro.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 946,
+          "question": "¿Qué es la 'auto-atención' (self-attention) en un modelo transformer?",
+          "options": [
+            "Un mecanismo para priorizar palabras significativas durante el procesamiento",
+            "El modelo ignorando la entrada del usuario",
+            "Un proceso de revisión humana",
+            "Un tipo de memoria de GPU"
+          ],
+          "correct_answer": "Un mecanismo para priorizar palabras significativas durante el procesamiento",
+          "explanation": "La auto-atención (self-attention) permite al transformer ponderar la importancia de cada palabra en relación con todas las demás palabras de la secuencia, capturando dependencias a larga distancia y el contexto semántico de forma eficiente.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 947,
+          "question": "¿Cuál es la función del modelo de recompensa en el proceso RLHF?",
+          "options": [
+            "Predecir automáticamente cómo un humano puntuaría una respuesta",
+            "Pagar dinero a los usuarios por sus respuestas",
+            "Generar texto aleatorio para evaluación",
+            "Eliminar los modelos que dan malas respuestas"
+          ],
+          "correct_answer": "Predecir automáticamente cómo un humano puntuaría una respuesta",
+          "explanation": "En RLHF (Reinforcement Learning from Human Feedback), el modelo de recompensa aprende a predecir la preferencia humana entrenándose con comparaciones de respuestas evaluadas por personas, guiando luego el ajuste fino del LLM mediante aprendizaje por refuerzo.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 948,
+          "question": "¿Qué es la 'Ingeniería de Prompts' (Prompt Engineering)?",
+          "options": [
+            "Diseñar instrucciones de texto para obtener respuestas deseadas de un LLM",
+            "Desarrollar nuevas GPUs para modelos de IA",
+            "Escribir código SQL para bases de datos",
+            "Gestionar centros de datos en la nube"
+          ],
+          "correct_answer": "Diseñar instrucciones de texto para obtener respuestas deseadas de un LLM",
+          "explanation": "La Ingeniería de Prompts es la disciplina de diseñar y optimizar las instrucciones (prompts) que se dan a un LLM para obtener respuestas de mayor calidad, precisión o con el formato deseado.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 949,
+          "question": "¿Qué tipo de aprendizaje automático utiliza retroalimentación en forma de recompensas o penalizaciones?",
+          "options": [
+            "Aprendizaje por Refuerzo (Reinforcement Learning)",
+            "Aprendizaje Supervisado",
+            "Aprendizaje No Supervisado",
+            "Sistemas basados en reglas"
+          ],
+          "correct_answer": "Aprendizaje por Refuerzo (Reinforcement Learning)",
+          "explanation": "El Aprendizaje por Refuerzo es un tipo de ML donde un agente aprende a tomar decisiones interactuando con un entorno, recibiendo recompensas por acciones correctas y penalizaciones por incorrectas, optimizando su política de comportamiento.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 950,
+          "question": "¿Qué técnica de prompting aborda subproblemas de forma secuencial?",
+          "options": [
+            "Mínimo a máximo (Least-to-most)",
+            "Maiéutica",
+            "Árbol de pensamiento (Tree-of-thought)",
+            "Cadena de pensamiento (Chain-of-thought)"
+          ],
+          "correct_answer": "Mínimo a máximo (Least-to-most)",
+          "explanation": "La técnica Least-to-most (mínimo a máximo) descompone un problema complejo en subproblemas más simples y los resuelve secuencialmente, usando las soluciones anteriores para resolver los problemas más difíciles.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 951,
+          "question": "¿Qué método de prompting genera múltiples pasos potenciales y los evalúa mediante una búsqueda en árbol?",
+          "options": [
+            "Árbol de pensamiento (Tree-of-thought)",
+            "Cadena de pensamiento (Chain-of-thought)",
+            "Maiéutica",
+            "Auto-refinamiento (Self-refine)"
+          ],
+          "correct_answer": "Árbol de pensamiento (Tree-of-thought)",
+          "explanation": "Tree-of-thought extiende chain-of-thought generando múltiples caminos de razonamiento posibles en forma de árbol, evaluando y seleccionando el mejor mediante búsqueda, siendo útil para problemas que requieren explorar múltiples estrategias.",
+          "difficulty": "avanzado"
+        },
+        {
+          "id": 952,
+          "question": "¿Qué es el 'estímulo direccional' (Directional-stimulus prompting)?",
+          "options": [
+            "Usar una pista o señal, como palabras clave, para guiar al modelo",
+            "Usar sonidos fuertes para activar el modelo",
+            "Usar flechas en el prompt para indicar dirección",
+            "Modificar el código fuente del modelo"
+          ],
+          "correct_answer": "Usar una pista o señal, como palabras clave, para guiar al modelo",
+          "explanation": "El Directional-stimulus prompting proporciona al modelo pistas, palabras clave o señales específicas que guían su razonamiento hacia el tipo de respuesta deseada, sin especificar completamente la solución.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 953,
+          "question": "¿Qué técnica de prompting genera múltiples hechos de apoyo antes de completar la tarea?",
+          "options": [
+            "Conocimiento generado (Generated knowledge)",
+            "Árbol de pensamiento (Tree-of-thought)",
+            "Cadena de pensamiento (Chain-of-thought)",
+            "Auto-refinamiento (Self-refine)"
+          ],
+          "correct_answer": "Conocimiento generado (Generated knowledge)",
+          "explanation": "Generated knowledge es una técnica donde primero se pide al modelo que genere hechos o conocimiento relevante sobre el tema, y luego se usa ese conocimiento generado como contexto adicional para responder la pregunta principal.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 954,
+          "question": "¿Qué produce la red Generador de una GAN?",
+          "options": [
+            "Datos falsos introduciendo ruido aleatorio",
+            "Datos reales del conjunto de entrenamiento",
+            "Informes de base de datos",
+            "Claves de cifrado"
+          ],
+          "correct_answer": "Datos falsos introduciendo ruido aleatorio",
+          "explanation": "El Generador de una GAN toma ruido aleatorio como entrada y aprende a transformarlo en datos sintéticos que parecen reales, mejorando su capacidad de engañar al Discriminador durante el entrenamiento adversarial.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 955,
+          "question": "¿Cuál es la capa de IA que actúa como interfaz orientada al usuario?",
+          "options": [
+            "Capa de aplicación",
+            "Capa de datos",
+            "Capa de modelo",
+            "Capa física"
+          ],
+          "correct_answer": "Capa de aplicación",
+          "explanation": "La capa de aplicación es la interfaz de cara al usuario en la arquitectura de IA, donde se presentan los resultados y funcionalidades de los modelos de ML/IA en forma de productos y servicios utilizables.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 956,
+          "question": "¿Cuál es el modelo de AWS diseñado para resumen de texto, extracción y personalización?",
+          "options": [
+            "Amazon Titan",
+            "Stable Diffusion",
+            "Llama 2",
+            "Claude"
+          ],
+          "correct_answer": "Amazon Titan",
+          "explanation": "Amazon Titan es la familia de modelos de fundación desarrollados por AWS, especialmente diseñados para tareas como resumen de texto, extracción de información, clasificación, generación de contenido y personalización.",
+          "difficulty": "basico"
         }
       ]
     },
@@ -821,6 +1406,45 @@
           "correct_answer": "Detección y redacción automática de PII (información personal identificable) como nombres, teléfonos o números de tarjeta en las transcripciones",
           "explanation": "Amazon Transcribe puede detectar y redactar (sustituir por [PII]) automáticamente información sensible en las transcripciones: nombres, números de teléfono, emails, números de tarjeta de crédito, SSN, etc. Esto es esencial para cumplir con GDPR, HIPAA y otras regulaciones de privacidad.",
           "difficulty": "intermedio"
+        },
+        {
+          "id": 957,
+          "question": "¿Qué servicio de AWS identifica y redacta Información de Identificación Personal (PII) en documentos?",
+          "options": [
+            "Amazon Comprehend",
+            "Amazon Rekognition",
+            "Amazon Translate",
+            "Amazon Lex"
+          ],
+          "correct_answer": "Amazon Comprehend",
+          "explanation": "Amazon Comprehend puede detectar y redactar automáticamente Información de Identificación Personal (PII) como nombres, direcciones, números de teléfono y correos electrónicos en textos, ayudando a cumplir regulaciones de privacidad.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 958,
+          "question": "¿Cuál es el servicio de AWS optimizado para llamadas de servicio al cliente y subtitulado de transmisiones en directo?",
+          "options": [
+            "Amazon Transcribe",
+            "Amazon Polly",
+            "Amazon Lex",
+            "Amazon Comprehend"
+          ],
+          "correct_answer": "Amazon Transcribe",
+          "explanation": "Amazon Transcribe ofrece funcionalidades especializadas para llamadas de atención al cliente (Transcribe Call Analytics) y subtitulado en tiempo real, siendo ideal para centros de llamadas y transmisiones en vivo.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 959,
+          "question": "¿Qué servicio gestionado convierte el habla médica en texto para documentación clínica?",
+          "options": [
+            "Amazon Transcribe Medical",
+            "Amazon Polly",
+            "Amazon Lex",
+            "Amazon Comprehend"
+          ],
+          "correct_answer": "Amazon Transcribe Medical",
+          "explanation": "Amazon Transcribe Medical es una variante especializada de Transcribe diseñada para el sector sanitario, con vocabulario médico ampliado y cumplimiento HIPAA para transcribir grabaciones de consultas y notas clínicas.",
+          "difficulty": "basico"
         }
       ]
     },
@@ -917,6 +1541,45 @@
           ],
           "correct_answer": "Reconocer un documento (pasaporte) con Rekognition, luego extraer datos con Textract",
           "explanation": "Flujo común: Rekognition detecta tipo de doc (pasaporte) → Textract extrae campos específicos automáticamente.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 960,
+          "question": "¿Qué tecnología de IA transforma documentos como PDFs en información estructurada usando NLP y visión por computador?",
+          "options": [
+            "Procesamiento Inteligente de Documentos (IDP)",
+            "Amazon Polly",
+            "AWS DeepRacer",
+            "Amazon RDS"
+          ],
+          "correct_answer": "Procesamiento Inteligente de Documentos (IDP)",
+          "explanation": "El Procesamiento Inteligente de Documentos (IDP) combina NLP, OCR y visión por computador para extraer, clasificar y estructurar automáticamente la información de documentos no estructurados como PDFs, facturas y contratos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 961,
+          "question": "¿Qué servicio identifica texto impreso y escrito a mano en vídeos a lo largo de los fotogramas?",
+          "options": [
+            "Amazon Rekognition Video Analysis",
+            "Amazon Textract",
+            "Amazon Transcribe",
+            "Amazon Comprehend"
+          ],
+          "correct_answer": "Amazon Rekognition Video Analysis",
+          "explanation": "Amazon Rekognition Video puede detectar y reconocer texto impreso y manuscrito que aparece en vídeos, analizando fotogramas para extraer texto de carteles, subtítulos, matrículas u otras fuentes visuales.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 962,
+          "question": "¿Cuál es el servicio de AWS HIPAA Eligible adecuado para aplicaciones sanitarias de análisis de imágenes?",
+          "options": [
+            "Amazon Rekognition",
+            "Amazon Translate",
+            "Amazon Lex",
+            "Amazon Forecast"
+          ],
+          "correct_answer": "Amazon Rekognition",
+          "explanation": "Amazon Rekognition es un servicio HIPAA Eligible, lo que significa que puede usarse en aplicaciones sanitarias que manejan información protegida de salud (PHI), cumpliendo con los requisitos de privacidad de HIPAA.",
           "difficulty": "intermedio"
         }
       ]
@@ -1190,6 +1853,45 @@
           "correct_answer": "Análisis avanzado de conversaciones de call center: sentimiento por hablante, tiempos de silencio, interrupciones y categorías personalizadas",
           "explanation": "Amazon Transcribe Call Analytics está especializado en call centers. Además de transcribir, analiza el sentimiento de cada hablante por turno, detecta tiempos de silencio, interrupciones, cumplimiento de guiones, y permite categorizar automáticamente las llamadas por temas.",
           "difficulty": "intermedio"
+        },
+        {
+          "id": 963,
+          "question": "¿Qué versión de DeepRacer incluye un kit de sensores opcional con LIDAR?",
+          "options": [
+            "AWS DeepRacer Evo",
+            "DeepRacer original",
+            "DeepRacer Virtual",
+            "DeepRacer S3"
+          ],
+          "correct_answer": "AWS DeepRacer Evo",
+          "explanation": "AWS DeepRacer Evo es la versión mejorada del vehículo que incluye soporte para un kit de sensores adicional con LIDAR (sensor de distancia por láser), permitiendo entrenar modelos de RL más sofisticados con percepción 3D del entorno.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 964,
+          "question": "¿Qué servicio conecta a las empresas con una fuerza laboral global para tareas de anotación y etiquetado de datos?",
+          "options": [
+            "Amazon Mechanical Turk (MTurk)",
+            "Amazon Augmented AI",
+            "Amazon Lex",
+            "Amazon Q Business"
+          ],
+          "correct_answer": "Amazon Mechanical Turk (MTurk)",
+          "explanation": "Amazon Mechanical Turk es una plataforma de crowdsourcing que conecta a las empresas con trabajadores humanos distribuidos globalmente para realizar tareas que los ordenadores aún no pueden hacer bien, como etiquetar datos, validar resultados de ML y realizar encuestas.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 965,
+          "question": "¿Qué servicio proporciona revisión humana de predicciones de ML con baja confianza?",
+          "options": [
+            "Amazon Augmented AI (A2I)",
+            "Amazon Mechanical Turk",
+            "Amazon Bedrock",
+            "SageMaker Studio Lab"
+          ],
+          "correct_answer": "Amazon Augmented AI (A2I)",
+          "explanation": "Amazon Augmented AI (A2I) crea flujos de trabajo Human-in-the-Loop donde revisores humanos validan y corrigen las predicciones de ML cuando el modelo tiene baja confianza, mejorando la precisión en casos de uso críticos.",
+          "difficulty": "basico"
         }
       ]
     },
@@ -1670,6 +2372,71 @@
           "correct_answer": "Otorgar solo los permisos estrictamente necesarios para realizar una tarea — reduce la superficie de ataque en caso de compromiso",
           "explanation": "El principio de mínimo privilegio (Principle of Least Privilege) es fundamental en seguridad IAM: cada identidad (usuario, rol, servicio) debe tener solo los permisos mínimos necesarios para cumplir su función. Si una identidad es comprometida, el daño potencial queda limitado al alcance de sus permisos.",
           "difficulty": "basico"
+        },
+        {
+          "id": 966,
+          "question": "En la Matriz de Alcance de Seguridad GenAI, ¿qué Alcance (Scope) representa el uso de un servicio público de IA generativa como ChatGPT?",
+          "options": [
+            "Alcance 1 (Scope 1)",
+            "Alcance 5 (Scope 5)",
+            "Alcance 3 (Scope 3)",
+            "Alcance 2 (Scope 2)"
+          ],
+          "correct_answer": "Alcance 1 (Scope 1)",
+          "explanation": "En la Matriz de Alcance de Seguridad GenAI, el Scope 1 representa el uso de servicios de IA generativa públicos y de terceros (como ChatGPT), donde la organización tiene el menor control sobre los datos y el modelo.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 967,
+          "question": "En la Matriz de Alcance de Seguridad GenAI, ¿qué Alcance representa construir y entrenar un modelo desde cero con datos propios?",
+          "options": [
+            "Alcance 5 (Scope 5)",
+            "Alcance 1 (Scope 1)",
+            "Alcance 2 (Scope 2)",
+            "Alcance 4 (Scope 4)"
+          ],
+          "correct_answer": "Alcance 5 (Scope 5)",
+          "explanation": "El Scope 5 en la Matriz de Alcance de Seguridad GenAI representa el mayor nivel de control: la organización construye y entrena su propio modelo de fundación desde cero con sus propios datos, asumiendo plena responsabilidad sobre la seguridad y el comportamiento del modelo.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 968,
+          "question": "En la Matriz de Alcance de Seguridad GenAI, ¿qué Alcance representa refinar un modelo de fundación de terceros con datos propios del negocio?",
+          "options": [
+            "Alcance 4 (Scope 4)",
+            "Alcance 1 (Scope 1)",
+            "Alcance 5 (Scope 5)",
+            "Alcance 2 (Scope 2)"
+          ],
+          "correct_answer": "Alcance 4 (Scope 4)",
+          "explanation": "El Scope 4 representa el fine-tuning de un modelo de fundación de terceros con datos específicos del negocio, ofreciendo un mayor control sobre el comportamiento del modelo que usar el modelo base directamente.",
+          "difficulty": "intermedio"
+        },
+        {
+          "id": 969,
+          "question": "¿Qué servicio de AWS usa ML para identificar y proteger datos sensibles en Amazon S3?",
+          "options": [
+            "Amazon Macie",
+            "AWS Shield",
+            "AWS PrivateLink",
+            "Amazon WAF"
+          ],
+          "correct_answer": "Amazon Macie",
+          "explanation": "Amazon Macie usa Machine Learning para descubrir, clasificar y proteger automáticamente datos sensibles almacenados en Amazon S3, como información personal (PII), datos financieros o credenciales, generando alertas de seguridad.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 970,
+          "question": "¿Qué servicio de AWS proporciona perspectivas sobre posibles amenazas de seguridad de datos usando ML?",
+          "options": [
+            "Amazon Macie",
+            "AWS CloudTrail",
+            "Amazon CloudWatch",
+            "Amazon RDS"
+          ],
+          "correct_answer": "Amazon Macie",
+          "explanation": "Amazon Macie utiliza Machine Learning para analizar patrones de acceso y uso de datos en S3, identificando comportamientos anómalos y posibles amenazas de seguridad como accesos no autorizados o exfiltración de datos.",
+          "difficulty": "basico"
         }
       ]
     },
@@ -2104,6 +2871,58 @@
           "correct_answer": "Rastrear el origen, transformaciones y uso de los datos — garantiza trazabilidad y detecta si los datos de entrenamiento tienen sesgos o problemas de procedencia",
           "explanation": "El data lineage documenta el ciclo de vida completo de los datos: de dónde vienen, qué transformaciones sufrieron y cómo se usan. En IA Responsable es clave para: detectar fuentes de sesgo en el entrenamiento, demostrar cumplimiento (GDPR, HIPAA), reproducir resultados y entender por qué el modelo se comporta de determinada manera.",
           "difficulty": "avanzado"
+        },
+        {
+          "id": 974,
+          "question": "¿Qué es la 'Explicabilidad' (Explainability) en el contexto de la IA Responsable?",
+          "options": [
+            "Comprender y evaluar las salidas del sistema de IA",
+            "Hacer los modelos más grandes y potentes",
+            "Cifrar los datos de entrenamiento",
+            "Entrenar modelos de forma más rápida"
+          ],
+          "correct_answer": "Comprender y evaluar las salidas del sistema de IA",
+          "explanation": "La Explicabilidad en IA Responsable consiste en la capacidad de comprender, interpretar y evaluar cómo y por qué un sistema de IA produce determinadas salidas, siendo fundamental para generar confianza y detectar comportamientos no deseados.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 971,
+          "question": "¿Cuál es una limitación inherente de la IA relacionada con los datos de entrenamiento?",
+          "options": [
+            "El entrenamiento con datos sesgados puede conducir a resultados injustos",
+            "La IA no puede procesar texto",
+            "La IA siempre tiene coste cero",
+            "La IA no requiere recursos de cómputo"
+          ],
+          "correct_answer": "El entrenamiento con datos sesgados puede conducir a resultados injustos",
+          "explanation": "Una limitación crítica de la IA es que si los datos de entrenamiento contienen sesgos históricos o de representación, el modelo aprende y perpetúa esos sesgos, produciendo resultados injustos o discriminatorios.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 972,
+          "question": "¿Qué es la 'Equidad' (Fairness) en la IA Responsable?",
+          "options": [
+            "Considerar los efectos potenciales de la IA en grupos diversos",
+            "Usar los modelos más caros disponibles",
+            "No usar IA nunca para decisiones importantes",
+            "Usar IA para absolutamente todo"
+          ],
+          "correct_answer": "Considerar los efectos potenciales de la IA en grupos diversos",
+          "explanation": "La Equidad (Fairness) en IA Responsable implica diseñar y evaluar sistemas de IA considerando su impacto en grupos diversos, asegurando que no discriminen ni generen resultados desproporcionadamente perjudiciales para ciertos colectivos.",
+          "difficulty": "basico"
+        },
+        {
+          "id": 973,
+          "question": "¿Qué significa 'Veracidad' (Veracity) en la IA Responsable?",
+          "options": [
+            "Lograr resultados precisos del sistema bajo condiciones normales y adversas",
+            "Alto coste de los sistemas de IA",
+            "Usar únicamente datos públicos para el entrenamiento",
+            "Maximizar la velocidad de inferencia del modelo"
+          ],
+          "correct_answer": "Lograr resultados precisos del sistema bajo condiciones normales y adversas",
+          "explanation": "La Veracidad en IA Responsable se refiere a la capacidad del sistema de producir resultados precisos y fiables tanto en condiciones normales de operación como en situaciones adversas o con datos fuera de distribución.",
+          "difficulty": "basico"
         }
       ]
     },
