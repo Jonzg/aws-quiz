@@ -1,48 +1,170 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import api from '../api'
+import { getStats, exportCSV } from '../api'
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer, Cell, RadialBarChart, RadialBar, Legend
+  Tooltip, ResponsiveContainer, Cell, RadialBarChart, RadialBar,
 } from 'recharts'
-import { Trophy, Target, Zap, Clock, Download, PlayCircle, TrendingUp } from 'lucide-react'
+import {
+  Trophy, Target, Zap, TrendingUp, Download, PlayCircle,
+  BookOpen,
+} from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const TOPIC_LABELS = {
   all: 'Todos',
   sagemaker: 'SageMaker',
   bedrock: 'Bedrock',
+  bedrock_generative_ai: 'Bedrock & GenAI',
   nlp: 'NLP',
+  nlp_services: 'NLP',
   vision: 'Visión',
-  recommendations: 'Rec. & Pred.',
-  other_services: 'Otros Servicios',
+  vision_services: 'Visión',
+  recommendations: 'Rec.',
+  recommendation_forecasting: 'Rec.',
+  other_services: 'Otros',
+  other_ml_services: 'Otros',
   costs: 'Costos',
+  cost_optimization: 'Costos',
   security: 'Seguridad',
+  security_governance: 'Seguridad',
   scenarios: 'Escenarios',
+  real_world_scenarios: 'Escenarios',
+  metrics_evaluation: 'Métricas',
+  responsible_ai: 'IA Resp.',
+  vector_databases: 'Vectores',
+  governance_compliance: 'Gobernanza',
 }
 
-function StatCard({ icon: Icon, label, value, sub, color = 'text-aws-orange' }) {
+const CHART_COLORS = [
+  '#FF9900', '#10b981', '#3b82f6', '#a855f7', '#ec4899',
+  '#f59e0b', '#14b8a6', '#6366f1', '#ef4444',
+]
+
+// Count-up animation hook
+function useCountUp(target, duration = 1000, enabled = true) {
+  const [value, setValue] = useState(0)
+  useEffect(() => {
+    if (!enabled || typeof target !== 'number') return
+    let start = null
+    const step = (ts) => {
+      if (!start) start = ts
+      const progress = Math.min((ts - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3) // ease-out cubic
+      setValue(Math.round(eased * target))
+      if (progress < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  }, [target, duration, enabled])
+  return value
+}
+
+function StatCard({ icon: Icon, label, value, sub, accent = '#FF9900', index = 0 }) {
+  // Parse numeric value for count-up
+  const isPercent = typeof value === 'string' && value.endsWith('%')
+  const numericTarget = isPercent
+    ? parseInt(value)
+    : typeof value === 'number' ? value : null
+
+  const animated = useCountUp(numericTarget ?? 0, 900, numericTarget !== null)
+  const displayValue = numericTarget !== null
+    ? isPercent ? `${animated}%` : animated
+    : value
+
   return (
-    <div className="card flex items-center gap-4">
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-orange-50 ${color} shrink-0`}>
-        <Icon size={24} />
+    <motion.div
+      className="card group"
+      style={{ borderColor: 'var(--border)' }}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.07 }}
+      whileHover={{ borderColor: `${accent}50`, y: -2, transition: { duration: 0.15 } }}
+    >
+      <div className="flex items-center gap-4">
+        <div
+          className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 group-hover:scale-110"
+          style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}
+        >
+          <Icon size={20} style={{ color: accent }} />
+        </div>
+        <div className="min-w-0">
+          <p className="text-xs font-medium truncate" style={{ color: '#8B949E' }}>{label}</p>
+          <p className="text-xl font-bold leading-tight tabular-nums" style={{ color: '#E6EDF3' }}>
+            {displayValue}
+          </p>
+          {sub && <p className="text-xs" style={{ color: '#444c56' }}>{sub}</p>}
+        </div>
       </div>
-      <div>
-        <p className="text-sm text-gray-500 font-medium">{label}</p>
-        <p className="text-2xl font-bold text-gray-900">{value}</p>
-        {sub && <p className="text-xs text-gray-400">{sub}</p>}
+    </motion.div>
+  )
+}
+
+// Skeleton loader
+function Skeleton({ className = '', style = {} }) {
+  return (
+    <div
+      className={`rounded-lg animate-pulse ${className}`}
+      style={{ background: '#21262D', ...style }}
+    />
+  )
+}
+
+function SkeletonDashboard() {
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <div className="space-y-2">
+          <Skeleton className="h-7 w-36" />
+          <Skeleton className="h-4 w-52" />
+        </div>
+        <Skeleton className="h-9 w-32 rounded-lg" />
       </div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="card space-y-3">
+            <div className="flex items-center gap-3">
+              <Skeleton className="w-11 h-11 rounded-xl" />
+              <div className="space-y-2 flex-1">
+                <Skeleton className="h-3 w-20" />
+                <Skeleton className="h-6 w-14" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <Skeleton className="h-52 rounded-xl" />
+        <Skeleton className="h-52 rounded-xl lg:col-span-2" />
+      </div>
+      <Skeleton className="h-56 rounded-xl" />
     </div>
   )
 }
 
 function formatDuration(seconds) {
-  if (!seconds) return '-'
+  if (!seconds) return '—'
   const m = Math.floor(seconds / 60)
   const s = seconds % 60
   return m > 0 ? `${m}m ${s}s` : `${s}s`
 }
 
-const COLORS = ['#FF9900', '#232F3E', '#28a745', '#dc3545', '#6366f1', '#ec4899', '#14b8a6', '#f59e0b', '#3b82f6']
+const CustomTooltip = ({ active, payload, label }) => {
+  if (!active || !payload?.length) return null
+  return (
+    <div className="rounded-xl px-3 py-2 text-xs shadow-xl"
+      style={{ background: '#1C2128', border: '1px solid #30363D', color: '#E6EDF3' }}>
+      <p className="font-semibold mb-1" style={{ color: '#8B949E' }}>{label}</p>
+      {payload.map((p, i) => (
+        <p key={i} style={{ color: p.color }}>{p.name}: {p.value}%</p>
+      ))}
+    </div>
+  )
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.3, delay: i * 0.08 } }),
+}
 
 export default function Dashboard() {
   const [stats, setStats] = useState(null)
@@ -50,27 +172,22 @@ export default function Dashboard() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    api.get('/api/stats')
-      .then(r => setStats(r.data))
-      .catch(console.error)
-      .finally(() => setLoading(false))
+    getStats().then(setStats).catch(console.error).finally(() => setLoading(false))
   }, [])
 
   const handleExport = () => {
-    window.open((import.meta.env.VITE_API_URL || '') + '/api/export/csv', '_blank')
+    exportCSV().then(blob => {
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(blob)
+      link.download = 'quiz_history.csv'
+      link.click()
+    }).catch(console.error)
   }
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="w-10 h-10 border-4 border-aws-orange border-t-transparent rounded-full animate-spin" />
-      </div>
-    )
-  }
+  if (loading) return <SkeletonDashboard />
 
   const hasData = stats && stats.total_quizzes > 0
 
-  // Prepare chart data
   const historyChartData = hasData
     ? [...stats.history].reverse().slice(-15).map((h, i) => ({
         name: `#${i + 1}`,
@@ -83,196 +200,255 @@ export default function Dashboard() {
     ? stats.by_topic.map(t => ({
         name: TOPIC_LABELS[t.topic] || t.topic,
         promedio: t.avg_percentage,
-        mejor: t.best_percentage,
       }))
     : []
 
-  const gaugeData = hasData
-    ? [{ name: 'Aciertos', value: stats.overall_percentage, fill: '#FF9900' }]
-    : [{ name: 'Aciertos', value: 0, fill: '#e5e7eb' }]
+  const overallPct = hasData ? stats.overall_percentage : 0
+  const passColor = overallPct >= 70 ? '#10b981' : '#ef4444'
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <motion.div
+      className="space-y-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.25 }}
+    >
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <motion.div
+        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        variants={fadeUp} initial="hidden" animate="show" custom={0}
+      >
         <div>
-          <h1 className="text-3xl font-bold text-aws-dark">Dashboard</h1>
-          <p className="text-gray-500 mt-1">Seguimiento de tu progreso para el examen</p>
+          <h1 className="text-2xl font-bold" style={{ color: '#E6EDF3' }}>Dashboard</h1>
+          <p className="text-sm mt-0.5" style={{ color: '#8B949E' }}>Seguimiento de tu progreso</p>
         </div>
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex gap-2 flex-wrap">
           {hasData && (
-            <button onClick={handleExport} className="btn-outline gap-2 text-sm">
-              <Download size={16} /> Exportar CSV
-            </button>
+            <motion.button
+              onClick={handleExport}
+              className="btn-outline text-xs gap-1.5"
+              whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+            >
+              <Download size={14} /> Exportar CSV
+            </motion.button>
           )}
-          <button onClick={() => navigate('/quiz')} className="btn-primary gap-2">
-            <PlayCircle size={18} /> Iniciar Quiz
-          </button>
+          <motion.button
+            onClick={() => navigate('/exam-selection')}
+            className="btn-primary text-sm"
+            whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+          >
+            <PlayCircle size={16} /> Empezar ahora
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <StatCard index={0} icon={Trophy} label="Quizzes completados" value={stats?.total_quizzes ?? 0} />
         <StatCard
-          icon={Trophy}
-          label="Quizzes completados"
-          value={stats?.total_quizzes ?? 0}
+          index={1} icon={Target} label="Aciertos global"
+          value={hasData ? stats.overall_percentage : '—'}
+          accent={hasData && stats.overall_percentage >= 70 ? '#10b981' : '#ef4444'}
         />
         <StatCard
-          icon={Target}
-          label="% Aciertos global"
-          value={hasData ? `${stats.overall_percentage}%` : '—'}
-          color={hasData && stats.overall_percentage >= 70 ? 'text-green-500' : 'text-red-500'}
-        />
-        <StatCard
-          icon={Zap}
-          label="Racha actual (≥70%)"
+          index={2} icon={Zap} label="Racha (≥70%)"
           value={hasData ? stats.best_streak : '—'}
-          sub="quizzes consecutivos"
+          sub="consecutivos" accent="#a855f7"
         />
         <StatCard
-          icon={TrendingUp}
-          label="Temas practicados"
+          index={3} icon={TrendingUp} label="Temas practicados"
           value={hasData ? stats.by_topic.length : '—'}
+          accent="#3b82f6"
         />
       </div>
 
       {/* Empty state */}
       {!hasData && (
-        <div className="card text-center py-16">
-          <div className="w-20 h-20 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <BookOpen size={36} className="text-aws-orange" />
+        <motion.div
+          className="card text-center py-20 space-y-5"
+          variants={fadeUp} initial="hidden" animate="show" custom={1}
+        >
+          <motion.div
+            className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto"
+            style={{ background: 'rgba(255,153,0,0.1)', border: '1px solid rgba(255,153,0,0.25)' }}
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+          >
+            <BookOpen size={32} style={{ color: '#FF9900' }} />
+          </motion.div>
+          <div>
+            <h2 className="text-lg font-semibold" style={{ color: '#E6EDF3' }}>¡Aún no hay datos!</h2>
+            <p className="text-sm mt-1 max-w-xs mx-auto" style={{ color: '#8B949E' }}>
+              Completa tu primer quiz para ver tus estadísticas aquí.
+            </p>
           </div>
-          <h2 className="text-xl font-bold text-gray-700 mb-2">¡Aún no hay datos!</h2>
-          <p className="text-gray-400 mb-6">Completa tu primer quiz para ver tus estadísticas aquí.</p>
-          <button onClick={() => navigate('/quiz')} className="btn-primary mx-auto">
-            <PlayCircle size={18} /> Empezar ahora
-          </button>
-        </div>
+          <motion.button
+            onClick={() => navigate('/exam-selection')}
+            className="btn-primary mx-auto"
+            whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+          >
+            <PlayCircle size={16} /> Empezar ahora
+          </motion.button>
+        </motion.div>
       )}
 
       {hasData && (
         <>
           {/* Charts row */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+            variants={fadeUp} initial="hidden" animate="show" custom={2}
+          >
             {/* Gauge */}
-            <div className="card flex flex-col items-center">
-              <h3 className="font-semibold text-gray-700 mb-4 self-start">% Global</h3>
-              <RadialBarChart
-                width={200} height={180}
-                cx={100} cy={140}
-                innerRadius={80} outerRadius={120}
-                startAngle={180} endAngle={0}
-                data={[{ value: 100, fill: '#e5e7eb' }, { value: stats.overall_percentage, fill: '#FF9900' }]}
-              >
-                <RadialBar dataKey="value" cornerRadius={8} />
-              </RadialBarChart>
-              <p className="text-4xl font-bold text-aws-dark -mt-12">{stats.overall_percentage}%</p>
-              <p className="text-sm text-gray-400 mt-1">promedio general</p>
-              <p className={`mt-2 text-sm font-semibold ${stats.overall_percentage >= 70 ? 'text-green-600' : 'text-red-500'}`}>
-                {stats.overall_percentage >= 70 ? '✓ Aprobado' : '✗ Por mejorar'}
+            <div className="card flex flex-col items-center py-6">
+              <p className="text-xs font-semibold uppercase tracking-wide mb-4 self-start" style={{ color: '#8B949E' }}>
+                % Global
               </p>
+              <div className="relative">
+                <RadialBarChart
+                  width={180} height={160}
+                  cx={90} cy={130}
+                  innerRadius={70} outerRadius={108}
+                  startAngle={180} endAngle={0}
+                  data={[
+                    { value: 100, fill: '#21262D' },
+                    { value: overallPct, fill: passColor },
+                  ]}
+                >
+                  <RadialBar dataKey="value" cornerRadius={6} />
+                </RadialBarChart>
+                <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center">
+                  <span className="text-3xl font-extrabold tabular-nums" style={{ color: passColor }}>
+                    {overallPct}%
+                  </span>
+                  <span className="text-xs" style={{ color: '#8B949E' }}>promedio</span>
+                </div>
+              </div>
+              <div
+                className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
+                style={{
+                  background: `${passColor}18`,
+                  color: passColor,
+                  border: `1px solid ${passColor}35`,
+                }}
+              >
+                {overallPct >= 70 ? '✓ Aprobado' : '✗ Por mejorar'}
+              </div>
             </div>
 
             {/* Line chart */}
             <div className="card lg:col-span-2">
-              <h3 className="font-semibold text-gray-700 mb-4">Progresión temporal</h3>
-              <ResponsiveContainer width="100%" height={200}>
+              <p className="text-xs font-semibold uppercase tracking-wide mb-4" style={{ color: '#8B949E' }}>
+                Progresión temporal
+              </p>
+              <ResponsiveContainer width="100%" height={190}>
                 <LineChart data={historyChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-                  <YAxis domain={[0, 100]} tick={{ fontSize: 12 }} tickFormatter={v => `${v}%`} />
-                  <Tooltip
-                    formatter={(v) => [`${v}%`, 'Aciertos']}
-                    labelFormatter={(l) => `Quiz ${l}`}
-                  />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#8B949E' }} />
+                  <YAxis domain={[0, 100]} tick={{ fontSize: 11, fill: '#8B949E' }} tickFormatter={v => `${v}%`} />
+                  <Tooltip content={<CustomTooltip />} />
                   <Line
-                    type="monotone" dataKey="porcentaje" stroke="#FF9900"
-                    strokeWidth={2.5} dot={{ fill: '#FF9900', r: 4 }}
-                    activeDot={{ r: 6 }}
+                    type="monotone" dataKey="porcentaje" name="Aciertos"
+                    stroke="#FF9900" strokeWidth={2.5}
+                    dot={{ fill: '#FF9900', r: 3, strokeWidth: 0 }}
+                    activeDot={{ r: 6, fill: '#FF9900', stroke: '#FF990050', strokeWidth: 4 }}
                   />
-                  {/* 70% pass line */}
                   <Line
                     data={historyChartData.map(d => ({ ...d, umbral: 70 }))}
-                    type="monotone" dataKey="umbral" stroke="#28a745"
-                    strokeWidth={1.5} strokeDasharray="5 5" dot={false}
+                    type="monotone" dataKey="umbral" name="Umbral 70%"
+                    stroke="#10b981" strokeWidth={1.5} strokeDasharray="5 5" dot={false}
                   />
                 </LineChart>
               </ResponsiveContainer>
-              <p className="text-xs text-gray-400 mt-1">— línea verde = 70% (aprobado)</p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Bar chart by topic */}
-          <div className="card">
-            <h3 className="font-semibold text-gray-700 mb-4">Rendimiento por tema</h3>
-            <ResponsiveContainer width="100%" height={220}>
-              <BarChart data={topicChartData} margin={{ top: 0, right: 10, bottom: 40, left: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-30} textAnchor="end" />
-                <YAxis domain={[0, 100]} tick={{ fontSize: 12 }} tickFormatter={v => `${v}%`} />
-                <Tooltip formatter={(v) => [`${v}%`]} />
-                <Bar dataKey="promedio" name="Promedio" radius={[4, 4, 0, 0]}>
+          {/* Bar chart */}
+          <motion.div className="card" variants={fadeUp} initial="hidden" animate="show" custom={3}>
+            <p className="text-xs font-semibold uppercase tracking-wide mb-4" style={{ color: '#8B949E' }}>
+              Rendimiento por tema
+            </p>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={topicChartData} margin={{ top: 0, right: 8, bottom: 36, left: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#8B949E' }} angle={-25} textAnchor="end" />
+                <YAxis domain={[0, 100]} tick={{ fontSize: 11, fill: '#8B949E' }} tickFormatter={v => `${v}%`} />
+                <Tooltip
+                  contentStyle={{ background: '#1C2128', border: '1px solid #30363D', borderRadius: 8, color: '#E6EDF3', fontSize: 12 }}
+                  formatter={(v) => [`${v}%`]}
+                  cursor={{ fill: 'rgba(255,255,255,0.04)' }}
+                />
+                <Bar dataKey="promedio" name="Promedio" radius={[5, 5, 0, 0]} maxBarSize={40}>
                   {topicChartData.map((_, i) => (
-                    <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                    <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
                   ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-          </div>
+          </motion.div>
 
           {/* History table */}
-          <div className="card">
-            <h3 className="font-semibold text-gray-700 mb-4">Últimos 10 quizzes</h3>
+          <motion.div className="card" variants={fadeUp} initial="hidden" animate="show" custom={4}>
+            <p className="text-xs font-semibold uppercase tracking-wide mb-4" style={{ color: '#8B949E' }}>
+              Últimos 10 quizzes
+            </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-gray-400 border-b border-gray-100">
-                    <th className="text-left py-2 font-medium">Fecha</th>
-                    <th className="text-left py-2 font-medium">Tema</th>
-                    <th className="text-left py-2 font-medium">Dificultad</th>
-                    <th className="text-center py-2 font-medium">Resultado</th>
-                    <th className="text-right py-2 font-medium">Duración</th>
+                  <tr style={{ borderBottom: '1px solid #21262D' }}>
+                    {['Fecha', 'Tema', 'Dificultad', 'Resultado', 'Duración'].map((h, i) => (
+                      <th
+                        key={h}
+                        className={`pb-2 text-xs font-medium ${i === 3 ? 'text-center' : i === 4 ? 'text-right' : 'text-left'}`}
+                        style={{ color: '#8B949E' }}
+                      >
+                        {h}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {stats.history.slice(0, 10).map(h => (
-                    <tr key={h.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                      <td className="py-3 text-gray-500">
+                  {stats.history.slice(0, 10).map((h, rowIdx) => (
+                    <motion.tr
+                      key={h.id}
+                      style={{ borderBottom: '1px solid #21262D' }}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.35 + rowIdx * 0.04 }}
+                      className="transition-colors"
+                      onMouseEnter={e => e.currentTarget.style.background = '#1C2128'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                    >
+                      <td className="py-3 text-xs" style={{ color: '#8B949E' }}>
                         {new Date(h.finished_at).toLocaleDateString('es-ES', {
-                          day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'
+                          day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit',
                         })}
                       </td>
-                      <td className="py-3 font-medium">{TOPIC_LABELS[h.topic] || h.topic}</td>
+                      <td className="py-3 text-xs font-medium" style={{ color: '#E6EDF3' }}>
+                        {TOPIC_LABELS[h.topic] || h.topic}
+                      </td>
                       <td className="py-3">
                         <span className={`badge-${h.difficulty}`}>{h.difficulty}</span>
                       </td>
                       <td className="py-3 text-center">
-                        <span className={`font-bold ${h.percentage >= 70 ? 'text-green-600' : 'text-red-500'}`}>
+                        <span
+                          className="text-xs font-bold tabular-nums"
+                          style={{ color: h.percentage >= 70 ? '#10b981' : '#ef4444' }}
+                        >
                           {h.score}/{h.total} ({h.percentage}%)
                         </span>
                       </td>
-                      <td className="py-3 text-right text-gray-400">{formatDuration(h.duration_seconds)}</td>
-                    </tr>
+                      <td className="py-3 text-right text-xs" style={{ color: '#8B949E' }}>
+                        {formatDuration(h.duration_seconds)}
+                      </td>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
+          </motion.div>
         </>
       )}
-    </div>
-  )
-}
-
-// Missing import fix
-function BookOpen({ size, className }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-      className={className}>
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-    </svg>
+    </motion.div>
   )
 }

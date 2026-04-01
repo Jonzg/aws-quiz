@@ -3,83 +3,192 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg:        #0D1117;
+    --surface:   #161B22;
+    --surface-2: #1C2128;
+    --border:    #21262D;
+    --border-2:  #30363D;
+    --text:      #E6EDF3;
+    --muted:     #8B949E;
+    --orange:    #FF9900;
+    --orange-dim: rgba(255, 153, 0, 0.12);
+  }
+
   body {
-    @apply font-sans bg-gray-50 text-gray-900 antialiased;
+    @apply font-sans antialiased;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  * {
+    border-color: var(--border);
   }
 }
 
 @layer components {
+  /* ── Buttons ───────────────────────────────────────────────── */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[48px]
-           bg-aws-orange text-white font-semibold rounded-lg
-           hover:bg-orange-500 active:scale-95
-           transition-all duration-200 shadow-md hover:shadow-lg
-           disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           bg-brand-500 text-white font-semibold rounded-lg text-sm
+           hover:bg-brand-400 active:scale-95
+           transition-all duration-200
+           hover:shadow-glow-orange
+           disabled:opacity-40 disabled:cursor-not-allowed;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[48px]
-           bg-aws-dark text-white font-semibold rounded-lg
-           hover:bg-gray-700 active:scale-95
-           transition-all duration-200 shadow-md hover:shadow-lg
-           disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           font-semibold rounded-lg text-sm
+           transition-all duration-200 active:scale-95
+           disabled:opacity-40 disabled:cursor-not-allowed;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border-2);
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255, 153, 0, 0.4);
+    color: #FF9900;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[48px]
-           border-2 border-aws-dark text-aws-dark font-semibold rounded-lg
-           hover:bg-aws-dark hover:text-white active:scale-95
-           transition-all duration-200
-           disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           font-semibold rounded-lg text-sm
+           transition-all duration-200 active:scale-95
+           disabled:opacity-40 disabled:cursor-not-allowed;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border-2);
+  }
+  .btn-outline:hover {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--border-2);
   }
 
+  /* ── Cards ─────────────────────────────────────────────────── */
   .card {
-    @apply bg-white rounded-2xl shadow-md p-6 border border-gray-100;
+    @apply rounded-xl p-6;
+    background: var(--surface);
+    border: 1px solid var(--border);
   }
 
-  .stat-card {
-    @apply card flex flex-col gap-1;
+  .card-hover {
+    @apply card transition-all duration-200 cursor-pointer;
+  }
+  .card-hover:hover {
+    border-color: rgba(255, 153, 0, 0.35);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,153,0,0.15);
+    transform: translateY(-2px);
   }
 
+  /* ── Option buttons ─────────────────────────────────────────── */
   .option-btn {
-    @apply w-full text-left px-5 py-4 min-h-[56px] rounded-xl border-2
-           border-gray-200 bg-white text-gray-800 font-medium
-           hover:border-aws-orange hover:bg-orange-50
-           active:scale-[0.99] transition-all duration-200
+    @apply w-full text-left px-4 py-3.5 rounded-xl
+           font-medium text-sm transition-all duration-150
            disabled:cursor-not-allowed;
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    color: var(--text);
+  }
+  .option-btn:not(:disabled):hover {
+    border-color: rgba(255, 153, 0, 0.5);
+    background: rgba(255, 153, 0, 0.07);
   }
 
   .option-correct {
-    @apply border-green-500 bg-green-50 text-green-800 animate-pulse-correct;
+    border-color: #10b981 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #6ee7b7 !important;
+    animation: pulseCorrect 0.6s ease-in-out;
   }
 
   .option-wrong {
-    @apply border-red-500 bg-red-50 text-red-800 animate-pulse-wrong;
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #fca5a5 !important;
+    animation: pulseWrong 0.6s ease-in-out;
   }
 
   .option-missed {
-    @apply border-green-400 bg-green-50 text-green-700;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    background: rgba(16, 185, 129, 0.05) !important;
+    color: #6ee7b7 !important;
   }
 
+  /* ── Badges ─────────────────────────────────────────────────── */
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
   }
 
   .badge-basico {
-    @apply badge bg-blue-100 text-blue-700;
+    @apply badge;
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.3);
   }
 
   .badge-intermedio {
-    @apply badge bg-yellow-100 text-yellow-700;
+    @apply badge;
+    background: rgba(245, 158, 11, 0.15);
+    color: #fcd34d;
+    border: 1px solid rgba(245, 158, 11, 0.3);
   }
 
   .badge-avanzado {
-    @apply badge bg-red-100 text-red-700;
+    @apply badge;
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
+  /* ── Input / Select ─────────────────────────────────────────── */
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg text-sm outline-none transition-all duration-150;
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    color: var(--text);
+  }
+  .input:focus {
+    border-color: #FF9900;
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
+  }
+
+  /* ── Divider ────────────────────────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Stat card ──────────────────────────────────────────────── */
+  .stat-card {
+    @apply card;
+  }
+
+  /* ── Progress bar ───────────────────────────────────────────── */
+  .progress-track {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: var(--border-2);
+  }
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
   }
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { @apply bg-gray-100; }
-::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded-full; }
-::-webkit-scrollbar-thumb:hover { @apply bg-gray-400; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #444c56; }
+
+/* Range input */
+input[type="range"] {
+  accent-color: #FF9900;
+}
+
+/* Recharts text overrides */
+.recharts-text { fill: #8B949E !important; }
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #21262D !important;
+}

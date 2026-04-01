@@ -1,22 +1,14 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
-import api from '../api'
+import { useNavigate, Navigate } from 'react-router-dom'
+import { getTopics, getQuiz, getAnswers, saveResult } from '../api'
 import { PlayCircle, Timer, TimerOff, ChevronRight, BookOpen, BarChart3 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 import ProgressBar from '../components/ProgressBar'
 import QuestionCard from '../components/QuestionCard'
 
-const TOPICS = [
-  { key: 'all', label: 'Todos los temas' },
-  { key: 'sagemaker', label: 'Amazon SageMaker' },
-  { key: 'bedrock', label: 'Bedrock & GenAI' },
-  { key: 'nlp', label: 'NLP Services' },
-  { key: 'vision', label: 'Visión por Computadora' },
-  { key: 'recommendations', label: 'Recomendaciones & Predicción' },
-  { key: 'other_services', label: 'Otros Servicios' },
-  { key: 'costs', label: 'Optimización de Costos' },
-  { key: 'security', label: 'Seguridad & Gobernanza' },
-  { key: 'scenarios', label: 'Escenarios del Mundo Real' },
-]
+gsap.registerPlugin(useGSAP)
 
 const DIFFICULTIES = [
   { key: 'all', label: 'Todas' },
@@ -25,24 +17,35 @@ const DIFFICULTIES = [
   { key: 'avanzado', label: 'Avanzado' },
 ]
 
+const TOPIC_LABELS = {
+  all: 'Todos los temas',
+  sagemaker: 'Amazon SageMaker',
+  bedrock_generative_ai: 'Bedrock & GenAI',
+  nlp_services: 'NLP Services',
+  vision_services: 'Vision Services',
+  recommendation_forecasting: 'Recomendaciones & Forecast',
+  other_ml_services: 'Otros Servicios ML',
+  cost_optimization: 'Optimización de Costos',
+  security_governance: 'Seguridad & Gobernanza',
+  real_world_scenarios: 'Escenarios Reales',
+  metrics_evaluation: 'Métricas de Evaluación',
+  responsible_ai: 'IA Responsable',
+  vector_databases: 'Bases de Datos Vectoriales',
+  governance_compliance: 'Gobernanza y Cumplimiento',
+}
+
 function useTimer(active) {
   const [elapsed, setElapsed] = useState(0)
   const ref = useRef(null)
-
   useEffect(() => {
-    if (active) {
-      ref.current = setInterval(() => setElapsed(e => e + 1), 1000)
-    }
+    if (active) ref.current = setInterval(() => setElapsed(e => e + 1), 1000)
     return () => clearInterval(ref.current)
   }, [active])
-
   return elapsed
 }
 
 function formatTime(s) {
-  const m = Math.floor(s / 60).toString().padStart(2, '0')
-  const sec = (s % 60).toString().padStart(2, '0')
-  return `${m}:${sec}`
+  return `${Math.floor(s / 60).toString().padStart(2, '0')}:${(s % 60).toString().padStart(2, '0')}`
 }
 
 // ── Setup Screen ──────────────────────────────────────────────────────────────
@@ -54,52 +57,94 @@ function SetupScreen({ onStart }) {
   const [topicInfo, setTopicInfo] = useState([])
 
   useEffect(() => {
-    api.get('/api/topics').then(r => setTopicInfo(r.data)).catch(console.error)
+    getTopics().then(setTopicInfo).catch(console.error)
   }, [])
 
+  const allOption = topicInfo.find(t => t.key === 'all')
+  const otherTopics = topicInfo.filter(t => t.key !== 'all')
   const selectedInfo = topicInfo.find(t => t.key === topic)
 
+  const selStyle = {
+    borderColor: 'rgba(255,153,0,0.6)',
+    background: 'rgba(255,153,0,0.08)',
+    color: '#FF9900',
+  }
+  const idleStyle = {
+    borderColor: '#30363D',
+    background: '#1C2128',
+    color: '#8B949E',
+  }
+
   return (
-    <div className="max-w-2xl mx-auto animate-slide-up">
-      <div className="text-center mb-8">
-        <div className="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <BookOpen size={40} className="text-aws-orange" />
+    <motion.div
+      className="max-w-2xl mx-auto space-y-6"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
+    >
+      {/* Header */}
+      <div className="text-center space-y-2 pt-2">
+        <div
+          className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto"
+          style={{ background: 'rgba(255,153,0,0.1)', border: '1px solid rgba(255,153,0,0.2)' }}
+        >
+          <BookOpen size={26} style={{ color: '#FF9900' }} />
         </div>
-        <h1 className="text-3xl font-bold text-aws-dark">Configura tu Quiz</h1>
-        <p className="text-gray-500 mt-2">Selecciona tema, dificultad y número de preguntas</p>
+        <h1 className="text-2xl font-bold" style={{ color: '#E6EDF3' }}>Configura tu Quiz</h1>
+        <p className="text-sm" style={{ color: '#8B949E' }}>Elige tema, dificultad y número de preguntas</p>
       </div>
 
       <div className="card space-y-6">
         {/* Topic */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Tema</label>
-          <select
-            value={topic}
-            onChange={e => setTopic(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 focus:outline-none focus:border-aws-orange transition-colors"
-          >
-            {TOPICS.map(t => (
-              <option key={t.key} value={t.key}>{t.label}</option>
+        <div className="space-y-2">
+          <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#8B949E' }}>
+            Tema
+          </label>
+          {allOption && (
+            <div className="flex justify-center">
+              <button
+                onClick={() => setTopic('all')}
+                className="w-full py-2 px-4 rounded-lg border text-sm font-medium transition-all duration-150"
+                style={topic === 'all' ? selStyle : idleStyle}
+              >
+                {TOPIC_LABELS['all']}
+              </button>
+            </div>
+          )}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {otherTopics.map(t => (
+              <button
+                key={t.key}
+                onClick={() => setTopic(t.key)}
+                className="py-2 px-3 rounded-lg border text-xs font-medium transition-all duration-150 text-center"
+                style={topic === t.key ? selStyle : idleStyle}
+              >
+                {TOPIC_LABELS[t.key] || t.name || t.key}
+              </button>
             ))}
-          </select>
+          </div>
           {selectedInfo && (
-            <p className="text-xs text-gray-400 mt-1">{selectedInfo.question_count} preguntas disponibles</p>
+            <p className="text-xs" style={{ color: '#444c56' }}>
+              {selectedInfo.question_count} preguntas disponibles
+            </p>
           )}
         </div>
 
+        {/* Divider */}
+        <div className="divider" />
+
         {/* Difficulty */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Dificultad</label>
+        <div className="space-y-2">
+          <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#8B949E' }}>
+            Dificultad
+          </label>
           <div className="grid grid-cols-4 gap-2">
             {DIFFICULTIES.map(d => (
               <button
                 key={d.key}
                 onClick={() => setDifficulty(d.key)}
-                className={`py-2.5 rounded-lg border-2 text-sm font-medium transition-all ${
-                  difficulty === d.key
-                    ? 'border-aws-orange bg-orange-50 text-aws-orange'
-                    : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                }`}
+                className="py-2 rounded-lg border text-xs font-medium transition-all duration-150"
+                style={difficulty === d.key ? selStyle : idleStyle}
               >
                 {d.label}
               </button>
@@ -107,77 +152,123 @@ function SetupScreen({ onStart }) {
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="divider" />
+
         {/* Num questions */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
-            Número de preguntas: <span className="text-aws-orange">{numQuestions}</span>
+        <div className="space-y-2">
+          <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#8B949E' }}>
+            Preguntas:{' '}
+            <span style={{ color: '#FF9900' }}>{numQuestions}</span>
           </label>
           <input
             type="range" min={5} max={20} step={5}
             value={numQuestions}
             onChange={e => setNumQuestions(Number(e.target.value))}
-            className="w-full accent-aws-orange"
+            className="w-full"
           />
-          <div className="flex justify-between text-xs text-gray-400 mt-1">
+          <div className="flex justify-between text-xs" style={{ color: '#444c56' }}>
             <span>5</span><span>10</span><span>15</span><span>20</span>
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="divider" />
+
         {/* Timer toggle */}
-        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+        <div
+          className="flex items-center justify-between p-4 rounded-xl"
+          style={{ background: '#1C2128', border: '1px solid #30363D' }}
+        >
           <div className="flex items-center gap-3">
-            {timerEnabled ? <Timer size={20} className="text-aws-orange" /> : <TimerOff size={20} className="text-gray-400" />}
+            {timerEnabled
+              ? <Timer size={18} style={{ color: '#FF9900' }} />
+              : <TimerOff size={18} style={{ color: '#8B949E' }} />
+            }
             <div>
-              <p className="text-sm font-semibold text-gray-700">Cronómetro</p>
-              <p className="text-xs text-gray-400">Registra el tiempo de cada sesión</p>
+              <p className="text-sm font-medium" style={{ color: '#E6EDF3' }}>Cronómetro</p>
+              <p className="text-xs" style={{ color: '#8B949E' }}>
+                {timerEnabled ? 'Activado' : 'Desactivado'}
+              </p>
             </div>
           </div>
           <button
             onClick={() => setTimerEnabled(v => !v)}
-            className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${timerEnabled ? 'bg-aws-orange' : 'bg-gray-300'}`}
+            className="relative w-11 h-6 rounded-full transition-colors duration-200 shrink-0"
+            style={{ background: timerEnabled ? '#FF9900' : '#30363D' }}
           >
-            <span className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-200 ${timerEnabled ? 'translate-x-6' : 'translate-x-1'}`} />
+            <span
+              className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"
+              style={{
+                transform: timerEnabled
+                  ? 'translateX(20px)'   // derecha
+                  : 'translateX(0px)'    // izquierda
+              }}
+            />
           </button>
         </div>
 
         <button
           onClick={() => onStart({ topic, difficulty, numQuestions, timerEnabled })}
-          className="btn-primary w-full text-lg py-4"
+          className="btn-primary w-full py-3"
         >
-          <PlayCircle size={22} /> Iniciar Quiz
+          <PlayCircle size={18} /> Iniciar Quiz
         </button>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 // ── Quiz Screen ───────────────────────────────────────────────────────────────
 function QuizScreen({ config, onFinish }) {
   const [questions, setQuestions] = useState([])
-  const [answers, setAnswers] = useState({}) // { id: { correct_answer, explanation } }
+  const [answers, setAnswers] = useState({})
   const [current, setCurrent] = useState(0)
-  const [userAnswers, setUserAnswers] = useState([]) // array of AnswerRecord
+  const [userAnswers, setUserAnswers] = useState([])
   const [selected, setSelected] = useState(null)
   const [revealed, setRevealed] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const startTime = useRef(new Date().toISOString())
-  const timerActive = useRef(true)
   const elapsed = useTimer(config.timerEnabled && !loading)
+
+  // Refs for GSAP targets
+  const questionWrapRef = useRef(null)
+  const nextBtnRef = useRef(null)
+  // Keep latest state values accessible inside contextSafe callbacks
+  const stateRef = useRef({})
+  stateRef.current = { questions, current, selected, answers, userAnswers, elapsed }
 
   useEffect(() => {
     const { topic, difficulty, numQuestions } = config
     Promise.all([
-      api.get(`/api/quiz/${topic}/${difficulty}?num_questions=${numQuestions}`),
-      api.get(`/api/quiz/${topic}/${difficulty}/answers`),
+      getQuiz(topic, difficulty, numQuestions),
+      getAnswers(topic, difficulty),
     ])
-      .then(([qRes, aRes]) => {
-        setQuestions(qRes.data)
-        setAnswers(aRes.data)
-      })
+      .then(([qRes, aRes]) => { setQuestions(qRes); setAnswers(aRes) })
       .catch(e => setError(e.response?.data?.detail || 'Error al cargar preguntas'))
       .finally(() => setLoading(false))
   }, [])
+
+  // Animate question in when current changes (or on first load)
+  const { contextSafe } = useGSAP(() => {
+    if (loading || !questionWrapRef.current) return
+    gsap.fromTo(
+      questionWrapRef.current,
+      { opacity: 0, x: 24 },
+      { opacity: 1, x: 0, duration: 0.25, ease: 'power2.out' }
+    )
+  }, { scope: questionWrapRef, dependencies: [current, loading], revertOnUpdate: true })
+
+  // Animate "next" button in when revealed
+  useGSAP(() => {
+    if (!revealed || !nextBtnRef.current) return
+    gsap.fromTo(
+      nextBtnRef.current,
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.2, ease: 'power2.out', delay: 0.05 }
+    )
+  }, { dependencies: [revealed] })
 
   const handleSelect = useCallback((option) => {
     if (revealed) return
@@ -185,48 +276,55 @@ function QuizScreen({ config, onFinish }) {
     setRevealed(true)
   }, [revealed])
 
-  const handleNext = useCallback(() => {
+  // contextSafe so the out-animation is tracked by the GSAP context
+  const handleNext = contextSafe(() => {
+    const { questions, current, selected, answers, userAnswers, elapsed } = stateRef.current
     const q = questions[current]
     const answerData = answers[q.id] || {}
-    const isCorrect = selected === answerData.correct_answer
-
-    const record = {
-      id: q.id,
-      user_answer: selected,
-      correct_answer: answerData.correct_answer,
-      is_correct: isCorrect,
-    }
+    const correctText = answerData.correct_answer
+    const isCorrect = selected === correctText
+    const record = { id: q.id, user_answer: selected, correct_answer: correctText, is_correct: isCorrect }
     const newAnswers = [...userAnswers, record]
 
-    if (current + 1 >= questions.length) {
-      // Done
-      const finishedAt = new Date().toISOString()
-      const score = newAnswers.filter(a => a.is_correct).length
-      onFinish({
-        topic: config.topic,
-        difficulty: config.difficulty,
-        score,
-        total: questions.length,
-        started_at: startTime.current,
-        finished_at: finishedAt,
-        duration_seconds: elapsed,
-        answers: newAnswers,
-        questions,
-        answerMap: answers,
-      })
-    } else {
-      setUserAnswers(newAnswers)
-      setCurrent(c => c + 1)
-      setSelected(null)
-      setRevealed(false)
-    }
-  }, [questions, current, selected, answers, userAnswers, elapsed])
+    // Slide question out, then advance state (triggers animate-in via useGSAP dependency)
+    gsap.to(questionWrapRef.current, {
+      opacity: 0,
+      x: -24,
+      duration: 0.18,
+      ease: 'power2.in',
+      onComplete: () => {
+        if (current + 1 >= questions.length) {
+          onFinish({
+            exam_id: localStorage.getItem('selectedExam') || 'ai_practitioner',
+            topic: config.topic,
+            difficulty: config.difficulty,
+            score: newAnswers.filter(a => a.is_correct).length,
+            total: questions.length,
+            started_at: startTime.current,
+            finished_at: new Date().toISOString(),
+            duration_seconds: elapsed,
+            answers: newAnswers,
+            questions,
+            answerMap: answers,
+          })
+        } else {
+          setUserAnswers(newAnswers)
+          setCurrent(c => c + 1)
+          setSelected(null)
+          setRevealed(false)
+        }
+      },
+    })
+  })
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-64 gap-4">
-        <div className="w-12 h-12 border-4 border-aws-orange border-t-transparent rounded-full animate-spin" />
-        <p className="text-gray-500">Cargando preguntas…</p>
+        <div
+          className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin"
+          style={{ borderColor: '#FF9900', borderTopColor: 'transparent' }}
+        />
+        <p className="text-sm" style={{ color: '#8B949E' }}>Cargando preguntas…</p>
       </div>
     )
   }
@@ -234,7 +332,7 @@ function QuizScreen({ config, onFinish }) {
   if (error) {
     return (
       <div className="max-w-md mx-auto card text-center py-12">
-        <p className="text-red-500 font-semibold mb-4">{error}</p>
+        <p className="text-sm mb-4" style={{ color: '#fca5a5' }}>{error}</p>
         <button onClick={() => window.location.reload()} className="btn-outline">
           Volver a intentar
         </button>
@@ -244,42 +342,50 @@ function QuizScreen({ config, onFinish }) {
 
   const q = questions[current]
   const answerData = answers[q?.id] || {}
-  const progress = ((current) / questions.length) * 100
+  const correctAnswerText = answerData.correct_answer ?? null
+  const progress = (current / questions.length) * 100
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <span className="text-sm font-semibold text-gray-500">
-            Pregunta <span className="text-aws-orange font-bold">{current + 1}</span> / {questions.length}
+    <div className="max-w-2xl mx-auto space-y-5">
+      {/* Header bar */}
+      <div
+        className="flex items-center justify-between px-4 py-3 rounded-xl"
+        style={{ background: '#161B22', border: '1px solid #21262D' }}
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-medium" style={{ color: '#8B949E' }}>
+            Pregunta{' '}
+            <span style={{ color: '#FF9900', fontWeight: 700 }}>{current + 1}</span>
+            {' '}/{' '}{questions.length}
           </span>
-          <ProgressBar value={progress} className="mt-1 w-48" />
+          <ProgressBar value={progress} className="w-32" />
         </div>
         {config.timerEnabled && (
-          <div className="flex items-center gap-2 text-aws-dark font-mono text-xl font-bold">
-            <Timer size={18} className="text-aws-orange" />
+          <div className="flex items-center gap-1.5 font-mono text-sm font-bold" style={{ color: '#E6EDF3' }}>
+            <Timer size={14} style={{ color: '#FF9900' }} />
             {formatTime(elapsed)}
           </div>
         )}
       </div>
 
-      {/* Question */}
-      <QuestionCard
-        question={q}
-        selected={selected}
-        revealed={revealed}
-        correctAnswer={answerData.correct_answer}
-        explanation={answerData.explanation}
-        onSelect={handleSelect}
-      />
+      {/* Question — GSAP handles slide-in/out via questionWrapRef */}
+      <div ref={questionWrapRef}>
+        <QuestionCard
+          question={q}
+          selected={selected}
+          revealed={revealed}
+          correctAnswer={correctAnswerText}
+          explanation={answerData.explanation}
+          onSelect={handleSelect}
+        />
+      </div>
 
-      {/* Next button */}
+      {/* Next button — GSAP animates in when revealed */}
       {revealed && (
-        <div className="flex justify-end animate-slide-up">
+        <div ref={nextBtnRef} className="flex justify-end">
           <button onClick={handleNext} className="btn-primary">
             {current + 1 >= questions.length ? 'Ver resultados' : 'Siguiente'}
-            <ChevronRight size={18} />
+            <ChevronRight size={16} />
           </button>
         </div>
       )}
@@ -289,12 +395,17 @@ function QuizScreen({ config, onFinish }) {
 
 // ── Main Quiz page ─────────────────────────────────────────────────────────────
 export default function Quiz() {
+  const selectedExam = localStorage.getItem('selectedExam')
+  if (!selectedExam) {
+    return <Navigate to="/exam-selection" replace />
+  }
   const [config, setConfig] = useState(null)
   const navigate = useNavigate()
 
   const handleFinish = async (result) => {
     try {
-      await api.post('/api/results', {
+      await saveResult({
+        exam_id: localStorage.getItem('selectedExam') || 'ai_practitioner',
         topic: result.topic,
         difficulty: result.difficulty,
         score: result.score,
@@ -310,9 +421,7 @@ export default function Quiz() {
     navigate('/results', { state: result })
   }
 
-  if (!config) {
-    return <SetupScreen onStart={setConfig} />
-  }
-
-  return <QuizScreen config={config} onFinish={handleFinish} />
+  return config
+    ? <QuizScreen config={config} onFinish={handleFinish} />
+    : <SetupScreen onStart={setConfig} />
 }

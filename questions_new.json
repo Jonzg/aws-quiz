@@ -1,0 +1,1175 @@
+{
+    "libro": "AWS Certified AI Practitioner (AIF-C01) Study Guide",
+    "autor": "Tom Taulli",
+    "editorial": "O'Reilly Media, 2025",
+    "total_preguntas": 102,
+    "capitulos": [
+        {
+            "seccion": "Capítulo 2: AWS Fundamentals for the AI Practitioner",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "What is the definition of the shared responsibility model?",
+                    "respuestas": {
+                        "a": "AWS is responsible for all security aspects of cloud applications.",
+                        "b": "Customers are responsible for security in the cloud, while AWS manages security of the cloud.",
+                        "c": "AWS only provides security updates if customers request them.",
+                        "d": "Customers are required to manage physical security at AWS data centers."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "Which of the following is an AWS infrastructure as a service (IaaS)?",
+                    "respuestas": {
+                        "a": "AWS Lambda",
+                        "b": "Amazon EC2",
+                        "c": "Amazon RDS",
+                        "d": "Amazon Chime"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "Which AWS service provides virtual machines (VMs)?",
+                    "respuestas": {
+                        "a": "Amazon RDS",
+                        "b": "Amazon S3",
+                        "c": "Amazon EC2",
+                        "d": "AWS Glue"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "What is a key advantage of the public cloud?",
+                    "respuestas": {
+                        "a": "The customer has full control over infrastructure and customization.",
+                        "b": "There are lower costs due to shared resources.",
+                        "c": "You have guaranteed security against all cybersecurity threats.",
+                        "d": "There is a single-tenant model for each organization."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "Which of the following best defines cloud computing?",
+                    "respuestas": {
+                        "a": "A set of physical servers that companies purchase and manage internally",
+                        "b": "The ability to access IT resources on demand over the internet",
+                        "c": "A private data center managed by a single company",
+                        "d": "A high-performance computing system for AI applications"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "What is the purpose of AWS Identity and Access Management (IAM)?",
+                    "respuestas": {
+                        "a": "To encrypt all AWS storage resources",
+                        "b": "To manage user authentication and authorization for AWS services",
+                        "c": "To provide monitoring and logging for AWS environments",
+                        "d": "To automatically back up AWS resources for disaster recovery purposes"
+                    },
+                    "respuesta_correcta": "B"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 3: AI and Machine Learning",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "Which of the following best describes the role of feature engineering in machine learning (ML)?",
+                    "respuestas": {
+                        "a": "It creates new variables or transforms data to improve model performance.",
+                        "b": "It trains the model using labeled data.",
+                        "c": "It evaluates the accuracy of a trained model.",
+                        "d": "It ensures that the model is not biased."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "What is the primary purpose of reinforcement learning in AI?",
+                    "respuestas": {
+                        "a": "To learn patterns from labeled data",
+                        "b": "To optimize decisions based on rewards and penalties",
+                        "c": "To detect anomalies in datasets",
+                        "d": "To reduce dimensionality in high-dimensional datasets"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "A company is using Amazon SageMaker to build a machine learning (ML) model. What is the primary advantage of using SageMaker over traditional on- premises ML infrastructure?",
+                    "respuestas": {
+                        "a": "It eliminates the need for data preprocessing.",
+                        "b": "It requires more manual intervention than on-premises solutions.",
+                        "c": "It provides pretrained models that cannot be customized.",
+                        "d": "It automates the entire ML lifecycle, from training to deployment."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "What is the primary difference between supervised and unsupervised learning?",
+                    "respuestas": {
+                        "a": "Supervised learning does not require labeled data, while unsupervised learning does.",
+                        "b": "Supervised learning focuses on reinforcement learning, while unsupervised learning does not.",
+                        "c": "Supervised learning uses labeled data, while unsupervised learning finds patterns in unlabeled data.",
+                        "d": "Supervised learning is only used for classification tasks, while unsupervised learning is used for all other ML applications."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "A retailer wants to group its customers based on purchasing behavior without using predefined labels. Which machine learning (ML) approach should they use?",
+                    "respuestas": {
+                        "a": "Reinforcement learning",
+                        "b": "Supervised learning",
+                        "c": "Unsupervised learning",
+                        "d": "Semisupervised learning"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "Why is model monitoring important in machine learning (ML)?",
+                    "respuestas": {
+                        "a": "It prevents overfitting by reducing the number of features in a dataset.",
+                        "b": "It ensures that a deployed model maintains accuracy and adapts to data changes.",
+                        "c": "It eliminates the need for retraining models over time.",
+                        "d": "It guarantees that predictions will always be correct."
+                    },
+                    "respuesta_correcta": "B"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 4: Understanding Generative AI",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "Which generative AI model involves two neural networks that compete against each other?",
+                    "respuestas": {
+                        "a": "Variational autoencoder (VAE)",
+                        "b": "Transformer model",
+                        "c": "Generative adversarial network (GAN)",
+                        "d": "Diffusion model"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "What is the purpose of positional encoding for a transformer model?",
+                    "respuestas": {
+                        "a": "To enhance the performance of backpropagation",
+                        "b": "To process words in the original order of the text",
+                        "c": "To improve the reliability of GPUs",
+                        "d": "To make AI models more cost-effective"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "What is a key advantage of retrieval-augmented generation (RAG) compared to the process of fine-tuning?",
+                    "respuestas": {
+                        "a": "RAG requires less energy.",
+                        "b": "It significantly increases the model’s speed.",
+                        "c": "RAG mitigates bias in AI responses.",
+                        "d": "It does not require the modification of a model’s internal weights."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "What is a key advantage of a transformer model over a recurrent neural network (RNN)?",
+                    "respuestas": {
+                        "a": "Transformers require no labeled data.",
+                        "b": "Transformers can process entire datasets in parallel.",
+                        "c": "RNNs cannot process text.",
+                        "d": "Transformers do not require training."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "Why does an AI model create hallucinations?",
+                    "respuestas": {
+                        "a": "They rely on probabilistic predictions.",
+                        "b": "They use GPUs, which can be unpredictable.",
+                        "c": "They are based on supervised learning.",
+                        "d": "They are only a problem with small models."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "Which part of a neural network allows for detecting patterns in a dataset?",
+                    "respuestas": {
+                        "a": "Input layer",
+                        "b": "Output layer",
+                        "c": "Hidden layer",
+                        "d": "Activation layer"
+                    },
+                    "respuesta_correcta": "C"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 5: Real-World AI Applications with AWS Tools",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "What is the difference between intelligent document processing (IDP) and natural language processing (NLP)?",
+                    "respuestas": {
+                        "a": "NLP is only used for chatbots, while IDP is used for all text-based AI applications.",
+                        "b": "NLP is a subset of IDP.",
+                        "c": "IDP automates data extraction for business documents, while NLP is for broader text-processing tasks.",
+                        "d": "NLP is only for handwritten language, while IDP is for printed language."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "Which AWS service would you use for translating text into different languages?",
+                    "respuestas": {
+                        "a": "Amazon Comprehend",
+                        "b": "Amazon Polly",
+                        "c": "Amazon Translate",
+                        "d": "Amazon Textract"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "What is the purpose of Amazon Kendra?",
+                    "respuestas": {
+                        "a": "It uses AI models to translate foreign languages.",
+                        "b": "It converts text into speech.",
+                        "c": "It uses AI to create financial reports.",
+                        "d": "It provides an AI-powered search-and-retrieval system that processes natural language queries."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "What is a core AI capability in Amazon Kendra?",
+                    "respuestas": {
+                        "a": "It retrieves data from a quantum database.",
+                        "b": "It uses linear regression analysis.",
+                        "c": "It uses retrieval-augmented generation (RAG) to improve search accuracy.",
+                        "d": "It uses keyword matching."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "What does Amazon Transcribe do?",
+                    "respuestas": {
+                        "a": "It converts spoken audio into written text.",
+                        "b": "It converts text into another language.",
+                        "c": "It extracts information from a document.",
+                        "d": "It provides for sentiment analysis of text."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "What is the purpose of Amazon Polly?",
+                    "respuestas": {
+                        "a": "It transcribes spoken audio into text.",
+                        "b": "It translates text into other languages.",
+                        "c": "It extracts insights from large databases for analytics.",
+                        "d": "It converts text into humanlike speech."
+                    },
+                    "respuesta_correcta": "D"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 6: Building with Amazon Bedrock and Amazon Q",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "For an AI model in Amazon Bedrock, what might happen if you adjust the temperature and Top P?",
+                    "respuestas": {
+                        "a": "Using both will guarantee more accurate responses.",
+                        "b": "Using a combination of these may cause unpredictable or unexpected responses.",
+                        "c": "Using both will disable the model.",
+                        "d": "Using both will make the responses more deterministic."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "When configuring the image/video playground in Amazon Bedrock, what is a “negative prompt”?",
+                    "respuestas": {
+                        "a": "This increases the model’s temperature.",
+                        "b": "It generates black-and-white images.",
+                        "c": "It specifies elements you want to exclude from the image or video.",
+                        "d": "This decreases the size of the image."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "What is the role of the modality filter in Amazon Bedrock’s model catalog?",
+                    "respuestas": {
+                        "a": "The filter lets users sort models by license type.",
+                        "b": "It filters models based on language support.",
+                        "c": "The filter identifies models that support serverless deployment.",
+                        "d": "It categorizes models by input and output types like text, image, audio, and multimodal."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "For a model in Amazon Bedrock, why would you increase the setting for temperature?",
+                    "respuestas": {
+                        "a": "To generate deterministic content",
+                        "b": "To produce videos",
+                        "c": "To generate creative content",
+                        "d": "To summarize information"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "For a model profile in Amazon Bedrock, what type of information would you usually find?",
+                    "respuestas": {
+                        "a": "Type of GPU used",
+                        "b": "Version, release date, deployment type, modalities, and model ID",
+                        "c": "Only the license information",
+                        "d": "The datasets"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "What do you need to do to gain access to foundation models (FMs) in Amazon Bedrock that are not enabled by default?",
+                    "respuestas": {
+                        "a": "Enable “On-demand” and restart the session.",
+                        "b": "Submit a model access request form with use case details.",
+                        "c": "Complete an AWS certification exam.",
+                        "d": "Download the model on your own computer."
+                    },
+                    "respuesta_correcta": "B"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 7: A Guide to Prompt Engineering",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "Which of the following is a required component of every prompt when working with a foundation model (FM)?",
+                    "respuestas": {
+                        "a": "Context",
+                        "b": "Input data",
+                        "c": "Instruction",
+                        "d": "Output indicator"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "What is the reason for the output indicator in a prompt?",
+                    "respuestas": {
+                        "a": "To provide relevant examples of how to write better prompts",
+                        "b": "To specify the format or structure of the model’s response",
+                        "c": "To provide background information for the task",
+                        "d": "To train the model on a new dataset"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "What is the purpose of context in a prompt?",
+                    "respuestas": {
+                        "a": "To supply relevant input data",
+                        "b": "To provide background that improves response quality",
+                        "c": "To specify the output format",
+                        "d": "To summarize past interactions with the model"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "Why would you use delimiters like ### in a prompt?",
+                    "respuestas": {
+                        "a": "They minimize the use of tokens.",
+                        "b": "They separate the formatting options.",
+                        "c": "They clearly distinguish between instructions and input data.",
+                        "d": "They improve model performance for follow-up prompts."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "Which of the following best demonstrates a persona-based context?",
+                    "respuestas": {
+                        "a": "“Write the blog post in under 500 words.”",
+                        "b": "“You are a procurement analyst at a mid-sized manufacturing company.”",
+                        "c": "“These are the product reviews to analyze.”",
+                        "d": "“Format the results as a bar chart.”"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "Which of the following is an example of few-shot prompting?",
+                    "respuestas": {
+                        "a": "“Translate this blog into German.”",
+                        "b": "“List three benefits of generative AI.”",
+                        "c": "“Here are examples of customer support feedback and their categories. Now categorize this new inquiry.”",
+                        "d": "“Let’s break this down step by step.”"
+                    },
+                    "respuesta_correcta": "C"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 8: A Framework for Responsible AI",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "Which of the following methods can help reduce overfitting in an AI model?",
+                    "respuestas": {
+                        "a": "Increasing the complexity of the model",
+                        "b": "Adding more noisy data",
+                        "c": "Stopping training early",
+                        "d": "Avoiding hyperparameters"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "What is one technique companies use to address intellectual property concerns in generative AI?",
+                    "respuestas": {
+                        "a": "Removing all training data from public sources",
+                        "b": "Restricting access to AI tools",
+                        "c": "Limiting AI to internal company use only",
+                        "d": "Creating licensing agreements with content providers"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "Why is accuracy in AI models considered key to responsible AI?",
+                    "respuestas": {
+                        "a": "It improves reliability, trust, and safety.",
+                        "b": "Accurate models require fewer updates and patches.",
+                        "c": "Accuracy makes models less costly.",
+                        "d": "Accuracy only matters for visual models."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "What is the main purpose of fairness in AI systems?",
+                    "respuestas": {
+                        "a": "Increasing the sophistication of models",
+                        "b": "Reducing latency in decision making",
+                        "c": "Enhancing personalization features",
+                        "d": "Avoiding discrimination against individuals or groups"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "How does explainability compare to transparency?",
+                    "respuestas": {
+                        "a": "Explainability focuses on user interface design.",
+                        "b": "Explainability explains model decisions; transparency shares system details.",
+                        "c": "They mean the same thing.",
+                        "d": "Transparency is only required in open source models."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "What do privacy and security in AI primarily aim to protect?",
+                    "respuestas": {
+                        "a": "Model weights and parameters",
+                        "b": "Algorithm transparency",
+                        "c": "Individual data and usage control",
+                        "d": "Developer intellectual property"
+                    },
+                    "respuesta_correcta": "C"
+                }
+            ]
+        },
+        {
+            "seccion": "Capítulo 9: Security, Compliance, and Governance for AI Solutions",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "What is a key difference between governance and compliance?",
+                    "respuestas": {
+                        "a": "Governance enforces laws, while compliance manages innovation.",
+                        "b": "Governance protects data, while compliance ensures ethical AI development.",
+                        "c": "Governance guides decision making and risk management, while compliance ensures adherence to external and internal rules.",
+                        "d": "Governance is optional, but compliance is legally mandatory for all companies."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "In AWS, what best describes the purpose of a defense-in-depth strategy?",
+                    "respuestas": {
+                        "a": "To rely on a single strong security control.",
+                        "b": "To use multiple, layered security measures to catch threats that bypass one control.",
+                        "c": "To automate model training and inference pipelines.",
+                        "d": "To combine multiple security layers so if one fails, others can provide protection."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "Which AWS services would you primarily use to protect applications against denial-of-service (DoS) attacks and manage secure user sign-ins?",
+                    "respuestas": {
+                        "a": "Amazon GuardDuty and AWS Private CA",
+                        "b": "AWS Key Management Service (KMS) and AWS Certificate Manager (ACM)",
+                        "c": "AWS Shield and Amazon Cognito",
+                        "d": "Amazon Virtual Private Cloud (VPC) and AWS WAF"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "Which AWS service helps route sensitive traffic privately without exposing it to the public internet?",
+                    "respuestas": {
+                        "a": "AWS PrivateLink",
+                        "b": "AWS Security Hub",
+                        "c": "Amazon VPC",
+                        "d": "Amazon GuardDuty"
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "Which of the following is an example of a governance policy for AI solutions?",
+                    "respuestas": {
+                        "a": "Building AI models without any human review",
+                        "b": "Using only public datasets without checking privacy concerns",
+                        "c": "Defining standards for data sourcing, model training, evaluation, and deployment approvals",
+                        "d": "Allowing unrestricted model deployment to speed innovation"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "Which AWS-supported compliance framework is specifically focused on protecting United States healthcare information?",
+                    "respuestas": {
+                        "a": "Payment Card Industry Data Security Standard (PCI DSS)",
+                        "b": "Health Insurance Portability and Accountability Act (HIPAA)",
+                        "c": "General Data Protection Regulation (GDPR)",
+                        "d": "European Union Agency for Cybersecurity (ENISA)"
+                    },
+                    "respuesta_correcta": "B"
+                }
+            ]
+        },
+        {
+            "seccion": "Examen de Práctica (Appendix A)",
+            "preguntas": [
+                {
+                    "numero": 1,
+                    "pregunta": "What is an availability zone (AZ)?",
+                    "respuestas": {
+                        "a": "A physical data center containing multiple AWS servers",
+                        "b": "A logical partition of AWS infrastructure that provides redundancy",
+                        "c": "A security group that isolates AWS resources",
+                        "d": "A region that spans multiple continents"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 2,
+                    "pregunta": "Which cloud service model provides full applications to users without requiring them to manage infrastructure?",
+                    "respuestas": {
+                        "a": "Infrastructure as a service (IaaS)",
+                        "b": "Platform as a service (PaaS)",
+                        "c": "Software as a service (SaaS)",
+                        "d": "Virtualization as a service (VaaS)"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 3,
+                    "pregunta": "What is a defining characteristic of the hybrid cloud model?",
+                    "respuestas": {
+                        "a": "It exclusively uses private data centers for all workloads.",
+                        "b": "It combines public and private cloud environments.",
+                        "c": "It relies only on on-premises infrastructure.",
+                        "d": "It uses a multitenant model for security."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 4,
+                    "pregunta": "What is a key advantage of AWS regions?",
+                    "respuestas": {
+                        "a": "They eliminate the need for availability zones (AZs).",
+                        "b": "They allow customers to comply with data residency requirements.",
+                        "c": "They are only available in Asia.",
+                        "d": "They provide unlimited computing power without redundancy."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 5,
+                    "pregunta": "Which AWS service allows developers to deploy applications without managing servers?",
+                    "respuestas": {
+                        "a": "Amazon EC2",
+                        "b": "AWS Lambda",
+                        "c": "Amazon RDS",
+                        "d": "Amazon CloudFront"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 6,
+                    "pregunta": "Which of the following best describes Amazon S3?",
+                    "respuestas": {
+                        "a": "A relational database service for structured data storage",
+                        "b": "A scalable object storage service designed for durability and availability",
+                        "c": "A high-performance compute service for running applications",
+                        "d": "A content delivery network (CDN) for accelerating web traffic"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 7,
+                    "pregunta": "What is the main benefit of using a confusion matrix to evaluate a machine learning (ML) model?",
+                    "respuestas": {
+                        "a": "It shows the training time of the model.",
+                        "b": "It helps analyze false positives and false negatives.",
+                        "c": "It calculates the total number of data points used in training.",
+                        "d": "It eliminates the need for additional performance metrics."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 8,
+                    "pregunta": "A bank wants to detect fraudulent transactions in real time. What type of inference should they use?",
+                    "respuestas": {
+                        "a": "Batch inference",
+                        "b": "Asynchronous inference",
+                        "c": "Real-time inference",
+                        "d": "On-demand inference"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 9,
+                    "pregunta": "What is a major challenge when using high-dimensional datasets in machine learning (ML)?",
+                    "respuestas": {
+                        "a": "It reduces the need for model tuning.",
+                        "b": "It increases computational costs and complexity.",
+                        "c": "It makes models interpret data more efficiently.",
+                        "d": "It ensures better accuracy for all ML tasks."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 10,
+                    "pregunta": "A company notices that its deployed machine learning (ML) model is becoming less accurate over time due to changing customer behavior. What issue is this?",
+                    "respuestas": {
+                        "a": "Model overfitting",
+                        "b": "Hyperparameter tuning issue",
+                        "c": "Feature engineering error",
+                        "d": "Drift"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 11,
+                    "pregunta": "What is the primary reason for using Amazon SageMaker Model Monitor?",
+                    "respuestas": {
+                        "a": "To train deep-learning models faster",
+                        "b": "To automatically deploy machine learning (ML) models",
+                        "c": "To detect issues such as data drift and concept drift",
+                        "d": "To fine-tune pretrained models"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 12,
+                    "pregunta": "A business wants to improve the efficiency of their data processing pipeline by automating feature extraction and transformation. Which AWS tool is best suited for this?",
+                    "respuestas": {
+                        "a": "Amazon Rekognition",
+                        "b": "Amazon Textract",
+                        "c": "Amazon SageMaker Data Wrangler",
+                        "d": "AWS Glue"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 13,
+                    "pregunta": "A software company wants to analyze customer feedback to determine whether reviews are positive, neutral, or negative. Which AWS service should they use?",
+                    "respuestas": {
+                        "a": "Amazon Textract",
+                        "b": "Amazon Comprehend",
+                        "c": "AWS Lambda",
+                        "d": "Amazon SageMaker Feature Store"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 14,
+                    "pregunta": "What is the primary purpose of hyperparameter tuning in machine learning (ML)?",
+                    "respuestas": {
+                        "a": "To create new training data",
+                        "b": "To adjust model parameters for improved performance",
+                        "c": "To convert categorical data into numerical form",
+                        "d": "To speed up the training process"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 15,
+                    "pregunta": "How do diffusion models work?",
+                    "respuestas": {
+                        "a": "They add and remove noise in various steps.",
+                        "b": "They use competing neural networks.",
+                        "c": "They only create text.",
+                        "d": "They only create sound."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 16,
+                    "pregunta": "What is the primary purpose of fine-tuning a foundation model (FM)?",
+                    "respuestas": {
+                        "a": "To make a model more general-purpose",
+                        "b": "To customize the model for a specific domain",
+                        "c": "To lower the latency",
+                        "d": "To train the model from scratch"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 17,
+                    "pregunta": "How does an encoder work in a transformer model?",
+                    "respuestas": {
+                        "a": "It creates synthetic data.",
+                        "b": "It fine-tunes hyperparameters.",
+                        "c": "It evaluates model predictions.",
+                        "d": "It processes input sequences and extracts meaningful representations."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 18,
+                    "pregunta": "Which of the following describes a limit on how much a large language model (LLM) can process at a time?",
+                    "respuestas": {
+                        "a": "Overfitting",
+                        "b": "Bias",
+                        "c": "Context windows",
+                        "d": "The discriminator"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 19,
+                    "pregunta": "What’s the reason for using reinforcement learning from human feedback (RLHF) in generative AI models?",
+                    "respuestas": {
+                        "a": "To improve the alignment the model’s responses with human preferences",
+                        "b": "To lower training costs",
+                        "c": "To replace deep learning models",
+                        "d": "To reduce the latency of the model"
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 20,
+                    "pregunta": "What is a key benefit of a multimodal foundation model (FM)?",
+                    "respuestas": {
+                        "a": "It requires much less data for the training",
+                        "b": "It can process and create different types of content like text, images, and videos",
+                        "c": "It is more explainable than text-based models",
+                        "d": "It does not require GPUs"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 21,
+                    "pregunta": "Of the choices below, which is a main reason why large language models consume significant compute resources?",
+                    "respuestas": {
+                        "a": "They use retrieval-augmented generation (RAG).",
+                        "b": "They use complex linear algebra.",
+                        "c": "They process billions of parameters to generate accurate responses.",
+                        "d": "They rely on human feedback and evaluation for all responses."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 22,
+                    "pregunta": "Why can RAG help lower hallucinations in AI models?",
+                    "respuestas": {
+                        "a": "It has guardrails for certain types of prompts",
+                        "b": "It searches a proprietary database to enhance the response",
+                        "c": "It disables the probability system",
+                        "d": "It relies only on human supervision"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 23,
+                    "pregunta": "Among these choices, what is a core capability of Amazon Lex?",
+                    "respuestas": {
+                        "a": "It analyzes data for fraud detection.",
+                        "b": "It allows for video analysis.",
+                        "c": "It supports intents and slot filling to create conversational AI experiences.",
+                        "d": "It automates the extraction of text from scanned documents."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 24,
+                    "pregunta": "What can you do with Amazon Comprehend?",
+                    "respuestas": {
+                        "a": "Analyze text to extract insights such as for sentiment, key phrases, and entities.",
+                        "b": "Transcribe audio recordings into text.",
+                        "c": "Convert text into humanlike speech.",
+                        "d": "Translate text into multiple languages."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 25,
+                    "pregunta": "What is a major capability of Amazon Rekognition?",
+                    "respuestas": {
+                        "a": "The translation of spoken language into text.",
+                        "b": "The use of optical character recognition (OCR) for scanned documents.",
+                        "c": "The generation of AI-powered chatbot responses.",
+                        "d": "The ability to recognize faces, objects, and scenes in images and videos."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 26,
+                    "pregunta": "Among these options, which is a technique used in natural language processing (NLP) preprocessing?",
+                    "respuestas": {
+                        "a": "Automatically correcting all grammatical errors in a sentence.",
+                        "b": "Translating text into another language before processing.",
+                        "c": "Lemmatization, which reduces words to their root form.",
+                        "d": "Applying deepfake detection to verify text authenticity."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 27,
+                    "pregunta": "Why is stopword removal used in natural language processing (NLP) preprocessing?",
+                    "respuestas": {
+                        "a": "Stopwords add important meaning to a text.",
+                        "b": "It helps remove uncommon words to focus only on frequently used terms.",
+                        "c": "Stopwords are removed to reduce text length to speed up processing.",
+                        "d": "Removing stopwords like the and is helps improve efficiency without losing essential meaning."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 28,
+                    "pregunta": "When is AI not always the best solution for a business use case?",
+                    "respuestas": {
+                        "a": "AI models do not work well in cloud-based environments.",
+                        "b": "AI requires human oversight at all times.",
+                        "c": "AI can only be used for simple automation tasks.",
+                        "d": "AI solutions can be complex and costly when a simpler approach may suffice."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 29,
+                    "pregunta": "What is the Compare Models feature in the Bedrock playground?",
+                    "respuestas": {
+                        "a": "It allows for using image and text responses.",
+                        "b": "It provides for making longer responses for two different models.",
+                        "c": "It combines responses from two models.",
+                        "d": "It allows for evaluating the side-by-side responses from two different models."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 30,
+                    "pregunta": "Why would you fine-tune a model in Bedrock?",
+                    "respuestas": {
+                        "a": "To reduce compute costs",
+                        "b": "To improve latency",
+                        "c": "To improve response accuracy for domain-specific scenarios",
+                        "d": "To use images"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 31,
+                    "pregunta": "What is a key advantage of using open source foundation models (FMs) in AWS Bedrock?",
+                    "respuestas": {
+                        "a": "They are always free to use.",
+                        "b": "They support real-time inference by default.",
+                        "c": "They offer transparency, customization, and community innovation.",
+                        "d": "They provide the codebase and datasets."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 32,
+                    "pregunta": "What’s a benefit of using a distilled model in Bedrock?",
+                    "respuestas": {
+                        "a": "It reduces compute requirements, making it suitable for edge devices.",
+                        "b": "It increases the context window.",
+                        "c": "It increases the creativity of the responses.",
+                        "d": "It guarantees higher accuracy than larger models."
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 33,
+                    "pregunta": "What is a key benefit of multiagent collaboration in Bedrock?",
+                    "respuestas": {
+                        "a": "It relies on distilled models.",
+                        "b": "It provides for 100% accuracy.",
+                        "c": "It allows different agents to specialize in specific tasks, leading to better problem solving.",
+                        "d": "It enables users to edit model weights and biases."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 34,
+                    "pregunta": "What is a key benefit of batch processing when using Bedrock?",
+                    "respuestas": {
+                        "a": "There is low latency.",
+                        "b": "The context window is unlimited.",
+                        "c": "There is higher accuracy.",
+                        "d": "Lower costs."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 35,
+                    "pregunta": "Which technique improves the consistency and clarity of prompts when used repeatedly?",
+                    "respuestas": {
+                        "a": "Few-shot prompting",
+                        "b": "Zero-shot prompting",
+                        "c": "Chain-of-thought prompting",
+                        "d": "Prompt templates"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 36,
+                    "pregunta": "What is the purpose of chain-of-thought (CoT) prompting?",
+                    "respuestas": {
+                        "a": "To specify for the large language model (LLM) which examples to use",
+                        "b": "To limit the response of the large language model (LLM)",
+                        "c": "To allow for step-by-step reasoning for complex problems",
+                        "d": "To adjust the large language model (LLM) parameters"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 37,
+                    "pregunta": "Which type of prompting involves providing several examples to help the model learn a pattern?",
+                    "respuestas": {
+                        "a": "Zero-shot prompting",
+                        "b": "Chain-of-thought (CoT) prompting",
+                        "c": "Few-shot prompting",
+                        "d": "Template prompting"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 38,
+                    "pregunta": "What is model poisoning?",
+                    "respuestas": {
+                        "a": "This allows a model to process personal health data.",
+                        "b": "This is when biased or malicious data is injected into the training process.",
+                        "c": "This when a model lacks proper licensing.",
+                        "d": "This is where there are conflicting instructions in a single prompt."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 39,
+                    "pregunta": "What is exposure as it relates to security risks with foundation models (FMs)?",
+                    "respuestas": {
+                        "a": "The use of the model for consumer apps",
+                        "b": "The loss of GPU performance during training",
+                        "c": "The unintentional inclusion of sensitive data in training sets",
+                        "d": "The failure to generate output within token limits"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 40,
+                    "pregunta": "What is jailbreaking of a foundation model (FM)?",
+                    "respuestas": {
+                        "a": "Running a model without GPU acceleration",
+                        "b": "Resetting a model’s API token for expanding the access",
+                        "c": "Deleting a model’s training history",
+                        "d": "Tricking the model into bypassing safety and ethical restrictions"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 41,
+                    "pregunta": "Which of the following best describes AI governance?",
+                    "respuestas": {
+                        "a": "A set of marketing strategies for AI adoption",
+                        "b": "Policies and oversight structures to guide ethical AI development",
+                        "c": "Legal ownership of AI-generated content",
+                        "d": "Techniques for building large language models (LLMs)"
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 42,
+                    "pregunta": "What does controllability in AI focus on?",
+                    "respuestas": {
+                        "a": "Reducing computational costs",
+                        "b": "Building faster AI systems",
+                        "c": "Aligning AI actions with human intent and oversight",
+                        "d": "Removing human involvement"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 43,
+                    "pregunta": "Which of the following is a business advantage of adopting responsible AI practices?",
+                    "respuestas": {
+                        "a": "Enhanced trust and improved brand reputation",
+                        "b": "Reduced need for data collection",
+                        "c": "Increased dependence on human intervention",
+                        "d": "Elimination of all algorithmic errors"
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 44,
+                    "pregunta": "What is the role of Amazon SageMaker Clarify in responsible AI?",
+                    "respuestas": {
+                        "a": "Detecting harmful URLs in user prompts",
+                        "b": "Managing compute costs during training",
+                        "c": "Identifying and explaining bias in data and models",
+                        "d": "Encrypting training data"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 45,
+                    "pregunta": "What is Amazon Augmented AI (A2I) primarily used for?",
+                    "respuestas": {
+                        "a": "Accelerating training of neural networks",
+                        "b": "Creating synthetic data from scratch",
+                        "c": "Managing GPUs in SageMaker",
+                        "d": "Integrating human reviews into AI workflows"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 46,
+                    "pregunta": "What is a key advantage of reinforcement learning from human feedback (RLHF)?",
+                    "respuestas": {
+                        "a": "It removes the need for model retraining.",
+                        "b": "It ensures AI systems remain static.",
+                        "c": "It helps models align outputs with human preferences and judgments.",
+                        "d": "It eliminates the need for data labeling."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 47,
+                    "pregunta": "What is a compliance risk caused by AI systems developing emergent capabilities?",
+                    "respuestas": {
+                        "a": "They strictly follow preprogrammed features with no surprises.",
+                        "b": "They may behave unpredictably in ways not planned by the original designers.",
+                        "c": "They automatically file compliance reports as they change.",
+                        "d": "They prevent the need for any human oversight."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 48,
+                    "pregunta": "What is a key characteristic of a regulated workload?",
+                    "respuestas": {
+                        "a": "It only applies to gaming or entertainment systems.",
+                        "b": "It only focuses on making systems faster, not safer.",
+                        "c": "It only requires encryption of stored data.",
+                        "d": "It must follow specific compliance rules due to legal, industry, or safety concerns."
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 49,
+                    "pregunta": "Why is data logging important in AI systems?",
+                    "respuestas": {
+                        "a": "It helps speed up model training by skipping error checks.",
+                        "b": "It captures inputs, outputs, and system events, supporting debugging, monitoring, and transparency.",
+                        "c": "It prevents the need for data residency compliance.",
+                        "d": "It automatically guarantees 100% model accuracy."
+                    },
+                    "respuesta_correcta": "B"
+                },
+                {
+                    "numero": 50,
+                    "pregunta": "Which AWS service provides a detailed history of resource configuration changes and relationships to support compliance auditing?",
+                    "respuestas": {
+                        "a": "AWS Config",
+                        "b": "AWS Trusted Advisor",
+                        "c": "Amazon Inspector",
+                        "d": "AWS Artifact"
+                    },
+                    "respuesta_correcta": "A"
+                },
+                {
+                    "numero": 51,
+                    "pregunta": "In the Generative AI Security Scoping Matrix, which scope involves using publicly available generative AI tools without backend access or customization?",
+                    "respuestas": {
+                        "a": "Scope 3: Pretrained models",
+                        "b": "Scope 4: Fine-tuned models",
+                        "c": "Scope 5: Self-trained models",
+                        "d": "Scope 1: Consumer applications"
+                    },
+                    "respuesta_correcta": "D"
+                },
+                {
+                    "numero": 52,
+                    "pregunta": "Which AWS service uses machine learning (ML) to detect and classify sensitive data like personally identifiable information (PII) or protected health information (PHI) across your environment?",
+                    "respuestas": {
+                        "a": "AWS Verified Permissions",
+                        "b": "AWS Shield Advanced",
+                        "c": "Amazon Macie",
+                        "d": "Amazon SageMaker Role Manager"
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 53,
+                    "pregunta": "What is the purpose of a model card in the context of generative AI?",
+                    "respuestas": {
+                        "a": "To automatically retrain models with new data",
+                        "b": "To manage access controls across cloud infrastructure",
+                        "c": "To document the data sources, intended uses, risks, and limitations of a model",
+                        "d": "To optimize compute resources for faster model deployment."
+                    },
+                    "respuesta_correcta": "C"
+                },
+                {
+                    "numero": 54,
+                    "pregunta": "In a generative AI system, who always controls user data, regardless of application scope?",
+                    "respuestas": {
+                        "a": "The application provider",
+                        "b": "The cloud service provider",
+                        "c": "The data annotation team",
+                        "d": "The customer or end user"
+                    },
+                    "respuesta_correcta": "D"
+                }
+            ]
+        }
+    ]
+}

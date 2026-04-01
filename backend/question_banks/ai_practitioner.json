@@ -1,0 +1,3617 @@
+[
+  {
+    "id": "sagemaker_1",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Cuál es el servicio principal de AWS para el ciclo de vida completo de Machine Learning?",
+    "options": [
+      "Amazon SageMaker",
+      "AWS Lambda",
+      "Amazon EC2",
+      "Amazon S3"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon SageMaker es el servicio completamente administrado que cubre todo el ciclo de vida ML: preparación de datos, entrenamiento, ajuste, implementación e inferencia."
+  },
+  {
+    "id": "sagemaker_2",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué componente de SageMaker permite preparar y transformar datos antes del entrenamiento?",
+    "options": [
+      "SageMaker Data Wrangler",
+      "SageMaker Feature Store",
+      "SageMaker Canvas",
+      "SageMaker Pipelines"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Data Wrangler es una herramienta visual para explorar, limpiar y transformar datos sin escribir código."
+  },
+  {
+    "id": "sagemaker_3",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es el propósito principal de Amazon SageMaker Feature Store?",
+    "options": [
+      "Almacenar y gestionar características (features) de forma centralizada",
+      "Entrenar modelos de machine learning",
+      "Desplegar modelos en producción",
+      "Monitorear el rendimiento de modelos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Feature Store es un repositorio centralizado que almacena características ML. Permite reutilizar features entre diferentes modelos y garantiza consistencia entre entrenamiento e inferencia."
+  },
+  {
+    "id": "sagemaker_4",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de SageMaker permite automatizar la búsqueda del mejor modelo sin necesidad de expertise en ML?",
+    "options": [
+      "SageMaker Autopilot",
+      "SageMaker Canvas",
+      "SageMaker Clarify",
+      "SageMaker Debugger"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Autopilot automatiza el proceso de selección de algoritmo y ajuste de hiperparámetros, permitiendo a usuarios sin experiencia ML crear modelos de calidad."
+  },
+  {
+    "id": "sagemaker_5",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la función principal de Amazon SageMaker Clarify?",
+    "options": [
+      "Detectar sesgos e interpretar predicciones de modelos",
+      "Limpiar y preparar datos",
+      "Monitorear la latencia de inferencia",
+      "Escalar automáticamente endpoints"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Clarify ayuda a detectar sesgos en datos y modelos, e interpreta predicciones mediante explicabilidad (SHAP, LIME), esencial para ML responsable."
+  },
+  {
+    "id": "sagemaker_6",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué permite SageMaker Pipelines?",
+    "options": [
+      "Orquestar y automatizar workflows ML de múltiples pasos",
+      "Transformar datos en tiempo real",
+      "Compilar modelos para inferencia rápida",
+      "Escalar entrenamientos distribuidos"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Pipelines automatiza workflows complejos (ETL → entrenamiento → validación → deployment) con integración CI/CD y reproducibilidad."
+  },
+  {
+    "id": "sagemaker_7",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Cuándo usar SageMaker Canvas?",
+    "options": [
+      "Usuarios sin coding que quieren crear modelos ML visuales",
+      "Entrenar modelos deep learning avanzados",
+      "Deployment en edge devices",
+      "Optimizar costos de entrenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Canvas es una interfaz visual no-code que permite a analistas de negocio crear predicciones sin escribir código."
+  },
+  {
+    "id": "sagemaker_8",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué ventaja ofrece SageMaker para entrenamientos distribuidos?",
+    "options": [
+      "Distribuir automáticamente el entrenamiento en múltiples GPUs/nodos",
+      "Reducir el costo de almacenamiento",
+      "Aumentar la precisión del modelo",
+      "Acelerar la inferencia en batch"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker maneja automáticamente la distribución del entrenamiento en múltiples máquinas/GPUs, reduciendo tiempo sin cambiar código."
+  },
+  {
+    "id": "sagemaker_9",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Cuál es el modelo de precios de SageMaker para training jobs?",
+    "options": [
+      "Pago por segundo de instancia utilizada",
+      "Suscripción mensual fija",
+      "Pago por predicción",
+      "Pago por data transferida"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Training cobra por segundo de uso de la instancia. Puedes usar Spot Instances para ahorrar hasta 70%."
+  },
+  {
+    "id": "sagemaker_10",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon SageMaker Ground Truth?",
+    "options": [
+      "Servicio para crear datasets etiquetados de forma escalable",
+      "Herramienta para debugging de modelos",
+      "Framework para entrenamiento distribuido",
+      "Servicio de inferencia en tiempo real"
+    ],
+    "correct_answer": 0,
+    "explanation": "Ground Truth automatiza la etiquetación de datos usando crowdsourcing, ML asistido y validación de calidad."
+  },
+  {
+    "id": "sagemaker_869",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué hace Amazon SageMaker Experiments?",
+    "options": [
+      "Permite experimentar con múltiples combinaciones de datos, algoritmos e hiperparámetros observando el impacto en precisión",
+      "Despliega múltiples versiones de un modelo en producción para A/B testing",
+      "Genera datasets sintéticos para experimentar sin datos reales",
+      "Simula el comportamiento del modelo en diferentes regiones AWS"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Experiments organiza y rastrea experimentos de ML: permite comparar múltiples runs con diferentes configuraciones (datos, algoritmos, hiperparámetros) y visualizar el impacto en métricas como precisión, F1, RMSE, etc."
+  },
+  {
+    "id": "sagemaker_870",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué hace SageMaker Automatic Model Tuning (AMT)?",
+    "options": [
+      "Ejecuta múltiples trabajos con diferentes combinaciones de hiperparámetros para encontrar la mejor versión del modelo",
+      "Selecciona automáticamente el algoritmo de ML más adecuado para tus datos",
+      "Ajusta automáticamente la capacidad del endpoint según la demanda",
+      "Actualiza el modelo en producción cuando detecta drift de datos"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Automatic Model Tuning (también llamado Hyperparameter Optimization) busca automáticamente la mejor combinación de hiperparámetros ejecutando múltiples trabajos de entrenamiento en paralelo, usando técnicas como Bayesian optimization."
+  },
+  {
+    "id": "sagemaker_871",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué tipo de usuario se beneficia más de Amazon SageMaker Canvas?",
+    "options": [
+      "Usuarios de negocio sin experiencia en código que quieren generar predicciones ML",
+      "Científicos de datos que necesitan máximo control sobre el proceso de entrenamiento",
+      "Ingenieros de MLOps que gestionan pipelines de producción",
+      "Investigadores que desarrollan nuevas arquitecturas de modelos"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Canvas es una solución no-code/low-code diseñada para usuarios de negocio sin background técnico. Permite seleccionar datos, entrenar modelos automáticamente y generar predicciones mediante una interfaz visual sin escribir código."
+  },
+  {
+    "id": "sagemaker_872",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Para qué sirve SageMaker Processing API?",
+    "options": [
+      "Ejecutar scripts y notebooks para procesar y transformar datasets a escala con frameworks como scikit-learn o PyTorch",
+      "Desplegar modelos entrenados como endpoints gestionados",
+      "Gestionar el versionado de modelos en el Model Registry",
+      "Monitorear el rendimiento de modelos en producción"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Processing API permite ejecutar jobs de procesamiento de datos a escala: preparación, transformación, análisis y validación de datasets usando frameworks como scikit-learn, MXNet o PyTorch en instancias gestionadas."
+  },
+  {
+    "id": "sagemaker_873",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "avanzado",
+    "question": "¿Cuándo usarías Amazon EMR integrado con SageMaker Studio en lugar de SageMaker Data Wrangler?",
+    "options": [
+      "Para preparación de datos a escala masiva (Big Data) que requiere procesamiento distribuido",
+      "Para usuarios sin experiencia técnica que prefieren interfaz visual",
+      "Para exportar modelos entrenados a formatos portables",
+      "Para análisis de sentimiento de los datos de entrenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon EMR (con Spark/Hadoop) integrado con SageMaker Studio es la solución para Big Data a gran escala. Data Wrangler es ideal para exploración y transformaciones medianas sin código; EMR es para petabytes de datos que requieren procesamiento distribuido."
+  },
+  {
+    "id": "sagemaker_874",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "avanzado",
+    "question": "¿Qué es el 'model drift' y cómo lo aborda SageMaker Model Monitor?",
+    "options": [
+      "Degradación del rendimiento del modelo cuando la distribución de datos en producción difiere del entrenamiento — Monitor lo detecta automáticamente",
+      "Errores de configuración que ocurren al migrar modelos entre regiones AWS",
+      "Pérdida de parámetros del modelo por fallos de hardware en el servidor de inferencia",
+      "Cambios en el código del modelo que reducen su rendimiento en producción"
+    ],
+    "correct_answer": 0,
+    "explanation": "El model drift ocurre cuando los datos en producción evolucionan y ya no coinciden con los datos de entrenamiento, degradando el rendimiento del modelo. SageMaker Model Monitor detecta este drift automáticamente y puede generar alertas para iniciar reentrenamiento."
+  },
+  {
+    "id": "sagemaker_875",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué frameworks de ML soporta Amazon SageMaker para entrenamiento de modelos?",
+    "options": [
+      "TensorFlow, PyTorch, scikit-learn, XGBoost, MXNet y frameworks personalizados",
+      "Solo TensorFlow y PyTorch (los más populares)",
+      "Únicamente frameworks propios de AWS",
+      "Solo Python — otros lenguajes no están soportados"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker soporta los principales frameworks de ML: TensorFlow, PyTorch, scikit-learn, XGBoost, MXNet, Hugging Face, y permite usar cualquier framework personalizado con contenedores Docker propios."
+  },
+  {
+    "id": "sagemaker_908",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "avanzado",
+    "question": "¿Cuál es la diferencia entre el Feature Store online y offline en SageMaker?",
+    "options": [
+      "Online: baja latencia para inferencia en tiempo real; Offline: almacenamiento histórico en S3 para entrenamiento",
+      "Online: almacena datos en RAM; Offline: almacena datos en disco duro",
+      "Online: para modelos en producción; Offline: para modelos en desarrollo",
+      "Online: acceso desde internet; Offline: solo acceso desde la VPC privada"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Feature Store tiene dos modos: Online Store (DynamoDB gestionado, latencia < 10ms, para enriquecer features en inferencia en tiempo real) y Offline Store (S3, histórico completo de features, para entrenamiento de modelos y análisis batch)."
+  },
+  {
+    "id": "sagemaker_909",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "avanzado",
+    "question": "¿Qué opciones de despliegue de inferencia ofrece Amazon SageMaker?",
+    "options": [
+      "Real-time (baja latencia), Batch Transform (grandes volúmenes), Serverless (sin gestionar instancias) e Inferencia Asíncrona (cargas grandes)",
+      "Solo Real-time endpoints gestionados",
+      "Real-time y Batch Transform únicamente",
+      "Serverless e Inferencia Asíncrona únicamente (las otras opciones se eliminaron)"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker ofrece 4 modalidades de inferencia: Real-time Endpoints (baja latencia, instancias siempre activas), Batch Transform (proceso masivo offline sin endpoint persistente), Serverless Inference (sin gestionar instancias, escala a 0, para tráfico intermitente), y Async Inference (para cargas grandes >1MB o procesamiento largo)."
+  },
+  {
+    "id": "sagemaker_910",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Cuándo es más adecuado usar Serverless Inference en SageMaker en lugar de un Real-time Endpoint?",
+    "options": [
+      "Cuando el tráfico es intermitente o impredecible y se quiere evitar pagar por instancias inactivas",
+      "Cuando se necesita la latencia más baja posible para predicciones en tiempo real",
+      "Cuando el payload de la solicitud supera los 6MB",
+      "Cuando el modelo tiene más de 10GB de tamaño"
+    ],
+    "correct_answer": 0,
+    "explanation": "Serverless Inference es ideal para tráfico intermitente: escala automáticamente a 0 cuando no hay solicitudes (sin coste en reposo) y escala hacia arriba según la demanda. Sin embargo, puede tener cold starts. Los Real-time Endpoints son mejores cuando se requiere latencia mínima constante y el tráfico es predecible."
+  },
+  {
+    "id": "sagemaker_916",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué hace SageMaker Debugger durante el entrenamiento de un modelo?",
+    "options": [
+      "Monitorea métricas de entrenamiento para identificar problemas como sobreajuste (overfitting)",
+      "Detecta sesgos en el conjunto de datos antes del entrenamiento",
+      "Supervisa modelos desplegados en producción para detectar deriva de datos",
+      "Gestiona las versiones y metadatos de los modelos entrenados"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Debugger monitorea métricas de entrenamiento en tiempo real para detectar problemas como sobreajuste, subajuste y gradientes que explotan, permitiendo detener el entrenamiento anticipadamente si es necesario."
+  },
+  {
+    "id": "sagemaker_917",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué es MLOps?",
+    "options": [
+      "La práctica principal de combinar Machine Learning y DevOps",
+      "Una operación matemática usada en redes neuronales",
+      "Un servicio de AWS para monitorear modelos en producción",
+      "Un lenguaje de programación especializado para ML"
+    ],
+    "correct_answer": 0,
+    "explanation": "MLOps combina las prácticas de Machine Learning con DevOps para automatizar y mejorar el ciclo de vida de los modelos ML, incluyendo entrenamiento, despliegue, monitoreo y reentrenamiento continuo."
+  },
+  {
+    "id": "sagemaker_918",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué es una tarjeta de modelo (Model Card) en Amazon SageMaker?",
+    "options": [
+      "Una plantilla estandarizada para documentar información del modelo",
+      "Un método de pago para usar servicios de SageMaker",
+      "Un componente de hardware para inferencia acelerada",
+      "Un formato de almacenamiento para los pesos del modelo"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Model Card es una plantilla estandarizada que documenta información clave del modelo: propósito, métricas de rendimiento, limitaciones, consideraciones éticas y detalles de entrenamiento, promoviendo transparencia y gobernanza."
+  },
+  {
+    "id": "sagemaker_919",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon SageMaker Model Registry?",
+    "options": [
+      "Gestiona diferentes versiones de modelos y sus metadatos",
+      "Lista a todos los empleados de AWS que trabajan en ML",
+      "Almacena archivos de imágenes sin procesar",
+      "Aloja conjuntos de datos públicos para entrenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Model Registry es un repositorio centralizado para catalogar modelos, gestionar versiones, controlar aprobaciones de despliegue y almacenar metadatos como métricas y linaje del modelo."
+  },
+  {
+    "id": "sagemaker_920",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es el algoritmo apropiado para detección de objetos en SageMaker?",
+    "options": [
+      "SSD (Single Shot Multibox Detector)",
+      "XGBoost",
+      "K-Means",
+      "LDA (Latent Dirichlet Allocation)"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker incluye SSD (Single Shot Multibox Detector) como algoritmo integrado para detección de objetos, capaz de identificar y localizar múltiples objetos en una imagen con alta eficiencia."
+  },
+  {
+    "id": "sagemaker_921",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Cuál es el algoritmo de tipo K-Means?",
+    "options": [
+      "Agrupamiento (Clustering)",
+      "Clasificación",
+      "Regresión",
+      "Modelado de temas (Topic Modeling)"
+    ],
+    "correct_answer": 0,
+    "explanation": "K-Means es un algoritmo de aprendizaje no supervisado de tipo agrupamiento (clustering) que divide los datos en K grupos basándose en la similitud de características."
+  },
+  {
+    "id": "sagemaker_922",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué hace SageMaker HyperPod?",
+    "options": [
+      "Optimiza la infraestructura para entrenar modelos de fundación masivos",
+      "Proporciona una interfaz visual sin código para crear modelos ML",
+      "Genera cuadernos Jupyter de forma automática",
+      "Ofrece un entorno gratuito basado en JupyterLab para estudiantes"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker HyperPod es una infraestructura gestionada optimizada para entrenar grandes modelos de fundación, ofreciendo resiliencia automática ante fallos y capacidades de entrenamiento distribuido a gran escala."
+  },
+  {
+    "id": "sagemaker_923",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué es SageMaker Studio Lab?",
+    "options": [
+      "Un entorno gratuito basado en JupyterLab para aprender ML",
+      "La interfaz visual sin código de SageMaker",
+      "El servicio de entrenamiento distribuido de SageMaker",
+      "El almacén centralizado de características de SageMaker"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Studio Lab ofrece un entorno gratuito de Jupyter para aprender y experimentar con ML sin necesidad de una cuenta AWS ni configuración de infraestructura."
+  },
+  {
+    "id": "sagemaker_924",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Cuál es el propósito de reentrenamiento de modelos (Model Re-training) en MLOps?",
+    "options": [
+      "Mantener la precisión cuando el rendimiento cae o los datos experimentan deriva",
+      "Desperdiciar recursos de cómputo innecesariamente",
+      "Reducir el tamaño del modelo",
+      "Cambiar el nombre del modelo en el registro"
+    ],
+    "correct_answer": 0,
+    "explanation": "El reentrenamiento de modelos en MLOps es necesario cuando el rendimiento del modelo se degrada debido a la deriva de datos (data drift) o concept drift, asegurando que el modelo se mantenga preciso con datos actualizados."
+  },
+  {
+    "id": "sagemaker_925",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué es SageMaker Role Manager?",
+    "options": [
+      "Herramienta que ayuda a los administradores a establecer rápidamente permisos para gobernanza ML",
+      "Almacenamiento de objetos de Amazon",
+      "Amazon Rekognition",
+      "AWS Glue"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Role Manager simplifica la gestión de permisos en SageMaker, ofreciendo plantillas predefinidas de roles para distintos perfiles (científico de datos, ingeniero MLOps, etc.) que los administradores pueden personalizar y aplicar rápidamente."
+  },
+  {
+    "id": "sagemaker_975",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué servicio automatiza el proceso de reentrenamiento cuando el rendimiento del modelo cae?",
+    "options": [
+      "SageMaker Pipelines",
+      "Amazon S3",
+      "AWS IAM",
+      "Amazon Macie"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Pipelines puede automatizar el proceso completo de reentrenamiento de modelos cuando el rendimiento cae o se detecta deriva de datos, orquestando los pasos de ETL, entrenamiento, evaluación y despliegue sin intervención manual."
+  },
+  {
+    "id": "sagemaker_976",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué es el 'concept drift' (deriva conceptual) en machine learning?",
+    "options": [
+      "Cambios en la distribución de los datos de entrada que afectan a la precisión del modelo con el tiempo",
+      "Un modelo que se vuelve más rápido con el tiempo",
+      "Un tipo de fallo de GPU en el servidor de inferencia",
+      "Eliminar el modelo por error durante el despliegue"
+    ],
+    "correct_answer": 0,
+    "explanation": "El concept drift ocurre cuando la relación estadística entre los datos de entrada y la variable objetivo cambia con el tiempo, haciendo que las predicciones del modelo se vuelvan menos precisas. Es una de las principales razones por las que los modelos en producción necesitan reentrenamiento periódico."
+  },
+  {
+    "id": "sagemaker_977",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "¿Qué servicio proporciona orquestación de flujos de trabajo sin servidor para ML y LLMs?",
+    "options": [
+      "SageMaker Pipelines",
+      "Amazon EC2",
+      "AWS Lambda",
+      "Amazon DynamoDB"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Pipelines es el servicio de orquestación de flujos de trabajo para ML que permite definir, automatizar y ejecutar pipelines de extremo a extremo — desde la preparación de datos hasta el despliegue — incluyendo flujos de trabajo para fine-tuning y evaluación de LLMs."
+  },
+  {
+    "id": "sagemaker_978",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "intermedio",
+    "question": "¿Qué herramienta proporciona métodos automatizados y humanos para evaluar el rendimiento de modelos de fundación durante la personalización?",
+    "options": [
+      "Amazon SageMaker Clarify",
+      "Amazon Macie",
+      "Amazon Polly",
+      "Amazon Lex"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Clarify proporciona herramientas tanto automatizadas como basadas en evaluación humana para medir el rendimiento de los modelos de fundación durante el proceso de personalización (fine-tuning), detectando sesgos y evaluando la calidad de las respuestas."
+  },
+  {
+    "id": "sagemaker_926",
+    "exam_id": "ai_practitioner",
+    "topic": "sagemaker",
+    "difficulty": "basico",
+    "question": "En AWS Glue, ¿cuál es su función principal en un pipeline de ML?",
+    "options": [
+      "Descubrir, preparar y combinar datos de múltiples fuentes",
+      "Almacenar modelos entrenados",
+      "Desplegar endpoints de inferencia en tiempo real",
+      "Monitorear el rendimiento de modelos en producción"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Glue es un servicio ETL (Extract, Transform, Load) sin servidor que descubre, cataloga y prepara datos de múltiples fuentes, siendo una pieza clave en pipelines de ML para preparación de datos."
+  },
+  {
+    "id": "bedrock_generative_ai_101",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Bedrock?",
+    "options": [
+      "Servicio para acceder a modelos de base generativos (LLMs, imagen, etc) vía API",
+      "Almacenamiento de datos para ML",
+      "Base de datos para features ML",
+      "Herramienta de visualización de modelos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Bedrock proporciona acceso via API a modelos generativos de múltiples proveedores (Anthropic Claude, Meta Llama, etc) sin necesidad de gestionar la infraestructura."
+  },
+  {
+    "id": "bedrock_generative_ai_102",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuáles son los tipos de modelos disponibles en Amazon Bedrock?",
+    "options": [
+      "LLMs, modelos de imagen, embedding, clasificación de video",
+      "Solo LLMs (texto)",
+      "Solo modelos de visión",
+      "Solo modelos de clasificación"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock ofrece modelos de texto (LLMs), generación de imagen, text embedding para búsqueda, y análisis de video."
+  },
+  {
+    "id": "bedrock_generative_ai_103",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es Amazon Bedrock Knowledge Bases?",
+    "options": [
+      "Conectar Bedrock a tus datos propios para RAG (Retrieval Augmented Generation)",
+      "Base de datos para entrenar modelos",
+      "Repositorio de modelos pre-entrenados",
+      "Herramienta de versionado de prompts"
+    ],
+    "correct_answer": 0,
+    "explanation": "Knowledge Bases integra tus datos (S3, web, etc) con Bedrock para que los LLMs generen respuestas basadas en tu información actualizada sin reentrenamiento."
+  },
+  {
+    "id": "bedrock_generative_ai_104",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es Bedrock Agents?",
+    "options": [
+      "Crear agentes IA autónomos que resuelven tareas usando herramientas",
+      "Entrenar modelos de agentes de refuerzo",
+      "Monitorear ejecución de modelos",
+      "Distribuir inference en múltiples regiones"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock Agents permite crear agentes que usan LLMs para razonar, decidir qué herramientas usar (APIs, Lambda, etc) y ejecutar tareas complejas automáticamente."
+  },
+  {
+    "id": "bedrock_generative_ai_105",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la ventaja de usar Bedrock Prompt Management?",
+    "options": [
+      "Versionarr y testear prompts, comparar modelos, gestionar variables",
+      "Compilar prompts a código optimizado",
+      "Traducir prompts a múltiples idiomas",
+      "Ejecutar prompts en paralelo"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock Prompt Management permite versionarr prompts, compararlos entre modelos, testar cambios y gestionar variables, mejorando la calidad y reproducibilidad."
+  },
+  {
+    "id": "bedrock_generative_ai_106",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué modelos base están disponibles en Bedrock?",
+    "options": [
+      "Claude (Anthropic), Llama (Meta), Titan (AWS), Mistral, Cohere, Stable Diffusion",
+      "Solo modelos de AWS",
+      "Solo modelos open source",
+      "Solo LLMs, no visión"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock integra múltiples proveedores: Anthropic Claude, Meta Llama, AWS Titan, Mistral, Cohere para texto, y Stable Diffusion para imagen."
+  },
+  {
+    "id": "bedrock_generative_ai_107",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cómo se factura Amazon Bedrock?",
+    "options": [
+      "Por tokens de entrada/salida consumidos (pay-as-you-go) o contrato mensual (Provisioned Throughput)",
+      "Por hora de ejecución",
+      "Por número de llamadas API sin importar volumen",
+      "Suscripción mensual fija"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock cobra por tokens (unidades de texto). On-demand es flexible; Provisioned Throughput es mejor para volumen alto y predecible."
+  },
+  {
+    "id": "bedrock_generative_ai_108",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es Bedrock Data Automation?",
+    "options": [
+      "Automatizar tareas de procesamiento de documentos con GenAI",
+      "Automático reentrenamiento de modelos",
+      "Backup automático de datos",
+      "Limpieza automática de datasets"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock Data Automation usa GenAI para extraer, clasificar y transformar documentos a escala sin código personalizado."
+  },
+  {
+    "id": "bedrock_generative_ai_856",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es la diferencia entre Amazon Q y Amazon Q Developer?",
+    "options": [
+      "Amazon Q es para usuarios de negocio (analistas, gerentes); Amazon Q Developer es para desarrolladores (escritura de código)",
+      "Amazon Q usa modelos de Claude; Amazon Q Developer usa modelos de Titan",
+      "Amazon Q está disponible solo en consola web; Amazon Q Developer solo en CLI",
+      "Son el mismo servicio con diferente nombre según la región"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Q está orientado a usuarios de negocio: responde preguntas sobre datos empresariales y documentos corporativos. Amazon Q Developer está orientado a desarrolladores: ayuda a escribir, explicar y depurar código, similar a GitHub Copilot pero optimizado para AWS."
+  },
+  {
+    "id": "bedrock_generative_ai_857",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Con qué herramientas corporativas se integra Amazon Q para responder preguntas empresariales?",
+    "options": [
+      "SharePoint, Confluence, Salesforce y otros sistemas empresariales",
+      "Solo con servicios nativos de AWS (S3, RDS, DynamoDB)",
+      "Únicamente con Microsoft 365 y Google Workspace",
+      "Solo con bases de datos relacionales mediante SQL"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Q se integra con herramientas corporativas populares como SharePoint, Confluence, Salesforce, y muchas otras, permitiendo a los usuarios hacer preguntas en lenguaje natural sobre su información empresarial."
+  },
+  {
+    "id": "bedrock_generative_ai_858",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿En qué IDEs se puede usar Amazon Q Developer para asistencia de código?",
+    "options": [
+      "VS Code, JetBrains, Visual Studio y otros IDEs populares",
+      "Solo en AWS Cloud9 (IDE de AWS)",
+      "Únicamente en la consola web de AWS",
+      "Solo en editores basados en terminal (Vim, Emacs)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Q Developer se integra con los IDEs más populares: VS Code, JetBrains (IntelliJ, PyCharm, etc.) y Visual Studio, entre otros. Proporciona sugerencias de código, explicaciones y generación de tests directamente en el entorno de desarrollo."
+  },
+  {
+    "id": "bedrock_generative_ai_859",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon SageMaker JumpStart?",
+    "options": [
+      "Catálogo de modelos preentrenados y soluciones listas para usar que acelera el desarrollo de ML",
+      "Servicio para iniciar automáticamente instancias de entrenamiento cuando hay recursos disponibles",
+      "Herramienta de monitoreo para detectar cuándo un modelo necesita reentrenamiento",
+      "Pipeline automatizado para despliegue continuo de modelos ML"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker JumpStart proporciona acceso a cientos de modelos preentrenados (LLMs, modelos de visión, NLP) y soluciones predefinidas. Permite desplegar modelos rápidamente, hacer fine-tuning, y reduce significativamente el time-to-market."
+  },
+  {
+    "id": "bedrock_generative_ai_860",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es la ventaja principal de SageMaker JumpStart frente a entrenar un modelo desde cero?",
+    "options": [
+      "Acelera el time-to-market y reduce la curva de aprendizaje usando modelos ya entrenados",
+      "Garantiza mayor precisión que cualquier modelo entrenado de forma personalizada",
+      "Elimina completamente la necesidad de datos de entrenamiento propios",
+      "Ofrece modelos gratuitos sin coste de inferencia"
+    ],
+    "correct_answer": 0,
+    "explanation": "La ventaja principal de JumpStart es el time-to-market: en lugar de entrenar modelos complejos desde cero (costoso y lento), puedes partir de modelos preentrenados de alta calidad y hacer fine-tuning para tu caso de uso específico."
+  },
+  {
+    "id": "bedrock_generative_ai_861",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué modelos de lenguaje de terceros están disponibles en Amazon Bedrock?",
+    "options": [
+      "Anthropic Claude, Amazon Titan, Mistral, Cohere, Meta Llama",
+      "Solo modelos propios de Amazon (Titan y Jurassic)",
+      "Únicamente GPT-4 de OpenAI y Claude de Anthropic",
+      "Solo modelos open-source: Llama y Mistral"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Bedrock ofrece acceso a múltiples modelos fundacionales: Anthropic Claude (familia completa), Amazon Titan, Mistral, Cohere Command, y Meta Llama, entre otros. Esta variedad permite elegir el modelo más adecuado para cada caso de uso."
+  },
+  {
+    "id": "bedrock_generative_ai_862",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Cómo funciona el modelo de precios de Amazon Bedrock?",
+    "options": [
+      "Por tokens consumidos (input + output), sin compromisos de capacidad mínima",
+      "Precio fijo mensual por modelo independiente del uso",
+      "Por número de modelos fundacionales disponibles en la cuenta",
+      "Por tiempo de cómputo similar a las instancias EC2"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock usa un modelo de precios serverless: pagas por los tokens que consumes (tokens de entrada del prompt + tokens de salida generados) sin compromisos de capacidad mínima. Esto lo hace ideal para cargas variables y experimentación."
+  },
+  {
+    "id": "bedrock_generative_ai_881",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es 'Knowledge Bases for Amazon Bedrock'?",
+    "options": [
+      "Solución de RAG (Retrieval-Augmented Generation) totalmente gestionada que conecta LLMs con fuentes de datos propias",
+      "Una base de datos de prompts pre-escritos para los modelos de Bedrock",
+      "Un repositorio de casos de uso predefinidos para cada modelo fundacional",
+      "Un catálogo de documentación técnica de los modelos disponibles en Bedrock"
+    ],
+    "correct_answer": 0,
+    "explanation": "Knowledge Bases for Bedrock permite implementar RAG sin gestionar infraestructura: indexa automáticamente tus documentos (S3, Confluence, etc.) en una base de datos vectorial gestionada y los proporciona como contexto al LLM, permitiéndole responder con información específica de tu organización."
+  },
+  {
+    "id": "bedrock_generative_ai_882",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué son 'Agents for Amazon Bedrock'?",
+    "options": [
+      "Agentes autónomos que ejecutan tareas multi-paso combinando LLMs con acciones sobre sistemas externos (APIs, bases de datos)",
+      "Bots de monitoreo que supervisan el uso y costes de los modelos en Bedrock",
+      "Instancias de cómputo dedicadas para inferencia de alta velocidad con modelos fundacionales",
+      "Herramientas de evaluación automática para comparar la calidad de diferentes modelos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Agents for Bedrock permite crear agentes de IA que razonan y planifican para completar tareas complejas: pueden llamar APIs, consultar bases de datos, ejecutar código y encadenar múltiples pasos de forma autónoma, usando el LLM como motor de razonamiento."
+  },
+  {
+    "id": "bedrock_generative_ai_883",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué garantiza Amazon Bedrock respecto a la privacidad de los datos del usuario?",
+    "options": [
+      "Los datos enviados a Bedrock NO se usan para entrenar los modelos de los proveedores (Anthropic, Meta, etc.)",
+      "Los datos se cifran en tránsito pero pueden usarse para mejorar los modelos de los proveedores",
+      "Bedrock almacena los prompts 30 días para mejorar la calidad del servicio",
+      "La privacidad de datos depende del proveedor del modelo, no de AWS"
+    ],
+    "correct_answer": 0,
+    "explanation": "Una garantía clave de Amazon Bedrock es que los datos de los clientes (prompts, respuestas, datos de fine-tuning) NO se usan para entrenar los modelos de los proveedores fundacionales. Esto es fundamental para organizaciones con datos sensibles o requisitos de privacidad estrictos."
+  },
+  {
+    "id": "bedrock_generative_ai_884",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la diferencia clave entre SageMaker JumpStart y Amazon Bedrock para desplegar modelos fundacionales?",
+    "options": [
+      "JumpStart despliega modelos en instancias que tú gestionas; Bedrock es completamente serverless y gestionado por AWS",
+      "JumpStart solo soporta modelos de AWS; Bedrock soporta modelos de terceros",
+      "JumpStart es más caro que Bedrock para cualquier volumen de uso",
+      "JumpStart requiere SageMaker Studio; Bedrock solo está disponible desde la consola web"
+    ],
+    "correct_answer": 0,
+    "explanation": "Diferencia fundamental: con JumpStart despliegas el modelo en un endpoint SageMaker (instancias que configuras y gestionas tú, con más control). Con Bedrock, AWS gestiona toda la infraestructura — es serverless, pagas por token y no gestionas instancias."
+  },
+  {
+    "id": "bedrock_generative_ai_885",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué función tiene 'Model Evaluation' en Amazon Bedrock?",
+    "options": [
+      "Comparar automáticamente la calidad de diferentes modelos fundacionales para tu caso de uso específico",
+      "Monitorear el rendimiento de los modelos en producción",
+      "Evaluar si el modelo necesita reentrenamiento basándose en métricas de drift",
+      "Calcular el coste estimado antes de desplegar un modelo en producción"
+    ],
+    "correct_answer": 0,
+    "explanation": "Model Evaluation en Bedrock permite comparar sistemáticamente diferentes modelos fundacionales (Claude, Titan, Llama, etc.) usando tu propio dataset de evaluación y métricas relevantes para tu caso de uso, ayudando a elegir el modelo más adecuado antes de invertir en desarrollo."
+  },
+  {
+    "id": "bedrock_generative_ai_886",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "avanzado",
+    "question": "¿Qué característica adicional de Guardrails for Bedrock ayuda a prevenir alucinaciones en las respuestas?",
+    "options": [
+      "Verificación de grounding: asegura que las respuestas se basen en las fuentes de datos proporcionadas",
+      "Análisis de sentimiento para detectar respuestas con tono excesivamente confiado",
+      "Comparación automática de respuestas con Wikipedia",
+      "Límite automático de tokens para reducir la probabilidad de inventar información"
+    ],
+    "correct_answer": 0,
+    "explanation": "La verificación de grounding (groundedness check) en Guardrails for Bedrock detecta y bloquea respuestas que no están respaldadas por las fuentes de datos proporcionadas (Knowledge Base, documentos de contexto), ayudando a prevenir alucinaciones en aplicaciones RAG."
+  },
+  {
+    "id": "bedrock_generative_ai_887",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Con qué nombre se conocía anteriormente Amazon Q Developer?",
+    "options": [
+      "Amazon CodeWhisperer",
+      "Amazon DevAssist",
+      "AWS Code Companion",
+      "Amazon SageMaker Studio IDE"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Q Developer es la evolución de Amazon CodeWhisperer, el asistente de código de AWS. En 2024, AWS renombró y amplió CodeWhisperer como Amazon Q Developer, manteniendo todas las capacidades de generación de código y añadiendo más funcionalidades de asistente para el ecosistema AWS."
+  },
+  {
+    "id": "bedrock_generative_ai_888",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué capacidad de Amazon Q Developer es especialmente útil para la seguridad del software?",
+    "options": [
+      "Identificación automática de vulnerabilidades de seguridad en el código (SQL injection, XSS, credenciales expuestas, etc.)",
+      "Cifrado automático de todo el código fuente antes de enviarlo a AWS",
+      "Escaneo de dependencias de terceros contra la base de datos de CVEs",
+      "Generación automática de tests de penetración para las APIs"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Q Developer puede identificar vulnerabilidades de seguridad en el código mientras lo escribes o al analizar código existente, detectando problemas como SQL injection, XSS, credenciales hardcodeadas, uso inseguro de criptografía y otros patrones de código inseguro."
+  },
+  {
+    "id": "bedrock_generative_ai_927",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es el objetivo principal de la Inteligencia Artificial (IA)?",
+    "options": [
+      "Desarrollar sistemas que exhiban comportamiento inteligente como el razonamiento y el aprendizaje",
+      "Reemplazar a todos los trabajadores humanos",
+      "Procesar únicamente valores numéricos",
+      "Proporcionar almacenamiento ilimitado en la nube"
+    ],
+    "correct_answer": 0,
+    "explanation": "El objetivo principal de la IA es desarrollar sistemas capaces de realizar tareas que normalmente requieren inteligencia humana, como el razonamiento, el aprendizaje, la percepción y la resolución de problemas."
+  },
+  {
+    "id": "bedrock_generative_ai_928",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿En qué capa de la arquitectura de IA se preparan y organizan los datos para ML y NLP?",
+    "options": [
+      "Capa de datos",
+      "Capa de aplicación",
+      "Capa de modelo",
+      "Capa de infraestructura"
+    ],
+    "correct_answer": 0,
+    "explanation": "La capa de datos se encarga de la ingesta, almacenamiento, preparación y organización de los datos que alimentan a los modelos de ML y NLP en las capas superiores de la arquitectura de IA."
+  },
+  {
+    "id": "bedrock_generative_ai_929",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué subconjunto de IA utiliza redes neuronales artificiales para aprender de patrones complejos?",
+    "options": [
+      "Deep Learning (Aprendizaje Profundo)",
+      "Sistemas basados en reglas",
+      "Machine Learning básico",
+      "Regresión lineal"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Deep Learning utiliza redes neuronales artificiales profundas (con múltiples capas ocultas) para aprender representaciones complejas de datos, siendo especialmente efectivo en visión por computador, NLP y reconocimiento de voz."
+  },
+  {
+    "id": "bedrock_generative_ai_930",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué arquitectura utilizan los Modelos de Lenguaje Grande (LLMs) para comprender las relaciones entre palabras?",
+    "options": [
+      "Arquitectura Transformer (Encoder/Decoder)",
+      "Árboles de decisión",
+      "Redes neuronales simples",
+      "Agrupamiento K-Means"
+    ],
+    "correct_answer": 0,
+    "explanation": "Los LLMs se basan en la arquitectura Transformer, que utiliza mecanismos de atención para capturar relaciones entre todas las palabras de una secuencia, independientemente de su distancia, lo que permite entender el contexto de forma más efectiva."
+  },
+  {
+    "id": "bedrock_generative_ai_931",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué tecnología permite a los ordenadores interpretar información visual de imágenes y vídeos?",
+    "options": [
+      "Visión por Computador (Computer Vision)",
+      "Procesamiento del Lenguaje Natural",
+      "Reconocimiento de Voz",
+      "Aprendizaje por Refuerzo"
+    ],
+    "correct_answer": 0,
+    "explanation": "La Visión por Computador es el campo de la IA que entrena a los ordenadores para interpretar y comprender el mundo visual a partir de imágenes y vídeos, habilitando tareas como detección de objetos, reconocimiento facial y análisis de escenas."
+  },
+  {
+    "id": "bedrock_generative_ai_932",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué distingue a la IA Generativa de la IA tradicional?",
+    "options": [
+      "Produce contenido original como imágenes y texto basándose en instrucciones",
+      "Solo analiza datos existentes sin crear nada nuevo",
+      "No utiliza deep learning en sus modelos",
+      "No requiere datos de entrenamiento para funcionar"
+    ],
+    "correct_answer": 0,
+    "explanation": "La IA Generativa puede crear contenido nuevo y original (texto, imágenes, código, audio) a partir de instrucciones, a diferencia de la IA tradicional que principalmente clasifica, predice o analiza datos existentes."
+  },
+  {
+    "id": "bedrock_generative_ai_933",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es una característica clave de los Modelos de Fundación (Foundation Models)?",
+    "options": [
+      "Son altamente adaptables para una amplia gama de tareas generales",
+      "Están diseñados para una única tarea específica",
+      "Son redes de pequeña escala",
+      "No requieren infraestructura de recursos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Los Modelos de Fundación se entrenan con grandes cantidades de datos y pueden adaptarse a una amplia variedad de tareas mediante fine-tuning o prompting, a diferencia de los modelos tradicionales diseñados para tareas específicas."
+  },
+  {
+    "id": "bedrock_generative_ai_934",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué modelo, lanzado en 2018, fue un modelo bidireccional que sentó las bases para GPT?",
+    "options": [
+      "BERT",
+      "Llama 2",
+      "Claude",
+      "Titan"
+    ],
+    "correct_answer": 0,
+    "explanation": "BERT (Bidirectional Encoder Representations from Transformers), lanzado por Google en 2018, fue uno de los primeros modelos basados en Transformers en demostrar el poder del preentrenamiento bidireccional para tareas NLP, influyendo en el desarrollo de GPT y otros LLMs."
+  },
+  {
+    "id": "bedrock_generative_ai_935",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué técnica de prompting implica dividir preguntas complejas en pasos lógicos y pequeños?",
+    "options": [
+      "Chain-of-thought (cadena de pensamiento)",
+      "Tree-of-thought (árbol de pensamiento)",
+      "Maiéutica",
+      "Auto-refinamiento (Self-refine)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Chain-of-thought es una técnica de prompting donde se guía al modelo a razonar paso a paso para resolver problemas complejos, dividiendo el proceso en pasos intermedios explícitos que mejoran la precisión de las respuestas."
+  },
+  {
+    "id": "bedrock_generative_ai_936",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué técnica de prompting hace que el modelo evalúe su propia solución y la mejore iterativamente?",
+    "options": [
+      "Auto-refinamiento (Self-refine)",
+      "Mínimo a máximo (Least-to-most)",
+      "Conocimiento generado (Generated knowledge)",
+      "Estímulo direccional (Directional-stimulus)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Self-refine es una técnica en la que el modelo genera una respuesta inicial, luego la evalúa críticamente y la refina iterativamente para mejorar su calidad, sin necesidad de ejemplos adicionales o retroalimentación humana."
+  },
+  {
+    "id": "bedrock_generative_ai_937",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es el 'espacio latente' en un Autoencoder Variacional (VAE)?",
+    "options": [
+      "Una representación matemática comprimida de la esencia de los datos",
+      "Un gran depósito de datos sin procesar",
+      "Un servidor de almacenamiento",
+      "Una interfaz de usuario gráfica"
+    ],
+    "correct_answer": 0,
+    "explanation": "El espacio latente en un VAE es una representación comprimida de baja dimensionalidad que captura las características esenciales de los datos de entrada. Permite al VAE generar nuevas muestras interpolando o muestreando en este espacio."
+  },
+  {
+    "id": "bedrock_generative_ai_938",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué componente de una GAN intenta diferenciar entre datos falsos y datos reales?",
+    "options": [
+      "Discriminador",
+      "Generador",
+      "Encoder",
+      "Decoder"
+    ],
+    "correct_answer": 0,
+    "explanation": "En una GAN (Red Generativa Adversarial), el Discriminador es una red neuronal que aprende a distinguir entre datos reales del conjunto de entrenamiento y datos falsos generados por el Generador, actuando como árbitro en el proceso adversarial."
+  },
+  {
+    "id": "bedrock_generative_ai_939",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué estado en Bedrock indica que una versión de modelo está desactualizada e inoperable?",
+    "options": [
+      "EOL (End of Life)",
+      "Activo",
+      "Legacy (Heredado)",
+      "Beta"
+    ],
+    "correct_answer": 0,
+    "explanation": "El estado EOL (End of Life) en Amazon Bedrock indica que una versión de modelo ha llegado al final de su vida útil y ya no está disponible para su uso ni recibe actualizaciones o soporte."
+  },
+  {
+    "id": "bedrock_generative_ai_940",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué estado en Bedrock indica que el modelo está recibiendo activamente correcciones de errores y actualizaciones?",
+    "options": [
+      "Activo",
+      "EOL",
+      "Legacy",
+      "Alpha"
+    ],
+    "correct_answer": 0,
+    "explanation": "El estado Activo en Amazon Bedrock indica que el modelo está en pleno soporte: recibe actualizaciones, correcciones de errores y mejoras de rendimiento de forma continua."
+  },
+  {
+    "id": "bedrock_generative_ai_941",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué servicio permite a los usuarios explorar y experimentar con modelos de fundación para creatividad y entretenimiento?",
+    "options": [
+      "PartyRock (Amazon Bedrock Playground)",
+      "SageMaker JumpStart",
+      "Amazon Q Business",
+      "Amazon RDS"
+    ],
+    "correct_answer": 0,
+    "explanation": "PartyRock es un playground impulsado por Amazon Bedrock que permite a cualquier persona explorar y crear aplicaciones de IA generativa de forma intuitiva, sin necesidad de escribir código ni tener una cuenta AWS."
+  },
+  {
+    "id": "bedrock_generative_ai_942",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué técnica implica proporcionar un conjunto de ejemplos y una tarea para que la máquina aprenda?",
+    "options": [
+      "Machine Learning (Aprendizaje Automático)",
+      "Programación tradicional",
+      "Sistemas expertos",
+      "Consulta de bases de datos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Machine Learning es la disciplina donde los sistemas aprenden automáticamente a partir de ejemplos (datos) sin ser programados explícitamente, identificando patrones para hacer predicciones o tomar decisiones."
+  },
+  {
+    "id": "bedrock_generative_ai_943",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es el beneficio principal de la API única de Amazon Bedrock?",
+    "options": [
+      "Permite a los usuarios cambiar fácilmente entre diferentes modelos de fundación",
+      "Hace gratuitos todos los modelos disponibles",
+      "Reemplaza a todos los desarrolladores humanos",
+      "Solo funciona con Amazon Titan"
+    ],
+    "correct_answer": 0,
+    "explanation": "La API única de Amazon Bedrock permite acceder a múltiples modelos de fundación de diferentes proveedores (Anthropic, Meta, Mistral, etc.) con la misma interfaz, facilitando la comparación y el cambio entre modelos."
+  },
+  {
+    "id": "bedrock_generative_ai_944",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es un desafío importante de los Modelos de Fundación?",
+    "options": [
+      "Altas demandas de recursos e infraestructura",
+      "Falta de datos disponibles para entrenarlos",
+      "Son demasiado simples para tareas complejas",
+      "No tienen opciones de seguridad disponibles"
+    ],
+    "correct_answer": 0,
+    "explanation": "Los Modelos de Fundación requieren cantidades masivas de datos, potencia de cómputo (GPUs/TPUs) y tiempo de entrenamiento, lo que representa un desafío significativo tanto en coste como en infraestructura necesaria."
+  },
+  {
+    "id": "bedrock_generative_ai_945",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué tipo de modelos de ML se usa para generar imágenes realistas introduciendo y eliminando ruido?",
+    "options": [
+      "Modelos de difusión (Diffusion models)",
+      "GANs",
+      "VAEs",
+      "RNNs"
+    ],
+    "correct_answer": 0,
+    "explanation": "Los modelos de difusión aprenden a generar imágenes realistas mediante un proceso de añadir ruido gaussiano progresivamente a una imagen y luego aprender a revertir ese proceso, generando imágenes de alta calidad a partir de ruido puro."
+  },
+  {
+    "id": "bedrock_generative_ai_946",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es la 'auto-atención' (self-attention) en un modelo transformer?",
+    "options": [
+      "Un mecanismo para priorizar palabras significativas durante el procesamiento",
+      "El modelo ignorando la entrada del usuario",
+      "Un proceso de revisión humana",
+      "Un tipo de memoria de GPU"
+    ],
+    "correct_answer": 0,
+    "explanation": "La auto-atención (self-attention) permite al transformer ponderar la importancia de cada palabra en relación con todas las demás palabras de la secuencia, capturando dependencias a larga distancia y el contexto semántico de forma eficiente."
+  },
+  {
+    "id": "bedrock_generative_ai_947",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la función del modelo de recompensa en el proceso RLHF?",
+    "options": [
+      "Predecir automáticamente cómo un humano puntuaría una respuesta",
+      "Pagar dinero a los usuarios por sus respuestas",
+      "Generar texto aleatorio para evaluación",
+      "Eliminar los modelos que dan malas respuestas"
+    ],
+    "correct_answer": 0,
+    "explanation": "En RLHF (Reinforcement Learning from Human Feedback), el modelo de recompensa aprende a predecir la preferencia humana entrenándose con comparaciones de respuestas evaluadas por personas, guiando luego el ajuste fino del LLM mediante aprendizaje por refuerzo."
+  },
+  {
+    "id": "bedrock_generative_ai_948",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué es la 'Ingeniería de Prompts' (Prompt Engineering)?",
+    "options": [
+      "Diseñar instrucciones de texto para obtener respuestas deseadas de un LLM",
+      "Desarrollar nuevas GPUs para modelos de IA",
+      "Escribir código SQL para bases de datos",
+      "Gestionar centros de datos en la nube"
+    ],
+    "correct_answer": 0,
+    "explanation": "La Ingeniería de Prompts es la disciplina de diseñar y optimizar las instrucciones (prompts) que se dan a un LLM para obtener respuestas de mayor calidad, precisión o con el formato deseado."
+  },
+  {
+    "id": "bedrock_generative_ai_949",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué tipo de aprendizaje automático utiliza retroalimentación en forma de recompensas o penalizaciones?",
+    "options": [
+      "Aprendizaje por Refuerzo (Reinforcement Learning)",
+      "Aprendizaje Supervisado",
+      "Aprendizaje No Supervisado",
+      "Sistemas basados en reglas"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Aprendizaje por Refuerzo es un tipo de ML donde un agente aprende a tomar decisiones interactuando con un entorno, recibiendo recompensas por acciones correctas y penalizaciones por incorrectas, optimizando su política de comportamiento."
+  },
+  {
+    "id": "bedrock_generative_ai_950",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué técnica de prompting aborda subproblemas de forma secuencial?",
+    "options": [
+      "Mínimo a máximo (Least-to-most)",
+      "Maiéutica",
+      "Árbol de pensamiento (Tree-of-thought)",
+      "Cadena de pensamiento (Chain-of-thought)"
+    ],
+    "correct_answer": 0,
+    "explanation": "La técnica Least-to-most (mínimo a máximo) descompone un problema complejo en subproblemas más simples y los resuelve secuencialmente, usando las soluciones anteriores para resolver los problemas más difíciles."
+  },
+  {
+    "id": "bedrock_generative_ai_951",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "avanzado",
+    "question": "¿Qué método de prompting genera múltiples pasos potenciales y los evalúa mediante una búsqueda en árbol?",
+    "options": [
+      "Árbol de pensamiento (Tree-of-thought)",
+      "Cadena de pensamiento (Chain-of-thought)",
+      "Maiéutica",
+      "Auto-refinamiento (Self-refine)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Tree-of-thought extiende chain-of-thought generando múltiples caminos de razonamiento posibles en forma de árbol, evaluando y seleccionando el mejor mediante búsqueda, siendo útil para problemas que requieren explorar múltiples estrategias."
+  },
+  {
+    "id": "bedrock_generative_ai_952",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es el 'estímulo direccional' (Directional-stimulus prompting)?",
+    "options": [
+      "Usar una pista o señal, como palabras clave, para guiar al modelo",
+      "Usar sonidos fuertes para activar el modelo",
+      "Usar flechas en el prompt para indicar dirección",
+      "Modificar el código fuente del modelo"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Directional-stimulus prompting proporciona al modelo pistas, palabras clave o señales específicas que guían su razonamiento hacia el tipo de respuesta deseada, sin especificar completamente la solución."
+  },
+  {
+    "id": "bedrock_generative_ai_953",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué técnica de prompting genera múltiples hechos de apoyo antes de completar la tarea?",
+    "options": [
+      "Conocimiento generado (Generated knowledge)",
+      "Árbol de pensamiento (Tree-of-thought)",
+      "Cadena de pensamiento (Chain-of-thought)",
+      "Auto-refinamiento (Self-refine)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Generated knowledge es una técnica donde primero se pide al modelo que genere hechos o conocimiento relevante sobre el tema, y luego se usa ese conocimiento generado como contexto adicional para responder la pregunta principal."
+  },
+  {
+    "id": "bedrock_generative_ai_954",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Qué produce la red Generador de una GAN?",
+    "options": [
+      "Datos falsos introduciendo ruido aleatorio",
+      "Datos reales del conjunto de entrenamiento",
+      "Informes de base de datos",
+      "Claves de cifrado"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Generador de una GAN toma ruido aleatorio como entrada y aprende a transformarlo en datos sintéticos que parecen reales, mejorando su capacidad de engañar al Discriminador durante el entrenamiento adversarial."
+  },
+  {
+    "id": "bedrock_generative_ai_955",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es la capa de IA que actúa como interfaz orientada al usuario?",
+    "options": [
+      "Capa de aplicación",
+      "Capa de datos",
+      "Capa de modelo",
+      "Capa física"
+    ],
+    "correct_answer": 0,
+    "explanation": "La capa de aplicación es la interfaz de cara al usuario en la arquitectura de IA, donde se presentan los resultados y funcionalidades de los modelos de ML/IA en forma de productos y servicios utilizables."
+  },
+  {
+    "id": "bedrock_generative_ai_956",
+    "exam_id": "ai_practitioner",
+    "topic": "bedrock_generative_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es el modelo de AWS diseñado para resumen de texto, extracción y personalización?",
+    "options": [
+      "Amazon Titan",
+      "Stable Diffusion",
+      "Llama 2",
+      "Claude"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Titan es la familia de modelos de fundación desarrollados por AWS, especialmente diseñados para tareas como resumen de texto, extracción de información, clasificación, generación de contenido y personalización."
+  },
+  {
+    "id": "nlp_services_201",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función principal de Amazon Comprehend?",
+    "options": [
+      "Análisis NLP: sentimiento, entidades, palabras clave, lenguaje, sintaxis",
+      "Traducir texto a múltiples idiomas",
+      "Convertir texto a voz",
+      "Crear chatbots"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Comprehend detecta sentimiento (positivo/negativo/neutral), extrae entidades (personas, lugares), identifica palabras clave y lenguaje detectado."
+  },
+  {
+    "id": "nlp_services_202",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Qué servicio usar para análisis de sentimiento en textos de redes sociales?",
+    "options": [
+      "Amazon Comprehend",
+      "Amazon Translate",
+      "Amazon Polly",
+      "Amazon Lex"
+    ],
+    "correct_answer": 0,
+    "explanation": "Comprehend puede procesar textos en tiempo real para detectar sentimiento, útil para monitorear menciones en redes sociales."
+  },
+  {
+    "id": "nlp_services_203",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función de Amazon Comprehend Medical?",
+    "options": [
+      "Extraer entidades médicas (medicamentos, diagnósticos, síntomas) de textos clínicos",
+      "Predecir enfermedades",
+      "Almacenar historiales médicos",
+      "Interpretar imágenes médicas"
+    ],
+    "correct_answer": 0,
+    "explanation": "Comprehend Medical es un NLP especializado para el sector salud: extrae medicamentos, condiciones, dosis, etc de documentos clínicos."
+  },
+  {
+    "id": "nlp_services_204",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Translate?",
+    "options": [
+      "Servicio de traducción neural automática entre idiomas",
+      "Herramienta de localización manual",
+      "Diccionario de términos",
+      "Convertidor de codificación de caracteres"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Translate usa redes neuronales para traducir texto entre idiomas manteniendo contexto y significado."
+  },
+  {
+    "id": "nlp_services_205",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función principal de Amazon Polly?",
+    "options": [
+      "Convertir texto a voz natural (Text-to-Speech)",
+      "Reconocer comandos de voz",
+      "Traducir audio entre idiomas",
+      "Transcribir voz a texto"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Polly sintetiza voz natural desde texto, útil para aplicaciones que necesitan audio (asistentes, accesibilidad, e-learning)."
+  },
+  {
+    "id": "nlp_services_206",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Transcribe?",
+    "options": [
+      "Convertir audio/voz a texto (Speech-to-Text) usando modelos de speech recognition",
+      "Traducir transcripciones",
+      "Editar archivos de audio",
+      "Detectar idioma en audio"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Transcribe convierte archivos de audio/video a texto automáticamente, soportando múltiples idiomas y dominios (médico, legal, etc)."
+  },
+  {
+    "id": "nlp_services_207",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función de Amazon Lex?",
+    "options": [
+      "Construir chatbots y asistentes de voz (conversational AI)",
+      "Traducir entre idiomas",
+      "Procesar audio en streaming",
+      "Almacenar datos de conversaciones"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Lex permite crear bots conversacionales inteligentes usando reconocimiento de voz y procesamiento de lenguaje natural."
+  },
+  {
+    "id": "nlp_services_208",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué componentes usa Amazon Lex internamente?",
+    "options": [
+      "Amazon Transcribe (voz→texto) + NLU (intent recognition) + Polly (texto→voz)",
+      "Solo Comprehend",
+      "Solo modelos de machine learning customizados",
+      "Solo bases de datos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Lex integra Transcribe para entrada de voz, NLU para entender intenciones, y Polly para responder con voz natural."
+  },
+  {
+    "id": "nlp_services_209",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Para qué caso de uso usar Amazon Comprehend + Translate?",
+    "options": [
+      "Analizar sentimiento en tweets en múltiples idiomas",
+      "Crear subtítulos en video",
+      "Entrenar modelos de clasificación de texto",
+      "Comprimir archivos de texto"
+    ],
+    "correct_answer": 0,
+    "explanation": "Traducir tweets a inglés + Comprehend para análisis de sentimiento = insights globales de redes sociales."
+  },
+  {
+    "id": "nlp_services_863",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Lex y cuál es su principal caso de uso?",
+    "options": [
+      "Servicio para construir chatbots y voicebots con NLU, integrable con Amazon Connect",
+      "Servicio de traducción automática neural entre idiomas",
+      "Motor de búsqueda empresarial para documentos internos",
+      "Servicio de síntesis de voz (text-to-speech)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Lex permite construir chatbots conversacionales con comprensión del lenguaje natural (NLU). Se integra nativamente con Amazon Connect (contact center), Facebook Messenger, Slack y otras plataformas, gestionando diálogos complejos."
+  },
+  {
+    "id": "nlp_services_864",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la diferencia entre Amazon Polly y Amazon Transcribe?",
+    "options": [
+      "Polly convierte texto en voz (TTS); Transcribe convierte voz en texto (STT)",
+      "Polly traduce entre idiomas; Transcribe analiza sentimientos en audio",
+      "Polly es para empresas; Transcribe es para uso personal",
+      "Son el mismo servicio con diferentes interfaces de API"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Polly es Text-to-Speech (TTS): convierte texto en voz natural. Amazon Transcribe es Speech-to-Text (STT): convierte audio/video en texto. Son servicios complementarios en la cadena voz-texto-voz."
+  },
+  {
+    "id": "nlp_services_865",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué capacidad de Amazon Transcribe es especialmente útil para analizar grabaciones de reuniones con múltiples participantes?",
+    "options": [
+      "Speaker diarization: identifica y distingue múltiples hablantes en una conversación",
+      "Análisis de sentimientos en tiempo real del audio",
+      "Traducción automática mientras transcribe el audio",
+      "Generación de resúmenes automáticos del contenido"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Transcribe soporta speaker diarization (identificación de hablantes), que etiqueta automáticamente qué persona habló en cada momento de la transcripción. Esto es esencial para analizar reuniones, call centers y entrevistas."
+  },
+  {
+    "id": "nlp_services_866",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "avanzado",
+    "question": "¿Para qué caso de uso usarías Amazon Comprehend en lugar de un LLM como Bedrock?",
+    "options": [
+      "Análisis de sentimiento y extracción de entidades a escala en grandes volúmenes de texto con API simple",
+      "Generación de texto creativo y narrativas largas",
+      "Traducción de documentos entre 100+ idiomas",
+      "Responder preguntas complejas en lenguaje natural"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Comprehend es ideal para tareas NLP específicas (análisis de sentimiento, extracción de entidades, clasificación) sobre grandes volúmenes de texto con una API sencilla y coste predecible. Los LLMs son más potentes pero más costosos para tareas estructuradas."
+  },
+  {
+    "id": "nlp_services_867",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué hace Amazon Textract que no puede hacer un OCR tradicional?",
+    "options": [
+      "Extrae texto manteniendo la estructura de tablas y formularios, no solo el texto plano",
+      "Traduce automáticamente el texto extraído a otros idiomas",
+      "Analiza el sentimiento del texto extraído de los documentos",
+      "Solo procesa documentos digitales, no imágenes escaneadas"
+    ],
+    "correct_answer": 0,
+    "explanation": "A diferencia del OCR tradicional, Amazon Textract extrae texto manteniendo la estructura semántica: identifica tablas con sus relaciones fila/columna, campos de formularios con sus etiquetas, y la jerarquía del documento."
+  },
+  {
+    "id": "nlp_services_868",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuándo usarías Amazon Translate en tu arquitectura?",
+    "options": [
+      "Para traducir contenido en tiempo real en aplicaciones multilingües o pipelines de datos",
+      "Para generar texto en múltiples idiomas desde cero",
+      "Para detectar el idioma de un texto desconocido",
+      "Para analizar el tono y sentimiento de textos en otros idiomas"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Translate es ideal para internacionalización de aplicaciones, soporte multilingüe en chatbots, traducción de grandes volúmenes de contenido en pipelines de datos, y cualquier caso donde necesitas traducción automática neural escalable."
+  },
+  {
+    "id": "nlp_services_904",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué es Neural TTS (NTTS) en Amazon Polly y en qué mejora respecto a la síntesis estándar?",
+    "options": [
+      "Síntesis de voz basada en redes neuronales que produce voz más natural, expresiva y similar a la humana",
+      "Sistema de traducción automática integrado que traduce antes de sintetizar",
+      "Tecnología que permite a Polly aprender nuevas voces a partir de muestras del usuario",
+      "Modo de síntesis optimizado para dispositivos de bajo consumo energético"
+    ],
+    "correct_answer": 0,
+    "explanation": "Neural TTS (NTTS) de Amazon Polly usa redes neuronales profundas para generar voz significativamente más natural que la síntesis estándar concatenativa. Produce entonación y prosodia más humanas, siendo ideal para aplicaciones donde la naturalidad de la voz es crítica (audiolibros, asistentes premium)."
+  },
+  {
+    "id": "nlp_services_905",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué permite SSML (Speech Synthesis Markup Language) en Amazon Polly?",
+    "options": [
+      "Personalizar la pronunciación, velocidad, tono, pausas y énfasis del texto sintetizado mediante etiquetas XML",
+      "Traducir automáticamente el texto a múltiples idiomas antes de sintetizarlo",
+      "Seleccionar dinámicamente la voz más adecuada según el contenido del texto",
+      "Comprimir el audio generado para reducir el tamaño de los archivos MP3"
+    ],
+    "correct_answer": 0,
+    "explanation": "SSML es un estándar W3C para controlar la síntesis de voz. En Polly permite: controlar la velocidad, tono y volumen, insertar pausas de duración específica, pronunciar siglas o números de forma especial, enfatizar palabras, y usar voces específicas para partes del texto."
+  },
+  {
+    "id": "nlp_services_906",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuántos conectores de fuentes de datos empresariales soporta Amazon Kendra?",
+    "options": [
+      "Más de 40 conectores nativos (Confluence, SharePoint, Salesforce, ServiceNow, S3, RDS, etc.)",
+      "Solo 5 conectores oficiales: S3, SharePoint, Salesforce, Confluence y ServiceNow",
+      "Ilimitados, mediante conectores personalizados con API",
+      "Solo fuentes de datos almacenadas en servicios AWS (S3, RDS, DynamoDB)"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Kendra ofrece más de 40 conectores nativos para fuentes de datos empresariales populares: Confluence, SharePoint, Salesforce, ServiceNow, S3, RDS, Google Drive, OneDrive, Jira, Zendesk, etc. Esto facilita indexar el conocimiento corporativo sin desarrollar integraciones personalizadas."
+  },
+  {
+    "id": "nlp_services_907",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué capacidad de Amazon Transcribe es crucial para el cumplimiento normativo en el tratamiento de grabaciones?",
+    "options": [
+      "Detección y redacción automática de PII (información personal identificable) como nombres, teléfonos o números de tarjeta en las transcripciones",
+      "Cifrado automático de todos los archivos de audio antes de transcribir",
+      "Almacenamiento automático de transcripciones en S3 con acceso restringido",
+      "Generación de hashes criptográficos para verificar la integridad de las grabaciones"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Transcribe puede detectar y redactar (sustituir por [PII]) automáticamente información sensible en las transcripciones: nombres, números de teléfono, emails, números de tarjeta de crédito, SSN, etc. Esto es esencial para cumplir con GDPR, HIPAA y otras regulaciones de privacidad."
+  },
+  {
+    "id": "nlp_services_957",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS identifica y redacta Información de Identificación Personal (PII) en documentos?",
+    "options": [
+      "Amazon Comprehend",
+      "Amazon Rekognition",
+      "Amazon Translate",
+      "Amazon Lex"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Comprehend puede detectar y redactar automáticamente Información de Identificación Personal (PII) como nombres, direcciones, números de teléfono y correos electrónicos en textos, ayudando a cumplir regulaciones de privacidad."
+  },
+  {
+    "id": "nlp_services_958",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es el servicio de AWS optimizado para llamadas de servicio al cliente y subtitulado de transmisiones en directo?",
+    "options": [
+      "Amazon Transcribe",
+      "Amazon Polly",
+      "Amazon Lex",
+      "Amazon Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Transcribe ofrece funcionalidades especializadas para llamadas de atención al cliente (Transcribe Call Analytics) y subtitulado en tiempo real, siendo ideal para centros de llamadas y transmisiones en vivo."
+  },
+  {
+    "id": "nlp_services_959",
+    "exam_id": "ai_practitioner",
+    "topic": "nlp_services",
+    "difficulty": "basico",
+    "question": "¿Qué servicio gestionado convierte el habla médica en texto para documentación clínica?",
+    "options": [
+      "Amazon Transcribe Medical",
+      "Amazon Polly",
+      "Amazon Lex",
+      "Amazon Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Transcribe Medical es una variante especializada de Transcribe diseñada para el sector sanitario, con vocabulario médico ampliado y cumplimiento HIPAA para transcribir grabaciones de consultas y notas clínicas."
+  },
+  {
+    "id": "vision_services_301",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función principal de Amazon Rekognition?",
+    "options": [
+      "Análisis de imágenes y vídeos: detectar objetos, caras, texto, actividades",
+      "Extraer datos de documentos",
+      "Indexar y buscar en documentos",
+      "Transcribir voz de vídeo"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Rekognition usa computer vision para detectar objetos, rostros, emociones, actividades, reconocimiento de celebridades, etc."
+  },
+  {
+    "id": "vision_services_302",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "basico",
+    "question": "¿Cuáles son los casos de uso de Amazon Rekognition?",
+    "options": [
+      "Moderación de contenido, búsqueda de personas, análisis de seguridad, reconocimiento de actividades",
+      "Solo detección de objetos",
+      "Solo reconocimiento facial",
+      "Solo análisis de actividades deportivas"
+    ],
+    "correct_answer": 0,
+    "explanation": "Rekognition soporta múltiples casos: moderación (detectar contenido inapropiado), búsqueda facial en BD, análisis de vídeo de seguridad, etc."
+  },
+  {
+    "id": "vision_services_303",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Textract?",
+    "options": [
+      "Extraer automáticamente texto y tablas de documentos (PDF, imágenes)",
+      "Transcribir audio de documentos",
+      "Traducir documentos",
+      "Crear documentos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Textract usa OCR avanzado con ML para extraer texto, tablas, formularios de documentos escaneados o digitales manteniendo estructura."
+  },
+  {
+    "id": "vision_services_304",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "basico",
+    "question": "¿Cuáles son los casos de uso de Amazon Textract?",
+    "options": [
+      "Procesamiento de facturas, pasaportes, formularios; automatizar entrada de datos",
+      "Solo documentos en PDF",
+      "Solo texto simple",
+      "Solo imágenes de baja calidad"
+    ],
+    "correct_answer": 0,
+    "explanation": "Textract es ideal para RPA: extraer campos de facturas, pasaportes, formularios médicos a escala sin código personalizado."
+  },
+  {
+    "id": "vision_services_305",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Kendra?",
+    "options": [
+      "Motor de búsqueda empresarial inteligente con ML (busca en documentos, web internas, etc)",
+      "Almacenamiento de documentos",
+      "Gestor de versiones de documentos",
+      "Herramienta de OCR"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Kendra indexa y busca en datos empresariales (S3, SharePoint, wikis, etc) usando ML para entender preguntas en lenguaje natural."
+  },
+  {
+    "id": "vision_services_306",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "intermedio",
+    "question": "¿Diferencia entre Textract y Kendra?",
+    "options": [
+      "Textract extrae datos de documentos; Kendra busca e indexa datos",
+      "Textract busca; Kendra extrae",
+      "No hay diferencia",
+      "Ambos hacen lo mismo"
+    ],
+    "correct_answer": 0,
+    "explanation": "Textract: OCR para extraer estructura. Kendra: búsqueda semántica sobre datos indexados. Complementarias."
+  },
+  {
+    "id": "vision_services_307",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "intermedio",
+    "question": "¿Cómo usar Rekognition + Textract juntos?",
+    "options": [
+      "Reconocer un documento (pasaporte) con Rekognition, luego extraer datos con Textract",
+      "No se pueden usar juntos",
+      "Solo para imágenes, no documentos",
+      "Solo para vídeo"
+    ],
+    "correct_answer": 0,
+    "explanation": "Flujo común: Rekognition detecta tipo de doc (pasaporte) → Textract extrae campos específicos automáticamente."
+  },
+  {
+    "id": "vision_services_960",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "basico",
+    "question": "¿Qué tecnología de IA transforma documentos como PDFs en información estructurada usando NLP y visión por computador?",
+    "options": [
+      "Procesamiento Inteligente de Documentos (IDP)",
+      "Amazon Polly",
+      "AWS DeepRacer",
+      "Amazon RDS"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Procesamiento Inteligente de Documentos (IDP) combina NLP, OCR y visión por computador para extraer, clasificar y estructurar automáticamente la información de documentos no estructurados como PDFs, facturas y contratos."
+  },
+  {
+    "id": "vision_services_961",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué servicio identifica texto impreso y escrito a mano en vídeos a lo largo de los fotogramas?",
+    "options": [
+      "Amazon Rekognition Video Analysis",
+      "Amazon Textract",
+      "Amazon Transcribe",
+      "Amazon Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Rekognition Video puede detectar y reconocer texto impreso y manuscrito que aparece en vídeos, analizando fotogramas para extraer texto de carteles, subtítulos, matrículas u otras fuentes visuales."
+  },
+  {
+    "id": "vision_services_962",
+    "exam_id": "ai_practitioner",
+    "topic": "vision_services",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es el servicio de AWS HIPAA Eligible adecuado para aplicaciones sanitarias de análisis de imágenes?",
+    "options": [
+      "Amazon Rekognition",
+      "Amazon Translate",
+      "Amazon Lex",
+      "Amazon Forecast"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Rekognition es un servicio HIPAA Eligible, lo que significa que puede usarse en aplicaciones sanitarias que manejan información protegida de salud (PHI), cumpliendo con los requisitos de privacidad de HIPAA."
+  },
+  {
+    "id": "recommendation_forecasting_401",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función de Amazon Personalize?",
+    "options": [
+      "Construir sistemas de recomendación personalizados sin ML expertise",
+      "Personalizar diseño de interfaz",
+      "Traducir contenido",
+      "Moderar contenido"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Personalize es un servicio administrado que crea recomendaciones personalizadas (productos, películas, noticias) sin necesidad de ML expertise."
+  },
+  {
+    "id": "recommendation_forecasting_402",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "basico",
+    "question": "¿Qué datos necesita Amazon Personalize?",
+    "options": [
+      "Interacciones de usuarios (clicks, compras, ratings), items, usuarios",
+      "Solo ratings",
+      "Solo historiales de compra",
+      "Solo datos demográficos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Personalize necesita eventos de usuarios (qué interactúan), catálogo de items y metadata de usuarios para entrenar."
+  },
+  {
+    "id": "recommendation_forecasting_403",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "intermedio",
+    "question": "¿Cuáles son los tipos de recomendación que ofrece Personalize?",
+    "options": [
+      "Personalizadas (basadas en usuario), similares a item, ranking, promoción",
+      "Solo personalizadas",
+      "Solo basadas en ratings",
+      "Solo análisis de vendedores"
+    ],
+    "correct_answer": 0,
+    "explanation": "Personalize soporta: USER_PERSONALIZATION, SIMILAR_ITEMS, RANKING, etc. Cada uno optimizado para casos diferentes."
+  },
+  {
+    "id": "recommendation_forecasting_404",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "intermedio",
+    "question": "¿Cómo Personalize mejora recomendaciones con el tiempo?",
+    "options": [
+      "Aprende continuamente de nuevas interacciones de usuarios sin reentrenamiento manual",
+      "Requiere reentrenamiento diario",
+      "Solo usa datos históricos",
+      "No mejora automáticamente"
+    ],
+    "correct_answer": 0,
+    "explanation": "Personalize actualiza modelos automáticamente conforme llegan nuevos eventos, mejorando recomendaciones sin intervención."
+  },
+  {
+    "id": "recommendation_forecasting_405",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Forecast?",
+    "options": [
+      "Servicio para predicciones de series temporales (demanda, tráfico, precios)",
+      "Predicción del clima",
+      "Análisis de mercado",
+      "Detección de anomalías"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Forecast predice valores futuros basados en datos históricos de series temporales, ideal para demanda, tráfico, precios."
+  },
+  {
+    "id": "recommendation_forecasting_406",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "basico",
+    "question": "¿Cuáles son casos de uso de Amazon Forecast?",
+    "options": [
+      "Predicción de demanda, optimización de inventario, pronóstico de tráfico, predicción de precios",
+      "Solo predicción de demanda",
+      "Solo análisis histórico",
+      "Solo detección de fraude"
+    ],
+    "correct_answer": 0,
+    "explanation": "Forecast es versátil: retailers predicen demanda, utilities predicen consumo, ecommerce ajusta inventario, etc."
+  },
+  {
+    "id": "recommendation_forecasting_407",
+    "exam_id": "ai_practitioner",
+    "topic": "recommendation_forecasting",
+    "difficulty": "intermedio",
+    "question": "¿Qué algoritmos usa Amazon Forecast automáticamente?",
+    "options": [
+      "Prueba múltiples (ARIMA, Prophet, DeepAR+, etc) y elige el mejor automáticamente",
+      "Solo ARIMA",
+      "Solo Prophet",
+      "Solo regresión lineal"
+    ],
+    "correct_answer": 0,
+    "explanation": "Forecast prueba diversos algoritmos (clásicos y deep learning) y selecciona el que mejor generaliza."
+  },
+  {
+    "id": "other_ml_services_501",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon Q?",
+    "options": [
+      "Asistente de IA generativa para empresas (responde sobre código, documentos, datos)",
+      "Base de datos SQL",
+      "Servicio de cola de mensajes",
+      "Herramienta de visualización"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Q es un asistente GenAI que responde preguntas sobre código fuente, documentación y datos empresariales integrándose con IDEs y aplicaciones."
+  },
+  {
+    "id": "other_ml_services_502",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función de Amazon Fraud Detector?",
+    "options": [
+      "Detectar transacciones fraudulentas usando ML sin datos históricos etiquetados",
+      "Procesar pagos",
+      "Almacenar datos de transacciones",
+      "Analizar tendencias de mercado"
+    ],
+    "correct_answer": 0,
+    "explanation": "Fraud Detector entrena modelos de detección de fraude rápidamente incluso sin dataset grande de fraudes históricos."
+  },
+  {
+    "id": "other_ml_services_503",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es el caso de uso principal de Amazon DevOps Guru?",
+    "options": [
+      "Detectar y diagnosticar problemas operacionales en aplicaciones usando ML",
+      "Deployar aplicaciones",
+      "Gestionar repositorios de código",
+      "Monitorear tráfico de red"
+    ],
+    "correct_answer": 0,
+    "explanation": "DevOps Guru analiza logs y métricas para detectar anomalías operacionales, predecir problemas y sugerir soluciones."
+  },
+  {
+    "id": "other_ml_services_504",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué es AWS DeepLens?",
+    "options": [
+      "Cámara con IA integrada para ejecutar modelos de visión en edge",
+      "Servicio de streaming de vídeo",
+      "Base de datos de vídeos",
+      "Editor de vídeo"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS DeepLens es una cámara con GPU que ejecuta modelos de ML en el edge (sin enviar a AWS), ideal para aplicaciones de visión local."
+  },
+  {
+    "id": "other_ml_services_505",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la ventaja de ejecutar modelos en AWS DeepLens?",
+    "options": [
+      "Latencia baja (sin envío a cloud), privacidad de datos, trabajo offline",
+      "Mayor precisión",
+      "Mejor escalabilidad",
+      "Costo reducido de almacenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "Inference en edge = respuestas instantáneas sin latencia de red, datos privados localmente, funciona offline."
+  },
+  {
+    "id": "other_ml_services_506",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la función de Amazon CodeGuru?",
+    "options": [
+      "Análisis automático de código para detectar defectos, vulnerabilidades y mejorar performance",
+      "Escribir código automáticamente",
+      "Compilar código",
+      "Gestionar dependencias"
+    ],
+    "correct_answer": 0,
+    "explanation": "CodeGuru (Reviewer + Profiler) detecta bugs, vulnerabilidades, problemas de performance en código Python/Java."
+  },
+  {
+    "id": "other_ml_services_507",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "intermedio",
+    "question": "¿Diferencia entre CodeGuru Reviewer y CodeGuru Profiler?",
+    "options": [
+      "Reviewer: análisis estático de código; Profiler: análisis de performance en runtime",
+      "Son lo mismo",
+      "Reviewer es más antiguo",
+      "Profiler solo para Java"
+    ],
+    "correct_answer": 0,
+    "explanation": "Reviewer: detecta problemas en commits/PRs. Profiler: identifica bottlenecks en aplicaciones corriendo."
+  },
+  {
+    "id": "other_ml_services_508",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué es Amazon CodeWhisperer?",
+    "options": [
+      "Asistente de codificación IA que sugiere código mientras escribes (autocomplete inteligente)",
+      "Compilador de código",
+      "Herramienta de debugging",
+      "Servicio de versionado"
+    ],
+    "correct_answer": 0,
+    "explanation": "CodeWhisperer es como Copilot pero de AWS: sugiere líneas/funciones completas en IDE basado en contexto."
+  },
+  {
+    "id": "other_ml_services_876",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué es AWS DeepRacer y para qué se usa en el contexto de ML?",
+    "options": [
+      "Plataforma educativa/gamificada para aprender Reinforcement Learning con un coche autónomo a escala",
+      "Servicio de producción para desplegar modelos de conducción autónoma",
+      "Herramienta de benchmarking para comparar la velocidad de entrenamiento de modelos",
+      "Servicio para acelerar el entrenamiento de redes neuronales profundas con GPUs"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS DeepRacer es una plataforma educativa basada en un coche de carreras autónomo a escala 1/18. Permite aprender Reinforcement Learning de forma práctica mediante un simulador 3D y competiciones en la AWS DeepRacer League. NO es un servicio de producción."
+  },
+  {
+    "id": "other_ml_services_877",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué tipo de aprendizaje automático usa AWS DeepRacer para entrenar al coche autónomo?",
+    "options": [
+      "Reinforcement Learning (Aprendizaje por Refuerzo)",
+      "Supervised Learning (Aprendizaje Supervisado)",
+      "Unsupervised Learning (Aprendizaje No Supervisado)",
+      "Transfer Learning (Aprendizaje por Transferencia)"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS DeepRacer utiliza Reinforcement Learning (RL), donde el agente (coche) aprende a través de la interacción con el entorno (simulador/pista), recibiendo recompensas positivas por mantenerse en la pista y negativas por salirse. La función de recompensa es clave para definir el comportamiento deseado."
+  },
+  {
+    "id": "other_ml_services_878",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Cuál es la principal limitación de AWS DeepRacer que debes recordar para el examen?",
+    "options": [
+      "Es un servicio educativo/de entretenimiento — NO se usa en producción empresarial",
+      "Solo funciona en la región us-east-1 de AWS",
+      "Requiere hardware especializado que cuesta más de 10.000$",
+      "Solo puede ser usado por partners certificados de AWS"
+    ],
+    "correct_answer": 0,
+    "explanation": "DeepRacer es una herramienta educativa y gamificada para aprender RL. Si en el examen aparece un caso de uso empresarial real que requiere RL, la respuesta correcta sería SageMaker (que soporta RL con Ray RLlib y TensorFlow). DeepRacer es para aprendizaje, no para producción."
+  },
+  {
+    "id": "other_ml_services_879",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué es Amazon Comprehend Medical y en qué se diferencia de Amazon Comprehend?",
+    "options": [
+      "Comprehend Medical extrae entidades médicas específicas (diagnósticos, medicamentos, síntomas); Comprehend es NLP de propósito general",
+      "Comprehend Medical es más rápido que Comprehend para texto en inglés",
+      "Comprehend Medical requiere que el usuario entrene su propio modelo; Comprehend no",
+      "Son el mismo servicio con diferente nombre según el sector"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Comprehend Medical es una variante especializada de Comprehend diseñada para texto médico. Extrae entidades médicas específicas como diagnósticos (ICD-10-CM), medicamentos (RxNorm), síntomas, procedimientos y anatomía del cuerpo humano desde textos clínicos no estructurados."
+  },
+  {
+    "id": "other_ml_services_880",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "intermedio",
+    "question": "¿Qué ofrece Amazon Transcribe Call Analytics que no tiene Amazon Transcribe estándar?",
+    "options": [
+      "Análisis avanzado de conversaciones de call center: sentimiento por hablante, tiempos de silencio, interrupciones y categorías personalizadas",
+      "Mayor velocidad de transcripción para llamadas telefónicas de baja calidad",
+      "Soporte para más de 200 idiomas adicionales específicos de call centers",
+      "Integración directa con Amazon Connect sin configuración adicional"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Transcribe Call Analytics está especializado en call centers. Además de transcribir, analiza el sentimiento de cada hablante por turno, detecta tiempos de silencio, interrupciones, cumplimiento de guiones, y permite categorizar automáticamente las llamadas por temas."
+  },
+  {
+    "id": "other_ml_services_963",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué versión de DeepRacer incluye un kit de sensores opcional con LIDAR?",
+    "options": [
+      "AWS DeepRacer Evo",
+      "DeepRacer original",
+      "DeepRacer Virtual",
+      "DeepRacer S3"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS DeepRacer Evo es la versión mejorada del vehículo que incluye soporte para un kit de sensores adicional con LIDAR (sensor de distancia por láser), permitiendo entrenar modelos de RL más sofisticados con percepción 3D del entorno."
+  },
+  {
+    "id": "other_ml_services_964",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué servicio conecta a las empresas con una fuerza laboral global para tareas de anotación y etiquetado de datos?",
+    "options": [
+      "Amazon Mechanical Turk (MTurk)",
+      "Amazon Augmented AI",
+      "Amazon Lex",
+      "Amazon Q Business"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Mechanical Turk es una plataforma de crowdsourcing que conecta a las empresas con trabajadores humanos distribuidos globalmente para realizar tareas que los ordenadores aún no pueden hacer bien, como etiquetar datos, validar resultados de ML y realizar encuestas."
+  },
+  {
+    "id": "other_ml_services_965",
+    "exam_id": "ai_practitioner",
+    "topic": "other_ml_services",
+    "difficulty": "basico",
+    "question": "¿Qué servicio proporciona revisión humana de predicciones de ML con baja confianza?",
+    "options": [
+      "Amazon Augmented AI (A2I)",
+      "Amazon Mechanical Turk",
+      "Amazon Bedrock",
+      "SageMaker Studio Lab"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Augmented AI (A2I) crea flujos de trabajo Human-in-the-Loop donde revisores humanos validan y corrigen las predicciones de ML cuando el modelo tiene baja confianza, mejorando la precisión en casos de uso críticos."
+  },
+  {
+    "id": "cost_optimization_601",
+    "exam_id": "ai_practitioner",
+    "topic": "cost_optimization",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la forma más económica de entrenar modelos en SageMaker?",
+    "options": [
+      "Usar Spot Instances (ahorran hasta 70%)",
+      "On-demand instances",
+      "Instancias reservadas de 1 año",
+      "Instancias de 3 años"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Spot Instances pueden interrumpirse pero cuestan 70% menos que on-demand. Ideal para entrenamientos tolerantes a interrupciones."
+  },
+  {
+    "id": "cost_optimization_602",
+    "exam_id": "ai_practitioner",
+    "topic": "cost_optimization",
+    "difficulty": "intermedio",
+    "question": "¿Cómo optimizar costos de inferencia en SageMaker?",
+    "options": [
+      "Multi-model endpoints, auto-scaling, batch transform, edge deployment",
+      "Solo usar on-demand",
+      "Más instancias grandes",
+      "Crear endpoints para cada modelo"
+    ],
+    "correct_answer": 0,
+    "explanation": "Multi-model: compartir infraestructura. Auto-scaling: escalar con demanda. Batch: procesar en lotes offline. Edge: inference local."
+  },
+  {
+    "id": "cost_optimization_603",
+    "exam_id": "ai_practitioner",
+    "topic": "cost_optimization",
+    "difficulty": "intermedio",
+    "question": "¿Cuándo usar SageMaker Batch Transform en lugar de endpoints en tiempo real?",
+    "options": [
+      "Para predicciones offline sobre datasets grandes (no necesita respuestas inmediatas)",
+      "Para predicciones en tiempo real",
+      "Para entrenamientos distribuidos",
+      "Para datos en streaming"
+    ],
+    "correct_answer": 0,
+    "explanation": "Batch Transform procesa datos en lotes = más barato que endpoints en tiempo real cuando no necesitas latencia baja."
+  },
+  {
+    "id": "cost_optimization_604",
+    "exam_id": "ai_practitioner",
+    "topic": "cost_optimization",
+    "difficulty": "intermedio",
+    "question": "¿Cómo reducir costos con Amazon Bedrock?",
+    "options": [
+      "Usar Provisioned Throughput para volumen alto predecible; caching de prompts",
+      "Solo on-demand",
+      "Máximo throughput siempre",
+      "Cambiar modelos constantemente"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock: on-demand es flexible pero caro. Provisioned es descuento si volumen es predecible. Prompt caching reutiliza contexto."
+  },
+  {
+    "id": "cost_optimization_605",
+    "exam_id": "ai_practitioner",
+    "topic": "cost_optimization",
+    "difficulty": "intermedio",
+    "question": "¿Qué servicio usar para optimizar costos en visión (Rekognition)?",
+    "options": [
+      "Batch processing; detectar solo lo necesario (filtros)",
+      "Procesar todo en tiempo real",
+      "Enviar todas las imágenes",
+      "Guardar todas las imágenes"
+    ],
+    "correct_answer": 0,
+    "explanation": "Rekognition batch es más barato que real-time. Filtrar imágenes localmente antes de enviar a AWS = menos API calls."
+  },
+  {
+    "id": "cost_optimization_606",
+    "exam_id": "ai_practitioner",
+    "topic": "cost_optimization",
+    "difficulty": "basico",
+    "question": "¿Cómo usar AWS Free Tier para experimentar con AI/ML?",
+    "options": [
+      "Usar SageMaker, Comprehend, Translate, etc gratis por 12 meses (límites)",
+      "Acceso ilimitado a todos los servicios",
+      "Solo Bedrock es gratuito",
+      "No hay free tier"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Free Tier incluye muchos servicios AI/ML por 12 meses con límites de uso (p.ej., 250 predicciones/mes en Comprehend)."
+  },
+  {
+    "id": "security_governance_701",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué es sesgos (bias) en modelos de ML?",
+    "options": [
+      "Cuando un modelo discrimina injustamente contra grupos específicos",
+      "Cuando un modelo sobrefitea",
+      "Cuando los datos son incompletos",
+      "Cuando el modelo es demasiado simple"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bias ocurre cuando datos históricos contienen discriminación → modelo la perpetúa. Ej: algoritmo de hiring rechaza mujeres."
+  },
+  {
+    "id": "security_governance_702",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Cuál es el propósito de Amazon SageMaker Clarify?",
+    "options": [
+      "Detectar sesgos en datos/modelos e interpretar predicciones",
+      "Limpiar datos",
+      "Entrenar modelos más rápido",
+      "Escalar inference"
+    ],
+    "correct_answer": 0,
+    "explanation": "Clarify detecta bias mediante análisis de desproporción (disparate impact) e interpreta por qué el modelo predice algo."
+  },
+  {
+    "id": "security_governance_703",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué método usa Clarify para interpretar predicciones?",
+    "options": [
+      "SHAP, LIME y otros métodos de explicabilidad",
+      "Solo análisis de importancia de variables",
+      "Reglas booleanas",
+      "Visualización de datos"
+    ],
+    "correct_answer": 0,
+    "explanation": "SHAP (SHapley Additive exPlanations) y LIME ayudan a entender qué características influyeron en cada predicción."
+  },
+  {
+    "id": "security_governance_704",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Cuáles son consideraciones éticas en GenAI?",
+    "options": [
+      "Sesgos, privacidad, derechos de autor, hallucinations, transparencia",
+      "Solo privacidad",
+      "Solo derechos de autor",
+      "Solo transparencia"
+    ],
+    "correct_answer": 0,
+    "explanation": "GenAI ético requiere: evitar sesgos, proteger privacidad, respetar derechos de autor, minimizar hallucinations, ser transparente."
+  },
+  {
+    "id": "security_governance_705",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué es 'hallucination' en LLMs?",
+    "options": [
+      "Cuando el modelo genera información falsa pero creíble",
+      "Cuando el modelo se congela",
+      "Cuando el modelo rechaza preguntas",
+      "Cuando el modelo tarda mucho"
+    ],
+    "correct_answer": 0,
+    "explanation": "Hallucinations: LLMs inventan datos, citas falsas, referencias inexistentes. Mitigación: RAG, fine-tuning, prompts específicos."
+  },
+  {
+    "id": "security_governance_706",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Cómo proteger privacidad de datos en ML?",
+    "options": [
+      "Anonimización, encriptación, diferential privacy, acceso basado en roles",
+      "Sin protección necesaria",
+      "Solo encriptación",
+      "Solo en edge"
+    ],
+    "correct_answer": 0,
+    "explanation": "Privacidad ML requiere múltiples capas: remover PII, encriptar en tránsito/reposo, limitar acceso, usar DP si es crítico."
+  },
+  {
+    "id": "security_governance_707",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué regulaciones aplican a AI/ML?",
+    "options": [
+      "GDPR (EU), CCPA (California), AI Act (EU), y reglamentos específicos por industria",
+      "No hay regulaciones",
+      "Solo privacidad",
+      "Solo en cloud"
+    ],
+    "correct_answer": 0,
+    "explanation": "GDPR obliga explicabilidad en decisiones ML. CCPA protege privacidad. AI Act regula IA de alto riesgo."
+  },
+  {
+    "id": "security_governance_708",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Cómo usar Bedrock de forma segura?",
+    "options": [
+      "VPC endpoints, encriptación, IAM roles, content filtering, no enviar PII sensible",
+      "Sin protección especial",
+      "Solo en public internet",
+      "Sin control de acceso"
+    ],
+    "correct_answer": 0,
+    "explanation": "Bedrock seguro: VPC para aislamiento, encriptación KMS, IAM granular, filtros de contenido, evitar PII en prompts."
+  },
+  {
+    "id": "security_governance_849",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué es 'Prompt Injection' en el contexto de seguridad de LLMs (OWASP Top 10)?",
+    "options": [
+      "Entradas maliciosas que manipulan el comportamiento del LLM para saltarse restricciones",
+      "Un ataque de fuerza bruta contra la API del LLM",
+      "Inyección de código SQL en las consultas a la base de datos del LLM",
+      "Robo de los pesos del modelo mediante ingeniería inversa"
+    ],
+    "correct_answer": 0,
+    "explanation": "Prompt Injection es el #1 en OWASP Top 10 para LLMs: consiste en instrucciones maliciosas en el input que manipulan el modelo para ignorar sus restricciones, revelar información sensible o ejecutar acciones no autorizadas."
+  },
+  {
+    "id": "security_governance_850",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué vulnerabilidad de LLMs describe la situación donde datos maliciosos en el dataset de entrenamiento causan que el modelo aprenda comportamientos dañinos?",
+    "options": [
+      "Training Data Poisoning",
+      "Prompt Injection",
+      "Model Theft",
+      "Excessive Agency"
+    ],
+    "correct_answer": 0,
+    "explanation": "Training Data Poisoning (#3 OWASP LLMs) ocurre cuando atacantes introducen datos maliciosos en el corpus de entrenamiento, causando que el modelo aprenda comportamientos dañinos, sesgados o que incluya backdoors."
+  },
+  {
+    "id": "security_governance_851",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "avanzado",
+    "question": "¿Qué riesgo de LLMs se refiere a fallos en plugins o componentes adicionales que extienden las capacidades del modelo?",
+    "options": [
+      "Insecure Plugin Design",
+      "Supply Chain Vulnerabilities",
+      "Excessive Agency",
+      "Model Denial of Service"
+    ],
+    "correct_answer": 0,
+    "explanation": "Insecure Plugin Design (#7 OWASP LLMs) se refiere a flaws en los plugins o herramientas adicionales que los LLMs pueden usar. Un plugin mal diseñado puede ser explotado para ejecutar acciones no autorizadas o revelar información sensible."
+  },
+  {
+    "id": "security_governance_852",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS centraliza alertas de seguridad de múltiples servicios (GuardDuty, Inspector, Macie) en un único panel?",
+    "options": [
+      "AWS Security Hub",
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon Detective"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Security Hub es el centro de control centralizado para gestionar seguridad y cumplimiento. Agrega, organiza y prioriza alertas de seguridad de múltiples servicios AWS como GuardDuty, Inspector, Macie y herramientas de terceros."
+  },
+  {
+    "id": "security_governance_853",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS usa Machine Learning para detectar amenazas de seguridad analizando logs de VPC, CloudTrail y DNS?",
+    "options": [
+      "Amazon GuardDuty",
+      "Amazon Inspector",
+      "AWS Config",
+      "AWS Trusted Advisor"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon GuardDuty usa ML para detectar amenazas inteligentes analizando automáticamente logs de VPC Flow, CloudTrail y DNS. Detecta comportamientos anómalos como acceso desde IPs maliciosas, escalada de privilegios y reconocimiento de red."
+  },
+  {
+    "id": "security_governance_854",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Cuál es el propósito de AWS Key Management Service (KMS) en el contexto de seguridad de IA?",
+    "options": [
+      "Gestión centralizada de claves de cifrado para proteger modelos, datasets y endpoints",
+      "Autenticación de usuarios en aplicaciones de IA",
+      "Filtrado de contenido en respuestas de LLMs",
+      "Monitoreo de vulnerabilidades en modelos desplegados"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS KMS gestiona claves de cifrado usadas para proteger datos sensibles en todo el stack de ML: datasets en S3, modelos entrenados, parámetros en tránsito, y endpoints de inferencia."
+  },
+  {
+    "id": "security_governance_855",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "avanzado",
+    "question": "¿Qué vulnerabilidad del OWASP Top 10 para LLMs se refiere al acceso no autorizado a los parámetros o arquitectura del modelo?",
+    "options": [
+      "Model Theft",
+      "Training Data Poisoning",
+      "Prompt Injection",
+      "Overreliance"
+    ],
+    "correct_answer": 0,
+    "explanation": "Model Theft (#10 OWASP LLMs) es el acceso no autorizado a los parámetros, pesos o arquitectura del modelo. Puede ocurrir mediante ataques de extracción de modelo (consultando el modelo sistemáticamente para reconstruirlo)."
+  },
+  {
+    "id": "security_governance_889",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la diferencia entre Amazon Cognito User Pools e Identity Pools?",
+    "options": [
+      "User Pools gestionan autenticación de usuarios (registro/login); Identity Pools proveen credenciales AWS temporales para acceder a recursos AWS",
+      "User Pools son para usuarios internos; Identity Pools son para usuarios externos",
+      "User Pools son para aplicaciones web; Identity Pools son para aplicaciones móviles",
+      "Son sinónimos que describen el mismo servicio"
+    ],
+    "correct_answer": 0,
+    "explanation": "Cognito User Pools: directorio de usuarios con registro, inicio de sesión, MFA y recuperación de contraseña. Cognito Identity Pools (Federated Identities): intercambian tokens de identidad por credenciales AWS temporales (roles IAM), permitiendo a los usuarios autenticados acceder directamente a servicios AWS como S3 o DynamoDB."
+  },
+  {
+    "id": "security_governance_890",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Cuál es la diferencia fundamental entre IAM y Amazon Cognito?",
+    "options": [
+      "IAM gestiona el acceso de desarrolladores y administradores a recursos AWS; Cognito gestiona el acceso de usuarios finales a aplicaciones",
+      "IAM es para entornos on-premise; Cognito es exclusivamente para la nube",
+      "IAM soporta hasta 5.000 usuarios; Cognito escala a millones",
+      "Son equivalentes pero Cognito es la versión moderna de IAM"
+    ],
+    "correct_answer": 0,
+    "explanation": "IAM: gestiona identidades técnicas (desarrolladores, apps, servicios) para acceder a recursos AWS. Cognito: gestiona identidades de usuarios finales (clientes de tu aplicación) con funciones de registro, login, MFA y federación con redes sociales. Son complementarios, no alternativos."
+  },
+  {
+    "id": "security_governance_891",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué proveedor de identidades externos soporta Amazon Cognito para inicio de sesión federado?",
+    "options": [
+      "Google, Facebook, Apple, Amazon y proveedores SAML 2.0 / OIDC corporativos",
+      "Solo Microsoft Active Directory mediante LDAP",
+      "Únicamente proveedores certificados por AWS",
+      "Solo Google y Facebook en la actualidad"
+    ],
+    "correct_answer": 0,
+    "explanation": "Cognito soporta federación con: redes sociales (Google, Facebook, Apple, Amazon) y proveedores de identidad empresariales mediante SAML 2.0 u OIDC (Active Directory, Okta, Ping Identity, etc.). Esto permite a los usuarios usar sus credenciales existentes sin crear una cuenta nueva."
+  },
+  {
+    "id": "security_governance_892",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la diferencia entre Security Groups y Network ACLs en Amazon VPC?",
+    "options": [
+      "Security Groups operan a nivel de instancia (stateful); Network ACLs operan a nivel de subred (stateless)",
+      "Security Groups son para tráfico de salida; ACLs para tráfico de entrada",
+      "Security Groups solo se aplican a EC2; ACLs solo a RDS",
+      "Son equivalentes pero Security Groups son más recientes"
+    ],
+    "correct_answer": 0,
+    "explanation": "Security Groups: firewall stateful a nivel de instancia (recuerda el estado de la conexión, solo defines reglas de entrada y la salida se permite automáticamente). Network ACLs: firewall stateless a nivel de subred (debes definir reglas de entrada Y salida explícitamente, se evalúan en orden numérico)."
+  },
+  {
+    "id": "security_governance_893",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Para qué sirven los VPC Endpoints en Amazon VPC?",
+    "options": [
+      "Conectar servicios AWS (S3, DynamoDB, etc.) desde dentro de una VPC sin que el tráfico salga a internet",
+      "Crear conexiones VPN entre VPCs de diferentes regiones",
+      "Exponer aplicaciones internas a internet de forma segura",
+      "Acelerar el acceso a servicios AWS mediante caché de red"
+    ],
+    "correct_answer": 0,
+    "explanation": "Los VPC Endpoints permiten que los recursos dentro de tu VPC se comuniquen con servicios AWS (S3, DynamoDB, SageMaker, Bedrock, etc.) sin necesitar Internet Gateway ni NAT. El tráfico permanece dentro de la red privada de AWS, mejorando la seguridad y reduciendo latencia."
+  },
+  {
+    "id": "security_governance_894",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué gestiona AWS Certificate Manager (ACM) y qué ventaja principal ofrece?",
+    "options": [
+      "Provisiona y renueva automáticamente certificados SSL/TLS gratuitos para dominios AWS — elimina la gestión manual de certificados",
+      "Gestiona certificados de firma de código para aplicaciones móviles AWS",
+      "Proporciona certificados para autenticación mutua TLS entre microservicios",
+      "Gestiona las claves de cifrado de los certificados almacenadas en KMS"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Certificate Manager provisiona certificados SSL/TLS públicos de forma gratuita para dominios verificados y los renueva automáticamente antes de su expiración. Se integra con CloudFront, ALB y API Gateway, eliminando la necesidad de comprar, subir y renovar certificados manualmente."
+  },
+  {
+    "id": "security_governance_895",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Cuándo usarías AWS Private Certificate Authority (Private CA) en lugar de ACM estándar?",
+    "options": [
+      "Cuando necesitas emitir certificados TLS para comunicaciones internas entre microservicios, contenedores o dispositivos IoT",
+      "Cuando necesitas certificados HTTPS para un sitio web público de la empresa",
+      "Cuando ACM no soporta el dominio específico de tu aplicación",
+      "Cuando quieres reducir el coste de los certificados SSL públicos"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Private CA crea una infraestructura PKI privada para emitir certificados a recursos internos que no son accesibles públicamente: microservicios en VPC, contenedores en EKS/ECS, dispositivos IoT, o cualquier comunicación mTLS interna. ACM estándar es para certificados públicos (HTTPS de cara a internet)."
+  },
+  {
+    "id": "security_governance_896",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué incluye AWS Shield Advanced que NO tiene Shield Standard?",
+    "options": [
+      "Acceso 24/7 al equipo DRT de AWS, visibilidad en tiempo real de ataques y protección de costes por picos DDoS",
+      "Protección básica contra ataques DDoS en capas 3 y 4",
+      "Integración con AWS WAF para protección de aplicaciones web",
+      "Protección automática incluida para todos los recursos de AWS"
+    ],
+    "correct_answer": 0,
+    "explanation": "Shield Advanced (de pago) añade sobre Shield Standard: acceso 24/7 al DDoS Response Team (DRT) de AWS, visibilidad en tiempo real de los ataques, protección de costes (créditos por picos de uso causados por DDoS), y métricas detalladas. Shield Standard solo da protección básica automática incluida sin coste."
+  },
+  {
+    "id": "security_governance_897",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿En qué capas del modelo OSI protege AWS Shield y en qué capa protege AWS WAF?",
+    "options": [
+      "Shield protege capas 3 y 4 (red y transporte / DDoS volumétrico); WAF protege capa 7 (aplicación / HTTP)",
+      "Shield y WAF protegen las mismas capas pero con diferentes mecanismos",
+      "Shield protege capa 7; WAF protege capas 3 y 4",
+      "Ambos protegen todas las capas del modelo OSI de forma complementaria"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Shield protege contra ataques DDoS volumétricos en capas 3 (red/IP) y 4 (transporte/TCP/UDP). AWS WAF filtra tráfico HTTP/HTTPS malicioso en capa 7 (aplicación): SQL injection, XSS, bots, etc. Son complementarios: Shield protege la disponibilidad; WAF protege la lógica de la aplicación."
+  },
+  {
+    "id": "security_governance_898",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué tipo de amenazas detecta específicamente Amazon GuardDuty además de accesos no autorizados?",
+    "options": [
+      "Minería de criptomonedas (cryptojacking), reconocimiento de red y comportamiento anómalo de instancias comprometidas",
+      "Vulnerabilidades de software en los paquetes instalados en EC2",
+      "Configuraciones incorrectas en recursos S3 y RDS",
+      "Ataques DDoS volumétricos contra la infraestructura de red"
+    ],
+    "correct_answer": 0,
+    "explanation": "GuardDuty detecta amenazas específicas como cryptojacking (instancias EC2 usadas para minar criptomonedas), reconocimiento de red, intentos de escalada de privilegios, instancias comprometidas comunicándose con IPs maliciosas conocidas, y comportamiento anómalo en S3, EKS, RDS, entre otros."
+  },
+  {
+    "id": "security_governance_899",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué recursos AWS monitoriza Amazon GuardDuty analizando sus logs?",
+    "options": [
+      "CloudTrail Logs (actividad API), VPC Flow Logs (tráfico de red) y DNS Logs — sin instalar agentes",
+      "Solo instancias EC2 mediante agentes instalados en el sistema operativo",
+      "Únicamente buckets S3 en busca de accesos no autorizados",
+      "Solo funciones Lambda mediante instrumentación del código"
+    ],
+    "correct_answer": 0,
+    "explanation": "GuardDuty analiza automáticamente CloudTrail (quién hizo qué), VPC Flow Logs (tráfico de red entre recursos) y DNS Logs (consultas DNS sospechosas). No requiere instalar agentes ni modificar la configuración de recursos. También puede proteger EKS, S3 y RDS con activación de fuentes adicionales."
+  },
+  {
+    "id": "security_governance_900",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué es el 'Security Score' en AWS Security Hub?",
+    "options": [
+      "Puntuación que indica el porcentaje de controles de seguridad que pasa tu entorno — ayuda a priorizar mejoras",
+      "Calificación crediticia de la empresa para acceder a descuentos en servicios AWS",
+      "Puntuación de rendimiento de los servicios de seguridad activados en la cuenta",
+      "Índice de velocidad de respuesta ante incidentes de seguridad"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Security Score de AWS Security Hub muestra qué porcentaje de los controles de seguridad evaluados (CIS AWS Foundations, AWS Foundational Security Best Practices, PCI DSS, etc.) pasan en tu entorno. Una puntuación baja indica áreas de mejora prioritaria."
+  },
+  {
+    "id": "security_governance_901",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Cómo se diferencia Amazon GuardDuty de AWS Security Hub?",
+    "options": [
+      "GuardDuty detecta amenazas activamente mediante ML; Security Hub agrega y prioriza hallazgos de múltiples servicios de seguridad",
+      "GuardDuty es para cuentas individuales; Security Hub es solo para organizaciones multi-cuenta",
+      "GuardDuty analiza logs de red; Security Hub analiza únicamente logs de aplicación",
+      "Son el mismo servicio con diferente nombre según el tipo de cuenta"
+    ],
+    "correct_answer": 0,
+    "explanation": "GuardDuty es un detector de amenazas activo: usa ML para identificar actividad maliciosa en logs. Security Hub es un agregador/orquestador: recoge hallazgos de GuardDuty, Inspector, Macie, IAM Access Analyzer, etc., los evalúa contra estándares de seguridad y proporciona una vista unificada con priorización."
+  },
+  {
+    "id": "security_governance_902",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "¿Qué estándares de seguridad evalúa AWS Security Hub automáticamente?",
+    "options": [
+      "CIS AWS Foundations Benchmark, AWS Foundational Security Best Practices y PCI DSS",
+      "Solo los estándares internos de AWS definidos por el equipo de seguridad",
+      "ISO 27001, SOC2 y NIST Cybersecurity Framework exclusivamente",
+      "Únicamente GDPR y HIPAA para sectores regulados"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Security Hub evalúa automáticamente tu entorno contra varios estándares: CIS AWS Foundations Benchmark (buenas prácticas de configuración), AWS Foundational Security Best Practices y PCI DSS (para organizaciones que procesan pagos). Cada control genera hallazgos PASS/FAIL con recomendaciones."
+  },
+  {
+    "id": "security_governance_903",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué es el principio de mínimo privilegio en IAM y por qué es importante?",
+    "options": [
+      "Otorgar solo los permisos estrictamente necesarios para realizar una tarea — reduce la superficie de ataque en caso de compromiso",
+      "Crear el menor número posible de usuarios IAM en la cuenta",
+      "Aplicar MFA solo a usuarios con permisos de administrador",
+      "Usar políticas gestionadas de AWS en lugar de políticas personalizadas siempre que sea posible"
+    ],
+    "correct_answer": 0,
+    "explanation": "El principio de mínimo privilegio (Principle of Least Privilege) es fundamental en seguridad IAM: cada identidad (usuario, rol, servicio) debe tener solo los permisos mínimos necesarios para cumplir su función. Si una identidad es comprometida, el daño potencial queda limitado al alcance de sus permisos."
+  },
+  {
+    "id": "security_governance_966",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "En la Matriz de Alcance de Seguridad GenAI, ¿qué Alcance (Scope) representa el uso de un servicio público de IA generativa como ChatGPT?",
+    "options": [
+      "Alcance 1 (Scope 1)",
+      "Alcance 5 (Scope 5)",
+      "Alcance 3 (Scope 3)",
+      "Alcance 2 (Scope 2)"
+    ],
+    "correct_answer": 0,
+    "explanation": "En la Matriz de Alcance de Seguridad GenAI, el Scope 1 representa el uso de servicios de IA generativa públicos y de terceros (como ChatGPT), donde la organización tiene el menor control sobre los datos y el modelo."
+  },
+  {
+    "id": "security_governance_967",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "En la Matriz de Alcance de Seguridad GenAI, ¿qué Alcance representa construir y entrenar un modelo desde cero con datos propios?",
+    "options": [
+      "Alcance 5 (Scope 5)",
+      "Alcance 1 (Scope 1)",
+      "Alcance 2 (Scope 2)",
+      "Alcance 4 (Scope 4)"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Scope 5 en la Matriz de Alcance de Seguridad GenAI representa el mayor nivel de control: la organización construye y entrena su propio modelo de fundación desde cero con sus propios datos, asumiendo plena responsabilidad sobre la seguridad y el comportamiento del modelo."
+  },
+  {
+    "id": "security_governance_968",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "intermedio",
+    "question": "En la Matriz de Alcance de Seguridad GenAI, ¿qué Alcance representa refinar un modelo de fundación de terceros con datos propios del negocio?",
+    "options": [
+      "Alcance 4 (Scope 4)",
+      "Alcance 1 (Scope 1)",
+      "Alcance 5 (Scope 5)",
+      "Alcance 2 (Scope 2)"
+    ],
+    "correct_answer": 0,
+    "explanation": "El Scope 4 representa el fine-tuning de un modelo de fundación de terceros con datos específicos del negocio, ofreciendo un mayor control sobre el comportamiento del modelo que usar el modelo base directamente."
+  },
+  {
+    "id": "security_governance_969",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS usa ML para identificar y proteger datos sensibles en Amazon S3?",
+    "options": [
+      "Amazon Macie",
+      "AWS Shield",
+      "AWS PrivateLink",
+      "Amazon WAF"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Macie usa Machine Learning para descubrir, clasificar y proteger automáticamente datos sensibles almacenados en Amazon S3, como información personal (PII), datos financieros o credenciales, generando alertas de seguridad."
+  },
+  {
+    "id": "security_governance_970",
+    "exam_id": "ai_practitioner",
+    "topic": "security_governance",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS proporciona perspectivas sobre posibles amenazas de seguridad de datos usando ML?",
+    "options": [
+      "Amazon Macie",
+      "AWS CloudTrail",
+      "Amazon CloudWatch",
+      "Amazon RDS"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Macie utiliza Machine Learning para analizar patrones de acceso y uso de datos en S3, identificando comportamientos anómalos y posibles amenazas de seguridad como accesos no autorizados o exfiltración de datos."
+  },
+  {
+    "id": "real_world_scenarios_801",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "basico",
+    "question": "Una empresa de ecommerce quiere recomendar productos personalizados a cada cliente. ¿Qué servicio usar?",
+    "options": [
+      "Amazon Personalize",
+      "Amazon Forecast",
+      "SageMaker Training",
+      "Amazon Bedrock"
+    ],
+    "correct_answer": 0,
+    "explanation": "Personalize está diseñado exactamente para esto: recomendaciones personalizadas sin ML expertise."
+  },
+  {
+    "id": "real_world_scenarios_802",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "intermedio",
+    "question": "Un banco necesita detectar fraude en transacciones en tiempo real. Arquitectura recomendada?",
+    "options": [
+      "Amazon Fraud Detector + SageMaker real-time endpoint",
+      "Solo SageMaker batch",
+      "Solo Rekognition",
+      "Solo Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "Fraud Detector es especializado; SageMaker endpoint permite latencia baja. Alternativa: Fraud Detector directamente."
+  },
+  {
+    "id": "real_world_scenarios_803",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "intermedio",
+    "question": "Una empresa quiere automatizar extracción de datos de facturas en lotes diarios. ¿Cómo?",
+    "options": [
+      "Amazon Textract + Lambda + Step Functions + S3",
+      "Manual con Rekognition",
+      "SageMaker entrenamiento",
+      "Amazon Q"
+    ],
+    "correct_answer": 0,
+    "explanation": "Flujo: S3 (facturas) → Lambda (trigger) → Textract (extrae) → Step Functions (orquesta) → BD resultado."
+  },
+  {
+    "id": "real_world_scenarios_804",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "basico",
+    "question": "Un retailer quiere predecir demanda de productos para optimizar inventario. Servicio?",
+    "options": [
+      "Amazon Forecast",
+      "Amazon Personalize",
+      "Amazon SageMaker",
+      "Amazon Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "Forecast es específico para series temporales: predice demanda futura basada en patrones históricos."
+  },
+  {
+    "id": "real_world_scenarios_805",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "intermedio",
+    "question": "Una empresa de soporte al cliente quiere analizar sentimiento en miles de emails diarios. Arquitectura?",
+    "options": [
+      "Amazon Comprehend (batch) + Lambda + CloudWatch para alertas",
+      "Solo Polly",
+      "Solo SageMaker",
+      "Solo Lex"
+    ],
+    "correct_answer": 0,
+    "explanation": "Comprehend batch procesa emails masivamente. Lambda orquesta. CloudWatch alerta sobre sentimientos negativos."
+  },
+  {
+    "id": "real_world_scenarios_806",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "intermedio",
+    "question": "Una startup quiere crear un chatbot inteligente que responda sobre su documentación. ¿Solución?",
+    "options": [
+      "Bedrock Agents + Knowledge Bases + Bedrock Prompt Management",
+      "Solo Lex",
+      "Solo Comprehend",
+      "Solo SageMaker"
+    ],
+    "correct_answer": 0,
+    "explanation": "Knowledge Bases indexa docs → Bedrock genera respuestas basadas en datos relevantes → Agents maneja lógica compleja."
+  },
+  {
+    "id": "real_world_scenarios_807",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "intermedio",
+    "question": "Una empresa de manufacturing quiere inspeccionar productos con cámara en línea de producción. ¿Solución?",
+    "options": [
+      "AWS DeepLens + Rekognition + SageMaker (entrenar modelo custom)",
+      "Solo Rekognition cloud",
+      "Solo SageMaker",
+      "Solo Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "DeepLens ejecuta en edge (sin latencia); Rekognition para detecciones pre-built; SageMaker custom para defectos específicos."
+  },
+  {
+    "id": "real_world_scenarios_808",
+    "exam_id": "ai_practitioner",
+    "topic": "real_world_scenarios",
+    "difficulty": "avanzado",
+    "question": "Un empresa de seguros quiere procesar reclamaciones automáticamente (documentos + reglas). ¿Cómo?",
+    "options": [
+      "Textract (extrae datos) + Bedrock Agents (razonamiento) + Lambda (ejecuta lógica)",
+      "Solo Textract",
+      "Solo SageMaker",
+      "Solo Comprehend"
+    ],
+    "correct_answer": 0,
+    "explanation": "Textract: lee documento. Bedrock Agent: decide siguiente paso (aprobar/denegar/más info). Lambda: actualiza BD."
+  },
+  {
+    "id": "metrics_evaluation_809",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "basico",
+    "question": "¿Qué métrica se usa principalmente para evaluar la calidad de resúmenes automáticos de texto comparando solapamiento con textos de referencia?",
+    "options": [
+      "ROUGE",
+      "BLEU",
+      "Perplexity",
+      "F1-Score"
+    ],
+    "correct_answer": 0,
+    "explanation": "ROUGE (Recall-Oriented Understudy for Gisting Evaluation) mide el solapamiento de n-gramas entre el texto generado y los textos de referencia humanos. Es la métrica estándar para evaluar resúmenes automáticos."
+  },
+  {
+    "id": "metrics_evaluation_810",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la diferencia principal entre ROUGE y BLEU?",
+    "options": [
+      "ROUGE se enfoca en recall (cobertura) y BLEU en precisión",
+      "ROUGE evalúa traducción y BLEU evalúa resúmenes",
+      "ROUGE usa embeddings y BLEU usa n-gramas",
+      "No hay diferencia, son equivalentes"
+    ],
+    "correct_answer": 0,
+    "explanation": "ROUGE mide recall: qué porcentaje de la información importante del texto de referencia está cubierta por la salida del modelo. BLEU mide precisión: cuántas palabras/n-gramas de la salida del modelo aparecen en la referencia."
+  },
+  {
+    "id": "metrics_evaluation_811",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "intermedio",
+    "question": "¿Qué variante de ROUGE usa la subsecuencia común más larga para evaluar coherencia y orden narrativo?",
+    "options": [
+      "ROUGE-L",
+      "ROUGE-1",
+      "ROUGE-2",
+      "ROUGE-N"
+    ],
+    "correct_answer": 0,
+    "explanation": "ROUGE-L (Longest Common Subsequence) evalúa la subsecuencia común más larga entre texto generado y referencia, siendo útil para medir coherencia y orden narrativo del texto."
+  },
+  {
+    "id": "metrics_evaluation_812",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "intermedio",
+    "question": "¿Qué métrica de evaluación de LLMs utiliza embeddings contextuales para capturar similitud semántica, siendo menos sensible a parafraseo?",
+    "options": [
+      "BERTScore",
+      "ROUGE-2",
+      "BLEU-4",
+      "Perplexity"
+    ],
+    "correct_answer": 0,
+    "explanation": "BERTScore usa embeddings contextuales de modelos como BERT para medir similitud del coseno entre textos generados y de referencia. A diferencia de ROUGE/BLEU, captura significado semántico y es menos sensible a parafraseo y sinónimos."
+  },
+  {
+    "id": "metrics_evaluation_813",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "intermedio",
+    "question": "¿Qué mide la Perplexity (perplejidad) en un modelo de lenguaje?",
+    "options": [
+      "Cuán bien el modelo predice lenguaje — menor es mejor",
+      "La cantidad de parámetros del modelo",
+      "La velocidad de inferencia del modelo",
+      "El tamaño del dataset de entrenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "Perplexity es el factor de ramificación promedio del modelo: cuántas opciones considera en cada paso. Una perplejidad de 1 indica predicción perfecta; valores menores indican que el modelo ha aprendido mejor los patrones del lenguaje."
+  },
+  {
+    "id": "metrics_evaluation_814",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "basico",
+    "question": "Durante el entrenamiento de un LLM, ¿qué indica una Perplexity decreciente?",
+    "options": [
+      "El modelo está aprendiendo patrones del lenguaje correctamente",
+      "El modelo está sobreajustado (overfitting)",
+      "El dataset de entrenamiento es demasiado pequeño",
+      "La tasa de aprendizaje es demasiado alta"
+    ],
+    "correct_answer": 0,
+    "explanation": "Una perplejidad decreciente durante el entrenamiento indica que el modelo está mejorando su capacidad de predecir lenguaje, aprendiendo patrones lingüísticos del corpus de entrenamiento."
+  },
+  {
+    "id": "metrics_evaluation_815",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "basico",
+    "question": "¿Qué métrica de negocio para IA Generativa mide el porcentaje de usuarios que completan una acción deseada tras interactuar con la IA?",
+    "options": [
+      "Conversion Rate",
+      "ARPU",
+      "Perplexity",
+      "Cross-domain Performance"
+    ],
+    "correct_answer": 0,
+    "explanation": "La Tasa de Conversión (Conversion Rate) mide el porcentaje de usuarios que completan una acción deseada: resolver un ticket, hacer una compra, aceptar una respuesta. Es una métrica claramente de negocio para evaluar el impacto real de la IA."
+  },
+  {
+    "id": "metrics_evaluation_816",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "basico",
+    "question": "¿Qué métrica de IA Generativa evalúa el impacto económico directo de la IA expresado por usuario?",
+    "options": [
+      "ARPU (Average Revenue Per User)",
+      "Efficiency",
+      "BERTScore",
+      "ROUGE-L"
+    ],
+    "correct_answer": 0,
+    "explanation": "ARPU (Average Revenue Per User) mide el impacto económico directo de la IA por usuario. Es muy usada en productos comerciales y plataformas SaaS para justificar la inversión en IA."
+  },
+  {
+    "id": "metrics_evaluation_817",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "intermedio",
+    "question": "¿Qué evalúa la métrica 'Cross-domain Performance' en sistemas de IA Generativa?",
+    "options": [
+      "Qué tan bien generaliza el modelo cuando se aplica a distintos dominios o tipos de consultas",
+      "El rendimiento del modelo en múltiples GPUs",
+      "La velocidad de respuesta en diferentes regiones AWS",
+      "La compatibilidad del modelo con múltiples idiomas"
+    ],
+    "correct_answer": 0,
+    "explanation": "Cross-domain Performance evalúa la robustez y reutilización del modelo al aplicarlo a diferentes dominios. Un buen modelo debe generalizar bien más allá de su dominio de entrenamiento específico."
+  },
+  {
+    "id": "metrics_evaluation_818",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "basico",
+    "question": "¿Cuál es la métrica más adecuada para evaluar la calidad de un sistema de traducción automática?",
+    "options": [
+      "BLEU",
+      "ROUGE-L",
+      "BERTScore",
+      "Perplexity"
+    ],
+    "correct_answer": 0,
+    "explanation": "BLEU (Bilingual Evaluation Understudy) es la métrica estándar para traducción automática. Mide la precisión de n-gramas en la traducción respecto a traducciones de referencia, con penalización por traducciones muy cortas."
+  },
+  {
+    "id": "metrics_evaluation_819",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "basico",
+    "question": "Un equipo quiere evaluar si su chatbot de atención al cliente está siendo útil para los usuarios. ¿Cuál de estas métricas es más directamente relevante?",
+    "options": [
+      "User Satisfaction (CSAT/NPS)",
+      "BLEU Score",
+      "Perplexity",
+      "ROUGE-1"
+    ],
+    "correct_answer": 0,
+    "explanation": "User Satisfaction (medida con CSAT, NPS, o feedback thumbs up/down) evalúa la calidad percibida por el usuario final. Es la métrica más relevante para sistemas conversacionales y atención al cliente, ya que mide el impacto real en los usuarios."
+  },
+  {
+    "id": "metrics_evaluation_820",
+    "exam_id": "ai_practitioner",
+    "topic": "metrics_evaluation",
+    "difficulty": "avanzado",
+    "question": "¿Qué métricas combinadas ofrecen la evaluación más comprehensiva de un sistema de generación de lenguaje?",
+    "options": [
+      "ROUGE + BLEU + BERTScore (léxico + semántico)",
+      "Solo Perplexity (suficiente para cualquier caso)",
+      "Solo BLEU (es el estándar universal)",
+      "User Satisfaction + ARPU (solo métricas de negocio)"
+    ],
+    "correct_answer": 0,
+    "explanation": "La evaluación más completa combina métricas léxicas (ROUGE para cobertura, BLEU para precisión) con métricas semánticas (BERTScore para similitud de significado). Esto permite detectar tanto errores léxicos como problemas de coherencia semántica."
+  },
+  {
+    "id": "responsible_ai_821",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS implementa protecciones para filtrar contenido dañino y PII en aplicaciones de IA Generativa con Amazon Bedrock?",
+    "options": [
+      "Guardrails para Amazon Bedrock",
+      "AWS WAF",
+      "Amazon Inspector",
+      "AWS Shield"
+    ],
+    "correct_answer": 0,
+    "explanation": "Guardrails para Amazon Bedrock implementa políticas de IA responsable: filtra contenido indeseable y dañino, oculta PII automáticamente, y permite crear múltiples configuraciones adaptadas a distintos casos de uso."
+  },
+  {
+    "id": "responsible_ai_822",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué herramienta de SageMaker ayuda a detectar sesgos en modelos y conjuntos de datos y proporciona explicaciones mediante SHAP values?",
+    "options": [
+      "Amazon SageMaker Clarify",
+      "SageMaker Canvas",
+      "SageMaker Autopilot",
+      "SageMaker Feature Store"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Clarify detecta sesgos automáticamente en datasets y modelos, y calcula puntuaciones SHAP values que explican qué características contribuyeron más a cada predicción. Soporta modelos tabulares, NLP y visión artificial."
+  },
+  {
+    "id": "responsible_ai_823",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué son los SHAP values en el contexto de explicabilidad de modelos ML?",
+    "options": [
+      "Puntuaciones que indican cuánto contribuyó cada característica a una predicción",
+      "Métricas de velocidad de inferencia del modelo",
+      "Valores de configuración de hiperparámetros",
+      "Scores de calidad del dataset de entrenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "SHAP (SHapley Additive exPlanations) values indican la contribución de cada feature a cada predicción individual. SageMaker Clarify los calcula para ayudar a entender por qué el modelo tomó una decisión específica."
+  },
+  {
+    "id": "responsible_ai_824",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS crea flujos de trabajo para revisión humana de predicciones de ML cuando la confianza es baja?",
+    "options": [
+      "Amazon Augmented AI (A2I)",
+      "Amazon SageMaker Model Monitor",
+      "AWS Step Functions",
+      "Amazon Mechanical Turk"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Augmented AI (A2I) crea flujos de trabajo Human-in-the-loop donde revisores humanos validan predicciones de ML con baja confianza. Es clave para implementar IA responsable con supervisión humana."
+  },
+  {
+    "id": "responsible_ai_825",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué detecta Amazon SageMaker Model Monitor en modelos desplegados en producción?",
+    "options": [
+      "Data drift, model drift, feature attribution drift y bias drift",
+      "Vulnerabilidades de seguridad en el endpoint",
+      "Errores de configuración de la infraestructura",
+      "Fallos en el pipeline de CI/CD"
+    ],
+    "correct_answer": 0,
+    "explanation": "SageMaker Model Monitor supervisa continuamente: drift de datos (distribución de inputs cambia), degradación del modelo, cambios en importancia de features, y detección de sesgos en predicciones en producción."
+  },
+  {
+    "id": "responsible_ai_826",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué documentación de AWS proporciona información sobre casos de uso previstos, limitaciones y prácticas recomendadas de cada servicio de IA?",
+    "options": [
+      "AWS AI Service Cards",
+      "AWS Whitepapers",
+      "AWS Trusted Advisor",
+      "Amazon Inspector Reports"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS AI Service Cards son documentos de IA responsable que proporcionan información sobre casos de uso previstos, limitaciones conocidas, opciones de diseño y prácticas recomendadas para cada servicio de IA de AWS."
+  },
+  {
+    "id": "responsible_ai_827",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "Una empresa quiere asegurarse de que su chatbot de Bedrock no genere contenido inapropiado ni exponga datos personales. ¿Cuál es la solución más directa?",
+    "options": [
+      "Configurar Guardrails para Amazon Bedrock con filtros de contenido y PII",
+      "Usar AWS WAF para bloquear solicitudes maliciosas",
+      "Implementar Amazon Inspector para escanear las respuestas",
+      "Activar AWS Shield Advanced en el endpoint"
+    ],
+    "correct_answer": 0,
+    "explanation": "Guardrails para Bedrock es la solución diseñada específicamente para este caso: filtra contenido dañino según políticas definidas y oculta automáticamente información de identificación personal (PII) en las respuestas del LLM."
+  },
+  {
+    "id": "responsible_ai_828",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál de estas prácticas forma parte de la IA Responsable según el marco de AWS?",
+    "options": [
+      "Monitorear modelos para detectar sesgos e impacto no intencionado",
+      "Maximizar la automatización eliminando la supervisión humana",
+      "Usar únicamente modelos propietarios de AWS",
+      "Evitar el uso de datos históricos para entrenamiento"
+    ],
+    "correct_answer": 0,
+    "explanation": "La IA Responsable incluye: establecer frameworks de gobernanza, monitorear y auditar modelos para sesgos, mantener supervisión humana (Human-in-the-loop), y educar a los equipos sobre prácticas responsables."
+  },
+  {
+    "id": "responsible_ai_829",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué componente de SageMaker Data Wrangler ayuda a abordar problemas de sesgo en los datos?",
+    "options": [
+      "Puede equilibrar datos desequilibrados para reducir sesgo",
+      "Detecta vulnerabilidades de seguridad en el dataset",
+      "Optimiza el coste de almacenamiento del dataset",
+      "Cifra automáticamente datos sensibles"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon SageMaker Data Wrangler puede equilibrar datos en caso de desequilibrio entre clases, lo que ayuda a reducir el sesgo introducido por datasets no representativos durante la preparación de datos."
+  },
+  {
+    "id": "responsible_ai_830",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "avanzado",
+    "question": "¿Cuál es la diferencia entre 'Overreliance' y 'Excessive Agency' en el contexto de riesgos de IA?",
+    "options": [
+      "Overreliance es sobre-depender del modelo sin auditoría; Excessive Agency es dar demasiada autonomía al modelo",
+      "Son sinónimos que describen el mismo riesgo",
+      "Overreliance es un riesgo técnico; Excessive Agency es un riesgo legal",
+      "Overreliance afecta al entrenamiento; Excessive Agency afecta a la inferencia"
+    ],
+    "correct_answer": 0,
+    "explanation": "Overreliance (sobre-dependencia) ocurre cuando los usuarios confían ciegamente en el modelo sin revisión crítica. Excessive Agency ocurre cuando se otorga demasiada autonomía al modelo para tomar acciones, causando resultados no intencionados."
+  },
+  {
+    "id": "responsible_ai_914",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "intermedio",
+    "question": "¿Qué es el bloqueo de temas (topic blocking) en Guardrails for Amazon Bedrock?",
+    "options": [
+      "Configuración que evita que el modelo responda sobre temas específicos definidos por la organización (ej. competidores, temas legales)",
+      "Sistema que bloquea automáticamente solicitudes que contienen palabras malsonantes",
+      "Mecanismo que limita el número de temas que el modelo puede discutir por sesión",
+      "Filtro que bloquea respuestas sobre temas no relacionados con el sistema prompt"
+    ],
+    "correct_answer": 0,
+    "explanation": "El topic blocking en Guardrails permite definir temas específicos que el modelo debe rechazar discutir, por ejemplo: información de competidores, asesoramiento legal o médico, o cualquier área fuera del alcance de la aplicación. Cuando un usuario pregunta sobre un tema bloqueado, el modelo devuelve un mensaje predefinido."
+  },
+  {
+    "id": "responsible_ai_915",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "avanzado",
+    "question": "¿Qué es el 'data lineage' (linaje de datos) y por qué es importante en IA Responsable?",
+    "options": [
+      "Rastrear el origen, transformaciones y uso de los datos — garantiza trazabilidad y detecta si los datos de entrenamiento tienen sesgos o problemas de procedencia",
+      "Clasificar los datos según su nivel de sensibilidad para aplicar controles de acceso",
+      "Documentar el número de registros en cada etapa del pipeline de datos",
+      "Registrar quién accedió a los datos y cuándo para auditoría de seguridad"
+    ],
+    "correct_answer": 0,
+    "explanation": "El data lineage documenta el ciclo de vida completo de los datos: de dónde vienen, qué transformaciones sufrieron y cómo se usan. En IA Responsable es clave para: detectar fuentes de sesgo en el entrenamiento, demostrar cumplimiento (GDPR, HIPAA), reproducir resultados y entender por qué el modelo se comporta de determinada manera."
+  },
+  {
+    "id": "responsible_ai_974",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué es la 'Explicabilidad' (Explainability) en el contexto de la IA Responsable?",
+    "options": [
+      "Comprender y evaluar las salidas del sistema de IA",
+      "Hacer los modelos más grandes y potentes",
+      "Cifrar los datos de entrenamiento",
+      "Entrenar modelos de forma más rápida"
+    ],
+    "correct_answer": 0,
+    "explanation": "La Explicabilidad en IA Responsable consiste en la capacidad de comprender, interpretar y evaluar cómo y por qué un sistema de IA produce determinadas salidas, siendo fundamental para generar confianza y detectar comportamientos no deseados."
+  },
+  {
+    "id": "responsible_ai_971",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Cuál es una limitación inherente de la IA relacionada con los datos de entrenamiento?",
+    "options": [
+      "El entrenamiento con datos sesgados puede conducir a resultados injustos",
+      "La IA no puede procesar texto",
+      "La IA siempre tiene coste cero",
+      "La IA no requiere recursos de cómputo"
+    ],
+    "correct_answer": 0,
+    "explanation": "Una limitación crítica de la IA es que si los datos de entrenamiento contienen sesgos históricos o de representación, el modelo aprende y perpetúa esos sesgos, produciendo resultados injustos o discriminatorios."
+  },
+  {
+    "id": "responsible_ai_972",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué es la 'Equidad' (Fairness) en la IA Responsable?",
+    "options": [
+      "Considerar los efectos potenciales de la IA en grupos diversos",
+      "Usar los modelos más caros disponibles",
+      "No usar IA nunca para decisiones importantes",
+      "Usar IA para absolutamente todo"
+    ],
+    "correct_answer": 0,
+    "explanation": "La Equidad (Fairness) en IA Responsable implica diseñar y evaluar sistemas de IA considerando su impacto en grupos diversos, asegurando que no discriminen ni generen resultados desproporcionadamente perjudiciales para ciertos colectivos."
+  },
+  {
+    "id": "responsible_ai_973",
+    "exam_id": "ai_practitioner",
+    "topic": "responsible_ai",
+    "difficulty": "basico",
+    "question": "¿Qué significa 'Veracidad' (Veracity) en la IA Responsable?",
+    "options": [
+      "Lograr resultados precisos del sistema bajo condiciones normales y adversas",
+      "Alto coste de los sistemas de IA",
+      "Usar únicamente datos públicos para el entrenamiento",
+      "Maximizar la velocidad de inferencia del modelo"
+    ],
+    "correct_answer": 0,
+    "explanation": "La Veracidad en IA Responsable se refiere a la capacidad del sistema de producir resultados precisos y fiables tanto en condiciones normales de operación como en situaciones adversas o con datos fuera de distribución."
+  },
+  {
+    "id": "vector_databases_831",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "basico",
+    "question": "¿Para qué se usan las bases de datos vectoriales en el contexto de IA Generativa?",
+    "options": [
+      "Almacenar embeddings para búsqueda semántica y RAG (Retrieval-Augmented Generation)",
+      "Guardar logs de las interacciones con los LLMs",
+      "Almacenar los pesos de los modelos fundacionales",
+      "Gestionar el historial de conversaciones de los chatbots"
+    ],
+    "correct_answer": 0,
+    "explanation": "Las bases de datos vectoriales almacenan embeddings (representaciones numéricas de texto/imágenes) que permiten búsqueda semántica por similitud. Son fundamentales para implementar RAG, donde el LLM consulta conocimiento externo relevante."
+  },
+  {
+    "id": "vector_databases_832",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS ofrece capacidades de búsqueda vectorial a escala basado en Elasticsearch?",
+    "options": [
+      "Amazon OpenSearch Service",
+      "Amazon RDS",
+      "Amazon DynamoDB",
+      "Amazon ElastiCache"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon OpenSearch Service (basado en Elasticsearch) ofrece soporte para búsqueda vectorial a escala, permitiendo almacenar y consultar embeddings para búsqueda semántica en grandes volúmenes de datos."
+  },
+  {
+    "id": "vector_databases_833",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "basico",
+    "question": "¿Qué extensión permite añadir capacidades de búsqueda vectorial a Amazon RDS PostgreSQL y Amazon Aurora PostgreSQL?",
+    "options": [
+      "pgvector",
+      "PostGIS",
+      "TimescaleDB",
+      "pg_cron"
+    ],
+    "correct_answer": 0,
+    "explanation": "pgvector es una extensión de PostgreSQL que añade soporte para almacenar y consultar vectores. Está disponible en Amazon RDS PostgreSQL y Amazon Aurora PostgreSQL, permitiendo búsqueda por similitud de coseno, distancia euclidiana, etc."
+  },
+  {
+    "id": "vector_databases_834",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "intermedio",
+    "question": "¿Qué es RAG (Retrieval-Augmented Generation) y por qué requiere bases de datos vectoriales?",
+    "options": [
+      "Técnica que enriquece las respuestas del LLM con información recuperada de una base de conocimiento vectorial",
+      "Método de fine-tuning de LLMs usando datos etiquetados",
+      "Arquitectura de entrenamiento distribuido para modelos grandes",
+      "Sistema de caché para acelerar las respuestas de los LLMs"
+    ],
+    "correct_answer": 0,
+    "explanation": "RAG recupera documentos relevantes de una base de datos vectorial mediante búsqueda semántica y los proporciona como contexto al LLM. Esto permite al modelo responder con información actualizada y específica del dominio sin reentrenamiento."
+  },
+  {
+    "id": "vector_databases_835",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la diferencia entre Amazon OpenSearch Service (provisioned) y Amazon OpenSearch Serverless?",
+    "options": [
+      "Serverless no requiere gestión de infraestructura; provisioned permite más control sobre la capacidad",
+      "Serverless solo soporta búsqueda de texto; provisioned soporta vectores",
+      "Provisioned es más económico para cualquier carga de trabajo",
+      "Son idénticos en funcionalidad y coste"
+    ],
+    "correct_answer": 0,
+    "explanation": "OpenSearch Serverless gestiona automáticamente la capacidad y no requiere configurar instancias, ideal para cargas variables. OpenSearch provisioned ofrece más control sobre la configuración y es mejor para cargas predecibles a gran escala."
+  },
+  {
+    "id": "vector_databases_836",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "intermedio",
+    "question": "¿Qué servicio de AWS para búsqueda inteligente indexa vectores automáticamente con menos control pero más gestión automática?",
+    "options": [
+      "Amazon Kendra",
+      "Amazon OpenSearch Service",
+      "pgvector en Aurora",
+      "Amazon DynamoDB"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Kendra indexa vectores automáticamente y ofrece búsqueda semántica empresarial con mínima configuración. Es menos flexible que OpenSearch pero más fácil de gestionar, ideal para búsqueda en documentos corporativos."
+  },
+  {
+    "id": "vector_databases_837",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "avanzado",
+    "question": "Una empresa necesita implementar búsqueda semántica en su base de conocimiento PostgreSQL existente. ¿Cuál es la solución más adecuada?",
+    "options": [
+      "Habilitar pgvector en Amazon RDS PostgreSQL o Aurora PostgreSQL",
+      "Migrar todos los datos a Amazon OpenSearch Service",
+      "Usar Amazon Kendra con un conector personalizado",
+      "Implementar DynamoDB con índices secundarios globales"
+    ],
+    "correct_answer": 0,
+    "explanation": "Si la empresa ya usa PostgreSQL en AWS, la solución más directa es habilitar la extensión pgvector, que añade capacidades vectoriales a la base de datos existente sin necesidad de migrar datos a otro servicio."
+  },
+  {
+    "id": "vector_databases_838",
+    "exam_id": "ai_practitioner",
+    "topic": "vector_databases",
+    "difficulty": "basico",
+    "question": "¿Qué son los 'embeddings' en el contexto de bases de datos vectoriales?",
+    "options": [
+      "Representaciones numéricas (vectores) de texto, imágenes u otros datos que capturan su significado semántico",
+      "Parámetros de configuración de los modelos LLM",
+      "Métricas de rendimiento de las consultas a la base de datos",
+      "Logs de las operaciones realizadas en la base de datos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Los embeddings son vectores numéricos de alta dimensionalidad que representan el significado semántico de texto, imágenes u otros datos. Conceptos similares tienen embeddings cercanos, lo que permite búsqueda semántica por proximidad vectorial."
+  },
+  {
+    "id": "governance_compliance_839",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS registra y evalúa continuamente la configuración de tus recursos para detectar incumplimientos?",
+    "options": [
+      "AWS Config",
+      "Amazon Inspector",
+      "AWS CloudTrail",
+      "AWS Trusted Advisor"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Config registra cómo están configurados todos tus recursos AWS, muestra relaciones entre ellos, proporciona historial de cambios y detecta recursos mal configurados para demostrar cumplimiento normativo."
+  },
+  {
+    "id": "governance_compliance_840",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "¿Qué servicio de AWS escanea continuamente EC2, imágenes de contenedor y funciones Lambda en busca de vulnerabilidades CVE?",
+    "options": [
+      "Amazon Inspector",
+      "AWS Config",
+      "AWS GuardDuty",
+      "AWS Security Hub"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Inspector es el servicio de gestión de vulnerabilidades que escanea EC2, imágenes de contenedor y funciones Lambda. Detecta CVEs conocidas, vulnerabilidades de código, y exposición de red no intencionada, asignando un risk score."
+  },
+  {
+    "id": "governance_compliance_841",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "¿Para qué sirve AWS Audit Manager?",
+    "options": [
+      "Automatizar la recopilación de evidencia de auditoría para cumplimiento normativo (SOC2, ISO, PCI, HIPAA)",
+      "Escanear vulnerabilidades en la infraestructura AWS",
+      "Registrar todas las acciones de usuarios en la cuenta AWS",
+      "Gestionar certificados SSL/TLS para las aplicaciones"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Audit Manager automatiza la auditoría continua: recopila evidencia de cumplimiento, evalúa controles y políticas, y soporta estándares como SOC2, ISO, PCI DSS e HIPAA, facilitando revisiones de auditores externos."
+  },
+  {
+    "id": "governance_compliance_842",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "¿Qué proporciona AWS Artifact a los equipos de cumplimiento?",
+    "options": [
+      "Descargas bajo demanda de certificaciones de seguridad AWS (ISO, PCI, SOC2) para demostrar cumplimiento a reguladores",
+      "Herramientas para crear políticas de IAM automáticamente",
+      "Monitoreo continuo de configuraciones de seguridad",
+      "Reportes de costes detallados por servicio"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Artifact es el repositorio de documentos de seguridad y cumplimiento de AWS. Permite descargar certificaciones (ISO 27001, PCI DSS, SOC2) y reportes de cumplimiento auditados para presentar a reguladores."
+  },
+  {
+    "id": "governance_compliance_843",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "¿Qué registra AWS CloudTrail y cuál es su principal caso de uso?",
+    "options": [
+      "Registra todas las acciones en la cuenta AWS (quién, qué, cuándo, dónde) — usado para auditoría y seguridad",
+      "Monitorea el rendimiento de aplicaciones en tiempo real",
+      "Registra métricas de uso de servicios para facturación",
+      "Guarda logs de errores de las aplicaciones en producción"
+    ],
+    "correct_answer": 0,
+    "explanation": "CloudTrail registra todas las acciones realizadas en AWS: qué usuario/rol ejecutó cada acción, qué recurso fue afectado y cuándo. Es fundamental para análisis de seguridad, troubleshooting, auditoría de cambios y cumplimiento."
+  },
+  {
+    "id": "governance_compliance_844",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "¿En cuántas categorías evalúa AWS Trusted Advisor tu entorno AWS?",
+    "options": [
+      "6 categorías",
+      "4 categorías",
+      "10 categorías",
+      "3 categorías"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Trusted Advisor evalúa tu entorno en 6 categorías: Optimización de costes, Rendimiento, Resiliencia y disponibilidad, Seguridad, Excelencia operativa, y Límites de servicio. Proporciona recomendaciones accionables en cada una."
+  },
+  {
+    "id": "governance_compliance_845",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "basico",
+    "question": "Una empresa necesita demostrar a un auditor que cumple con SOC2. ¿Qué servicio de AWS le proporciona los documentos necesarios?",
+    "options": [
+      "AWS Artifact",
+      "AWS Audit Manager",
+      "AWS Config",
+      "Amazon Inspector"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Artifact proporciona acceso bajo demanda a reportes de cumplimiento auditados de AWS, incluyendo certificaciones SOC2, ISO 27001, PCI DSS, etc. Permite descargar estos documentos para presentarlos a auditores y reguladores."
+  },
+  {
+    "id": "governance_compliance_846",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "intermedio",
+    "question": "¿Cuál es la diferencia entre AWS Config y AWS CloudTrail?",
+    "options": [
+      "Config registra el ESTADO de los recursos (configuración); CloudTrail registra las ACCIONES realizadas (quién hizo qué)",
+      "Son idénticos pero Config es más reciente",
+      "CloudTrail es para auditoría de costes; Config para auditoría de seguridad",
+      "Config monitorea aplicaciones; CloudTrail monitorea infraestructura"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Config se enfoca en el estado de configuración de los recursos (cómo están configurados en cada momento). CloudTrail registra las acciones y eventos de API (quién hizo qué y cuándo). Son complementarios para auditoría completa."
+  },
+  {
+    "id": "governance_compliance_847",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "intermedio",
+    "question": "¿Qué estrategia de gobernanza de datos incluye definir 'data stewards', 'data owners' y 'data custodians'?",
+    "options": [
+      "Estructuras de Gobernanza — roles y responsabilidades para supervisar políticas de datos",
+      "Gestión del Ciclo de Vida de Datos",
+      "Protección y Privacidad de Datos",
+      "Intercambio y Colaboración de Datos"
+    ],
+    "correct_answer": 0,
+    "explanation": "Las Estructuras de Gobernanza definen roles formales: data owners (propietarios responsables de los datos), data stewards (responsables de la calidad e integridad) y data custodians (guardianes técnicos). Se organizan bajo un consejo de gobernanza."
+  },
+  {
+    "id": "governance_compliance_848",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "avanzado",
+    "question": "¿Qué característica única tiene Amazon Inspector para priorizar las vulnerabilidades detectadas?",
+    "options": [
+      "Asigna un risk score basado en la National Vulnerability Database (NVD) y el contexto del entorno específico",
+      "Usa IA para predecir qué vulnerabilidades serán explotadas primero",
+      "Consulta en tiempo real bases de datos de threat intelligence globales",
+      "Califica vulnerabilidades solo por su antigüedad"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Inspector asigna un risk score que combina las métricas de gravedad de la NVD con el contexto específico del entorno (exposición de red, criticidad del recurso, etc.), ayudando a priorizar qué vulnerabilidades remediar primero."
+  },
+  {
+    "id": "governance_compliance_911",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "avanzado",
+    "question": "¿Cómo se puede automatizar la respuesta a eventos de seguridad detectados por CloudTrail?",
+    "options": [
+      "Integrando CloudTrail con Amazon EventBridge para activar automáticamente Lambdas, notificaciones SNS o Step Functions",
+      "Configurando CloudTrail en modo activo para que bloquee automáticamente acciones sospechosas",
+      "Usando AWS Config Rules para deshacer automáticamente los cambios detectados",
+      "CloudTrail no soporta automatización — solo almacena logs pasivamente en S3"
+    ],
+    "correct_answer": 0,
+    "explanation": "CloudTrail integrado con Amazon EventBridge permite crear reglas que reaccionan a eventos específicos en tiempo real: ej. si se desactiva MFA en un usuario root, EventBridge activa una Lambda que envía una alerta, o si se crea un Security Group muy permisivo, automáticamente se cierra. Esto convierte el registro pasivo en respuesta activa."
+  },
+  {
+    "id": "governance_compliance_912",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "intermedio",
+    "question": "¿Qué son las 'Config Rules' en AWS Config?",
+    "options": [
+      "Reglas que evalúan automáticamente si tus recursos AWS cumplen con políticas específicas de configuración, generando alertas de incumplimiento",
+      "Scripts que modifican automáticamente la configuración de los recursos para cumplir estándares",
+      "Políticas de IAM que controlan quién puede modificar la configuración de los recursos",
+      "Plantillas de CloudFormation para desplegar recursos con configuración correcta"
+    ],
+    "correct_answer": 0,
+    "explanation": "AWS Config Rules son políticas evaluadas continuamente contra tus recursos: ej. 'todos los buckets S3 deben tener cifrado habilitado', 'las instancias EC2 no deben tener puertos SSH abiertos a 0.0.0.0/0'. Generan hallazgos COMPLIANT / NON_COMPLIANT y pueden activar remediaciones automáticas."
+  },
+  {
+    "id": "governance_compliance_913",
+    "exam_id": "ai_practitioner",
+    "topic": "governance_compliance",
+    "difficulty": "intermedio",
+    "question": "¿Qué tipos de vulnerabilidades detecta Amazon Inspector en funciones AWS Lambda?",
+    "options": [
+      "Vulnerabilidades en las dependencias/librerías del código Lambda (CVEs en paquetes npm, pip, etc.)",
+      "Errores de lógica en el código de la función Lambda",
+      "Problemas de rendimiento y timeouts en las invocaciones Lambda",
+      "Configuraciones incorrectas del trigger de la función Lambda"
+    ],
+    "correct_answer": 0,
+    "explanation": "Amazon Inspector escanea las funciones Lambda analizando los paquetes de dependencias (node_modules, site-packages, etc.) en busca de CVEs conocidas. Por ejemplo, detecta si usas una versión de lodash con vulnerabilidad XSS o una versión de requests con SSRF. También detecta código vulnerable directamente."
+  }
+]

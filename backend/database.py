@@ -15,9 +15,20 @@ async def get_db():
 
 async def init_db():
     async with aiosqlite.connect(DB_PATH) as db:
+        # Create exams table
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS exams (
+                id TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                description TEXT NOT NULL
+            )
+        """)
+        
+        # Create quiz_results table with exam_id
         await db.execute("""
             CREATE TABLE IF NOT EXISTS quiz_results (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                exam_id TEXT NOT NULL,
                 topic TEXT NOT NULL,
                 difficulty TEXT NOT NULL,
                 score INTEGER NOT NULL,
@@ -29,4 +40,13 @@ async def init_db():
                 answers_json TEXT NOT NULL
             )
         """)
+        
+        # Add exam_id column if it doesn't exist (migration)
+        try:
+            await db.execute("ALTER TABLE quiz_results ADD COLUMN exam_id TEXT DEFAULT 'ai_practitioner'")
+            await db.commit()
+        except aiosqlite.OperationalError:
+            # Column already exists
+            pass
+        
         await db.commit()

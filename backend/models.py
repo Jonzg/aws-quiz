@@ -2,6 +2,12 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 
+class Exam(BaseModel):
+    id: str
+    name: str
+    description: str
+
+
 class AnswerRecord(BaseModel):
     id: int
     user_answer: str
@@ -10,6 +16,7 @@ class AnswerRecord(BaseModel):
 
 
 class QuizResultIn(BaseModel):
+    exam_id: str
     topic: str
     difficulty: str
     score: int
@@ -26,7 +33,7 @@ class QuizResultOut(BaseModel):
 
 
 class QuestionOut(BaseModel):
-    id: int
+    id: str
     question: str
     options: List[str]
     difficulty: str
@@ -42,6 +49,7 @@ class TopicInfo(BaseModel):
 
 class StatsHistory(BaseModel):
     id: int
+    exam_id: str
     topic: str
     difficulty: str
     score: int

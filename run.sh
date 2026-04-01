@@ -8,27 +8,21 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKEND_DIR="$SCRIPT_DIR/backend"
 FRONTEND_DIR="$SCRIPT_DIR/frontend"
-VENV_DIR="$SCRIPT_DIR/venv"
+# ── Kill any leftover processes on our ports ───────────────────────────────────
+lsof -ti:8000 | xargs kill -9 2>/dev/null || true
+lsof -ti:3000 | xargs kill -9 2>/dev/null || true
 
-# ── Activate venv ──────────────────────────────────────────────────────────────
-if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OS" == "Windows_NT" ]]; then
-  ACTIVATE="$VENV_DIR/Scripts/activate"
-else
-  ACTIVATE="$VENV_DIR/bin/activate"
-fi
-
-if [ ! -f "$ACTIVATE" ]; then
+# ── Check uv venv ──────────────────────────────────────────────────────────────
+if [ ! -f "$SCRIPT_DIR/.venv/bin/activate" ]; then
   echo "  ✗ Entorno virtual no encontrado. Ejecuta primero: bash setup.sh"
   exit 1
 fi
-
-source "$ACTIVATE"
 
 # ── Backend ────────────────────────────────────────────────────────────────────
 echo ""
 echo "▶ Iniciando backend (puerto 8000)..."
 cd "$BACKEND_DIR"
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
+uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
 BACKEND_PID=$!
 echo "  ✓ Backend PID: $BACKEND_PID"
 
@@ -56,15 +50,13 @@ echo "  ✓ Frontend PID: $FRONTEND_PID"
 sleep 3
 echo ""
 echo "▶ Abriendo navegador..."
-if command -v xdg-open &>/dev/null; then
+if grep -qi microsoft /proc/version 2>/dev/null; then
+  # WSL: abrir con el navegador de Windows
+  cmd.exe /c start http://localhost:3000 2>/dev/null || true
+elif command -v xdg-open &>/dev/null; then
   xdg-open http://localhost:3000
 elif command -v open &>/dev/null; then
   open http://localhost:3000
-elif command -v start &>/dev/null; then
-  start http://localhost:3000
-else
-  # Windows Git Bash
-  cmd.exe /c start http://localhost:3000 2>/dev/null || true
 fi
 
 echo ""

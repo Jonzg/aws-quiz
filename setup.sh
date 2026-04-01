@@ -10,44 +10,26 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKEND_DIR="$SCRIPT_DIR/backend"
 FRONTEND_DIR="$SCRIPT_DIR/frontend"
 
-# ── Python / venv ──────────────────────────────────────────────────────────────
+# ── uv ─────────────────────────────────────────────────────────────────────────
 echo ""
-echo "▶ Verificando Python..."
-if ! command -v python3 &>/dev/null && ! command -v python &>/dev/null; then
-  echo "  ✗ Python no encontrado. Instala Python 3.11+ y vuelve a intentarlo."
+echo "▶ Verificando uv..."
+if ! command -v uv &>/dev/null; then
+  echo "  ✗ uv no encontrado. Instálalo con:  curl -LsSf https://astral.sh/uv/install.sh | sh"
   exit 1
 fi
-
-PYTHON=$(command -v python3 || command -v python)
-echo "  ✓ Python: $($PYTHON --version)"
-
-VENV_DIR="$SCRIPT_DIR/venv"
-if [ ! -d "$VENV_DIR" ]; then
-  echo ""
-  echo "▶ Creando entorno virtual..."
-  $PYTHON -m venv "$VENV_DIR"
-  echo "  ✓ venv creado en $VENV_DIR"
-fi
-
-# Activate
-if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OS" == "Windows_NT" ]]; then
-  ACTIVATE="$VENV_DIR/Scripts/activate"
-else
-  ACTIVATE="$VENV_DIR/bin/activate"
-fi
-source "$ACTIVATE"
+echo "  ✓ uv: $(uv --version)"
 
 echo ""
 echo "▶ Instalando dependencias Python..."
-pip install --quiet --upgrade pip
-pip install --quiet -r "$BACKEND_DIR/requirements.txt"
-echo "  ✓ Dependencias Python instaladas"
+cd "$SCRIPT_DIR"
+uv sync --quiet
+echo "  ✓ Dependencias Python instaladas (.venv)"
 
 # ── Init DB ────────────────────────────────────────────────────────────────────
 echo ""
 echo "▶ Inicializando base de datos SQLite..."
 cd "$BACKEND_DIR"
-python -c "
+uv run python -c "
 import asyncio
 import sys
 sys.path.insert(0, '.')
