@@ -1,6 +1,11 @@
-# AWS AI Practitioner Quiz App
+# AWS Quiz App — Multi-Examen AWS
 
-Aplicación web full-stack para preparar el examen **AWS Certified AI Practitioner**, con banco de preguntas, estadísticas de progreso y despliegue en la nube.
+Aplicación web full-stack para preparar certificaciones **AWS**, con banco de preguntas por examen, estadísticas de progreso y despliegue en la nube.
+
+## Exámenes disponibles
+
+- **AWS Certified AI Practitioner** — Fundamentos de IA y ML en AWS
+- **AWS Certified Machine Learning Engineer Associate** — Ingeniería de ML en AWS
 
 ## Demo en vivo
 
@@ -29,12 +34,13 @@ Aplicación web full-stack para preparar el examen **AWS Certified AI Practition
 ```
 aws app/
 ├── backend/
-│   ├── main.py               # FastAPI — 8 endpoints REST
-│   ├── models.py             # Pydantic v2 schemas
+│   ├── main.py               # FastAPI — endpoints REST multi-examen
+│   ├── models.py             # Pydantic v2 schemas (incluye Exam)
 │   ├── database.py           # SQLite con aiosqlite
-│   ├── questions_db.json     # 241 preguntas en 13 temas
-│   ├── requirements.txt      # fastapi, uvicorn, aiosqlite, pydantic
-│   ├── .python-version       # 3.11.0 (pin para Render)
+│   ├── question_banks/
+│   │   ├── ai_practitioner.json          # Banco de preguntas AI Practitioner
+│   │   └── ml_engineer_associate.json    # Banco de preguntas ML Engineer
+│   ├── requirements.txt
 │   └── Procfile
 ├── frontend/
 │   ├── src/
@@ -45,6 +51,7 @@ aws app/
 │   │   │   ├── Quiz.jsx      # Configuración + preguntas
 │   │   │   └── Results.jsx   # Puntuación + revisión
 │   │   └── components/
+│   │       ├── ExamSelection.jsx  # Selección de examen (nuevo)
 │   │       ├── QuestionCard.jsx
 │   │       ├── ProgressBar.jsx
 │   │       └── ScoreChart.jsx
@@ -52,7 +59,8 @@ aws app/
 │   ├── vite.config.js        # Proxy /api → localhost:8000
 │   └── tailwind.config.js    # Colores AWS (#FF9900, #232F3E)
 ├── render.yaml               # Config despliegue Render
-├── preguntas.py              # Script auxiliar con banco de preguntas Whizlabs
+├── preguntas.py              # Script auxiliar banco de preguntas
+├── migrate_questions.py      # Script migración al nuevo formato multi-examen
 └── .gitignore
 ```
 
@@ -62,37 +70,16 @@ aws app/
 
 | Método | Ruta | Descripción |
 |--------|------|-------------|
-| GET | `/api/topics` | Lista de temas con conteo de preguntas |
-| GET | `/api/quiz/{topic}/{difficulty}?num_questions=10` | Preguntas aleatorias |
-| GET | `/api/quiz/{topic}/{difficulty}/answers` | Respuestas correctas + explicaciones |
+| GET | `/api/exams` | Lista de exámenes disponibles |
+| GET | `/api/topics/{exam_id}` | Temas con conteo de preguntas por examen |
+| GET | `/api/quiz/{exam_id}/{topic}/{difficulty}` | Preguntas aleatorias |
+| GET | `/api/quiz/{exam_id}/{topic}/{difficulty}/answers` | Respuestas + explicaciones |
 | POST | `/api/results` | Guardar resultado de quiz |
 | GET | `/api/stats` | Estadísticas globales del usuario |
 | GET | `/api/stats/{topic}` | Estadísticas por tema |
 | GET | `/api/export/csv` | Exportar histórico a CSV |
 | GET | `/api/health` | Health check |
 | GET | `/api/docs` | Documentación Swagger interactiva |
-
----
-
-## Banco de preguntas — 241 preguntas en 13 temas
-
-| Tema | Preguntas |
-|------|-----------|
-| Amazon SageMaker | 20+ |
-| Amazon Bedrock & GenAI | 23+ |
-| NLP: Comprehend, Translate, Polly, Transcribe, Lex | 19+ |
-| Visión: Rekognition, Textract, Kendra | 7+ |
-| Recomendaciones & Predicción: Personalize, Forecast | 7+ |
-| Otros Servicios: Q, Fraud Detector, DevOps Guru, CodeGuru | 13+ |
-| Optimización de Costos en AI/ML | 6+ |
-| Seguridad & Gobernanza | 30+ |
-| Escenarios del Mundo Real | 8+ |
-| Métricas de Evaluación (ROUGE, BLEU, BERTScore...) | 12+ |
-| IA Responsable en AWS | 12+ |
-| Bases de Datos Vectoriales (OpenSearch, pgvector, RAG) | 8+ |
-| Gobernanza y Cumplimiento (Config, Inspector, Artifact...) | 13+ |
-
-Fuentes: material propio del curso + banco Whizlabs.
 
 ---
 
@@ -138,6 +125,7 @@ La app abre en `http://localhost:3000`.
 
 ## Funcionalidades
 
+- **Selección de examen** — elige entre AI Practitioner y ML Engineer Associate
 - **Quiz configurable** — elige tema, dificultad, número de preguntas (5-20) y cronómetro opcional
 - **Feedback inmediato** — respuesta correcta/incorrecta con explicación tras cada pregunta
 - **Dashboard de progreso** — quizzes completados, % aciertos, racha, gráfico de evolución temporal y por tema
@@ -148,7 +136,7 @@ La app abre en `http://localhost:3000`.
 
 ## Notas técnicas
 
+- Los bancos de preguntas están en `backend/question_banks/` — un JSON por examen, formato unificado por pregunta
 - Los resultados se guardan en SQLite (`backend/quiz.db`) — persistente en Render con disco efímero (se resetea en cada redespliegue)
 - Sin autenticación — diseñado para uso personal
-- Python 3.11 pinado con `.python-version` para compatibilidad con pydantic-core en Render
 - CORS configurado via variable de entorno `ALLOWED_ORIGINS`
