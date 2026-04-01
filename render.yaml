@@ -8,4 +8,4 @@ services:
     plan: free
     envVars:
       - key: ALLOWED_ORIGINS
-        value: https://aws-quiz.vercel.app  # Cambia por tu URL de Vercel
+        value: https://aws-quiz-nu.vercel.app
