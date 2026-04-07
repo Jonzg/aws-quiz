@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate, Navigate } from 'react-router-dom'
 import { getTopics, getQuiz, getAnswers, saveResult } from '../api'
-import { PlayCircle, Timer, TimerOff, ChevronRight, BookOpen, BarChart3 } from 'lucide-react'
+import { PlayCircle, Timer, TimerOff, ChevronRight, BookOpen, BarChart3, ChevronDown, Layers } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -55,6 +55,7 @@ function SetupScreen({ onStart }) {
   const [numQuestions, setNumQuestions] = useState(10)
   const [timerEnabled, setTimerEnabled] = useState(true)
   const [topicInfo, setTopicInfo] = useState([])
+  const [topicOpen, setTopicOpen] = useState(false)
 
   useEffect(() => {
     getTopics().then(setTopicInfo).catch(console.error)
@@ -83,48 +84,136 @@ function SetupScreen({ onStart }) {
       transition={{ duration: 0.35 }}
     >
       {/* Header */}
-      <div className="text-center space-y-2 pt-2">
-        <div
+      <div className="text-center space-y-3 pt-2">
+        <motion.div
           className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto"
-          style={{ background: 'rgba(255,153,0,0.1)', border: '1px solid rgba(255,153,0,0.2)' }}
+          style={{
+            background: 'rgba(255,153,0,0.08)',
+            border: '1px solid rgba(255,153,0,0.2)',
+            boxShadow: '0 0 24px rgba(255,153,0,0.12)',
+          }}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <BookOpen size={26} style={{ color: '#FF9900' }} />
-        </div>
-        <h1 className="text-2xl font-bold" style={{ color: '#E6EDF3' }}>Configura tu Quiz</h1>
-        <p className="text-sm" style={{ color: '#8B949E' }}>Elige tema, dificultad y número de preguntas</p>
+        </motion.div>
+        <h1
+          className="text-2xl font-bold tracking-tight"
+          style={{ color: '#E6EDF3', letterSpacing: '-0.02em' }}
+        >
+          Configura tu Quiz
+        </h1>
+        <p className="text-sm" style={{ color: 'var(--muted)' }}>
+          Elige tema, dificultad y número de preguntas
+        </p>
       </div>
 
       <div className="card space-y-6">
         {/* Topic */}
-        <div className="space-y-2">
-          <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#8B949E' }}>
+        <div className="space-y-2.5">
+          <label className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--muted)' }}>
             Tema
           </label>
+
+          {/* "Todos los temas" option */}
           {allOption && (
-            <div className="flex justify-center">
-              <button
-                onClick={() => setTopic('all')}
-                className="w-full py-2 px-4 rounded-lg border text-sm font-medium transition-all duration-150"
-                style={topic === 'all' ? selStyle : idleStyle}
-              >
-                {TOPIC_LABELS['all']}
-              </button>
-            </div>
+            <button
+              onClick={() => { setTopic('all'); setTopicOpen(false) }}
+              className="w-full py-2.5 px-4 rounded-lg border text-sm font-medium transition-all duration-150 text-left flex items-center justify-between"
+              style={topic === 'all' ? selStyle : idleStyle}
+            >
+              <span>{TOPIC_LABELS['all']}</span>
+              {topic === 'all' && allOption.question_count && (
+                <span
+                  className="text-xs"
+                  style={{ color: '#FF9900', fontFamily: 'JetBrains Mono, monospace', opacity: 0.7 }}
+                >
+                  {allOption.question_count} pregs.
+                </span>
+              )}
+            </button>
           )}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {otherTopics.map(t => (
-              <button
-                key={t.key}
-                onClick={() => setTopic(t.key)}
-                className="py-2 px-3 rounded-lg border text-xs font-medium transition-all duration-150 text-center"
-                style={topic === t.key ? selStyle : idleStyle}
-              >
-                {TOPIC_LABELS[t.key] || t.name || t.key}
-              </button>
-            ))}
+
+          {/* Dropdown for specific topics */}
+          <div className="relative">
+            <button
+              onClick={() => setTopicOpen(o => !o)}
+              className="w-full py-2.5 px-4 rounded-lg border text-sm font-medium transition-all duration-150 flex items-center justify-between"
+              style={topic !== 'all' ? selStyle : idleStyle}
+            >
+              <span className="flex items-center gap-2">
+                <Layers size={14} />
+                {topic !== 'all'
+                  ? (TOPIC_LABELS[topic] || topic)
+                  : 'Tema específico…'}
+              </span>
+              <motion.span animate={{ rotate: topicOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                <ChevronDown size={15} />
+              </motion.span>
+            </button>
+
+            <AnimatePresence>
+              {topicOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scaleY: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                  exit={{ opacity: 0, y: -6, scaleY: 0.95 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  className="absolute z-30 left-0 right-0 mt-1.5 rounded-xl overflow-hidden"
+                  style={{
+                    background: 'var(--surface-2)',
+                    border: '1px solid var(--border-2)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+                    transformOrigin: 'top',
+                  }}
+                >
+                  <div className="max-h-56 overflow-y-auto p-1.5 space-y-0.5">
+                    {otherTopics.map(t => (
+                      <button
+                        key={t.key}
+                        onClick={() => { setTopic(t.key); setTopicOpen(false) }}
+                        className="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-100 flex items-center justify-between group/item"
+                        style={
+                          topic === t.key
+                            ? { background: 'rgba(255,153,0,0.1)', color: '#FF9900' }
+                            : { color: '#8B949E' }
+                        }
+                        onMouseEnter={e => {
+                          if (topic !== t.key) {
+                            e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                            e.currentTarget.style.color = '#E6EDF3'
+                          }
+                        }}
+                        onMouseLeave={e => {
+                          if (topic !== t.key) {
+                            e.currentTarget.style.background = 'transparent'
+                            e.currentTarget.style.color = '#8B949E'
+                          }
+                        }}
+                      >
+                        <span>{TOPIC_LABELS[t.key] || t.name || t.key}</span>
+                        {t.question_count && (
+                          <span
+                            className="text-xs opacity-50"
+                            style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                          >
+                            {t.question_count}
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-          {selectedInfo && (
-            <p className="text-xs" style={{ color: '#444c56' }}>
+
+          {selectedInfo && topic !== 'all' && (
+            <p
+              className="text-xs"
+              style={{ color: 'var(--muted)', fontFamily: 'JetBrains Mono, monospace' }}
+            >
               {selectedInfo.question_count} preguntas disponibles
             </p>
           )}
@@ -135,7 +224,7 @@ function SetupScreen({ onStart }) {
 
         {/* Difficulty */}
         <div className="space-y-2">
-          <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#8B949E' }}>
+          <label className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--muted)' }}>
             Dificultad
           </label>
           <div className="grid grid-cols-4 gap-2">
@@ -157,7 +246,7 @@ function SetupScreen({ onStart }) {
 
         {/* Num questions */}
         <div className="space-y-2">
-          <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#8B949E' }}>
+          <label className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--muted)' }}>
             Preguntas:{' '}
             <span style={{ color: '#FF9900' }}>{numQuestions}</span>
           </label>
@@ -320,11 +409,18 @@ function QuizScreen({ config, onFinish }) {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-64 gap-4">
-        <div
-          className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin"
+        <motion.div
+          className="w-10 h-10 rounded-full border-2"
           style={{ borderColor: '#FF9900', borderTopColor: 'transparent' }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
         />
-        <p className="text-sm" style={{ color: '#8B949E' }}>Cargando preguntas…</p>
+        <p
+          className="text-xs"
+          style={{ color: 'var(--muted)', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.06em' }}
+        >
+          Cargando preguntas…
+        </p>
       </div>
     )
   }
@@ -350,19 +446,35 @@ function QuizScreen({ config, onFinish }) {
       {/* Header bar */}
       <div
         className="flex items-center justify-between px-4 py-3 rounded-xl"
-        style={{ background: '#161B22', border: '1px solid #21262D' }}
+        style={{
+          background: 'var(--surface)',
+          border: '1px solid var(--border)',
+          boxShadow: '0 1px 0 rgba(255,255,255,0.02) inset',
+        }}
       >
         <div className="flex items-center gap-3">
-          <span className="text-xs font-medium" style={{ color: '#8B949E' }}>
-            Pregunta{' '}
+          <span
+            className="text-xs font-medium"
+            style={{ color: 'var(--muted)', fontFamily: 'JetBrains Mono, monospace' }}
+          >
             <span style={{ color: '#FF9900', fontWeight: 700 }}>{current + 1}</span>
-            {' '}/{' '}{questions.length}
+            <span style={{ color: '#30363D' }}> / {questions.length}</span>
           </span>
-          <ProgressBar value={progress} className="w-32" />
+          <ProgressBar value={progress} className="w-28" />
         </div>
         {config.timerEnabled && (
-          <div className="flex items-center gap-1.5 font-mono text-sm font-bold" style={{ color: '#E6EDF3' }}>
-            <Timer size={14} style={{ color: '#FF9900' }} />
+          <div
+            className="flex items-center gap-1.5 text-sm font-bold"
+            style={{
+              color: '#E6EDF3',
+              fontFamily: 'JetBrains Mono, monospace',
+              background: 'rgba(255,153,0,0.06)',
+              border: '1px solid rgba(255,153,0,0.15)',
+              padding: '4px 10px',
+              borderRadius: 8,
+            }}
+          >
+            <Timer size={12} style={{ color: '#FF9900' }} />
             {formatTime(elapsed)}
           </div>
         )}

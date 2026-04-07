@@ -1,24 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --bg:        #0D1117;
-    --surface:   #161B22;
-    --surface-2: #1C2128;
-    --border:    #21262D;
-    --border-2:  #30363D;
+    --bg:        #080C10;
+    --surface:   #0F1419;
+    --surface-2: #161B22;
+    --border:    #1C2128;
+    --border-2:  #21262D;
     --text:      #E6EDF3;
-    --muted:     #8B949E;
+    --muted:     #6E7681;
     --orange:    #FF9900;
-    --orange-dim: rgba(255, 153, 0, 0.12);
+    --orange-dim: rgba(255, 153, 0, 0.10);
+    --orange-glow: rgba(255, 153, 0, 0.20);
+    --green:     #10b981;
+    --red:       #ef4444;
   }
 
   body {
-    @apply font-sans antialiased;
+    @apply antialiased;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg);
     color: var(--text);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,153,0,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(59,130,246,0.05) 0%, transparent 50%);
+  }
+
+  /* Subtle dot grid overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
   }
 
   * {
@@ -28,13 +53,45 @@
 
 @layer components {
   /* ── Buttons ───────────────────────────────────────────────── */
+  /* ── Gradient text ─────────────────────────────────────────── */
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #FF9900 0%, #FFB347 50%, #FF9900 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-white {
+    background: linear-gradient(135deg, #E6EDF3 0%, #8B949E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Glow effects ───────────────────────────────────────────── */
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255,153,0,0.25), 0 0 40px rgba(255,153,0,0.1);
+  }
+
+  .glow-orange-sm {
+    box-shadow: 0 0 10px rgba(255,153,0,0.2);
+  }
+
+  /* ── Buttons ───────────────────────────────────────────────── */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
-           bg-brand-500 text-white font-semibold rounded-lg text-sm
-           hover:bg-brand-400 active:scale-95
+           font-semibold rounded-lg text-sm
+           active:scale-95
            transition-all duration-200
-           hover:shadow-glow-orange
            disabled:opacity-40 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #FF9900 0%, #e07b00 100%);
+    color: #080C10;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 4px 12px rgba(255,153,0,0.3);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #FFB347 0%, #FF9900 100%);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 6px 20px rgba(255,153,0,0.4);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
@@ -68,18 +125,28 @@
 
   /* ── Cards ─────────────────────────────────────────────────── */
   .card {
-    @apply rounded-xl p-6;
+    @apply rounded-2xl p-6;
     background: var(--surface);
     border: 1px solid var(--border);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
   }
 
   .card-hover {
     @apply card transition-all duration-200 cursor-pointer;
   }
   .card-hover:hover {
-    border-color: rgba(255, 153, 0, 0.35);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,153,0,0.15);
-    transform: translateY(-2px);
+    border-color: rgba(255, 153, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,153,0,0.12), 0 1px 0 rgba(255,255,255,0.03) inset;
+    transform: translateY(-3px);
+  }
+
+  /* ── Glass card ─────────────────────────────────────────────── */
+  .card-glass {
+    @apply rounded-2xl p-6;
+    background: rgba(15, 20, 25, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.05) inset;
   }
 
   /* ── Option buttons ─────────────────────────────────────────── */
@@ -176,10 +243,10 @@
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background: #444c56; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1C2128; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #30363D; }
 
 /* Range input */
 input[type="range"] {
@@ -187,8 +254,64 @@ input[type="range"] {
 }
 
 /* Recharts text overrides */
-.recharts-text { fill: #8B949E !important; }
+.recharts-text { fill: #6E7681 !important; }
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
-  stroke: #21262D !important;
+  stroke: #1C2128 !important;
+}
+
+/* Animated gradient border */
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,153,0,0.2); }
+  50% { box-shadow: 0 0 24px rgba(255,153,0,0.45), 0 0 48px rgba(255,153,0,0.1); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg, #1C2128 25%, #21262D 50%, #1C2128 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Mono text for code/numbers */
+.font-mono-nums {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ambient blob */
+.ambient-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 153, 0, 0.25);
+  color: #E6EDF3;
 }

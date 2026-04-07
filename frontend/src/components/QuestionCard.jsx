@@ -86,28 +86,38 @@ export default function QuestionCard({
   }
 
   const optionStyles = {
-    idle:    { bg: 'var(--surface-2)',          border: 'var(--border-2)',           color: 'var(--text)',  labelBg: 'rgba(255,255,255,0.06)', labelColor: '#8B949E' },
-    correct: { bg: 'rgba(16,185,129,0.1)',      border: '#10b981',                   color: '#6ee7b7',      labelBg: 'rgba(16,185,129,0.2)',   labelColor: '#6ee7b7' },
-    wrong:   { bg: 'rgba(239,68,68,0.1)',       border: '#ef4444',                   color: '#fca5a5',      labelBg: 'rgba(239,68,68,0.2)',    labelColor: '#fca5a5' },
-    faded:   { bg: 'var(--surface-2)',          border: 'var(--border)',             color: '#444c56',      labelBg: 'rgba(255,255,255,0.03)', labelColor: '#444c56' },
+    idle:    { bg: 'var(--surface-2)',          border: 'var(--border-2)',           color: 'var(--text)',  labelBg: 'rgba(255,255,255,0.05)', labelColor: 'var(--muted)' },
+    correct: { bg: 'rgba(16,185,129,0.08)',     border: 'rgba(16,185,129,0.6)',      color: '#6ee7b7',      labelBg: 'rgba(16,185,129,0.2)',   labelColor: '#6ee7b7' },
+    wrong:   { bg: 'rgba(239,68,68,0.08)',      border: 'rgba(239,68,68,0.6)',       color: '#fca5a5',      labelBg: 'rgba(239,68,68,0.2)',    labelColor: '#fca5a5' },
+    faded:   { bg: 'rgba(0,0,0,0.2)',           border: 'var(--border)',             color: '#30363D',      labelBg: 'rgba(255,255,255,0.02)', labelColor: '#30363D' },
   }
 
   return (
     <div ref={containerRef} className="card space-y-5">
       {/* Header */}
-      <div className="flex items-start justify-between gap-3">
-        <p className="text-sm font-medium leading-relaxed flex-1" style={{ color: '#E6EDF3' }}>
+      <div className="flex items-start justify-between gap-4">
+        <p
+          className="text-sm font-medium leading-relaxed flex-1"
+          style={{ color: '#E6EDF3', lineHeight: '1.7' }}
+        >
           {question.question}
         </p>
         <div
           className="shrink-0 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold"
-          style={{ background: diff.bg, border: `1px solid ${diff.border}`, color: diff.color }}
+          style={{
+            background: diff.bg,
+            border: `1px solid ${diff.border}`,
+            color: diff.color,
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: 10,
+            letterSpacing: '0.04em',
+          }}
         >
           {diff.label}
         </div>
       </div>
 
-      <div className="divider" />
+      <div style={{ height: 1, background: 'var(--border)' }} />
 
       {/* Options */}
       <div className="space-y-2.5">
@@ -121,12 +131,25 @@ export default function QuestionCard({
               ref={el => { optionRefs.current[i] = el }}
               onClick={() => onSelect(option)}
               disabled={revealed}
-              className="w-full text-left rounded-xl font-medium text-sm disabled:cursor-not-allowed flex items-center gap-3 px-4 py-3.5"
+              className="w-full text-left rounded-xl font-medium text-sm disabled:cursor-not-allowed flex items-center gap-3 px-4 py-3.5 group/opt"
               style={{
                 background: s.bg,
                 border: `1px solid ${s.border}`,
                 color: s.color,
-                transition: 'background 0.18s, border-color 0.18s, color 0.18s',
+                transition: 'background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s',
+                boxShadow: state === 'correct' ? '0 0 12px rgba(16,185,129,0.1)' : state === 'wrong' ? '0 0 12px rgba(239,68,68,0.1)' : 'none',
+              }}
+              onMouseEnter={e => {
+                if (!revealed) {
+                  e.currentTarget.style.borderColor = 'rgba(255,153,0,0.4)'
+                  e.currentTarget.style.background = 'rgba(255,153,0,0.05)'
+                }
+              }}
+              onMouseLeave={e => {
+                if (!revealed) {
+                  e.currentTarget.style.borderColor = s.border
+                  e.currentTarget.style.background = s.bg
+                }
               }}
             >
               <span
@@ -134,7 +157,7 @@ export default function QuestionCard({
                 style={{
                   background: s.labelBg,
                   color: s.labelColor,
-                  border: `1px solid ${s.labelBg}`,
+                  fontFamily: 'JetBrains Mono, monospace',
                   transition: 'all 0.18s',
                 }}
               >
@@ -144,31 +167,43 @@ export default function QuestionCard({
               <span className="flex-1 text-left">{option}</span>
 
               {revealed && state === 'correct' && (
-                <CheckCircle size={16} className="shrink-0" style={{ color: '#10b981' }} />
+                <CheckCircle size={15} className="shrink-0" style={{ color: '#10b981' }} />
               )}
               {revealed && state === 'wrong' && (
-                <XCircle size={16} className="shrink-0" style={{ color: '#ef4444' }} />
+                <XCircle size={15} className="shrink-0" style={{ color: '#ef4444' }} />
               )}
             </button>
           )
         })}
       </div>
 
-      {/* Feedback — rendered when revealed; GSAP animates in */}
+      {/* Feedback */}
       {revealed && (
         <div className="space-y-3">
           <div
             ref={feedbackRef}
-            className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold"
+            className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold"
             style={
               isCorrect
-                ? { background: 'rgba(16,185,129,0.12)', color: '#6ee7b7', border: '1px solid rgba(16,185,129,0.25)' }
-                : { background: 'rgba(239,68,68,0.12)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.25)' }
+                ? {
+                    background: 'rgba(16,185,129,0.08)',
+                    color: '#6ee7b7',
+                    border: '1px solid rgba(16,185,129,0.2)',
+                    boxShadow: '0 0 16px rgba(16,185,129,0.08)',
+                  }
+                : {
+                    background: 'rgba(239,68,68,0.08)',
+                    color: '#fca5a5',
+                    border: '1px solid rgba(239,68,68,0.2)',
+                    boxShadow: '0 0 16px rgba(239,68,68,0.08)',
+                  }
             }
           >
             {isCorrect
-              ? <><CheckCircle size={16} /> ¡Correcto!</>
-              : <><XCircle size={16} /> Incorrecto — Correcta: <strong>{correctLabel}</strong></>
+              ? <><CheckCircle size={15} /> ¡Correcto!</>
+              : <><XCircle size={15} /> Incorrecto — Correcta: <strong
+                  style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                >{correctLabel}</strong></>
             }
           </div>
 
@@ -177,13 +212,13 @@ export default function QuestionCard({
               ref={explanationRef}
               className="flex gap-3 rounded-xl p-4 text-sm leading-relaxed"
               style={{
-                background: 'rgba(59,130,246,0.08)',
-                border: '1px solid rgba(59,130,246,0.2)',
+                background: 'rgba(59,130,246,0.06)',
+                border: '1px solid rgba(59,130,246,0.15)',
                 color: '#93c5fd',
               }}
             >
-              <Lightbulb size={16} className="shrink-0 mt-0.5" style={{ color: '#60a5fa' }} />
-              <p>{explanation}</p>
+              <Lightbulb size={15} className="shrink-0 mt-0.5" style={{ color: '#60a5fa' }} />
+              <p style={{ lineHeight: '1.7' }}>{explanation}</p>
             </div>
           )}
         </div>
