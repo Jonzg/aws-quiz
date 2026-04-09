@@ -1,1 +1,1502 @@
-[]
+[
+    {
+        "id": "q001",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "basico",
+        "question": "Tu empresa almacena datasets históricos de entrenamiento que se acceden menos de una vez al año. ¿Cuál es la clase de almacenamiento S3 más económica para estos datos?",
+        "options": [
+            "S3 Standard - manteniendo todos los datos accesibles inmediatamente",
+            "S3 Glacier Instant Retrieval - para acceso rápido cuando sea necesario",
+            "S3 Glacier Flexible Retrieval - para datos raramente accedidos con latencia de horas acceptable",
+            "S3 Intelligent-Tiering - para monitoreo automático de patrones de acceso"
+        ],
+        "correct_answer": 2,
+        "explanation": "S3 Glacier Flexible Retrieval es la opción más económica para datos archivados que se acceden raramente (menos de una vez al año). Aunque tiene latencia de recuperación de 3-5 horas, es suficiente para datasets históricos no necesarios en tiempo real. Instant Retrieval es más caro sin beneficio en este caso. Standard sería muy costoso para almacenamiento a largo plazo."
+    },
+    {
+        "id": "q002",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Necesitas procesar clickstreams en tiempo real desde una aplicación web y almacenarlos en S3 para análisis posterior sin intervención manual. ¿Cuál es la solución más adecuada?",
+        "options": [
+            "Amazon Kinesis Data Streams con consumidores Lambda personalizados",
+            "Amazon Kinesis Data Firehose entregando directamente a S3",
+            "Amazon Kinesis Video Streams para procesamiento de streams de video",
+            "AWS Glue ETL con triggers del crawler"
+        ],
+        "correct_answer": 1,
+        "explanation": "Kinesis Data Firehose es la solución ideal para este caso porque: (1) es completamente gestionada sin necesidad de gestionar consumers, (2) entrega automáticamente a S3 sin código adicional, (3) buffers datos por tamaño/tiempo antes de enviar, (4) puede transformar datos con Lambda si es necesario. Kinesis Streams requeriría código de consumer personalizado."
+    },
+    {
+        "id": "q003",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Un científico de datos quiere importar datos de múltiples fuentes (S3, Athena, Redshift), aplicar transformaciones visuales y evaluar rápidamente la calidad de los features antes de entrenar un modelo. ¿Qué servicio debería usar?",
+        "options": [
+            "AWS Glue DataBrew para limpieza visual + Glue Jobs para transformaciones programáticas",
+            "Amazon SageMaker Data Wrangler para flujo integrado de transformaciones y análisis",
+            "AWS Lambda functions encadenadas para procesamiento serverless",
+            "Amazon EMR con notebooks Jupyter para procesamiento distribuido"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Data Wrangler es la herramienta correcta porque integra en un mismo lugar: importación de múltiples fuentes, transformaciones visuales (>300 disponibles), análisis de calidad (correlaciones, feature importance), y exportación directa a training. Ofrece integración nativa con SageMaker Studio y Quick Model para validación rápida."
+    },
+    {
+        "id": "q004",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "basico",
+        "question": "En tu dataset de predicción de precios de viviendas, la variable 'número de garajes' tiene 15% de valores faltantes. ¿Cuál es el enfoque más apropiado para tratarlos?",
+        "options": [
+            "Eliminar todas las filas con valores faltantes",
+            "Imputar con la mediana del número de garajes observado",
+            "Imputar con cero y crear una variable binaria indicadora de imputación",
+            "Usar el máximo valor observado de garajes"
+        ],
+        "correct_answer": 2,
+        "explanation": "La opción correcta es imputar con cero (que es interpretable: 'no tiene garaje') y crear un indicador binario. Esto preserva la información sobre qué registros tenían datos faltantes. Eliminar 15% de datos es excesivo. Mediana/máximo no son interpretables en este contexto de conteo de garajes."
+    },
+    {
+        "id": "q005",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu dataset contiene la variable 'país' con 200 valores únicos. Planeas usar one-hot encoding antes de entrenar un modelo de regresión. ¿Cuál es el riesgo principal?",
+        "options": [
+            "La memoria requerida será mínima ya que solo aumentará linealmente",
+            "La multicolinealidad perfecta (200 nuevas columnas correlacionadas) puede romper modelos lineales",
+            "Los valores faltantes en 'país' se duplicarán automáticamente",
+            "El tiempo de entrenamiento se reducirá porque menos características significan convergencia más rápida"
+        ],
+        "correct_answer": 1,
+        "explanation": "One-hot encoding de 200 categorías crea una trampa de colinealidad: las 200 columnas binarias son perfectamente colineales (suman 1). Para modelos lineales como Linear Learner o regresión logística, esto causa singularidad en la matriz. Soluciones: eliminar una columna, usar target encoding, o usar embedding."
+    },
+    {
+        "id": "q006",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu modelo de aprobación de créditos muestra disparidad: 80% de aprobación para hombres pero 60% para mujeres. Quieres detectar esto ANTES de entrenar el modelo. ¿Qué servicio de AWS lo permite?",
+        "options": [
+            "Amazon SageMaker Clarify analizando datos de entrenamiento",
+            "AWS Glue Data Quality verificando completitud",
+            "SageMaker Model Monitor después del despliegue",
+            "IAM Access Analyzer auditando permisos"
+        ],
+        "correct_answer": 0,
+        "explanation": "SageMaker Clarify puede analizar datos de entrenamiento (pre-entrenamieneto) para detectar bias usando métricas como Class Imbalance (CI) y Difference in Positive Proportions in Labels (DPL). Model Monitor detecta bias DESPUÉS del despliegue. Glue Data Quality se enfoca en completitud, no en fairness."
+    },
+    {
+        "id": "q007",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "Necesitas generar embeddings de texto de alta calidad para un sistema de búsqueda semántica. ¿Cuál es el modelo Bedrock más apropiado?",
+        "options": [
+            "Amazon Titan Text G1 - Premier para generación de texto largo",
+            "Amazon Titan Embeddings para convertir texto en vectores densos",
+            "Anthropic Claude 3 Opus para análisis de texto complejos",
+            "Meta Llama 3 para inferencia de bajo coste"
+        ],
+        "correct_answer": 1,
+        "explanation": "Amazon Titan Embeddings es el modelo específico para generar embeddings de texto. Los otros modelos están optimizados para generación/análisis de texto, no para crear representaciones vectoriales. Bedrock proporciona modelos de embeddings vectoriales bajo InvokeModel, específicamente diseñados para búsqueda semántica y RAG."
+    },
+    {
+        "id": "q008",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "Estás configurando un SageMaker Training Job. ¿Cuál es el rol IAM requerido para que el job acceda a datos en S3 y escriba artefactos?",
+        "options": [
+            "Un role IAM asignado a la instancia EC2 que ejecuta el job",
+            "Una SageMaker Execution Role con permisos a S3 y CloudWatch",
+            "Una API Key de usuario IAM almacenada en environment variables",
+            "Credenciales de usuario root de AWS"
+        ],
+        "correct_answer": 1,
+        "explanation": "El training job debe usar una SageMaker Execution Role (no credenciales de usuario). Este role debe tener permisos para: leer datos de S3 (s3:GetObject), escribir artefactos (s3:PutObject), y registrar metricas en CloudWatch. Las credenciales nunca se deben almacenar en variables de entorno por seguridad."
+    },
+    {
+        "id": "q009",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Estás entrenando un modelo XGBoost en SageMaker para clasificación binaria. Después de 5 épocas, el error de validación empieza a crecer mientras el de entrenamiento sigue bajando. ¿Cuál es el problema probable y la solución?",
+        "options": [
+            "El modelo está underfitting; aumenta max_depth y num_round",
+            "El modelo está overfitting; aumenta eta (learning_rate) para converger más rápido",
+            "El modelo está overfitting; disminuye max_depth, num_round, o aumenta subsample/colsample_bytree",
+            "El learning rate es demasiado alto; cambia el optimizador a Adam"
+        ],
+        "correct_answer": 2,
+        "explanation": "La divergencia entre error de entrenamiento y validación es el síntoma clásico de overfitting. Las soluciones en XGBoost son: (1) reducir profundidad de árboles (max_depth), (2) reducir número de iteraciones (num_round), (3) aumentar regularización via subsample/colsample_bytree. Aumentar eta hace que converja más rápido pero no resuelve el overfitting fundamental."
+    },
+    {
+        "id": "q010",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Necesitas optimizar 4 hiperparámetros de XGBoost: learning_rate (0.01-0.3), max_depth (3-10), subsample (0.5-1.0), colsample_bytree (0.5-1.0). ¿Cuál es la estrategia HPO más eficiente en SageMaker AMT?",
+        "options": [
+            "Grid Search para probar todas las combinaciones posibles",
+            "Random Search para paralelizar más jobs",
+            "Bayesian Optimization para usar resultados previos en nuevas pruebas",
+            "Manual tuning ajustando parámetros secuencialmente"
+        ],
+        "correct_answer": 2,
+        "explanation": "Bayesian Optimization es la estrategia más eficiente para este caso porque: (1) el espacio es continuo (no discreto como en Grid Search), (2) usa resultados previos para elegir inteligentemente el siguiente punto de búsqueda (vs Random que prueba ciegamente), (3) reduce el número de evaluaciones necesarias para converger. AWS Hyperband es incluso más avanzado pero Bayesian es la base."
+    },
+    {
+        "id": "q011",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Entrenas un modelo de detección de fraude bancario. El dataset tiene 99% transacciones legítimas y 1% fraudulentas. ¿Cuál es la métrica MENOS apropiada para evaluar el modelo?",
+        "options": [
+            "F1 Score porque balancea precision y recall",
+            "Accuracy porque reportaría ~99% incluso si el modelo predice siempre 'legítimo'",
+            "AUC-ROC porque evalúa la capacidad discriminativa",
+            "Recall porque queremos minimizar falsos negativos (fraude no detectado)"
+        ],
+        "correct_answer": 1,
+        "explanation": "Accuracy es inapropiado en datasets muy desbalanceados. Un modelo que siempre predice 'legítimo' tendría 99% de accuracy pero sería completamente inútil (0% recall en fraude). Para clases desbalanceadas debes usar F1, AUC-ROC, o Precision-Recall curve. Accuracy solo es útil con clases balanceadas."
+    },
+    {
+        "id": "q012",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es la diferencia principal entre K-Fold Cross-Validation y Stratified K-Fold para datos de clasificación?",
+        "options": [
+            "K-Fold es más rápido porque usa menos datos por iteración",
+            "Stratified K-Fold mantiene la proporción de clases en cada fold",
+            "K-Fold solo funciona con regresión, Stratified solo con clasificación",
+            "No hay diferencia técnica, solo es nomenclatura diferente"
+        ],
+        "correct_answer": 1,
+        "explanation": "Stratified K-Fold divide el dataset garantizando que cada fold tenga aproximadamente la misma proporción de clases que el dataset completo. Esto es crítico en clasificación desbalanceada para evitar folds donde una clase esté sub-representada. K-Fold normal puede tener folds sesgados."
+    },
+    {
+        "id": "q013",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Tu aplicación de scoring de riesgo de préstamo recibe solicitudes esporádicas: 10 predicciones/hora en horarios pico, 0-1 en horas bajas. ¿Cuál modalidad de SageMaker Inference es más económica?",
+        "options": [
+            "Real-Time Endpoint con ml.t3.medium persistente",
+            "SageMaker Serverless Inference escala automáticamente a cero",
+            "Batch Transform ejecutando diariamente todas las solicitudes acumuladas",
+            "Lambda con SageMaker Multi-Model Endpoint"
+        ],
+        "correct_answer": 1,
+        "explanation": "Serverless Inference es la opción más económica porque: (1) no hay coste en idle cuando no hay trafico, (2) escala automáticamente según demanda, (3) para este patrón de trafico esporádico evitas pagar una instancia permanente. Real-Time con ml.t3.medium estaría inactivo la mayoría del tiempo incurriendo costes innecesarios."
+    },
+    {
+        "id": "q014",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "¿Cuál es el caso de uso más apropiado para SageMaker Async Inference?",
+        "options": [
+            "Predicciones de baja latencia (<100ms) sobre datos tabulares pequeños",
+            "Procesamiento de videos o documentos PDF grandes con tiempos de inferencia largos",
+            "APIs web que requieren respuesta inmediata al usuario",
+            "Entrenamiento distribuido de modelos en múltiples GPUs"
+        ],
+        "correct_answer": 1,
+        "explanation": "Async Inference está diseñado para payloads grandes (hasta 1GB) e inferencias largas (hasta 15 minutos). Ideal para procesar videos, documentos, o audio. El cliente no espera respuesta inmediata; envía el archivo S3 y recibe el resultado en otro bucket S3 después. No es adecuado para APIs web que requieren baja latencia."
+    },
+    {
+        "id": "q015",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Tienes 5000 modelos de clasificación de documentos (uno por cliente en tu SaaS). ¿Cuál es el beneficio principal de usar SageMaker Multi-Model Endpoints?",
+        "options": [
+            "Permite entrenar todos los modelos en paralelo reduciendo tiempo de entrenamiento",
+            "Alojar todos los modelos en una sola instancia, cargándolos dinámicamente, reduciendo costes hasta 10x",
+            "Garantiza que cada modelo tenga su propia GPU dedicada",
+            "Automatiza el reentrenamiento de todos los modelos simultáneamente"
+        ],
+        "correct_answer": 1,
+        "explanation": "MME permite alojar miles de modelos en una sola instancia, cargando dinámicamente el modelo solicitado en memoria. Esto es revolucionario para SaaS multi-tenant: en lugar de 5000 endpoints pequeños (costoso), tienes 1 endpoint grande que aloja todos. Reduce costes significativamente manteniendo latencia aceptable."
+    },
+    {
+        "id": "q016",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "¿Cuál es el propósito principal de SageMaker Neo?",
+        "options": [
+            "Compilar modelos ML para ejecutarse eficientemente en hardware específico",
+            "Crear modelos de redes neuronales desde cero",
+            "Monitorear la degradación del modelo en producción",
+            "Orquestar pipelines de entrenamiento complejos"
+        ],
+        "correct_answer": 0,
+        "explanation": "SageMaker Neo compila y optimiza modelos ML para hardware específico (AWS Inferentia, Trainium, edge devices). Reduce el tamaño del modelo y aumenta la velocidad de inferencia, permitiendo usar instancias más pequeñas o dispositivos edge. Soporta TensorFlow, PyTorch, XGBoost, scikit-learn."
+    },
+    {
+        "id": "q017",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Necesitas desplegar una arquitectura ML compleja (VPC, SageMaker endpoint, S3, IAM roles, monitoring). ¿Cuál es la ventaja clave de usar AWS CDK vs CloudFormation?",
+        "options": [
+            "CDK genera YAML/JSON directamente sin compilación",
+            "CDK permite escribir infraestructura en lenguajes de programación con abstracción de alto nivel",
+            "CloudFormation es serverless mientras CDK requiere EC2",
+            "CDK no requiere IAM roles a diferencia de CloudFormation"
+        ],
+        "correct_answer": 1,
+        "explanation": "CDK permite escribir infraestructura en Python, TypeScript, Java con lógica de programación reutilizable (constructs). CloudFormation requiere YAML/JSON donde la complejidad crece rápido. CDK compila a CloudFormation bajo el capó pero ofrece abstracciones más altas (menos boilerplate, mejor reutilización)."
+    },
+    {
+        "id": "q018",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Necesitas crear un pipeline que: (1) procese datos con Glue, (2) entrene XGBoost, (3) evalúe el modelo, (4) si la métrica mejora, registra en Model Registry y despliega. ¿Cuál servicio es más apropiado?",
+        "options": [
+            "AWS Step Functions para orquestar manualmente cada paso",
+            "SageMaker Pipelines con ProcessingStep, TrainingStep, ConditionStep y RegisterModel",
+            "Apache Airflow con operators personalizados",
+            "AWS Lambda functions encadenadas con EventBridge"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Pipelines es específico para ML: ofrece pasos nativos (ProcessingStep, TrainingStep, ConditionStep, RegisterModel), integración directa con Model Registry, lineage tracking automático y versionado de parámetros. Aunque Step Functions y Airflow pueden hacer lo mismo, Pipelines simplifica significativamente el código ML."
+    },
+    {
+        "id": "q019",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "¿Cuál es el propósito principal de SageMaker Model Registry en un pipeline ML?",
+        "options": [
+            "Almacenar las métricas de cada training job en CloudWatch",
+            "Versionar modelos con metadata, metricas y estado de aprobación (Pending/Approved/Rejected)",
+            "Compilar modelos a formato ONNX para interoperabilidad",
+            "Reentrenar automáticamente modelos cuando detecta data drift"
+        ],
+        "correct_answer": 1,
+        "explanation": "Model Registry es un catalogo centralizado para versionado de modelos. Cada versión almacena: artefacto del modelo, métricas de evaluación, contenedores Docker, y estado de aprobación. Permite governanza: solo modelos 'Approved' pueden desplegarse a producción. Facilita MLOps con control de cambios."
+    },
+    {
+        "id": "q020",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es el flujo típico de MLOps en AWS para reentrenamiento automático?",
+        "options": [
+            "Código + datos -> CodeCommit -> CodeBuild (tests) -> Manual approval -> Lambda reentrenamiento",
+            "Código + datos -> CodeCommit -> CodePipeline -> CodeBuild (tests) -> SageMaker Pipelines -> Model Registry -> Deploy",
+            "Git push -> cron job en EC2 -> training -> manual deployment",
+            "CodeDeploy directo sin testing"
+        ],
+        "correct_answer": 1,
+        "explanation": "El flujo MLOps nativo de AWS es: cambios en código/datos se detectan en CodeCommit -> CodePipeline orquesta -> CodeBuild ejecuta tests -> SageMaker Pipelines entrena automáticamente -> el modelo se registra en Model Registry -> si aprobado, se despliega. Esto automatiza todo el ciclo de reentrenamiento."
+    },
+    {
+        "id": "q021",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Despliegas un modelo de predicción de churn. Después de 2 meses, las predicciones comienzan a fallar sin error técnico aparente. ¿Cuál es el problema probable y cómo lo detectas?",
+        "options": [
+            "El endpoint está down; verifica CloudWatch metrics",
+            "Data drift: los datos de entrada han cambiado respecto a los datos de entrenamiento; usa SageMaker Model Monitor Data Quality",
+            "Concept drift: la relación input-output cambió; requiere reentrenamiento del modelo",
+            "El modelo es demasiado complejo; simplifica la arquitectura"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Model Monitor detecta automáticamente data drift comparando estadísticas de datos en producción (media, std, distribución) vs baseline de entrenamiento. Concept drift (cambio en relación input-output) se detecta con Model Quality Monitor si tienes ground truth etiquetado. En este caso sin error técnico, data drift es lo más probable."
+    },
+    {
+        "id": "q022",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "basico",
+        "question": "¿Cuál es la diferencia entre Data Drift y Concept Drift?",
+        "options": [
+            "Data Drift es cuando el modelo está underfitting; Concept Drift es cuando está overfitting",
+            "Data Drift: cambio en distribución de inputs. Concept Drift: cambio en relación input-output",
+            "Data Drift afecta solo a features numéricas; Concept Drift solo a categóricas",
+            "No hay diferencia real, son términos sinónimos"
+        ],
+        "correct_answer": 1,
+        "explanation": "Data Drift (covariate shift) = los datos de entrada (features) tienen distribución diferente pero la relación con el target sigue igual. Concept Drift = la relación entre inputs y outputs cambió fundamentalmente. Ej: modelo de fraude: data drift = nuevos tipos de transacciones; concept drift = los patrones de fraude evolucionaron."
+    },
+    {
+        "id": "q023",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "basico",
+        "question": "¿Cuál métrica es publicada automáticamente por SageMaker en CloudWatch para un endpoint de inferencia?",
+        "options": [
+            "La accuracy del modelo sobre datos de test",
+            "Invocations, ModelLatency, OverheadLatency, HTTPError4XXCount, HTTPError5XXCount",
+            "El coste estimado de usar el endpoint",
+            "El número de reentrenamientos ejecutados"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker publica automáticamente métricas de inferencia en CloudWatch: Invocations (número de predicciones), ModelLatency (tiempo del modelo), OverheadLatency (tiempo de overhead), HTTPError4XXCount, HTTPError5XXCount. Esto permite configurar alarmas y dashboards sin código adicional."
+    },
+    {
+        "id": "q024",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Tu empresa necesita auditoría de compliance: quién accedió a qué modelos, cuándo entrenó el modelo productivo, quién lo desplegó. ¿Cuál servicio proporciona esta información?",
+        "options": [
+            "SageMaker Experiments registra métricas de training",
+            "AWS CloudTrail registra todas las llamadas API incluyendo CreateTrainingJob, CreateEndpoint, DescribeModel",
+            "CloudWatch Logs almacena logs de entrenamiento del modelo",
+            "IAM Access Analyzer solo verifica permisos, no acciones"
+        ],
+        "correct_answer": 1,
+        "explanation": "AWS CloudTrail es el servicio de auditoría de AWS. Registra QUIÉN (usuario/rol IAM), QUÉ (operación: CreateTrainingJob, InvokeEndpoint), CUÁNDO (timestamp), DÓNDE (fuente IP), con qué parámetros. Esencial para compliance, debugging y detección de acceso no autorizado."
+    },
+    {
+        "id": "q025",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "intermedio",
+        "question": "Necesitas entrenar un modelo grande que toma 8 horas. El training job con instancias on-demand cuesta $80. ¿Cómo reducirías el coste con Spot Instances de AWS?",
+        "options": [
+            "Spot Instances no funcionan con SageMaker, solo con EC2",
+            "Configurar Managed Spot Training en SageMaker Training Job con max_wait > max_run. Ahorras hasta 90% pero requiere checkpointing",
+            "Usar Spot sin cambios. SageMaker lo maneja automáticamente",
+            "Spot Instances no son más baratos que on-demand"
+        ],
+        "correct_answer": 1,
+        "explanation": "Managed Spot Training en SageMaker permite usar Spot Instances (hasta 90% más baratos). La clave es configurar max_wait (tiempo que toleras esperar) mayor que max_run (tiempo de entrenamiento). Si se interrumpe, el job puede resumirse desde checkpoints. Sin checkpointing, puede requerir reiniciar desde cero."
+    },
+    {
+        "id": "q026",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "basico",
+        "question": "¿Cuál es la diferencia principal de costes entre Real-Time y Serverless Inference?",
+        "options": [
+            "Ambas cobran por instancia/hora; no hay diferencia",
+            "Real-Time cobra por instancia-hora. Serverless cobra solo por tiempo de computo activo, sin coste en idle",
+            "Serverless es siempre más caro porque requiere más overhead",
+            "Real-Time es gratis; Serverless es de pago"
+        ],
+        "correct_answer": 1,
+        "explanation": "Real-Time endpoints cobran por las instancias provisioned aunque no reciban trafico (coste en idle). Serverless no tiene instancias persistentes; cobras solo por tiempo de ejecución actual. Para trafico bajo/intermitente, Serverless es más económico. Para trafico alto constante, Real-Time puede ser mejor."
+    },
+    {
+        "id": "q027",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Configuras un training job que necesita: leer datos de S3, escribir artefactos en S3, registrar métricas en CloudWatch. ¿Cuál es el enfoque correcto de seguridad?",
+        "options": [
+            "Proporcionar access keys de usuario IAM en variables de entorno del container",
+            "Crear una SageMaker Execution Role con politicas que permitan s3:GetObject, s3:PutObject, cloudwatch:PutMetricData",
+            "Usar credenciales root de AWS",
+            "No es necesario un rol; SageMaker accede automáticamente"
+        ],
+        "correct_answer": 1,
+        "explanation": "Nunca uses access keys en containers (riesgo de exposición). La forma segura es: crear un IAM role con permisos específicos (menos privilegio) y asignarlo como SageMaker Execution Role. El role se assume automáticamente y las credenciales temporales se inyectan. Esto es seguro y auditable."
+    },
+    {
+        "id": "q028",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Tu endpoint SageMaker procesa datos sensibles (PII). Necesitas que la comunicación sea privada sin trafico por internet. ¿Cuál es la configuración recomendada?",
+        "options": [
+            "Usar NAT Gateway para enmascarar IP pública",
+            "Configurar el endpoint dentro de una VPC con subnets privadas y usar VPC Endpoints (Interface Endpoint) para SageMaker API",
+            "Desplegar el modelo en Lambda que no usa VPC",
+            "Cifrar los datos en tránsito con TLS únicamente"
+        ],
+        "correct_answer": 1,
+        "explanation": "VPC Endpoints (Interface Endpoints) permiten conectar a SageMaker sin trafico por internet. El data traffic entre aplicaciones en VPC privada y el endpoint es completamente interno. Complementado con KMS (cifrado en reposo), esto cumple requisitos de privacidad/compliance máximos."
+    },
+    {
+        "id": "q029",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "basico",
+        "question": "¿Cuál es la diferencia entre SSE-S3 y SSE-KMS para cifrado de datos en S3?",
+        "options": [
+            "SSE-S3 usa cifrado AES-256 gestionado por AWS; SSE-KMS usa tu propia clave en AWS KMS con audit trail",
+            "SSE-KMS es más lento que SSE-S3",
+            "SSE-S3 solo funciona para pequeños archivos",
+            "No hay diferencia técnica, solo nomenclatura"
+        ],
+        "correct_answer": 0,
+        "explanation": "SSE-S3: AWS gestiona las claves, cifrado automático. SSE-KMS: tú controlas la clave en AWS KMS, genera audit trail (CloudTrail) de quién descifró qué dato y cuándo. Para compliance/seguridad estricta, SSE-KMS es mejor. Costo: SSE-KMS requiere API calls a KMS (pequeño overhead)."
+    },
+    {
+        "id": "q030",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Necesitas entrenar un modelo con datos confidenciales pero requieres usar librerías de Python públicas de PyPI. ¿Cómo aseguras que el container de training no pueda acceder a internet?",
+        "options": [
+            "No es posible; siempre necesitas acceso a internet",
+            "Activar 'Network Isolation' en SageMaker Training Job. Descargar librerías previas a instancias privadas o usar AMI con dependencias preinstaladas",
+            "Usar Batch Transform en lugar de Training",
+            "Network Isolation solo funciona con modelos built-in, no con custom containers"
+        ],
+        "correct_answer": 1,
+        "explanation": "Network Isolation Mode impide que el container se conecte a internet. Para usar librerías externas: (1) crear una imagen Docker con todas las dependencias preinstaladas, o (2) usar una VPC privada con endpoints a PyPI, o (3) descargar whee files a S3 e instalar localmente. Es compatible con containers custom."
+    },
+    {
+        "id": "q031",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tienes 500 GB de datos en S3 que necesitan transformación con Spark antes de training. Estimas que el job tardará 2 horas. ¿Cuál es la opción más económica?",
+        "options": [
+            "Usar SageMaker Processing con Spark",
+            "Usar EMR Transient Cluster que se termina automáticamente tras completar el job",
+            "Usar EMR Serverless para Spark sin gestionar instancias",
+            "Usar AWS Glue ETL Job serverless"
+        ],
+        "correct_answer": 2,
+        "explanation": "EMR Serverless (opción 3) es ideal para jobs intermitentes: pagas solo por recursos usados, sin gestión de instancias. EMR Transient (opción 2) también puede ser económico pero requiere más configuración. SageMaker Processing con Spark es más simple pero puede ser más caro. Glue es buena alternativa pero EMR Serverless ofrece más control de Spark."
+    },
+    {
+        "id": "q032",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tienes un sistema de recomendación de productos. Necesitas: (1) features de bajo precio para inferencia en tiempo real, (2) histórico de features para reentrenamiento. ¿Cuál es el propósito de cada store?",
+        "options": [
+            "Online Store para ambos; Offline Store es obsoleto",
+            "Online Store (baja latencia, Redis) para inferencia. Offline Store (S3) para histórico y entrenamiento",
+            "Offline Store para todo; Online Store es opcional",
+            "Ambos stores son idénticos, solo cambio de nombre"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Feature Store tiene dos stores complementarios: (1) Online Store (Redis, latencia ms) para serving features en inferencia, (2) Offline Store (S3, Parquet) para histórico y entrenamiento. Point-in-time correctness previene data leakage: recuperas features exactas del momento pasado."
+    },
+    {
+        "id": "q033",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "avanzado",
+        "question": "Tu modelo de credit scoring usa features de Feature Store. Durante training, usas features con timestamp 2024-01-01. En inferencia, usas features actuales. ¿Cuál es el riesgo si Feature Store no soporta point-in-time?",
+        "options": [
+            "Las predicciones serán siempre imprecisas",
+            "Data leakage: features futuros (posteriores a 2024-01-01) entraron en training, causando performance irreal",
+            "No hay riesgo; los features no tienen timestamp",
+            "Solo afecta a modelos de series temporales"
+        ],
+        "correct_answer": 1,
+        "explanation": "Point-in-time correctness es crítico: asegura que durante training solo uses features que estaban disponibles en ese momento histórico. Sin esto, features calculados después de 2024-01-01 pero usados en training causarían data leakage. El modelo aprende patrones futuros irreproducibles en inferencia, inflando performance."
+    },
+    {
+        "id": "q034",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es la función de activación más común en capas ocultas de redes neuronales modernas?",
+        "options": [
+            "Sigmoid (mapa a 0-1)",
+            "Tanh (mapa a -1 a 1)",
+            "ReLU (max(0, x)) por su no-linealidad y eficiencia",
+            "Linear (identidad) para evitar saturación"
+        ],
+        "correct_answer": 2,
+        "explanation": "ReLU (Rectified Linear Unit) es estándar en capas ocultas porque: (1) computacionalmente eficiente, (2) mitigal problema vanishing gradient mejor que Sigmoid/Tanh, (3) promueve sparsidad (neuronas inactivas). Sigmoid/Tanh se usan en capas de salida para clasificación/regresión, no en capas ocultas."
+    },
+    {
+        "id": "q035",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es el propósito del algoritmo de backpropagation en entrenamiento de redes neuronales?",
+        "options": [
+            "Aumentar el tamaño del batch para paralelización",
+            "Calcular gradientes del loss respecto a pesos y ajustarlos para minimizar el error",
+            "Reducir la dimensionalidad de los datos de entrada",
+            "Prevenir overfitting mediante regularización"
+        ],
+        "correct_answer": 1,
+        "explanation": "Backpropagation es el corazón del entrenamiento de redes neuronales: (1) calcula gradientes del loss respecto a cada peso usando chain rule (derivadas parciales), (2) usa estos gradientes para actualizar pesos en dirección de menor error (gradient descent). Sin backprop, las redes neuronales no pueden aprender."
+    },
+    {
+        "id": "q036",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es el caso de uso principal del algoritmo Linear Learner de SageMaker?",
+        "options": [
+            "Solo clasificación multiclase, no regresión",
+            "Regresión lineal y clasificación logística sobre datos tabulares. Interno: paraleliza múltiples modelos",
+            "Única para series temporales",
+            "Solo para text data con embedding"
+        ],
+        "correct_answer": 1,
+        "explanation": "Linear Learner en SageMaker entrena regresión lineal (y = β₀ + β₁x₁ + ... + βₙxₙ) y clasificación logística en paralelo. Optimiza internamente con múltiples optimizadores (SGD, Adam, etc.). Rápido, interpretable y eficiente para datos tabulares no excesivamente complejos."
+    },
+    {
+        "id": "q037",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es el propósito de K-Means en SageMaker?",
+        "options": [
+            "Predecir valores continuos usando k vecinos más cercanos",
+            "Agrupar datos en k clusters minimizando distancia intra-cluster",
+            "Reducir dimensionalidad manteniendo varianza",
+            "Detectar anomalías en datos tabulares"
+        ],
+        "correct_answer": 1,
+        "explanation": "K-Means es algoritmo de clustering no supervisado: agrupa datos en k clusters de forma que puntos dentro de un cluster sean similares y puntos entre clusters sean diferentes. Es bueno para segmentación de clientes, detección de subpoblaciones. Hyperparámetro clave: k (número de clusters)."
+    },
+    {
+        "id": "q038",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Tu sistema de detección de fraude necesita identificar transacciones anómalas en tiempo real. ¿Qué algoritmo de SageMaker es más apropiado?",
+        "options": [
+            "Linear Learner con baja precisión como anomaly score",
+            "Random Cut Forest para detección no supervisada de anomalías",
+            "XGBoost requiere datos etiquetados de fraude",
+            "PCA para reducir dimensionalidad"
+        ],
+        "correct_answer": 1,
+        "explanation": "Random Cut Forest (RCF) de SageMaker es especializado en detección no supervisada de anomalías. No requiere datos etiquetados de 'fraude'. Funciona bien en streaming: calcula anomaly scores para nuevas transacciones comparando contra la distribución normal aprendida. Muy usado en detección de anomalías."
+    },
+    {
+        "id": "q039",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "En un sistema de filtrado de emails spam vs inbox, ¿cuál métrica debería priorizarse y por qué?",
+        "options": [
+            "Accuracy para obtener balance general",
+            "Precision alta para evitar filtrar incorrectamente emails legítimos (falsos positivos)",
+            "Recall alta para no dejar pasar spam",
+            "F1 Score automáticamente balancea ambos"
+        ],
+        "correct_answer": 1,
+        "explanation": "En email spam, los falsos positivos (email legítimo marcado spam) son más costosos que falsos negativos (spam en inbox). Priorizar Precision alto asegura que emails en carpeta spam son realmente spam. Aunque algunos spams pasen al inbox (bajo recall), es preferible a perder emails importantes."
+    },
+    {
+        "id": "q040",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Tu modelo predice demanda de inventario para una tienda. Las predicciones se usan para pedidos que se planifican diariamente. ¿Cuál modalidad de SageMaker es más apropiada?",
+        "options": [
+            "Real-Time Endpoint con auto-scaling",
+            "Async Inference con notificación SNS",
+            "Batch Transform ejecutando diariamente sobre datos acumulados",
+            "Serverless Inference por si hay picos esporádicos"
+        ],
+        "correct_answer": 2,
+        "explanation": "Batch Transform es ideal para este caso: (1) predicciones diarias sobre dataset completo, (2) no requiere endpoint persistente, (3) más económico que Real-Time, (4) resultados listos al día siguiente. Real-Time sería desperdicio de recursos si las predicciones se usan solo diariamente."
+    },
+    {
+        "id": "q041",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Entrenarás un modelo Linear Learner con 500 features donde sospechas que solo ~50 son relevantes. ¿Cuál tipo de regularización es más apropiado?",
+        "options": [
+            "L2 (Ridge) penaliza suavemente todos los coeficientes",
+            "L1 (Lasso) fuerza muchos coeficientes a cero, realizando feature selection implícita",
+            "Elastic Net siempre es mejor que ambas",
+            "Sin regularización; con suficientes datos no hay overfitting"
+        ],
+        "correct_answer": 1,
+        "explanation": "L1 (Lasso) es ideal cuando sospechas features irrelevantes: su penalización en valor absoluto fuerza coeficientes a exactamente cero, eliminando features automáticamente. L2 (Ridge) reduce coeficientes pero no los elimina. Para feature selection implícita, usa L1. Para reducir magnitud sin eliminación, usa L2."
+    },
+    {
+        "id": "q042",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es el indicador más claro de que tu modelo está overfitting?",
+        "options": [
+            "El error de entrenamiento es muy bajo (~0%)",
+            "El error de entrenamiento es bajo pero el de validación es mucho más alto",
+            "Ambos errores son altos",
+            "El modelo tarda mucho tiempo en entrenar"
+        ],
+        "correct_answer": 1,
+        "explanation": "Overfitting se caracteriza por: modelo memorizando los datos de entrenamiento (error bajo) pero fallando en generalizar a validación (error alto). La brecha entre error_train bajo y error_val alto es la señal de alerta. Un modelo que no overfita tiene errores similares en ambos conjuntos."
+    },
+    {
+        "id": "q043",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es el beneficio principal de usar Early Stopping durante el entrenamiento?",
+        "options": [
+            "Reducir el número de features usadas",
+            "Detener el entrenamiento cuando el error de validación deja de mejorar, evitando overfitting",
+            "Acelerar el entrenamiento en hardware GPU",
+            "Cambiar automáticamente el learning rate"
+        ],
+        "correct_answer": 1,
+        "explanation": "Early Stopping monitorea el error de validación durante el entrenamiento. Si no mejora durante N iteraciones, detiene el proceso. Esto previene overfitting: el modelo se detiene en el punto óptimo, no cuando memoriza todo. Crucial en deep learning donde el entrenamiento puede durar horas."
+    },
+    {
+        "id": "q044",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Necesitas predecir consumo de electricidad para 1000 hogares con histórico de 2 años. ¿Por qué DeepAR es más apropiado que Linear Learner?",
+        "options": [
+            "DeepAR es siempre mejor que Linear Learner",
+            "DeepAR entrena RNN sobre múltiples series correlacionadas, captura patrones temporales y dependencias cross-series",
+            "Linear Learner no soporta series temporales",
+            "DeepAR es más barato"
+        ],
+        "correct_answer": 1,
+        "explanation": "DeepAR es especializado para forecasting probabilístico: (1) RNN aprende patrones temporales (estacionalidad, tendencia), (2) entrena sobre múltiples series (1000 hogares) compartiendo conocimiento, (3) produce intervalos de confianza probabilísticos, no solo puntos. Linear Learner asume relación lineal sin capturar temporalidad."
+    },
+    {
+        "id": "q045",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tienes 100,000 documentos sin etiquetar que necesitas clasificar (spam vs legítimo). Etiquetar manualmente todos sería prohibitivo. ¿Cómo Amazon Ground Truth reduce el trabajo?",
+        "options": [
+            "Elimina documentos que no puedan etiquetarse",
+            "Automated Labeling: entrena un modelo con pocos ejemplos etiquetados y automáticamente etiqueta el resto (Active Learning)",
+            "Glue no participa en esto",
+            "No hay forma de reducir trabajo"
+        ],
+        "correct_answer": 1,
+        "explanation": "Ground Truth Automated Labeling es revolucionario: (1) humanos etiquetan pequeño subset (~1000), (2) Ground Truth entrena modelo con esos datos, (3) modelo auto-etiqueta el resto con confidence scores, (4) solo ejemplos de baja confianza van a humanos. Reduce trabajo labeling hasta 70%, validado por ML."
+    },
+    {
+        "id": "q046",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "avanzado",
+        "question": "Tu red neuronal en SageMaker deja de aprender después de algunas épocas. Las pérdidas plateau pero no convergen. ¿Cuál es el problema probable y cómo SageMaker Debugger lo detecta?",
+        "options": [
+            "El dataset es pequeño; necesita más datos",
+            "Vanishing gradients: los gradientes se vuelven casi cero, el aprendizaje se detiene. Debugger detecta esto con reglas built-in",
+            "El modelo es perfecto; no hay problema",
+            "Es normal en todas las redes neuronales"
+        ],
+        "correct_answer": 1,
+        "explanation": "Vanishing gradient es problema clásico en redes profundas: durante backprop, los gradientes se multiplican (chain rule) y con activaciones como Sigmoid pueden acercarse a cero, deteniendo el aprendizaje. SageMaker Debugger tiene rule 'VanishingGradient' que alerta cuando esto ocurre. Soluciones: usar ReLU, batch normalization, residual connections."
+    },
+    {
+        "id": "q047",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Quieres usar PyTorch con SageMaker pero con tu código personalizado de training. ¿Cuál es el enfoque más simple sin crear un Dockerfile desde cero?",
+        "options": [
+            "Bring Your Own Container (BYOC) con Dockerfile personalizado",
+            "Script Mode: usar contenedor PyTorch de AWS proporciona, pero tu script de training personalizado",
+            "Solo puedes usar algoritmos built-in",
+            "Lambda para código personalizado"
+        ],
+        "correct_answer": 1,
+        "explanation": "Script Mode es ideal: SageMaker proporciona imagen Docker con PyTorch, TensorFlow, etc. preinstalado. Solo proporcionas tu script de training (train.py) que SageMaker ejecuta dentro del contenedor. Mucho más simple que BYOC (no escribes Dockerfile). Disponible para TensorFlow, PyTorch, MXNet, scikit-learn."
+    },
+    {
+        "id": "q048",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Usar SageMaker Feature Store para training, ¿cómo accedes al histórico de features?",
+        "options": [
+            "Offline Store en S3 (Parquet) con punto-en-tiempo exacto para cada registro de entrenamiento",
+            "Online Store (Redis) es más rápido para training",
+            "Feature Store no soporta training, solo inferencia",
+            "Tienes que copiar features manualmente a S3"
+        ],
+        "correct_answer": 0,
+        "explanation": "Para training, usas Offline Store (S3) que almacena histórico completo de features en formato Parquet. Feature Store recupera features del momento exacto para cada registro, previniendo data leakage. Online Store (Redis) es para inferencia en tiempo real donde necesitas latencia mínima."
+    },
+    {
+        "id": "q049",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Tu SageMaker Pipeline entrena un modelo. Si la métrica F1 supera 0.85, debe registrarse en Model Registry y desplegarse. Si no, debe fallar el pipeline para investigación. ¿Qué componente de SageMaker Pipelines habilita esto?",
+        "options": [
+            "ProcessingStep ejecuta lógica condicional",
+            "ConditionStep: toma decisiones basadas en evaluaciones (> < ==) de métricas y bifurca la ejecución",
+            "TrainingStep puede decidir automáticamente",
+            "No es posible en Pipelines, necesitas Step Functions"
+        ],
+        "correct_answer": 1,
+        "explanation": "ConditionStep en SageMaker Pipelines permite bifurcación condicional: (1) evalúa una condición (ej: F1 > 0.85), (2) si verdadero: ejecuta rama 1 (RegisterModel, Deploy), (3) si falso: ejecuta rama 2 (fallar o notificar). Esto implementa el flujo típico de MLOps: solo modelos 'buenos' llegan a producción."
+    },
+    {
+        "id": "q050",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "¿Cuál es el propósito de Pipeline Parameters en SageMaker Pipelines?",
+        "options": [
+            "Almacenar secrets seguros como credenciales de BD",
+            "Definir valores configurables (ej: threshold, learning_rate) sin cambiar código del pipeline",
+            "Registrar modelos automáticamente",
+            "Monitorear metrics en tiempo real"
+        ],
+        "correct_answer": 1,
+        "explanation": "Pipeline Parameters permite parametrizar valores que varían entre ejecuciones: thresholds de evaluación, hyperparámetros, paths de datos, etc. Sin reescribir el pipeline, puedes ejecutarlo con diferentes parámetros. Esencial para experimentación y reusabilidad del pipeline."
+    },
+    {
+        "id": "q051",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "intermedio",
+        "question": "Quieres adaptar Claude para clasificar tickets de soporte específicos de tu empresa. ¿Cuál es el enfoque de Bedrock más eficiente?",
+        "options": [
+            "Descargar el modelo y entrenar localmente",
+            "Fine-tuning con Bedrock usando ejemplos etiquetados de tus tickets",
+            "Usar el modelo base sin personalización",
+            "Cambiar a un modelo de código abierto más pequeño"
+        ],
+        "correct_answer": 1,
+        "explanation": "Bedrock soporta fine-tuning de modelos seleccionados (Titan, Llama, etc.). Proporcionas ejemplos etiquetados de tus tickets -> Bedrock ajusta el modelo base con tus datos -> obtienes modelo personalizado optimizado para tu dominio. Mucho más rápido y barato que entrenamiento desde cero."
+    },
+    {
+        "id": "q052",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "intermedio",
+        "question": "Tu aplicación necesita responder preguntas sobre documentos internos de la empresa (wikis, políticas, manuales). ¿Cuál es la solución Bedrock más apropiada?",
+        "options": [
+            "Usar Claude directamente para memorizar todos los documentos",
+            "Knowledge Bases: RAG gestionado que recupera documentos relevantes y los pasa al LLM",
+            "Bedrock Agents para API calls",
+            "Guardrails para filtrar respuestas"
+        ],
+        "correct_answer": 1,
+        "explanation": "Knowledge Bases implementa RAG (Retrieval-Augmented Generation) gestionado: (1) carga tus documentos, (2) crea embeddings y los almacena, (3) cuando haces pregunta, busca documentos relevantes, (4) pasa documentos + pregunta al LLM para respuesta contextualizada. Previene alucinaciones, mantiene información actualizada sin reentrenamiento."
+    },
+    {
+        "id": "q053",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "basico",
+        "question": "¿Cuál es el propósito de AWS Glue Data Quality en un pipeline ETL?",
+        "options": [
+            "Eliminar automáticamente datos defectuosos",
+            "Definir y validar reglas de calidad (completitud, rango, correlaciones) fallando el job si no se cumplen",
+            "Comprimir datos para ahorrar almacenamiento",
+            "Traducir datos entre idiomas"
+        ],
+        "correct_answer": 1,
+        "explanation": "Glue Data Quality permite definir reglas de calidad: todos los campos deben estar completos, edad debe estar en [0, 150], email debe tener formato válido, etc. Si datos violan reglas, el job falla con reportes. Esencial para pipelines ML: datos de mala calidad = modelos de mala calidad."
+    },
+    {
+        "id": "q054",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es la arquitectura típica de un data lake con Lake Formation?",
+        "options": [
+            "Un único bucket S3 con todos los datos sin estructura",
+            "Tres zones: Bronze (raw sin procesamiento), Silver (cleaned/transformed), Gold (ready for analytics/ML)",
+            "Solo dos zones: input y output",
+            "Data lake no necesita estructura"
+        ],
+        "correct_answer": 1,
+        "explanation": "Arquitectura medallion (Bronze-Silver-Gold) es estándar: (1) Bronze: datos raw como llegan de sources, (2) Silver: datos limpios, validados, transformados, (3) Gold: datos listos para BI/ML con business logic aplicada. Cada zone es un prefix en S3 gestionado por Lake Formation con control de acceso granular."
+    },
+    {
+        "id": "q055",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu query Athena sobre Parquet en S3 ejecuta rápido. Cambias a formato CSV sin comprimir. ¿Qué ocurre?",
+        "options": [
+            "La query es más rápida porque CSV es más simple",
+            "El coste es el mismo, Athena cobra por bytes escaneados independientemente del formato",
+            "Los costes explotan: CSV sin comprimir escanea más datos. Parquet comprimido reduce bytes procesados 10-100x",
+            "Athena solo funciona con Parquet"
+        ],
+        "correct_answer": 2,
+        "explanation": "Athena cobra por bytes escaneados. Parquet comprimido reduce drásticamente bytes debido a: compresión (snappy/gzip), codificación columnar (lee solo columnas necesarias), predicate pushdown. CSV sin comprimir escanea todo. Para datasets grandes, Parquet particionado puede reducir costes 100x. Optimización crítica para ML preprocessing."
+    },
+    {
+        "id": "q056",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Necesitas que el usuario A vea la tabla 'orders' completa pero el usuario B solo las columnas 'order_id' y 'amount' (sin precio unitario). ¿Cómo Lake Formation habilita esto?",
+        "options": [
+            "No es posible; control de acceso es a nivel tabla",
+            "Lake Formation soporta permisos a nivel de columna, restricción de filas y enmascaramiento de datos",
+            "Necesitas crear dos tablas separadas",
+            "IAM Policies pueden hacer esto"
+        ],
+        "correct_answer": 1,
+        "explanation": "Lake Formation ofrece control de acceso granular: (1) a nivel tabla (usuario A accede tabla), (2) a nivel columna (usuario B solo ve columns específicas), (3) a nivel fila (con dinámicos predicados), (4) data filtering y masking. Esto es imposible con IAM nativo que opera a nivel bucket S3."
+    },
+    {
+        "id": "q057",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "¿Cuál es la ventaja de usar Bedrock Converse API vs InvokeModel?",
+        "options": [
+            "Converse es solo para texto; InvokeModel para imagenes",
+            "Converse API unificada funciona con múltiples modelos (Claude, Llama, Titan). InvokeModel es específico para un modelo",
+            "InvokeModel es más rápido",
+            "Converse solo para fine-tuned models"
+        ],
+        "correct_answer": 1,
+        "explanation": "Converse API es interfaz unificada para conversación multi-turno compatible con múltiples FMs (Claude, Llama, Titan, Cohere, etc.). Maneja automáticamente formato de cada modelo. InvokeModel requiere custom JSON por modelo, mayor flexibilidad pero más código. Para aplicaciones que cambian modelos, Converse es más portable."
+    },
+    {
+        "id": "q058",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Tu aplicación debe: (1) interpretar pregunta del usuario, (2) hacer API call a base de datos para obtener información, (3) hacer POST a sistema externo. ¿Cuál es la forma más simple en Bedrock?",
+        "options": [
+            "Escribir código Python que orqueste todo manualmente",
+            "Usar Bedrock Agents: orquestador que llama LLM para interpretar, decide qué API llamar, ejecuta y sintetiza respuesta",
+            "Usar Lambda directamente sin LLM",
+            "Converse API maneja todo esto automáticamente"
+        ],
+        "correct_answer": 1,
+        "explanation": "Bedrock Agents es orquestador para flujos multi-paso: (1) describe tus APIs al agente (action groups), (2) el agente interpreta la pregunta del usuario, (3) decide automáticamente qué API llamar con qué parámetros, (4) ejecuta y pasa resultado de vuelta al LLM, (5) sintetiza respuesta. Automatiza orquestación sin código."
+    },
+    {
+        "id": "q059",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "Tu modelo de aprobación de créditos rechaza a un cliente. ¿Cuál es la mejor forma de explicar por qué con SageMaker Clarify?",
+        "options": [
+            "Mostrar solo la predicción final",
+            "Usar SHAP values para mostrar la contribución de cada feature a la decisión final del modelo",
+            "Mostrar el threshold de aprobación",
+            "Decir que el modelo es una 'caja negra' sin explicación"
+        ],
+        "correct_answer": 1,
+        "explanation": "SHAP (SHapley Additive exPlanations) valores muestran la contribución de cada feature a una predicción: cuánto cada feature incrementó o decrementó la probabilidad de aprobación. Para cliente rechazado, puedes mostrar: 'ingresos bajos contribuyeron -30%, deuda alta contribuyó -25%...'. Esencial para transparencia y compliance en lending/hiring."
+    },
+    {
+        "id": "q060",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "avanzado",
+        "question": "Tienes 10,000 modelos de clasificación binaria (uno por cliente en SaaS). Cada modelo pesa 50 MB. Con endpoints tradicionales necesitarías ~10 GPUs ml.p3.2xlarge ($30k/mes). ¿Cuánto ahorras con Multi-Model Endpoints?",
+        "options": [
+            "10% de ahorro",
+            "50% de ahorro",
+            "Hasta 10x (90%) porque MME aloja múltiples modelos en pocas instancias, cargándolos dinámicamente",
+            "No hay ahorro"
+        ],
+        "correct_answer": 2,
+        "explanation": "MME es revolucionario para SaaS multi-tenant: en lugar de instancia por modelo (10,000 instancias), compartes un pool pequeño (~10-100 instancias) cargando modelos dinámicamente en memoria. Con caching de modelos frecuentes, puedes reducir costes 10x. Trade-off: latencia algo mayor para cold loads."
+    },
+    {
+        "id": "q061",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Configuras Model Monitor con constraint: Disparate Impact para clase protegida 'género' con threshold 0.8. ¿Qué significa si se viola?",
+        "options": [
+            "El modelo tiene 80% de accuracy",
+            "La proporción de positive predictions difiere >20% entre hombre/mujer (bias drift detectado)",
+            "El modelo debería haberse entrenado con 80% de datos",
+            "Es una warning, no una violación real"
+        ],
+        "correct_answer": 1,
+        "explanation": "Disparate Impact ratio mide: (% predicciones positivas grupo no-privilegiado) / (% grupo privilegiado). Threshold 0.8 significa si ratio < 0.8, hay violación: grupo protegido tiene significativamente menos positivos (potencial bias). Ejemplo: mujeres 50% approved vs hombres 80% -> ratio 0.625 < 0.8 -> violation flagged."
+    },
+    {
+        "id": "q062",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "basico",
+        "question": "Tu aplicación con Bedrock debe prevenir que el modelo genere contenido violento, PII o código malicioso. ¿Cuál es el mecanismo en Bedrock?",
+        "options": [
+            "Usar prompt injection techniques",
+            "Bedrock Guardrails: filtros configurables para contenido inapropiado, PII, alucinaciones",
+            "No hay forma de controlar esto",
+            "Solamente usar modelos pequeños"
+        ],
+        "correct_answer": 1,
+        "explanation": "Bedrock Guardrails proporciona filtros para: (1) contenido inapropiado (violencia, toxicidad), (2) PII (nombres, SSN, email redactados), (3) illegal activities (código hacking, etc), (4) alucinaciones basadas en Knowledge Base. Configurables por aplicación: qué filtrar, cómo redactar responses rechazadas."
+    },
+    {
+        "id": "q063",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es la principal diferencia entre SageMaker Pipelines y AWS Step Functions para MLOps?",
+        "options": [
+            "Son idénticos",
+            "SageMaker Pipelines es ML-nativa con integración directa a Model Registry. Step Functions es más general para cualquier AWS service",
+            "Step Functions solo para Lambda",
+            "Pipelines solo para training jobs"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Pipelines: especializado en ML, pasos nativos (TrainingStep, RegisterModel, etc), Model Registry integrado, lineage tracking automático, versionado de parámetros. Step Functions: más general, orquesta cualquier AWS service (Lambda, EC2, Glue, SageMaker, etc), más flexible pero menos ML-específico. Pipelines es más simple para puro ML."
+    },
+    {
+        "id": "q064",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu dataset de fraude tiene 99.5% transacciones legales, 0.5% fraude. ¿Cuál es la estrategia más apropiada sin perder poder predictivo?",
+        "options": [
+            "Usar el dataset tal cual sin cambios",
+            "Oversampling de fraude con SMOTE + usar Class Weights en XGBoost que penaliza más errores en clase minoritaria",
+            "Eliminar todas las transacciones legales",
+            "Cambiar el threshold a 0.5 siempre predice fraude"
+        ],
+        "correct_answer": 1,
+        "explanation": "Combinación óptima: (1) SMOTE genera ejemplos sinteticos de fraude para balancear parcialmente, (2) Class Weights penaliza más los falsos negativos (fraude no detectado) que falsos positivos. XGBoost scale_pos_weight o SageMaker via class_weights permite ajustar este trade-off. Evita underfitting (eliminar datos) o overfitting (muestreo simple)."
+    },
+    {
+        "id": "q065",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "avanzado",
+        "question": "Tu endpoint SageMaker real-time tiene latencia p99 de 500ms pero necesitas <100ms. ¿Cuál es la mejor optimización?",
+        "options": [
+            "Aumentar el tamaño de la instancia",
+            "Usar SageMaker Neo para compilar/optimizar el modelo + instancia Inferentia de AWS",
+            "Cambiar a batch transform",
+            "No es posible mejorar la latencia"
+        ],
+        "correct_answer": 1,
+        "explanation": "Combinación efectiva: (1) SageMaker Neo compila el modelo optimizando para hardware específico (puede reducir latencia 2-5x), (2) instancias Inferentia diseñadas para ML (latencia ultrabaja), (3) instance caching mejora throughput. Alternativa: cambiar a algoritmo más rápido (Linear Learner vs Deep Learning)."
+    },
+    {
+        "id": "q066",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Necesitas procesamiento de datos complejos con Spark SQL + transformaciones custom. ¿EMR o SageMaker Processing?",
+        "options": [
+            "SageMaker Processing para todo",
+            "EMR si necesitas Spark SQL nativo completo con control de cluster. SageMaker Processing si quieres simplicity y serverless",
+            "Ambos dan exactamente el mismo resultado",
+            "Usar Glue siempre"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Processing es más simple, serverless, integrado con SageMaker. EMR ofrece Spark/Hadoop completos con más control: custom configs, múltiples versiones, non-Spark ecosystems (Presto, Hive, etc). Para Spark SQL complejo con control total: EMR. Para simple + integrated: SageMaker Processing."
+    },
+    {
+        "id": "q067",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu experimento ML produce accuracy 87%. Un mes después, corres el mismo código con los mismos datos pero obtienes 85%. ¿Cuál es la causa probable?",
+        "options": [
+            "Aleatoriedad en el algoritmo (random seed no fijado)",
+            "Degradación del modelo",
+            "No hay cambios, es normal",
+            "Los datos cambiaron pero no te diste cuenta"
+        ],
+        "correct_answer": 3,
+        "explanation": "Sin data versioning, datos pueden cambiar sin que te percates: S3 bucket sobrescrito, transformaciones ETL cambiadas, etc. Diferencia entre 87% y 85% sugiere datos diferentes. Solución: versionar datasets (DVC, S3 versioning, Delta Lake), registrar data lineage en SageMaker Pipelines, reproducibilidad asegurada."
+    },
+    {
+        "id": "q068",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "avanzado",
+        "question": "Tu Feature Store incluye 'has_fraud_claim' (booleano de si hubo fraude). Usas esta feature para entrenar modelo de detección de fraude. ¿Cuál es el problema?",
+        "options": [
+            "No hay problema",
+            "Target leakage perfecto: estás usando el target para predecir el target. El modelo memorizará esta feature = buena accuracy falsa",
+            "Feature Store no permite esto técnicamente",
+            "La feature es demasiado simple"
+        ],
+        "correct_answer": 1,
+        "explanation": "Target leakage clásico: feature 'has_fraud_claim' ES el target. El modelo aprende: si has_fraud_claim=True -> predict fraud. En producción, no tienes esta feature (fraud no ha ocurrido aún). El modelo aparentará 99% accuracy en test pero fallará en producción. Feature Store Point-in-Time previene esto: usa features del pasado del momento exacto."
+    },
+    {
+        "id": "q069",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es la diferencia entre SageMaker Studio y SageMaker Notebook Instances?",
+        "options": [
+            "Studio es IDE web moderno, integrado con todo SageMaker (Pipelines, Clarify, Feature Store, etc). Notebook es Jupyter puro",
+            "Son exactamente lo mismo",
+            "Notebook es más nuevo y mejor",
+            "Studio solo para investigación; Notebook para producción"
+        ],
+        "correct_answer": 0,
+        "explanation": "SageMaker Studio es IDE web completa con integración nativa a SageMaker AI: arrastra-suelta para Pipelines, Clarify bias checking, Feature Store integration, Model Registry directo, experiments tracking. Notebook instances son Jupyter tradicionales más basicas. Studio es el futuro, recomendado para nuevo desarrollo."
+    },
+    {
+        "id": "q070",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Necesitas detectar anomalías en series temporales de sensores IoT en tiempo real. ¿Cómo integras ML?",
+        "options": [
+            "Almacenar datos en S3 y retroactivamente analizar",
+            "Kinesis Data Analytics con SQL + invocación de SageMaker endpoint vía Lambda integrado",
+            "Enviar todo a Redshift para análisis",
+            "No es posible hacer ML en tiempo real"
+        ],
+        "correct_answer": 1,
+        "explanation": "Kinesis Data Analytics procesa streams en tiempo real con SQL. Puedes integrar ML llamando SageMaker endpoint dentro del flujo: datos -> Analytics -> score con endpoint -> anomalía detectada -> acción. Latencia ms, ideal para alertas IoT, fraud detection, etc."
+    },
+    {
+        "id": "q071",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es la limitación principal de usar AWS Lambda para hospedar modelos ML?",
+        "options": [
+            "Lambda no puede invocar SageMaker",
+            "Límite de 15 minutos de ejecución y 3008 MB memoria. Para modelos grandes o inferencia larga, es insuficiente",
+            "Lambda solo funciona con Python",
+            "No hay limitaciones"
+        ],
+        "correct_answer": 1,
+        "explanation": "Lambda tiene límites hard: máximo 15 minutos por invocación (timeout), máximo 10 GB de almacenamiento local, máximo 3,008 MB de RAM. Modelos grandes (>500MB), inferencia larga (>15min), o workloads pesadas requieren SageMaker endpoint o contenedores en ECS/EKS. Lambda es para modelos ligeros e inferencia rápida."
+    },
+    {
+        "id": "q072",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "Usarás Batch Transform para scoring masivo. ¿Cuál es el formato de entrada recomendado?",
+        "options": [
+            "JSON Lines (.jsonl) una predicción por línea",
+            "CSV o JSON - depends del algoritmo entrenado",
+            "Excel o Parquet con metadata",
+            "Cualquier formato funciona igual"
+        ],
+        "correct_answer": 1,
+        "explanation": "Batch Transform soporta múltiples formatos: CSV, JSON, JSON Lines, Parquet. Elige según tu algoritmo: si entrenaste con CSV -> usa CSV para consistencia. Si Deep Learning -> JSON Lines ideal. Batch Transform automáticamente parsea, invoca el modelo batch, escribe resultados en S3."
+    },
+    {
+        "id": "q073",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "avanzado",
+        "question": "Entrenarás un modelo con 8 GPUs distribuidas. La comunicación AllReduce (sincronizar gradientes) consume el 30% del tiempo. ¿Cómo SageMaker Distributed Data Parallel (SMDDP) mejora esto?",
+        "options": [
+            "Elimina la necesidad de sincronización",
+            "Usa optimizaciones de comunicación (ring AllReduce, gradient compression) para reducir overhead 50-70%",
+            "No hay forma de mejorar esto",
+            "Necesitas cambiar el algoritmo"
+        ],
+        "correct_answer": 1,
+        "explanation": "SMDDP optimiza la comunicación entre GPUs: ring AllReduce (ronda + punto) en lugar de árbol, gradient compression (quantization) para reducir bytes transferidos, overlapping computation y communication. Puede acelerar training distribuido 50-70% comparado a naive AllReduce. Transparente al usuario."
+    },
+    {
+        "id": "q074",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "intermedio",
+        "question": "¿Cuáles son los dos métodos principales de explainability que SageMaker Clarify proporciona?",
+        "options": [
+            "Accuracy y Precision",
+            "SHAP (local feature contribution) y Partial Dependence Plots (marginal impact de un feature)",
+            "Confusion Matrix y ROC Curve",
+            "Clustering y Dimensionality Reduction"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Clarify ofrece: (1) SHAP values para explicabilidad local (por qué esta predicción específica), (2) Partial Dependence Plots para entender impacto marginal global de un feature. SHAP es más detallado (por predicción), PDP es más agregado (promedio del dataset)."
+    },
+    {
+        "id": "q075",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "intermedio",
+        "question": "Tu equipo ejecuta 10,000 SageMaker training jobs mensuales. Necesitas atribuir costes por proyecto y equipo. ¿Cuál es la mejor estrategia?",
+        "options": [
+            "Tracking manual de cada job",
+            "Usar AWS Cost Allocation Tags en recursos (project: analytics, team: ds) + Cost Explorer para agrupar por tags",
+            "Calcular manualmente con CloudWatch metrics",
+            "No es posible hacer esto"
+        ],
+        "correct_answer": 1,
+        "explanation": "Cost Allocation Tags son key-value pairs que añades a recursos (project, cost-center, team). Cost Explorer agrupa costes por tag: ves exactamente cuánto gasta cada proyecto/equipo. SageMaker soporta tagging nativo en training jobs, endpoints, notebooks. Esencial para chargeback y análisis de ROI ML."
+    },
+    {
+        "id": "q076",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "Tu modelo A tiene 95% accuracy pero alto precio. Modelo B tiene 90% accuracy pero 50% menos coste. ¿Cuál es la mejor estrategia?",
+        "options": [
+            "Siempre usar A por accuracy",
+            "Usar A para casos críticos; B para casos tolerantes a error (A/B testing con traffic splitting en SageMaker)",
+            "Siempre usar B por coste",
+            "Cambiar a modelo diferente"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker permite A/B testing: enviar X% del trafico a modelo A (95% acc, caro) y (100-X)% a modelo B (90% acc, barato). Mide cual genera mejor ROI en producción (no solo accuracy). Puedes rebalancear dinámicamente o usar shadow testing (ambos en paralelo sin afectar usuarios). Trade-off accuracy vs coste en tiempo real."
+    },
+    {
+        "id": "q077",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "Tu SageMaker Pipelines registra modelos en Model Registry. ¿Cómo prevenir que modelos sin autorización lleguen a producción?",
+        "options": [
+            "No hay forma de prevenir esto",
+            "Model Registry tiene estados: Pending (nuevo) -> approval requerida -> Approved (puede desplegar) o Rejected",
+            "Manual review antes de deploy",
+            "Usar CloudTrail logging"
+        ],
+        "correct_answer": 1,
+        "explanation": "Model Registry governanza: nuevos modelos entran como Pending, requieren aprobación manual/automática antes de pasar a Approved. Solo versiones Approved pueden desplegarse a endpoints productivos. Implementa governance: data scientist entrena -> modelo Pending -> data lead revisa métricas/bias -> Approved o Rejected -> CD pipeline deploy solo Approved."
+    },
+    {
+        "id": "q078",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "basico",
+        "question": "¿Cuál es la forma recomendada en AWS de alertarse si el endpoint SageMaker tiene latencia >500ms?",
+        "options": [
+            "Polling manual de CloudWatch metrics cada minuto",
+            "CloudWatch Alarm en metrica ModelLatency > 500ms que dispara SNS/email/Lambda acción",
+            "No hay forma de monitorear esto",
+            "Crear un script cron personalizado"
+        ],
+        "correct_answer": 1,
+        "explanation": "CloudWatch Alarms monitorean métricas en tiempo real. Para endpoint SageMaker: (1) crea alarm en ModelLatency, (2) threshold 500ms, (3) si se excede durante N períodos, dispara acciones (SNS notificación, Lambda auto-scale, etc). Completamente gestionado, sin código."
+    },
+    {
+        "id": "q079",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Tu training job en SageMaker necesita leer datos de S3 privadamente (sin pasar por internet). ¿Cómo?",
+        "options": [
+            "No es posible; S3 siempre usa internet",
+            "Usar VPC Gateway Endpoint para S3 dentro de tu VPC",
+            "Copiar datos a EFS",
+            "Desencriptar datos en tránsito"
+        ],
+        "correct_answer": 1,
+        "explanation": "VPC Gateway Endpoint (S3) proporciona ruta privada: training job en VPC privada -> endpoint -> S3 en región misma, SIN trafico por internet. Configuración en VPC route table: s3.*region*.amazonaws.com -> endpoint. Mejora seguridad (no sale del VPC), reduce costes (no data transfer charges)."
+    },
+    {
+        "id": "q080",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Creas un SageMaker Execution Role con permiso 's3:*' en todos los buckets. ¿Cuál es el problema?",
+        "options": [
+            "No hay problema; es conveniente",
+            "Viola el principio de least privilege. Si comprometen la role, pueden acceder/borrar cualquier bucket. Mejor: específico bucket+prefix+acciones (GetObject, PutObject solo)",
+            "El role será inseguro",
+            "Solo puedes usar s3:*"
+        ],
+        "correct_answer": 1,
+        "explanation": "Least privilege: concede exactamente el permiso necesario, nada más. Role de training debería: Resource: [arn:aws:s3:::mybucket/training/*, arn:aws:s3:::mybucket/output/*], Actions: [s3:GetObject, s3:PutObject]. No ListAllBuckets, no DeleteObject. Si la role se compromete, daño limitado. Auditable en CloudTrail."
+    },
+    {
+        "id": "q081",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "Entrenarás un modelo neural network en SageMaker. Para reproducibilidad exacta, ¿qué debes fijar?",
+        "options": [
+            "Nada, ML siempre es determinístico",
+            "Random seeds en Python (random.seed), NumPy (np.random.seed), TensorFlow/PyTorch, CUDA para GPU determinism",
+            "Solo fijar el learning rate",
+            "No es posible reproducir exactamente"
+        ],
+        "correct_answer": 1,
+        "explanation": "Random seeds son críticos: (1) Python random.seed(42), (2) NumPy np.random.seed(42), (3) TensorFlow/PyTorch seed_everything(42), (4) CUDA/cuDNN puede necesitar CUDNN_DETERMINISTIC=True. Sin esto, cada entrenamiento da resultados ligeramente diferentes incluso con mismo código/datos. Esencial para debugging y reproducibilidad científica."
+    },
+    {
+        "id": "q082",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es el beneficio principal de usar SageMaker Pipelines vs scripts bash que encadenan training jobs?",
+        "options": [
+            "SageMaker Pipelines es más lento",
+            "Pipelines proporciona: lineage tracking automático, versionado de parámetros, condicionales, Model Registry integración, reusabilidad, error handling nativo",
+            "Bash scripts son más flexibles",
+            "No hay diferencia"
+        ],
+        "correct_answer": 1,
+        "explanation": "SageMaker Pipelines: (1) lineage automático (qué datos -> qué código -> qué modelo), (2) parámetros versionados, (3) condicionales, (4) Model Registry integrado, (5) cached runs evitan re-ejecutar pasos innecesarios, (6) reproducible. Bash es frágil: sin logging, sin cache, sin governanza. Pipelines es enterprise-grade MLOps."
+    },
+    {
+        "id": "q083",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Predices rotación de empleados. ¿Cuál de estos es mejor feature?",
+        "options": [
+            "days_employed (días desde contratación)",
+            "recent_promotion (booleano si fue promovido en últimos 6 meses, basado en domain knowledge que retención es mayor post-promoción)",
+            "employee_id (número único de empleado)",
+            "No importa, todos los features son equivalentes"
+        ],
+        "correct_answer": 1,
+        "explanation": "Feature engineering requiere domain knowledge: recent_promotion es informativo (predice retención), days_employed puede ser linear no-informativo (no indica satisfacción). employee_id es cardinal sin valor. Mejores features: recency de promoción, satisfacción en surveys, salary competitiveness, etc. Domain experts > automated feature selection."
+    },
+    {
+        "id": "q084",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu lake tiene 10 años de datos transaccionales. Athena queries son lentas. ¿Cómo optimizar?",
+        "options": [
+            "No hay forma de acelerar",
+            "Particionar por año/mes en S3 prefix structure (s3://lake/data/year=2023/month=01/). Athena usa partition pruning para escanear solo datos relevantes",
+            "Cambiar formato a JSON",
+            "Copiar todo a Redshift"
+        ],
+        "correct_answer": 1,
+        "explanation": "Partitioning en S3 permite Athena partition pruning: si queries año=2024, Athena ignora 2023,2022,etc. Reduce datos escaneados 50-99%, costes caen drásticamente. Estructura: s3://bucket/table/year=YYYY/month=MM/day=DD/data.parquet. Asegúrate de registrar particiones en Glue Data Catalog (MSCK REPAIR TABLE)."
+    },
+    {
+        "id": "q085",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "Tu modelo de NLP en producción comienza a generar predicciones nulas (null predictions) tras actualizar dependencias. ¿Cómo lo detectas rápido?",
+        "options": [
+            "Manual review de logs",
+            "CloudWatch Alarm en métrica custom de null prediction rate > 1% dispara Slack/email",
+            "Revisar después de una semana",
+            "No se puede detectar esto"
+        ],
+        "correct_answer": 1,
+        "explanation": "Production monitoring: (1) en endpoint inference code, registra métrica nullPredictionRate a CloudWatch, (2) crea alarm si > 1%, (3) dispara SNS -> Slack -> oncall engineer. Sin esto, puede pasar horas antes de detectar el problema y afectar clientes. Instrumentación crítica en ML producción."
+    },
+    {
+        "id": "q086",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "avanzado",
+        "question": "Tus features for recommendation engine deben estar actualizadas cada 5 minutos. ¿Cómo usar Feature Store?",
+        "options": [
+            "Features no pueden ser en tiempo real",
+            "Online Store: escribir features cada 5min vía batch job -> Feature Store API -> endpoint lee Online Store (latencia ms)",
+            "Solo Offline Store funciona",
+            "Usar directamente S3"
+        ],
+        "correct_answer": 1,
+        "explanation": "Online Store es Redis-backed: (1) cada 5min, ETL actualiza features nuevas, (2) escribe a Online Store, (3) durante inferencia, endpoint llama Feature Store API get_record (latencia ms), (4) obtiene features frescos. Offline Store para entrenamiento (histórico), Online para serving (actual). Separación crítica en recomendación/targeting ads."
+    },
+    {
+        "id": "q087",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "intermedio",
+        "question": "Tu aplicación con Claude en Bedrock tendrá 1M solicitudes/mes. ¿Cómo reducir costes?",
+        "options": [
+            "On-Demand pricing siempre",
+            "Bedrock Provisioned Throughput: comprometerse a throughput mínimo para 1M req/mes recibe 20-30% descuento",
+            "Cambiar a modelo más pequeño",
+            "No hay forma de reducir"
+        ],
+        "correct_answer": 1,
+        "explanation": "Bedrock Provisioned Throughput es commitment pricing: pagas por throughput garantizado (ej: 100k tokens/min) por período (1 mes). Con 1M req/mes estimado, Provisioned reduce costes 20-30% vs On-Demand. Similar a Reserved Instances en EC2. Para producción estable y predecible, muy recomendado."
+    },
+    {
+        "id": "q088",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "avanzado",
+        "question": "Training job tarda 10 horas: 2h data loading, 8h model training. Cómo acelerar?",
+        "options": [
+            "No hay forma de acelerar data loading",
+            "Usar SageMaker Pipe input mode (streaming directo desde S3) en paralelo con training, o preprocess a SSD en job",
+            "Cambiar algoritmo",
+            "Aumentar batch size"
+        ],
+        "correct_answer": 1,
+        "explanation": "Pipe mode es streaming: en lugar de descargar todo a disco, streaming directo desde S3 mientras entrenas. O: preprocessar datos previamente, almacenar en job-local SSD rápido. Elimina bottleneck I/O. Puede reducir tiempo total a 8-9h. Trade-off: Pipe usa más CPU para streaming."
+    },
+    {
+        "id": "q089",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "basico",
+        "question": "¿Cuál es la diferencia entre permutation feature importance y built-in feature importance (ej: XGBoost gain)?",
+        "options": [
+            "Son idénticos",
+            "Built-in: basado en splits del árbol (fast pero sesgo). Permutation: mide caída en accuracy cuando permuta feature (model-agnostic pero slower)",
+            "Permutation solo para regresión",
+            "Built-in es siempre mejor"
+        ],
+        "correct_answer": 1,
+        "explanation": "Built-in (XGBoost gain): importancia basada en cuánto reduce loss cada split. Rápido pero sesgo hacía features frecuentes. Permutation importance: entrena, valida, permuta feature aleatoriamente, ve cuánta accuracy cae. Model-agnostic, aplicable a cualquier modelo, más confiable. SageMaker Clarify puede usar ambos."
+    },
+    {
+        "id": "q090",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedioavanzado",
+        "question": "Configurarás A/B test: modelo actual (A, 95% acc) vs nuevo (B, 96% acc). ¿Cómo medir si B es realmente mejor?",
+        "options": [
+            "Comparar accuracy en test set",
+            "Live A/B: 50/50 traffic split, medir negocio métrica (click rate, conversion) no solo accuracy. Significancia estadística requerida (p-value < 0.05)",
+            "Cambiar a B inmediatamente",
+            "No es posible medir"
+        ],
+        "correct_answer": 1,
+        "explanation": "Live A/B testing es gold standard: (1) 50% usuarios ven A, 50% ven B, (2) recopila métricas de negocio (revenue, engagement, no solo accuracy), (3) test significancia (t-test, chi-square), (4) si p-value < 0.05, B es estadísticamente mejor con 95% confianza. Protege contra ruido y overfitting en test set."
+    },
+    {
+        "id": "q091",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu ETL pipeline espera campos: [id, name, email]. Un día llegan datos con campo nuevo 'phone'. ¿Qué ocurre?",
+        "options": [
+            "Pipeline falla silenciosamente",
+            "Sin validation, ignora 'phone'. Mejor: Glue Data Quality detect schema drift, falla job alertando cambio",
+            "Los datos se rechazan automáticamente",
+            "No hay problema"
+        ],
+        "correct_answer": 1,
+        "explanation": "Schema evolution sin alertas = data quality issues silenciosos. Glue Data Quality puede monitorear: (1) campos esperados están presentes, (2) tipos de datos correctos, (3) nuevos campos no esperados. Si schema cambia, falla el job con report, obligando investigación. Esencial para pipeline robustos."
+    },
+    {
+        "id": "q092",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "Tu endpoint SageMaker procesa 100 req/segundo en promedio con picos a 500 req/segundo. ¿Qué modalidad?",
+        "options": [
+            "Batch Transform",
+            "Real-Time con auto-scaling basado en target tracking (ej: CPU utilización target 70%)",
+            "Async Inference",
+            "Lambda"
+        ],
+        "correct_answer": 1,
+        "explanation": "Real-Time con auto-scaling es correcto: (1) mantiene baseline 1-2 instancias para 100 req/sec, (2) cuando carga sube (500 req/sec), auto-scaling agrega instancias, (3) cuando baja, termina instancias. Baja latencia (necesario para 100+ req/sec), escalado automático, eficiente en costes. Async sería lento, Batch es batch."
+    },
+    {
+        "id": "q093",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu ETL debería ejecutarse: (1) cuando nuevos datos llegan a S3, (2) cada madrugada. ¿Cómo?",
+        "options": [
+            "Solo cronograma",
+            "Hybrid: S3 event -> EventBridge rule -> SageMaker Pipelines/Lambda dispara job. También cron job cada madrugada",
+            "Manual únicamente",
+            "No es posible hacer ambos"
+        ],
+        "correct_answer": 1,
+        "explanation": "Arquitectura event-driven + scheduled: (1) S3 PutObject event -> EventBridge -> dispara pipeline (reactivo), (2) EventBridge cron rule cada madrugada también dispara. Combina reactividad (procesa datos inmediatamente) + determinismo (garantiza ejecución diaria incluso si sin datos)."
+    },
+    {
+        "id": "q094",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "intermedio",
+        "question": "¿Cuál es la diferencia entre encryption at rest y in transit para datos en SageMaker?",
+        "options": [
+            "Son lo mismo",
+            "At rest: datos almacenados cifrados (S3 SSE-KMS, EBS). In transit: datos en tránsito cifrados (TLS/HTTPS entre servicios)",
+            "At rest es más importante",
+            "No es necesario cifrar"
+        ],
+        "correct_answer": 1,
+        "explanation": "Ambos son críticos: (1) at rest (datos en storage): S3 SSE-KMS, EBS encrypted, RDS encryption. (2) in transit (datos moviéndose): TLS entre endpoint y cliente, entre SageMaker y S3 (HTTPS), VPC internal (private). Sin both, vulnerabilidades."
+    },
+    {
+        "id": "q095",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "intermedio",
+        "question": "¿Qué es canary deployment para modelos ML?",
+        "options": [
+            "Test del modelo en jaulas",
+            "Desplegar nuevo modelo a pequeño % usuarios (ej: 5%), monitorear error rate. Si ok, incrementar gradualmente. Si problema, rollback",
+            "Deployment instantáneo 100%",
+            "Deployment solo en desarrollo"
+        ],
+        "correct_answer": 1,
+        "explanation": "Canary deployment es estrategia de mitigación de riesgo: (1) nuevo modelo a 5% usuarios, (2) monitorear metrics (error rate, latency), (3) si normal, gradual rollout a 25%, 50%, 100%, (4) si problema, rollback inmediato. SageMaker soporta nativo con traffic shifting en endpoints. Mucho más seguro que big bang deployment."
+    },
+    {
+        "id": "q096",
+        "exam_id": "ml_engineer_associate",
+        "topic": "In-Scope AWS Services",
+        "difficulty": "intermedio",
+        "question": "Comparar: (A) Real-Time endpoint ml.p3.2xlarge $7/h siempre activo vs (B) Batch Transform $0.002/min CPU. Dataset 1TB procesando 100 horas/mes. Cuál es más barato?",
+        "options": [
+            "A siempre más barato",
+            "B: $0.002 * 60min * 100h = $12/mes. A: $7 * 24 * 30 = $5,040/mes. B es 400x más barato para este patrón",
+            "A y B cuestan igual",
+            "Imposible comparar"
+        ],
+        "correct_answer": 1,
+        "explanation": "TCO analysis: A es persistente (paga todo el mes aunque intermitente), B es consumption-based (paga solo cuando procesa). Para workloads intermitentes (batch), B es óptimo. Para baja latencia requierido 24/7, A. Siempre calcular: capacidad persistente vs costo de procesamiento + infraestructura."
+    },
+    {
+        "id": "q097",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Model Development",
+        "difficulty": "avanzado",
+        "question": "Entrenarás una red neuronal con batch_size=256 pero la GPU memory está al límite. ¿Cómo reducesize sin perder performance?",
+        "options": [
+            "Reducir a 32, impacto mínimo",
+            "Reducir a 128, con learning rate adjustments (escalar lr proporcionalmente) y gradient accumulation para efectivamente simular batch_size original",
+            "Cambiar a CPU",
+            "No se puede reducir"
+        ],
+        "correct_answer": 1,
+        "explanation": "Batch size reduction debe acompañarse de ajustes: (1) menor batch = noisier gradients = menos estable, (2) scale learning rate (ej: batch 256->128 reduce lr by ~0.7), (3) gradient accumulation (acumula gradientes sobre 2 mini-batches antes de update) simula batch_size 256 con memory de 128. Trade-off: más steps pero convergencia similar."
+    },
+    {
+        "id": "q098",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Data Preparation for Machine Learning (ML)",
+        "difficulty": "intermedio",
+        "question": "Tu SageMaker Pipeline training step falla ocasionalmente (timeout de red, S3 transient error). ¿Cómo hacerlo resiliente?",
+        "options": [
+            "Fallar inmediatamente sin retry",
+            "Retry policy: SageMaker Pipelines permite retry automático con backoff exponencial hasta N intentos antes de fallar",
+            "Manual retry",
+            "No se puede hacer resiliente"
+        ],
+        "correct_answer": 1,
+        "explanation": "Pipeline step retry: (1) configura retry_policies en step, (2) max_attempts=3, (3) exponential backoff espera 1s, 2s, 4s entre retries, (4) si 3er intento falla, pipeline falla con error. Automático y auditable. Sin retry, transient errors causan job failures innecesarios."
+    },
+    {
+        "id": "q099",
+        "exam_id": "ml_engineer_associate",
+        "topic": "Deployment and Orchestration of ML Workflows",
+        "difficulty": "basico",
+        "question": "Tienes 50 versiones de un modelo. ¿Cómo SageMaker Model Registry las organiza?",
+        "options": [
+            "No hay organización; solo números",
+            "Model Groups (lógico): todas las versiones del mismo modelo bajo un grupo con metadata compartida",
+            "Imposible manejar múltiples versiones",
+            "Carpeta en S3"
+        ],
+        "correct_answer": 1,
+        "explanation": "Model Registry structure: (1) Model Group = lógica del modelo (ej: 'fraud-detector'), (2) cada versión dentro del group, (3) cada version tiene: artefacto, métricas, aprobación status, container image. Permite tracking: v1 es modelo baseline, v2 añade feature X, v3 cambió algoritmo, etc. Auditable y governable."
+    },
+    {
+        "id": "q100",
+        "exam_id": "ml_engineer_associate",
+        "topic": "ML Solution Monitoring, Maintenance, and Security",
+        "difficulty": "avanzado",
+        "question": "Tu modelo tiene: data drift detectado (features cambiaron) pero model quality metrics normales (accuracy 87%, sin degradación). ¿Qué acción tomar?",
+        "options": [
+            "Ignorar; si accuracy es normal, sin problema",
+            "Investigar: data drift sin performance drop es warning. Puede haber concept drift oculto, training/serving skew, o el modelo robustamente generaliza. Monitorea closely, prepara reentrenamiento como precaución",
+            "Redeploy modelo inmediatamente",
+            "Los datos están corrupted"
+        ],
+        "correct_answer": 1,
+        "explanation": "Data drift sin performance drop es interesting: (1) puede indicar model robustness (generaliza bien), o (2) ocultar concept drift que Accuracy no captura (ej: distribución de clases cambió pero minority class still well predicted). Escenario real: vigilancia cercana es prudente. Model Monitor debe alertar si accuracy cae aunque data drift presente, previniendo surpresas."
+    }
+]
